@@ -44,25 +44,7 @@ namespace UAPIConsumptionSamples
                 //Console.WriteLine(client.Endpoint);
                 client.ClientCredentials.UserName.UserName = Helper.RetrunUsername();
                 client.ClientCredentials.UserName.Password = Helper.ReturnPassword();
-                /*var httpHeaders = new Dictionary<string, string>();
-                httpHeaders.Add("Username", "travelportsuperadmin");
-                httpHeaders.Add("Password", "abc123");
-                client.Endpoint.EndpointBehaviors.Add(new HttpHeadersEndpointBehavior(httpHeaders));*/
-
-                /*HttpRequestMessageProperty httpRequestProperty = new HttpRequestMessageProperty();
-                httpRequestProperty.Headers[HttpRequestHeader.Authorization] = "Basic " +
-                    Convert.ToBase64String(Encoding.ASCII.GetBytes(client.ClientCredentials.UserName.UserName +
-                    ":" + client.ClientCredentials.UserName.Password));
-
-                 using (OperationContextScope scope = new OperationContextScope(client.InnerChannel))
-                    {
-                        OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] =
-                            httpRequestProperty;
-                        return client.processRequest(castRequest) as TSRsp;
-                    } 
-
-
-                OperationContext.Current.OutgoingMessageProperties*/
+                
 
 
 
