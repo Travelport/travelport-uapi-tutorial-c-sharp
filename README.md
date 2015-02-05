@@ -7,7 +7,9 @@ and is written in the C# language. This is the initial commit of C# code in gith
 Installtion:
 
 Please clone/download the project to MyDocuments/Visal Studio 2012/Projects. Then open up the solution in visual studio and create Service References
-from the wsdl files and put the service references in the Serive References folder inside the project. Please create a issue in Github under
+from the wsdl files and put the service references in the Serive References folder inside the project. Please change the URL_PREFIX variable inside WsdlService.cs to the project location in your machine.
+
+Please create a issue in Github under
 the repository if youm face any issues. We will soon put a project installation guideline with screenshots.
 
 Resources Used:
