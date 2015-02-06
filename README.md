@@ -2,7 +2,7 @@
 C# tutorial on how to consume UAPI Services
 
 This is a tutorial for the [Travelport Universal API](http://developer.travelport.com/app/developer-network/universal-api) 
-and is written in the C# language. This is the initial commit of C# code in github. More of c# projects will follow soon.
+and is written in the C# language. This is the initial commit of C# code in github. We have added ColsoleApplication1 which is ping and airAvailability tutorial and ConspoleApplication2 which is a HotelService Tutorial based on Search->Details->Book. More of c# projects will follow soon.
 
 Installtion:
 
