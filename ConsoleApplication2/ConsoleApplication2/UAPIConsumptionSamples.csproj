@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5960C432-C45D-4929-BC6D-E45F01871ACE}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConsoleApplication2</RootNamespace>
+    <AssemblyName>ConsoleApplication2</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>obj\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HotelTutorial.cs" />
+    <Compile Include="Service References\HotelService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\UniversalService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="TutorialTwo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\CommonUtility.cs" />
+    <Compile Include="Utility\Helper.cs" />
+    <Compile Include="Utility\HttpHeaderMessageIspector.cs" />
+    <Compile Include="Utility\ProjectConstants.cs" />
+    <Compile Include="Utility\WsdlService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Service References\HotelService\AbstractHotelServices.wsdl" />
+    <None Include="Service References\HotelService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HotelService\CommonReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.BaseHotelSearchRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.HotelDetailsRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.HotelKeywordRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.HotelMediaLinksRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.HotelRetrieveRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.HotelRulesRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.HotelSearchAvailabilityAsynchRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.HotelSuperShopperRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.HotelUpsellDetailsRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.RetrieveHotelSearchAvailabilityRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.serviceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.serviceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.serviceResponse2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.serviceResponse3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.serviceResponse4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.serviceResponse5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.serviceResponse6.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.serviceResponse7.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.serviceResponse8.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\ConsoleApplication2.HotelService.serviceResponse9.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HotelService\Hotel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HotelService\HotelReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HotelService\HotelServices.wsdl" />
+    <None Include="Service References\UniversalService\AbstractUniversalRecordServices.wsdl" />
+    <None Include="Service References\UniversalService\Air.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UniversalService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UniversalService\CommonReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.AckScheduleChangeRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.AirCancelRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.AirCreateReservationRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.AirMerchandisingFulfillmentRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.HotelCancelRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.HotelCreateReservationRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.PassiveCancelRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.PassiveCreateReservationRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.ProviderReservationDisplayDetailsRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.ProviderReservationDivideRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.RailCreateReservationRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.RailExchangeRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.SavedTripCreateRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.SavedTripDeleteRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.SavedTripModifyRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.SavedTripRetrieveRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.SavedTripSearchRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse10.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse11.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse12.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse13.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse14.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse15.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse16.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse17.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse18.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse19.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse20.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse21.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse22.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse23.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse24.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse6.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse7.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse8.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse9.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.UniversalRecordCancelRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.UniversalRecordHistorySearchRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.UniversalRecordImportRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.UniversalRecordModifyRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.UniversalRecordRetrieveRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.UniversalRecordSearchRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.VehicleCancelRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.VehicleCreateReservationRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UniversalService\Cruise.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UniversalService\Hotel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UniversalService\Passive.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UniversalService\Rail.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UniversalService\UniversalRecord.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UniversalService\UniversalRecordReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UniversalService\UniversalRecordServices.wsdl" />
+    <None Include="Service References\UniversalService\Vehicle.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\air_v29_0\Air.wsdl" />
+    <None Include="Wsdl\air_v29_0\Air.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\air_v29_0\AirAbstract.wsdl" />
+    <None Include="Wsdl\air_v29_0\AirReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\air_v29_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v17_0\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v17_0\CommonReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v17_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v18_0\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v18_0\CommonReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v18_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v19_0\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v19_0\CommonReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v19_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v24_0\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v24_0\CommonReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v24_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v28_0\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v28_0\CommonReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v28_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v29_0\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v29_0\CommonReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v29_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\cruise_v29_0\Cruise.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\cruise_v29_0\CruiseReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\cruise_v29_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\hotel_v29_0\Hotel.wsdl" />
+    <None Include="Wsdl\hotel_v29_0\Hotel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\hotel_v29_0\HotelAbstract.wsdl" />
+    <None Include="Wsdl\hotel_v29_0\HotelReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\hotel_v29_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\passive_v29_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\passive_v29_0\Passive.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\rail_v29_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\rail_v29_0\Rail.wsdl" />
+    <None Include="Wsdl\rail_v29_0\Rail.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\rail_v29_0\RailAbstract.wsdl" />
+    <None Include="Wsdl\rail_v29_0\RailReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\system_v9_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\system_v9_0\System.wsdl" />
+    <None Include="Wsdl\system_v9_0\System.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\system_v9_0\SystemAbstract.wsdl" />
+    <None Include="Wsdl\universal_v29_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\universal_v29_0\UniversalRecord.wsdl" />
+    <None Include="Wsdl\universal_v29_0\UniversalRecord.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\universal_v29_0\UniversalRecordAbstract.wsdl" />
+    <None Include="Wsdl\universal_v29_0\UniversalRecordReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\util_v29_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\util_v29_0\Util.wsdl" />
+    <None Include="Wsdl\util_v29_0\Util.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\util_v29_0\UtilAbstract.wsdl" />
+    <None Include="Wsdl\vehicle_v29_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\vehicle_v29_0\Vehicle.wsdl" />
+    <None Include="Wsdl\vehicle_v29_0\Vehicle.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\vehicle_v29_0\VehicleAbstract.wsdl" />
+    <None Include="Wsdl\vehicle_v29_0\VehicleReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\HotelService\" />
+    <WCFMetadataStorage Include="Service References\UniversalService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HotelService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HotelService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HotelService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UniversalService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UniversalService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UniversalService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
