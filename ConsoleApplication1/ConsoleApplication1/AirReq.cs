@@ -1,5 +1,7 @@
 ﻿using ConsoleApplication1.AirService;
+using ConsoleApplication1.Utility;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -214,5 +216,102 @@ namespace ConsoleApplication1
             outbound.AirLegModifiers = modifiers;
         }
 
+
+        internal static AirPricingModifiers AddAirPriceModifiers(typeAdjustmentType adjustmentType, int amount)
+        {
+            AirPricingModifiers priceModifiers = new AirPricingModifiers();
+            List<ManualFareAdjustment> fareList = new List<ManualFareAdjustment>();
+
+            ManualFareAdjustment fareAdjustment = new ManualFareAdjustment();
+
+            if (typeAdjustmentType.Amount.CompareTo(adjustmentType) == 0)
+            {
+                fareAdjustment.AdjustmentType = typeAdjustmentType.Amount;
+            }
+            else if (typeAdjustmentType.Percentage.CompareTo(adjustmentType) == 0)
+            {
+                fareAdjustment.AdjustmentType = typeAdjustmentType.Percentage;
+            }
+
+            fareAdjustment.PassengerRef = "1";
+            fareAdjustment.AppliedOn = typeAdjustmentTarget.Base;
+            fareAdjustment.Value = amount;
+
+            fareList.Add(fareAdjustment);
+
+            priceModifiers.ManualFareAdjustment = fareList.ToArray();
+
+            return priceModifiers;
+        }
+
+        internal static SearchPassenger[] AddSearchPassenger()
+        {
+            List<SearchPassenger> passengers = new List<SearchPassenger>();
+
+            SearchPassenger passenger = new SearchPassenger();
+            passenger.Code = "ADT";
+            passenger.BookingTravelerRef = "gr8AVWGCR064r57Jt0+8bA==";
+
+            passengers.Add(passenger);
+
+            return passengers.ToArray();
+        }
+
+        internal static AirPriceRsp AirPrice(List<typeBaseAirSegment> pricingSegments)
+        {
+            AirPriceReq priceReq = new AirPriceReq();
+            AirPriceRsp priceRsp;
+
+            AddPointOfSale(priceReq, "UAPI");
+
+            AirItinerary itinerary = new AirItinerary();
+
+            List<typeBaseAirSegment> itinerarySegments = new List<typeBaseAirSegment>();
+
+            IEnumerator airSegments = pricingSegments.GetEnumerator();
+            while (airSegments.MoveNext())
+            {
+                typeBaseAirSegment seg = (typeBaseAirSegment)airSegments.Current;
+                seg.ProviderCode = "1G";
+                seg.FlightDetailsRef = null;
+
+                itinerarySegments.Add(seg);
+            }
+
+            itinerary.AirSegment = itinerarySegments.ToArray();
+
+            priceReq.AirItinerary = itinerary;
+
+            priceReq.SearchPassenger = AddSearchPassenger();
+
+            priceReq.AirPricingModifiers = new AirPricingModifiers()
+            {
+                PlatingCarrier = priceReq.AirItinerary.AirSegment[0].Carrier
+            };
+
+            
+
+            priceReq.TargetBranch = CommonUtility.GetConfigValue(ProjectConstants.G_TARGET_BRANCH);
+
+            AirPricePortTypeClient client = new AirPricePortTypeClient("AirPricePort", WsdlService.AIR_ENDPOINT);
+
+            client.ClientCredentials.UserName.UserName = Helper.RetrunUsername();
+            client.ClientCredentials.UserName.Password = Helper.ReturnPassword();
+            try
+            {
+                var httpHeaders = Helper.ReturnHttpHeader();
+                client.Endpoint.EndpointBehaviors.Add(new HttpHeadersEndpointBehavior(httpHeaders));
+
+                priceRsp = client.service(priceReq);                
+
+                return priceRsp;
+            }
+            catch (Exception se)
+            {
+                Console.WriteLine("Error : " + se.Message);
+                client.Abort();
+                return null;
+            }
+        }
     }
 }

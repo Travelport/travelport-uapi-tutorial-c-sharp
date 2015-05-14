@@ -13,6 +13,11 @@ public class HttpHeaderMessageInspector : IClientMessageInspector
 {
     private readonly Dictionary<string, string> _httpHeaders;
 
+    public HttpHeaderMessageInspector()
+    {
+
+    }
+
     public HttpHeaderMessageInspector(Dictionary<string, string> httpHeaders)
     {
         this._httpHeaders = httpHeaders;

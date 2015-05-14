@@ -17,6 +17,7 @@ namespace ConsoleApplication1.Utility
             return ConfigurationManager.AppSettings[Key];
         }
 
+
         #endregion
     }
 }

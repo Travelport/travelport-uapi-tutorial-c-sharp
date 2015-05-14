@@ -20,7 +20,7 @@ namespace ConsoleApplication1
 		    AvailabilitySearchReq request = new AvailabilitySearchReq();
 		    AvailabilitySearchRsp rsp;
 		
-		    request = setupRequestForSearch(request);
+		    request = SetupRequestForSearch(request);
 
             AirAvailabilitySearchPortTypeClient client = new AirAvailabilitySearchPortTypeClient("AirAvailabilitySearchPort", WsdlService.AIR_ENDPOINT);
             client.ClientCredentials.UserName.UserName = Helper.RetrunUsername();
@@ -46,7 +46,7 @@ namespace ConsoleApplication1
 	    }
 
 
-        private AvailabilitySearchReq setupRequestForSearch(AvailabilitySearchReq request)
+        private AvailabilitySearchReq SetupRequestForSearch(AvailabilitySearchReq request)
         {
             // TODO Auto-generated method stub
 
@@ -72,7 +72,8 @@ namespace ConsoleApplication1
             SearchAirLeg ret = AirReq.CreateSearchLeg(destination, origin);
             AirReq.AddSearchDepartureDate(ret, Helper.daysInFuture(70));
             //put traveller in econ
-            AirReq.AddSearchEconomyPreferred(ret);
+            AirReq.AddSearchEconomyPreferred(ret);            
+            
 
             request.Items = new SearchAirLeg[2];
             request.Items.SetValue(outbound, 0);
