@@ -288,6 +288,17 @@ namespace ConsoleApplication1
             {
                 PlatingCarrier = priceReq.AirItinerary.AirSegment[0].Carrier
             };
+            
+                        List<AirPricingCommand> pricingCommands = new List<AirPricingCommand>();
+
+            AirPricingCommand command = new AirPricingCommand()
+            {
+                CabinClass = "Economy"//You can use Economy,PremiumEconomy,Business etc.
+            };
+
+            pricingCommands.Add(command);
+
+            priceReq.AirPricingCommand = pricingCommands.ToArray();
 
             
 
