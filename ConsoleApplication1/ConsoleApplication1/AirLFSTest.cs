@@ -10,7 +10,7 @@ namespace ConsoleApplication1
     class AirLFSTest
     {
         public static String MY_APP_NAME = "UAPI";
-        private string origin = "DEN";
+        private string origin = "DTW";
         private string destination = "SFO";
 
         public LowFareSearchRsp LowFareShop()

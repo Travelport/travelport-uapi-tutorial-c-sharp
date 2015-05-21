@@ -288,8 +288,8 @@ namespace ConsoleApplication1
             {
                 PlatingCarrier = priceReq.AirItinerary.AirSegment[0].Carrier
             };
-            
-                        List<AirPricingCommand> pricingCommands = new List<AirPricingCommand>();
+
+            List<AirPricingCommand> pricingCommands = new List<AirPricingCommand>();
 
             AirPricingCommand command = new AirPricingCommand()
             {
@@ -299,7 +299,6 @@ namespace ConsoleApplication1
             pricingCommands.Add(command);
 
             priceReq.AirPricingCommand = pricingCommands.ToArray();
-
             
 
             priceReq.TargetBranch = CommonUtility.GetConfigValue(ProjectConstants.G_TARGET_BRANCH);

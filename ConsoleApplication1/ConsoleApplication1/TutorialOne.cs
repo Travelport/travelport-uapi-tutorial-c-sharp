@@ -79,6 +79,11 @@ namespace UAPIConsumptionSamples
 			    //Console.WriteLine(rsp.TraceId);
                 //Console.WriteLine(rsp.TransactionId);
 
+                AirportDetails airports = new AirportDetails();
+                //Here we are getting the list of airports, we can use it anyway we want
+                IDictionary<String, String> airportsList = airports.AllAirportsList();
+
+
                 AirSvcTest airTest = new AirSvcTest();
                 airTest.Availability();
 

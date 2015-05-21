@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="AirBookTest.cs" />
     <Compile Include="AirLFSTest.cs" />
+    <Compile Include="AirportDetails.cs" />
     <Compile Include="AirReq.cs" />
     <Compile Include="AirSvcTest.cs" />
     <Compile Include="Service References\AirService\Reference.cs">
@@ -65,6 +66,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\UniversalService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\UtilService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -554,6 +560,140 @@
     <None Include="Service References\UniversalService\Vehicle.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\UtilService\Air.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UtilService\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UtilService\CommonReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.AgencyServiceFeeCreateRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.BrandedFareAdminRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.BrandedFareSearchRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.CalculateTaxRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.ContentProviderRetrieveRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.CreateAgencyFeeMcoRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.CreditCardAuthRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.CurrencyConversionRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.DocumentTransmissionRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.FindEmployeesOnFlightRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.McoSearchRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.McoVoidRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.MctCountRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.MctLookupRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.MirReportRetrieveRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.ReferenceDataRetrieveRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.ReferenceDataSearchRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.ReferenceDataUpdateRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse10.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse11.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse12.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse13.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse14.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse15.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse16.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse17.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse18.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse19.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse6.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse7.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse8.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.serviceResponse9.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.UpsellAdminRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\ConsoleApplication1.UtilService.UpsellSearchRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UtilService\Util.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UtilService\UtilService.wsdl" />
+    <None Include="Service References\UtilService\UtilService1.wsdl" />
     <None Include="Service References\VehicleService\AbstractVehicleServices.wsdl" />
     <None Include="Service References\VehicleService\Common.xsd">
       <SubType>Designer</SubType>
@@ -765,6 +905,7 @@
     <WCFMetadataStorage Include="Service References\HotelService\" />
     <WCFMetadataStorage Include="Service References\SystemService\" />
     <WCFMetadataStorage Include="Service References\UniversalService\" />
+    <WCFMetadataStorage Include="Service References\UtilService\" />
     <WCFMetadataStorage Include="Service References\VehicleService\" />
   </ItemGroup>
   <ItemGroup>
@@ -827,7 +968,18 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Service References\UtilService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UtilService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UtilService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

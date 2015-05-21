@@ -15,12 +15,14 @@ namespace ConsoleApplication1.Utility
         public static string HOTEL_WSDL = "Wsdl/Hotel_v29_0/hotel.wsdl";
         public static string VEHICLE_WSDL = "Wsdl/Vehicle_v29_0/vehicle.wsdl";
         public static string UNIVERSAL_WSDL = "Wsdl/universal_v29_0/universal.wsdl";
+        public static string UTIL_WSDL = "Wsdl/util_v29_0/util.wsdl";
 
-        public static string ENDPOINT_PREFIX = "https://apac.universal-api.pp.travelport.com/B2BGateway/connect/uAPI/";
+        public static string ENDPOINT_PREFIX = "https://americas.universal-api.pp.travelport.com/B2BGateway/connect/uAPI/";
         static public String SYSTEM_ENDPOINT = ENDPOINT_PREFIX + "SystemService";
         static public String AIR_ENDPOINT = ENDPOINT_PREFIX + "AirService";
         static public String HOTEL_ENDPOINT = ENDPOINT_PREFIX + "HotelService";
         static public String VEHICLE_ENDPOINT = ENDPOINT_PREFIX + "VehicleService";
+        static public String UTIL_ENDPOINT = ENDPOINT_PREFIX + "UtilService";
 
 
 

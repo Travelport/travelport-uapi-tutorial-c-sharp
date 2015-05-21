@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="dce443f5-e820-4432-90fb-a13bf641695b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="c:\users\vivek.pramanik\documents\visual studio 2012\Projects\ConsoleApplication1\ConsoleApplication1\Wsdl\util_v29_0\Util.wsdl" Protocol="file" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CommonReqRsp.xsd" MetadataType="Schema" ID="c7de3b1d-d0ab-4de3-a4bb-128b1a802409" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/common_v29_0/CommonReqRsp.xsd" />
+    <MetadataFile FileName="Common.xsd" MetadataType="Schema" ID="a6e481b5-c729-4850-a07a-60a21784c5ab" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/common_v29_0/Common.xsd" />
+    <MetadataFile FileName="UtilService.wsdl" MetadataType="Wsdl" ID="a9436e6d-8fa3-4afd-a39a-8441369d4b44" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/util_v29_0/Util.wsdl" />
+    <MetadataFile FileName="UtilService1.wsdl" MetadataType="Wsdl" ID="b5273fef-b490-4d87-a9bc-35b476508475" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/util_v29_0/UtilAbstract.wsdl" />
+    <MetadataFile FileName="Air.xsd" MetadataType="Schema" ID="a62aab59-984f-467b-b484-eac5829b2b5a" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/air_v29_0/Air.xsd" />
+    <MetadataFile FileName="Util.xsd" MetadataType="Schema" ID="aee7bbed-0970-46e3-acdc-65d6556fcd51" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/util_v29_0/Util.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
