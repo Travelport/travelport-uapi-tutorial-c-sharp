@@ -81,7 +81,11 @@ namespace UAPIConsumptionSamples
 
                 AirportDetails airports = new AirportDetails();
                 //Here we are getting the list of airports, we can use it anyway we want
-                IDictionary<String, String> airportsList = airports.AllAirportsList();
+                IDictionary<String, String> airportsList = airports.AllAirportsList();               
+                
+
+                //Here we are getting the list of airports in a particular city, we are harcoding the city as New York here
+                IDictionary<String, String> airportInCityList = airports.GetAllAiportsFromParticualrCity("New York");
 
 
                 AirSvcTest airTest = new AirSvcTest();

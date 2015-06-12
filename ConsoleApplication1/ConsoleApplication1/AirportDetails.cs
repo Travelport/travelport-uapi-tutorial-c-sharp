@@ -14,7 +14,8 @@ namespace ConsoleApplication1
         {
             ReferenceDataRetrieveReq retrieveReq = new ReferenceDataRetrieveReq();
             ReferenceDataRetrieveRsp retrieveRsp;
-            IDictionary<String, String> airportsList = new Dictionary<String, String>();
+            IDictionary<String, String> airportsList = new Dictionary<String, String>();            
+
 
             retrieveReq.BillingPointOfSaleInfo = new BillingPointOfSaleInfo()
             {
@@ -64,6 +65,74 @@ namespace ConsoleApplication1
                 client.Abort();
                 return null;
             }
+
+
+
+        }
+
+        internal IDictionary<String, String> GetAllAiportsFromParticualrCity(String cityName)
+        {
+            ReferenceDataSearchReq refDataSearchReq = new ReferenceDataSearchReq();
+            ReferenceDataSearchRsp refDataSearchRsp;
+
+            IDictionary<String, String> airportCityList = new Dictionary<String, String>();
+
+            refDataSearchReq.BillingPointOfSaleInfo = new BillingPointOfSaleInfo()
+            {
+                OriginApplication = "UAPI"
+            };
+
+            refDataSearchReq.ReferenceDataSearchModifiers = new ReferenceDataSearchModifiers()
+            {
+                MaxResults = "20",
+                ProviderCode = "1G",
+                StartFromResult = "0"
+            };
+
+            List<ReferenceDataSearchItem> dataItems = new List<ReferenceDataSearchItem>();
+
+            ReferenceDataSearchItem dataItem = new ReferenceDataSearchItem();
+            dataItem.Type = ReferenceDataSearchItemType.Airport;
+            dataItem.ItemElementName = ItemChoiceType2.Name;
+            dataItem.Item = cityName;
+
+            dataItems.Add(dataItem);
+
+            refDataSearchReq.ReferenceDataSearchItem = dataItems.ToArray();
+
+
+            ReferenceDataLookupPortTypeClient client = new ReferenceDataLookupPortTypeClient("ReferenceDataLookupPort", WsdlService.LOOKUP_ENDPOINT);
+
+            client.ClientCredentials.UserName.UserName = Helper.RetrunUsername();
+            client.ClientCredentials.UserName.Password = Helper.ReturnPassword();
+            try
+            {
+                var httpHeaders = Helper.ReturnHttpHeader();
+                client.Endpoint.EndpointBehaviors.Add(new HttpHeadersEndpointBehavior(httpHeaders));
+
+                refDataSearchRsp = client.service(refDataSearchReq);
+
+                if (refDataSearchRsp != null)
+                {
+                    IEnumerator airportsInCity = refDataSearchRsp.Items.GetEnumerator();                    
+                    while (airportsInCity.MoveNext())
+                    {
+                        ReferenceDataItem item = (ReferenceDataItem)airportsInCity.Current;
+                        airportCityList.Add(item.Code, item.Name);                        
+                    }
+
+                }
+
+                return airportCityList;
+
+            }
+            catch (Exception se)
+            {
+                Console.WriteLine("Error : " + se.Message);
+                client.Abort();
+                return null;
+            }
+
 
 
 
