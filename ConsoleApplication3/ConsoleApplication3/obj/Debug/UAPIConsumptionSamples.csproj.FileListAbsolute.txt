@@ -1,0 +1,6 @@
+c:\users\vivek.pramanik\documents\visual studio 2012\Projects\ConsoleApplication3\ConsoleApplication3\bin\Debug\UAPIConsumptionSamples.exe.config
+c:\users\vivek.pramanik\documents\visual studio 2012\Projects\ConsoleApplication3\ConsoleApplication3\bin\Debug\UAPIConsumptionSamples.exe
+c:\users\vivek.pramanik\documents\visual studio 2012\Projects\ConsoleApplication3\ConsoleApplication3\bin\Debug\UAPIConsumptionSamples.pdb
+c:\users\vivek.pramanik\documents\visual studio 2012\Projects\ConsoleApplication3\ConsoleApplication3\obj\Debug\UAPIConsumptionSamples.csprojResolveAssemblyReference.cache
+c:\users\vivek.pramanik\documents\visual studio 2012\Projects\ConsoleApplication3\ConsoleApplication3\obj\Debug\UAPIConsumptionSamples.exe
+c:\users\vivek.pramanik\documents\visual studio 2012\Projects\ConsoleApplication3\ConsoleApplication3\obj\Debug\UAPIConsumptionSamples.pdb
