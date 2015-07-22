@@ -93,7 +93,7 @@ namespace ConsoleApplication1
 
             ReferenceDataSearchItem dataItem = new ReferenceDataSearchItem();
             dataItem.Type = ReferenceDataSearchItemType.Airport;
-            dataItem.ItemElementName = ItemChoiceType2.Name;
+            dataItem.ItemElementName = ItemChoiceType1.Name;
             dataItem.Item = cityName;
 
             dataItems.Add(dataItem);
@@ -117,7 +117,7 @@ namespace ConsoleApplication1
                     IEnumerator airportsInCity = refDataSearchRsp.Items.GetEnumerator();                    
                     while (airportsInCity.MoveNext())
                     {
-                        ReferenceDataItem item = (ReferenceDataItem)airportsInCity.Current;
+                        ReferenceDataSearchRspAirport item = (ReferenceDataSearchRspAirport)airportsInCity.Current;
                         airportCityList.Add(item.Code, item.Name);                        
                     }
 

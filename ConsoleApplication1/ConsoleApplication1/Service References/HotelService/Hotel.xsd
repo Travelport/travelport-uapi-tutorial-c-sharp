@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://www.travelport.com/schema/hotel_v29_0" xmlns:common="http://www.travelport.com/schema/common_v29_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/hotel_v29_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="../common_v29_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v29_0" />
+<xs:schema xmlns="http://www.travelport.com/schema/hotel_v33_0" xmlns:common="http://www.travelport.com/schema/common_v33_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/hotel_v33_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="../common_v33_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v33_0" />
   <xs:annotation>
     <xs:documentation>(c) Travelport GDS 2008 All rights reserved. Proprietary Information of Travelport GDS.</xs:documentation>
   </xs:annotation>
@@ -475,6 +475,11 @@
             <xs:documentation>Specify Rate Category</xs:documentation>
           </xs:annotation>
         </xs:element>
+        <xs:element minOccurs="0" ref="PermittedSuppliers">
+          <xs:annotation>
+            <xs:documentation>TRM Only</xs:documentation>
+          </xs:annotation>
+        </xs:element>
       </xs:sequence>
       <xs:attribute name="NumberOfAdults" type="xs:int" use="optional">
         <xs:annotation>
@@ -491,11 +496,6 @@
           <xs:documentation>The numbers of rooms,defaults to 1 if not specified</xs:documentation>
         </xs:annotation>
       </xs:attribute>
-      <xs:attribute name="RateSupplier" type="common:typeThirdPartySupplier" use="optional">
-        <xs:annotation>
-          <xs:documentation>Indicates the supplier of the rate.</xs:documentation>
-        </xs:annotation>
-      </xs:attribute>
       <xs:attribute name="Key" type="common:typeRef" use="optional" />
       <xs:attribute name="PreferredCurrency" type="common:typeCurrency" use="optional">
         <xs:annotation>
@@ -505,6 +505,16 @@
       <xs:attribute name="TotalOccupants" type="xs:int" use="optional">
         <xs:annotation>
           <xs:documentation>Number of guests for the room.  Supported Providers: 1P/1J</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute default="false" name="ProcessAllNegoRatesInd" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>When false, we will process the request with all the provided negotiated rates in a single request. The request will fail when the number of negotiated rates have exceeded for that hotel chain. When true, this allows to process a request for all provided negotiated rates that may exceed the hotel chain limit. Supported for 1P only.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="MaxWait" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation>Maximum wait time in milliseconds for hotel detail results.  Supported provider: TRM</xs:documentation>
         </xs:annotation>
       </xs:attribute>
     </xs:complexType>
@@ -582,7 +592,7 @@
       </xs:attribute>
       <xs:attribute name="MaxProperties" type="xs:int" use="optional">
         <xs:annotation>
-          <xs:documentation>The maximum number of hotel properties to return in one message.  Supported by TRM only.  Valid values 1 to 99.  Default is 20.</xs:documentation>
+          <xs:documentation>The maximum number of hotel properties to return in one message.  Supported by TRM only.  Valid values 1 to 9999.  Default is 99.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="IsRelaxed" type="xs:boolean" use="optional">
@@ -610,6 +620,11 @@
           <xs:documentation>Indicator to identify TRM and GDS property match required or not.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attribute default="false" name="ReturnPropertyDescription" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>Request hotel property description. Valid Values are "true" or "false". Default "false". Supported Providers: TRM</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:simpleType name="typeHotelPaymentType">
@@ -627,7 +642,7 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element maxOccurs="unbounded" name="Supplier">
+        <xs:element maxOccurs="99" name="Supplier">
           <xs:complexType>
             <xs:attribute name="Name" type="common:typeThirdPartySupplier" use="required" />
           </xs:complexType>
@@ -710,7 +725,26 @@
             <xs:documentation>Supported Providers:1P/1J</xs:documentation>
           </xs:annotation>
         </xs:element>
+        <xs:element minOccurs="0" ref="PropertyDescription">
+          <xs:annotation>
+            <xs:documentation>Hotel Property description. Maximum of 100 words returned. Supported Providers: TRM</xs:documentation>
+          </xs:annotation>
+        </xs:element>
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PropertyDescription">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="ProviderCode" type="common:typeProviderCode" use="required">
+            <xs:annotation>
+              <xs:documentation>The host associated with this token
+						</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
     </xs:complexType>
   </xs:element>
   <xs:element name="RateInfo">
@@ -1447,18 +1481,25 @@
   </xs:element>
   <xs:element name="DepositAmount">
     <xs:annotation>
-      <xs:documentation>Amount required for deposit/prepayment. Applicable only for HotelSupershopper, Hotel Details and Hotel rules.</xs:documentation>
+      <xs:documentation>Amount required for deposit/prepayment
+		</xs:documentation>
     </xs:annotation>
     <xs:complexType>
-      <xs:simpleContent>
-        <xs:extension base="common:typeMoney">
-          <xs:attribute name="ApproximateDepositAmount" type="common:typeMoney" use="optional">
-            <xs:annotation>
-              <xs:documentation>Approximate deposit amount required for deposit/prepayment.Supports TRM provider only.</xs:documentation>
-            </xs:annotation>
-          </xs:attribute>
-        </xs:extension>
-      </xs:simpleContent>
+      <xs:attribute name="Amount" type="common:typeMoney" use="optional">
+        <xs:annotation>
+          <xs:documentation>Supplier deposit amount required for
+					deposit/prepayment.Supported by all Providers when supported by
+					supplier
+				</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="ApproximateAmount" type="common:typeMoney" use="optional">
+        <xs:annotation>
+          <xs:documentation>Approximate deposit amount required for
+					deposit/prepayment.Supports TRM provider only.
+				</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:element name="GuaranteePaymentType">

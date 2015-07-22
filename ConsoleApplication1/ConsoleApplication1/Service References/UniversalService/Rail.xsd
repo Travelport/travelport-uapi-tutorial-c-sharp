@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://www.travelport.com/schema/rail_v29_0" xmlns:common="http://www.travelport.com/schema/common_v29_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/rail_v29_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="../common_v29_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v29_0" />
+<xs:schema xmlns="http://www.travelport.com/schema/rail_v33_0" xmlns:common="http://www.travelport.com/schema/common_v33_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/rail_v33_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="../common_v33_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v33_0" />
   <xs:annotation>
     <xs:documentation>(c) Travelport GDS 2008 All rights reserved. Proprietary Information of Travelport GDS.</xs:documentation>
   </xs:annotation>
@@ -15,7 +15,6 @@
             <xs:element maxOccurs="9" ref="common:BookingTravelerRef" />
             <xs:element maxOccurs="unbounded" ref="RailJourney" />
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="RailPricingInfo" />
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:FormOfPayment" />
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:Payment" />
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="RailTicketInfo" />
             <xs:element minOccurs="0" ref="RailFareNoteList">
@@ -191,7 +190,7 @@
           <xs:sequence>
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="RailSegmentInfo" />
             <xs:element minOccurs="0" maxOccurs="1" ref="OperatingCompany" />
-            <xs:element minOccurs="0" maxOccurs="9" ref="RailAvailInfo" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="RailAvailInfo" />
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="FulFillmentType" />
           </xs:sequence>
           <xs:attribute name="TrainNumber" type="typeTrainNumber" use="optional" />
@@ -229,6 +228,11 @@
           <xs:attribute name="TravelTime" type="xs:integer" use="optional">
             <xs:annotation>
               <xs:documentation>Total time spent (minutes) traveling</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="HostTokenRef" type="common:typeRef" use="optional">
+            <xs:annotation>
+              <xs:documentation>The reference key for the host token. From the HostTokenList Providers RCH.</xs:documentation>
             </xs:annotation>
           </xs:attribute>
         </xs:extension>
@@ -975,6 +979,11 @@
           <xs:documentation>The Converted total price in Default Currency for this entity including base price and all taxes.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attribute name="RetainAmount" type="common:typeMoney" use="optional">
+        <xs:annotation>
+          <xs:documentation>Amount retained by a rail vendor for future use at the vendor’s site.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:simpleType name="typeTrainNumber">
@@ -999,11 +1008,12 @@
   </xs:simpleType>
   <xs:simpleType name="typeResponseType">
     <xs:annotation>
-      <xs:documentation>Type of information returned in RailShopAPIResponse </xs:documentation>
+      <xs:documentation>Indicates the type of information to be returned in RailShopModifyAPIResponse.  Values are “Schedules” or “Availability” or “Fares”.  If not sent, “Fares” will be mapped if the request is for a specific rail segments, otherwise “Availability” will be mapped. Provider Supported RCH.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:enumeration value="Availability" />
       <xs:enumeration value="Schedules" />
+      <xs:enumeration value="Fares" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="RailInfo">

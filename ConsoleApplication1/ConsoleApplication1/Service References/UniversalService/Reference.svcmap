@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6460cab0-b645-478d-92af-9ae5cd6a8394" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c66a4764-fff4-4a76-952e-6372783650a8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,21 +19,21 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="c:\users\vivek.pramanik\documents\visual studio 2012\Projects\ConsoleApplication1\ConsoleApplication1\Wsdl\universal_v29_0\UniversalRecord.wsdl" Protocol="file" SourceId="1" />
+    <MetadataSource Address="c:\users\vivek.pramanik\documents\visual studio 2012\Projects\ConsoleApplication1\ConsoleApplication1\Wsdl\universal_v33_0\UniversalRecord.wsdl" Protocol="file" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Common.xsd" MetadataType="Schema" ID="8315045b-982c-419a-9579-431b9c09b465" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/common_v29_0/Common.xsd" />
-    <MetadataFile FileName="Passive.xsd" MetadataType="Schema" ID="92b732a5-84d1-4560-b5ae-47104078e4e2" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/passive_v29_0/Passive.xsd" />
-    <MetadataFile FileName="Rail.xsd" MetadataType="Schema" ID="3563f2fa-9105-4271-9d49-6863f06e8949" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/rail_v29_0/Rail.xsd" />
-    <MetadataFile FileName="UniversalRecordServices.wsdl" MetadataType="Wsdl" ID="c301c5e4-4cf0-46e1-9ecf-bac91b6eaa62" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/universal_v29_0/UniversalRecord.wsdl" />
-    <MetadataFile FileName="AbstractUniversalRecordServices.wsdl" MetadataType="Wsdl" ID="3ef1b661-3442-4645-913d-309a3e917c86" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/universal_v29_0/UniversalRecordAbstract.wsdl" />
-    <MetadataFile FileName="CommonReqRsp.xsd" MetadataType="Schema" ID="2a9add26-0b46-43f1-83d2-4d4fcb69d97e" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/common_v29_0/CommonReqRsp.xsd" />
-    <MetadataFile FileName="Vehicle.xsd" MetadataType="Schema" ID="cc670493-19c0-473b-9176-555bd8d5de08" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/vehicle_v29_0/Vehicle.xsd" />
-    <MetadataFile FileName="Hotel.xsd" MetadataType="Schema" ID="5e7bb340-d4ab-4d1e-9fce-289bdd9e8a65" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/hotel_v29_0/Hotel.xsd" />
-    <MetadataFile FileName="Cruise.xsd" MetadataType="Schema" ID="324c6dba-e004-4947-ace3-cc7b02d8525d" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/cruise_v29_0/Cruise.xsd" />
-    <MetadataFile FileName="UniversalRecordReqRsp.xsd" MetadataType="Schema" ID="f492af60-54fc-405d-b0a4-df203524f032" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/universal_v29_0/UniversalRecordReqRsp.xsd" />
-    <MetadataFile FileName="UniversalRecord.xsd" MetadataType="Schema" ID="3d40f1c3-f6ff-49b4-acac-fc3a32b4bdee" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/universal_v29_0/UniversalRecord.xsd" />
-    <MetadataFile FileName="Air.xsd" MetadataType="Schema" ID="66e49e91-f68a-404f-9130-258494ab13a6" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/air_v29_0/Air.xsd" />
+    <MetadataFile FileName="CommonReqRsp.xsd" MetadataType="Schema" ID="5aa62d53-45a3-4ece-b9de-d6526ccfe1d8" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/common_v33_0/CommonReqRsp.xsd" />
+    <MetadataFile FileName="Hotel.xsd" MetadataType="Schema" ID="3fb3ee97-f341-414c-a76a-2c725e97624b" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/hotel_v33_0/Hotel.xsd" />
+    <MetadataFile FileName="UniversalRecordReqRsp.xsd" MetadataType="Schema" ID="0c438cf2-9007-4c3d-ae6e-5f5220980075" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/universal_v33_0/UniversalRecordReqRsp.xsd" />
+    <MetadataFile FileName="AbstractUniversalRecordServices.wsdl" MetadataType="Wsdl" ID="f7c4727c-7af3-4b30-9814-2532e7c31db1" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/universal_v33_0/UniversalRecordAbstract.wsdl" />
+    <MetadataFile FileName="Rail.xsd" MetadataType="Schema" ID="894bce84-ec08-463d-88b5-ea0ab99461bc" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/rail_v33_0/Rail.xsd" />
+    <MetadataFile FileName="Common.xsd" MetadataType="Schema" ID="8a2e4b1c-3a20-4ef0-a0a2-adc0ae3742c0" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/common_v33_0/Common.xsd" />
+    <MetadataFile FileName="UniversalRecordServices.wsdl" MetadataType="Wsdl" ID="6632d348-c227-4da4-981e-f5564ec4a083" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/universal_v33_0/UniversalRecord.wsdl" />
+    <MetadataFile FileName="Air.xsd" MetadataType="Schema" ID="adf0712d-45cb-4242-9464-919a758e59b1" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/air_v33_0/Air.xsd" />
+    <MetadataFile FileName="Passive.xsd" MetadataType="Schema" ID="b761c86c-f9b4-4847-b35c-0561ba343702" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/passive_v33_0/Passive.xsd" />
+    <MetadataFile FileName="Vehicle.xsd" MetadataType="Schema" ID="198e97ab-4c47-4736-9cc2-b1565c440990" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/vehicle_v33_0/Vehicle.xsd" />
+    <MetadataFile FileName="UniversalRecord.xsd" MetadataType="Schema" ID="98b0eebb-def5-4c1c-a3be-ce42d23d8a87" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/universal_v33_0/UniversalRecord.xsd" />
+    <MetadataFile FileName="Cruise.xsd" MetadataType="Schema" ID="370be8a5-08ae-490e-9fd5-eb10d36d3d7c" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/cruise_v33_0/Cruise.xsd" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

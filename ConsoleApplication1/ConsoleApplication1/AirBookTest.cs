@@ -21,6 +21,12 @@ namespace ConsoleApplication1
 
             reservationReq.BillingPointOfSaleInfo = billSaleInfo;
 
+            reservationReq.ContinuityCheckOverride = new ContinuityCheckOverride()
+            {
+                Key = "1T",
+                Value = "true"
+            };
+
             reservationReq.BookingTraveler = AddBookingTraveler(airItinerary);
 
             reservationReq.FormOfPayment = AddFormOfPayment();
@@ -191,17 +197,20 @@ namespace ConsoleApplication1
 
                     List<Endorsement> endorsementList = new List<Endorsement>();
 
-                    foreach (var endorse in fareInfo.Endorsement)
+                    if (fareInfo.Endorsement != null)
                     {
-                        Endorsement createEndorse = new Endorsement()
+                        foreach (var endorse in fareInfo.Endorsement)
                         {
-                           Value = endorse.Value 
-                        };
+                            Endorsement createEndorse = new Endorsement()
+                            {
+                                Value = endorse.Value
+                            };
 
-                        endorsementList.Add(createEndorse);
+                            endorsementList.Add(createEndorse);
+                        }
+
+                        createInfo.Endorsement = endorsementList.ToArray();
                     }
-
-                    createInfo.Endorsement = endorsementList.ToArray();
 
                     fareInfoList.Add(createInfo);                    
                 }
@@ -264,11 +273,13 @@ namespace ConsoleApplication1
 
                 info.PassengerType = passengers.ToArray();
 
-                info.ChangePenalty = new typeFarePenalty()
+                if (priceInfo.ChangePenalty != null)
                 {
-                    Item = priceInfo.ChangePenalty.Item,
-                    ItemElementName = (ItemChoiceType2)priceInfo.ChangePenalty.ItemElementName
-                };
+                    info.ChangePenalty = new typeFarePenalty()
+                    {
+                        Amount = priceInfo.ChangePenalty.Amount
+                    };
+                }
 
                 List<BaggageAllowanceInfo> baggageInfoList = new List<BaggageAllowanceInfo>();
 

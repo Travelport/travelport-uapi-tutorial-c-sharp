@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://www.travelport.com/schema/vehicle_v29_0" xmlns:common="http://www.travelport.com/schema/common_v29_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/vehicle_v29_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="../common_v29_0/CommonReqRsp.xsd" namespace="http://www.travelport.com/schema/common_v29_0" />
-  <xs:include schemaLocation="../vehicle_v29_0/Vehicle.xsd" />
+<xs:schema xmlns="http://www.travelport.com/schema/vehicle_v33_0" xmlns:common="http://www.travelport.com/schema/common_v33_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/vehicle_v33_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="../common_v33_0/CommonReqRsp.xsd" namespace="http://www.travelport.com/schema/common_v33_0" />
+  <xs:include schemaLocation="../vehicle_v33_0/Vehicle.xsd" />
   <xs:annotation>
     <xs:documentation>(c) Travelport GDS 2008 All rights reserved. Proprietary Information of Travelport GDS.</xs:documentation>
   </xs:annotation>
@@ -11,7 +11,7 @@
         <xs:extension base="BaseVehicleSearchAvailabilityReq">
           <xs:attribute default="false" name="ReturnMediaLinks" type="xs:boolean" use="optional">
             <xs:annotation>
-              <xs:documentation>Set indicator to true to retrieve the media links.</xs:documentation>
+              <xs:documentation>Set indicator to true to retrieve the media links. Default False</xs:documentation>
             </xs:annotation>
           </xs:attribute>
           <xs:attribute default="false" name="ReturnAllRates" type="xs:boolean" use="optional">
@@ -42,6 +42,13 @@
     <xs:complexType>
       <xs:complexContent mixed="false">
         <xs:extension base="BaseVehicleSearchAvailabilityRsp">
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" ref="common:MarketingInformation">
+              <xs:annotation>
+                <xs:documentation>Marketing text or notices by Suppliers. 1P/1J only.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
           <xs:attribute name="MediaLinksSearchId" type="xs:string" use="optional">
             <xs:annotation>
               <xs:documentation>Unique search id to retrieve the media links using VehicleMediaLinksReq.</xs:documentation>
@@ -190,9 +197,41 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" maxOccurs="2" name="DepositGuaranteeRule">
+            <xs:element minOccurs="0" maxOccurs="99" name="PrePayCancelInfo">
               <xs:annotation>
-                <xs:documentation>The deposit or guarantee rule for the vehicle rental.</xs:documentation>
+                <xs:documentation>PrePayment cancellation Advisory Values use to construct custom Advisory text. 1P, 1J only.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="Code" type="xs:int" use="required">
+                  <xs:annotation>
+                    <xs:documentation>Code value associated to policy line advisory cancellation text (values 001 up to 999) 1P, 1J only.</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Amount" type="common:typeMoney" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>Rate amount preceded by the ISO currency code charged to cancel, e.g. USD25.00 1P, 1J only.</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Percent" type="xs:int" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>Percentage value (e.g. 010=10%     025=25%      050=50%       100) 1P, 1J only.</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="NumberOfDaysHours" type="xs:int" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>Number of Days or Hours (e.g. 002 days  024 hours), 1P, 1J only.</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="RentalDays" type="xs:int" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>Number of rental days (e.g. 001 up to 365), 1P, 1J only.</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="2" name="PaymentRule">
+              <xs:annotation>
+                <xs:documentation>The Deposit, Guarantee or PrePayment rule for the vehicle rental.</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:complexContent mixed="false">
@@ -229,6 +268,17 @@
               </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" maxOccurs="1" ref="common:MarketingInformation" />
+            <xs:element minOccurs="0" maxOccurs="999" ref="Policy" />
+            <xs:element minOccurs="0" name="PickupLocationInformation" type="typeVehicleLocationInformation">
+              <xs:annotation>
+                <xs:documentation>Pickup Location  Information ,  1P, 1J only.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="ReturnLocationInformation" type="typeVehicleLocationInformation">
+              <xs:annotation>
+                <xs:documentation>Return Location  Information ,  1P, 1J only.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>

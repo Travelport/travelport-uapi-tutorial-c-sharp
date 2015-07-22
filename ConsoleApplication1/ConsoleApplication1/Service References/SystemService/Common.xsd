@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://www.travelport.com/schema/common_v28_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/common_v28_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns="http://www.travelport.com/schema/common_v32_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/common_v32_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>(c) Travelport GDS 2008 All rights reserved. Proprietary Information of Travelport GDS.</xs:documentation>
   </xs:annotation>
@@ -166,8 +166,42 @@
       <xs:documentation>Provides results of a exchange quote</xs:documentation>
     </xs:annotation>
     <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="TotalPenaltyTaxInfo">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="PenaltyTaxInfo" type="typeTax" />
+            </xs:sequence>
+            <xs:attribute name="TotalPenaltyTax" type="typeMoney" use="optional" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="PaidTax" type="typeTax" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="TicketFeeInfo">
+          <xs:annotation>
+            <xs:documentation>Used for rapid reprice. Providers: 1G/1V/1P/1S/1A</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:attribute name="Base" type="typeMoney" use="optional" />
+            <xs:attribute name="Tax" type="typeMoney" use="optional" />
+            <xs:attribute name="Total" type="typeMoney" use="optional" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Reason" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Used for rapid reprice. The reason code or text is returned if the 
+						PricingTag is not equal to A, and explains why A was not returned. 
+						Providers: 1G/1V/1P/1S/1A</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="FeeInfo" type="typeFeeInfo" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="TaxInfo" type="typeTaxInfo">
+          <xs:annotation>
+            <xs:documentation>Itinerary level taxes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
       <xs:attribute name="ExchangeAmount" type="typeMoney" use="required" />
-      <xs:attribute name="BaseFare" type="typeMoney" use="required" />
+      <xs:attribute name="BaseFare" type="typeMoney" use="optional" />
       <xs:attribute name="EquivalentBaseFare" type="typeMoney" use="optional" />
       <xs:attribute name="Taxes" type="typeMoney" use="optional" />
       <xs:attribute name="ChangeFee" type="typeMoney" use="optional" />
@@ -176,6 +210,21 @@
       <xs:attribute name="Exchangeable" type="xs:boolean" use="optional" />
       <xs:attribute name="FirstClassUpgrade" type="xs:boolean" use="optional" />
       <xs:attribute name="TicketByDate" type="xs:string" use="optional" />
+      <xs:attribute name="PricingTag" type="xs:string" use="optional" />
+      <xs:attribute name="EquivalentChangeFee" type="typeMoney" use="optional" />
+      <xs:attribute name="EquivalentExchangeAmount" type="typeMoney" use="optional" />
+      <xs:attribute name="AddCollection" type="typeMoney" use="optional" />
+      <xs:attribute name="ResidualValue" type="typeMoney" use="optional" />
+      <xs:attribute name="TotalResidualValue" type="typeMoney" use="optional" />
+      <xs:attribute name="OriginalFlightValue" type="typeMoney" use="optional" />
+      <xs:attribute name="FlownSegmentValue" type="typeMoney" use="optional" />
+      <xs:attribute name="BulkTicketAdvisory" type="xs:boolean" use="optional" />
+      <xs:attribute name="FarePull" type="typeFarePull" use="optional" />
+      <xs:attribute name="Refund" type="typeMoney" use="optional">
+        <xs:annotation>
+          <xs:documentation>Total refund amount.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:element name="Auxdata">
@@ -649,6 +698,7 @@
         <xs:choice>
           <xs:element minOccurs="0" ref="CreditCard" />
           <xs:element minOccurs="0" ref="DebitCard" />
+          <xs:element minOccurs="0" ref="EnettVan" />
           <xs:group ref="FormOfPaymentSequenceGroup" />
         </xs:choice>
         <xs:element minOccurs="0" maxOccurs="unbounded" name="ProviderReservationInfoRef" type="typeFormOfPaymentPNRReference" />
@@ -674,7 +724,8 @@
                             "DirectPayment"
                             "AgentVoucher"
                             "AccountReceivable"
-                            "AgentNonRefundable"      
+                            "AgentNonRefundable"
+                            "Enett"      
                         </xs:documentation>
           </xs:annotation>
           <xs:restriction base="xs:string">
@@ -750,13 +801,58 @@
       <xs:attributeGroup ref="attrElementKeyResults" />
     </xs:complexType>
   </xs:element>
+  <xs:element name="EnettVan">
+    <xs:annotation>
+      <xs:documentation>Container for all eNett Van information.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="MinPercentage" type="typeIntegerPercentage" use="optional">
+        <xs:annotation>
+          <xs:documentation>The minimum percentage that will be applied on the Total price and sent to enett,which will denote the minimum authorized amount approved by eNett.uApi will default this to zero for multi-use Van's.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="MaxPercentage" type="typeIntegerPercentage" use="optional">
+        <xs:annotation>
+          <xs:documentation>The maximum percentage that will be applied on the Total price and sent to enett, which will denote the maximum authorized amount as approved by eNett. This value will be ignored and not used for Multi-Use VAN’s.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="ExpiryDays" type="typeDurationYearInDays" use="optional">
+        <xs:annotation>
+          <xs:documentation>The number of days from the VAN generation date that the VAN will be active for, after which the VAN cannot be used.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute default="true" name="MultiUse" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>Acceptable values are true or false. If set to true it will denote that the VAN being requested is multi-use else it will indicate a single -use VAN.A Single use VAN can only be debited once while the multiple use VAN's can be debited multiple times subjected to the maximum value it has been authorized for. The default value will be TRUE to indicate a multi-use VAN is being issued.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="typeDurationYearInDays">
+    <xs:annotation>
+      <xs:documentation>Value of the Duration in P[NumberOfDays]D format.Ranges Permitted are P001D to P366D . </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:duration">
+      <xs:minInclusive value="P1D" />
+      <xs:maxInclusive value="P366D" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeIntegerPercentage">
+    <xs:annotation>
+      <xs:documentation>Percentage value</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:nonNegativeInteger">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="100" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:complexType name="typeVoucherInformation">
     <xs:annotation>
       <xs:documentation>Information pertaining to the payment of a Vehicle Rental.</xs:documentation>
     </xs:annotation>
     <xs:attribute name="VoucherType" type="typeVoucherType" use="required">
       <xs:annotation>
-        <xs:documentation>Specifies if the Voucher is for Full Credit or a Group/Day or a Monetary Amount.</xs:documentation>
+        <xs:documentation>Specifies if the Voucher is for Full Credit or a Group/Day or a Monetary Amount or RegularVoucher.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="Amount" type="typeMoney" use="optional">
@@ -774,12 +870,18 @@
         <xs:documentation>Associated account name for the voucher</xs:documentation>
       </xs:annotation>
     </xs:attribute>
+    <xs:attribute name="Number" type="StringLength1to16" use="optional">
+      <xs:annotation>
+        <xs:documentation>To advise car associates of the voucher number and store in the car segment. It is required when VoucherType selected as   "RegularVoucher" for 1P, 1J only.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:complexType>
   <xs:simpleType name="typeVoucherType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="FullCredit" />
       <xs:enumeration value="GroupOrDay" />
       <xs:enumeration value="SpecificValue" />
+      <xs:enumeration value="RegularVoucher" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="UnitedNations">
@@ -942,56 +1044,56 @@
     <xs:complexType>
       <xs:attribute name="Prefix" use="optional">
         <xs:annotation>
-          <xs:documentation>Name prefix. Size can be up to 10 characters</xs:documentation>
+          <xs:documentation>Name prefix. Size can be up to 20 characters</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="10" />
-            <xs:minLength value="0" />
+            <xs:maxLength value="20" />
+            <xs:minLength value="1" />
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="First" use="required">
         <xs:annotation>
-          <xs:documentation>First Name. Size can be up to 30 characters</xs:documentation>
+          <xs:documentation>First Name. Size can be up to 256 characters</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="30" />
-            <xs:minLength value="0" />
+            <xs:maxLength value="256" />
+            <xs:minLength value="1" />
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="Middle" use="optional">
         <xs:annotation>
-          <xs:documentation>Midle name. Size can be up to 30 characters</xs:documentation>
+          <xs:documentation>Midle name. Size can be up to 256 characters</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="30" />
-            <xs:minLength value="0" />
+            <xs:maxLength value="256" />
+            <xs:minLength value="1" />
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="Last" use="required">
         <xs:annotation>
-          <xs:documentation>Last Name. Size can be up to 30 characters</xs:documentation>
+          <xs:documentation>Last Name. Size can be up to 256 characters</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="30" />
+            <xs:maxLength value="256" />
             <xs:minLength value="1" />
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="Suffix" use="optional">
         <xs:annotation>
-          <xs:documentation>Name suffix. Size can be up to 10 characters</xs:documentation>
+          <xs:documentation>Name suffix. Size can be up to 256 characters</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:maxLength value="10" />
-            <xs:minLength value="0" />
+            <xs:maxLength value="256" />
+            <xs:minLength value="1" />
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -1233,6 +1335,7 @@
             <xs:enumeration value="Other" />
             <xs:enumeration value="None" />
             <xs:enumeration value="Email" />
+            <xs:enumeration value="Reservations" />
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -1705,7 +1808,7 @@
       <xs:documentation>it will be considered a default AccounCode to be sent to all the Providers or Suppliers. </xs:documentation>
     </xs:annotation>
     <xs:complexType>
-      <xs:attribute name="Code" use="required">
+      <xs:attribute name="Code" use="optional">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:maxLength value="36" />
@@ -1969,6 +2072,7 @@
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="PriorityCode" type="typePriorityCode" use="optional" />
+      <xs:attribute name="VendorLocationRef" type="xs:string" use="optional" />
     </xs:complexType>
   </xs:element>
   <xs:element name="DiscountCard">
@@ -2283,6 +2387,14 @@
       <xs:documentation>The identifying number for the actual ticket</xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:element name="PaymentRef">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:documentation>Reference Element for Payment</xs:documentation>
+      </xs:annotation>
+      <xs:attribute name="Key" type="typeRef" use="required" />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="BookingTravelerRef">
     <xs:annotation>
       <xs:documentation>Reference Element for Booking Traveler and Loyalty cards</xs:documentation>
@@ -2292,6 +2404,7 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="LoyaltyCardRef" />
         <xs:element minOccurs="0" ref="DriversLicenseRef" />
         <xs:element minOccurs="0" maxOccurs="9" ref="DiscountCardRef" />
+        <xs:element minOccurs="0" maxOccurs="3" ref="PaymentRef" />
       </xs:sequence>
       <xs:attribute name="Key" type="typeRef" use="optional" />
     </xs:complexType>
@@ -3353,6 +3466,7 @@
       <xs:enumeration value="AppliedProfile" />
       <xs:enumeration value="TripName" />
       <xs:enumeration value="TravelPurpose" />
+      <xs:enumeration value="BookingConfirmation" />
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="typeResultMessage">
@@ -3474,7 +3588,7 @@
   </xs:simpleType>
   <xs:simpleType name="typeMoney">
     <xs:annotation>
-      <xs:documentation>A monetary value (valid to req/rsp Currency type)</xs:documentation>
+      <xs:documentation>A monetary value (valid to req/rsp Currency type) Format : Currency Code + Amount(USD123.10)</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string" />
   </xs:simpleType>
@@ -3626,7 +3740,7 @@
       <xs:element minOccurs="0" name="PostalCode">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:minLength value="2" />
+            <xs:minLength value="1" />
             <xs:maxLength value="15" />
           </xs:restriction>
         </xs:simpleType>
@@ -4266,6 +4380,11 @@
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="Key" type="typeRef" use="optional" />
+      <xs:attribute name="IATA" type="typeIATA" use="optional">
+        <xs:annotation>
+          <xs:documentation>Used for rapid reprice. This field is the IATA associated to this Point of Sale PCC. Providers: 1G/1V</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:element name="BookingTravelerInfo">
@@ -4384,7 +4503,7 @@
       </xs:attribute>
       <xs:attribute name="Type" use="required">
         <xs:annotation>
-          <xs:documentation>Type of booking source sent in the Code attribute</xs:documentation>
+          <xs:documentation>Type of booking source sent in the Code attribute. Possible values are “PseudoCityCode”,” ArcNumber”,” IataNumber”, “CustomerId” and “BookingSourceOverrride”. “BookingSourceOverrride” is only applicable in VehicleCreateReservationReq and only for 1P/1J providers.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -4392,6 +4511,12 @@
             <xs:enumeration value="ArcNumber" />
             <xs:enumeration value="IataNumber" />
             <xs:enumeration value="CustomerId" />
+            <xs:enumeration value="BookingSourceOverride">
+              <xs:annotation>
+                <xs:documentation>The Booking Source Override is usually used when the car supplier has assigned a number (which can be alpha/numeric) 
+								to the agency/e-commerce to use in place of an IATA number. Supported provider(s) : 1P/1J</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -5384,13 +5509,12 @@
       <xs:maxLength value="36" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:element name="ReferencePoint">
-    <xs:simpleType>
-      <xs:restriction base="xs:string">
-        <xs:maxLength value="30" />
-      </xs:restriction>
-    </xs:simpleType>
-  </xs:element>
+  <xs:element name="ReferencePoint" type="typeReferencePoint" />
+  <xs:simpleType name="typeReferencePoint">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="30" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="typeProfileLevelWithSystem">
     <xs:annotation>
       <xs:documentation>The "profile level" used for association of workflow etc.</xs:documentation>
@@ -5939,23 +6063,17 @@
     <xs:complexType>
       <xs:attribute name="SupplierCode" type="typeSupplierCode" use="required">
         <xs:annotation>
-          <xs:documentation>
-                        Supplier code to determine which vendor this AgentId belongs to.
-                    </xs:documentation>
+          <xs:documentation>Supplier code to determine which vendor this AgentId belongs to.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="ProviderCode" type="typeProviderCode" use="required">
         <xs:annotation>
-          <xs:documentation>
-                        Provider code to route the AgentId to proper provider.
-                    </xs:documentation>
+          <xs:documentation>Provider code to route the AgentId to proper provider.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="AgentID" use="required">
         <xs:annotation>
-          <xs:documentation>
-                        The Agent ID for the applicable supplier/vendor
-                    </xs:documentation>
+          <xs:documentation>The Agent ID for the applicable supplier/vendor</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -5968,7 +6086,7 @@
   </xs:element>
   <xs:element name="OverridePCC">
     <xs:annotation>
-      <xs:documentation>Used for Host Emulation - If used agent will emulate to this PCC in host and execute the request emulated into this PCC. PROVIDER SUPPORTED: JAL</xs:documentation>
+      <xs:documentation>Used for Host Emulation - If used agent will emulate to this PCC in host and execute the request emulated into this PCC.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:attribute name="ProviderCode" type="typeProviderCode" use="required">
@@ -6328,6 +6446,11 @@
                     <xs:documentation>Allows or prohibits flex explore functionality for the associated provisioning provider configuration</xs:documentation>
                   </xs:annotation>
                 </xs:attribute>
+                <xs:attribute name="RapidRepriceEnabled" type="xs:boolean">
+                  <xs:annotation>
+                    <xs:documentation>Allows or prohibits rapid reprice functionality for the associated provisioning provider configuration. Providers: 1G/1V</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
               </xs:extension>
             </xs:complexContent>
           </xs:complexType>
@@ -6571,6 +6694,15 @@
       <xs:attributeGroup ref="attrElementKeyResults" />
     </xs:complexType>
   </xs:element>
+  <xs:simpleType name="StringLength3">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Used for Character Strings, length 3.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="3" />
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="StringLength1to16">
     <xs:annotation>
       <xs:documentation xml:lang="en">Used for Character Strings, length 1 to 16.</xs:documentation>
@@ -6848,6 +6980,11 @@
         <xs:attribute name="BankStateCode" type="typeState">
           <xs:annotation>
             <xs:documentation>State code associated with the issuing bank.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute default="false" name="Enett" type="xs:boolean" use="optional">
+          <xs:annotation>
+            <xs:documentation>Acceptable values are true or false. If set to true it will denote that the credit card used has been issued through Enett. For all other credit card payments this value will be set to false.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
       </xs:extension>
@@ -7237,6 +7374,37 @@
       </xs:attribute>
     </xs:complexType>
   </xs:element>
+  <xs:element name="EmailNotification">
+    <xs:annotation>
+      <xs:documentation>Send Email Notification to the emails specified in Booking Traveler. Supported Provider : 1G/1V</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="EmailRef" type="typeRef">
+          <xs:annotation>
+            <xs:documentation>Reference to Booking Traveler Email.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="Recipients" use="required">
+        <xs:annotation>
+          <xs:documentation>
+						Indicates the recipients of the mail addresses for which the user requires the system to send the itinerary.List of Possible Values:
+						All = Send Email to All addresses
+						Default = Send Email to Primary Booking Traveler
+						Specific = Send Email to specific address Referred in EmailRef.
+					</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="All" />
+            <xs:enumeration value="Default" />
+            <xs:enumeration value="Specific" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
   <xs:simpleType name="StringLength1">
     <xs:annotation>
       <xs:documentation xml:lang="en">Used for Character
@@ -7336,4 +7504,170 @@
       <xs:maxLength value="30" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="typeMaxResults1to100">
+    <xs:annotation>
+      <xs:documentation>
+                Used to limit the number of results returned,
+                particularly in more general searches that may
+                return a large result set.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="1" />
+      <xs:maxInclusive value="100" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StringLength1to100">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Used for Character Strings, length 1 to 100.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="100" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeItineraryCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="International">
+        <xs:annotation>
+          <xs:documentation>Indicates the itinerary is International</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Domestic">
+        <xs:annotation>
+          <xs:documentation>Indicates the itinerary is domestic</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeItineraryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="New">
+        <xs:annotation>
+          <xs:documentation>Indicates the itinerary is New</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Original">
+        <xs:annotation>
+          <xs:documentation>Indicates the itinerary is Original</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeFormOfRefund">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MCO" />
+      <xs:enumeration value="FormOfPayment" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeFarePull">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ReverseOfOriginDestination" />
+      <xs:enumeration value="SameAsOriginDestination" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typePriceClassOfService">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ClassBooked" />
+      <xs:enumeration value="LowestClass" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typePricingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ClassBooked" />
+      <xs:enumeration value="LowestClass" />
+      <xs:enumeration value="LowestQuote" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="typeTax">
+    <xs:attribute name="Amount" type="typeMoney" use="optional" />
+    <xs:attribute name="Code" type="xs:string" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="typeFeeInfo">
+    <xs:annotation>
+      <xs:documentation>A generic type of fee for those charges which are
+               incurred by the passenger, but not necessarily shown on tickets
+            </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaxInfoRef">
+        <xs:annotation>
+          <xs:documentation>This reference elements will associate relevant taxes to this fee</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="Key" type="typeRef" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="BaseAmount" type="typeMoney" use="optional" />
+    <xs:attribute name="Description" type="xs:string" use="optional" />
+    <xs:attribute name="SubCode" type="xs:string" use="optional" />
+    <xs:attribute name="Key" type="typeRef" use="required" />
+    <xs:attribute name="Amount" type="typeMoney" use="required" />
+    <xs:attribute name="Code" type="xs:string" use="required" />
+    <xs:attribute name="FeeToken" type="xs:string" use="optional" />
+    <xs:attribute name="PaymentRef" type="typeRef" use="optional">
+      <xs:annotation>
+        <xs:documentation>The reference to the one of the air
+                  reservation payments if fee included in charge</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="BookingTravelerRef" type="typeRef" use="optional">
+      <xs:annotation>
+        <xs:documentation>Reference to booking traveler</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="PassengerTypeCode" type="typePTC" />
+    <xs:attributeGroup ref="attrProviderSupplier" />
+    <xs:attributeGroup ref="attrElementKeyResults" />
+  </xs:complexType>
+  <xs:element name="QueuePlace">
+    <xs:annotation>
+      <xs:documentation>Allow queue placement of a PNR at the time of booking to be used for Providers 1G,1V,1P and 1J.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="PseudoCityCode" type="typePCC">
+          <xs:annotation>
+            <xs:documentation>Pseudo City Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="QueueSelector">
+          <xs:annotation>
+            <xs:documentation>Identifies the Queue Information to be selected for placing the UR</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueueSelector">
+    <xs:annotation>
+      <xs:documentation>Identifies the Queue with Queue Number , Category and Date Range.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attributeGroup ref="attrQueueInfo" />
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attrQueueInfo">
+    <xs:annotation>
+      <xs:documentation>Attributes related to queue information</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="Queue" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>Queue Number . Possible values are 01, AA , A1 etc.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Category" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>Queue Category Number. 2 Character Alpha or Numeric Number.</xs:documentation>
+        <xs:documentation>Either Alpha or Numeric Number is allowed.</xs:documentation>
+        <xs:documentation>If using for Sabre is mandatory and is Prefatory Instruction Code value of 0-999.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="DateRange" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>Date range number where the PNR should be queued. Possible values are 1,2,1-4 etc.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
 </xs:schema>

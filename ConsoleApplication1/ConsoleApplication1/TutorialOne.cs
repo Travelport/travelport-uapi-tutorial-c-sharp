@@ -92,7 +92,9 @@ namespace UAPIConsumptionSamples
                 airTest.Availability();
 
                 AirLFSTest lfsTest = new AirLFSTest();
-                LowFareSearchRsp lowFareRsp = lfsTest.LowFareShop();
+                Boolean solutionResult = false; //Change it to true if you want AirPricingSolution, by default it is false
+                                                //and will send AirPricePoint in the result
+                LowFareSearchRsp lowFareRsp = lfsTest.LowFareShop(solutionResult);
 
                 if (lowFareRsp != null)
                 {
@@ -102,18 +104,45 @@ namespace UAPIConsumptionSamples
                     
                     IEnumerator items = lowFareRsp.Items.GetEnumerator();
                     AirPricingSolution lowestFare = null;
+                    AirPricePoint lowest = null;
+                    
                     while (items.MoveNext())
                     {
-                        AirPricingSolution airPricingSolution = (AirPricingSolution)items.Current;
-                        if (lowestFare == null)
+                        if (solutionResult)
                         {
-                            lowestFare = airPricingSolution;
+                            AirPricingSolution airPricingSolution = (AirPricingSolution)items.Current;
+                            if (lowestFare == null)
+                            {
+                                lowestFare = airPricingSolution;
+                            }
+                            else
+                            {
+                                if (Helper.ConvertToDecimal(lowestFare.TotalPrice) > Helper.ConvertToDecimal(airPricingSolution.TotalPrice))
+                                {
+                                    lowestFare = airPricingSolution;
+                                }
+                            }
                         }
                         else
                         {
-                            if (Helper.ConvertToDecimal(lowestFare.TotalPrice) > Helper.ConvertToDecimal(airPricingSolution.TotalPrice))
+                            AirPricePointList airPricePointList = (AirPricePointList)items.Current;
+
+                            if (airPricePointList != null)
                             {
-                                lowestFare = airPricingSolution;
+                                foreach (var airPricePoint in airPricePointList.AirPricePoint)
+                                {
+                                    if (lowest == null)
+                                    {
+                                        lowest = airPricePoint;
+                                    }
+                                    else
+                                    {
+                                        if (Helper.ConvertToDecimal(lowest.TotalPrice) > Helper.ConvertToDecimal(airPricePoint.TotalPrice))
+                                        {
+                                            lowest = airPricePoint;
+                                        }
+                                    }
+                                }
                             }
                         }
                        
@@ -141,6 +170,53 @@ namespace UAPIConsumptionSamples
                                 }
                             }
                         }                                               
+                    }
+
+                    if (lowest != null)
+                    {
+                        IEnumerator pricingInfos = lowest.AirPricingInfo.GetEnumerator();
+
+                        while (pricingInfos.MoveNext())
+                        {
+                            AirPricingInfo priceInfo = (AirPricingInfo)pricingInfos.Current;
+                            if (priceInfo != null)
+                            {
+                                foreach (var flightOption in priceInfo.FlightOptionsList)
+                                {
+                                    FlightOption option = flightOption;
+                                    IEnumerator options = option.Option.GetEnumerator();
+                                    if (options.MoveNext())
+                                    {
+                                        Option opt = (Option)options.Current;
+                                        if (opt != null)
+                                        {
+                                            IEnumerator bookingInfoList = opt.BookingInfo.GetEnumerator();
+                                            if (bookingInfoList.MoveNext())
+                                            {
+                                                BookingInfo bookingInfo = (BookingInfo)bookingInfoList.Current;
+                                                if(bookingInfo != null)
+                                                {
+                                                    String key = bookingInfo.SegmentRef;
+                                                    IEnumerator airSegmentList = airSegments.GetEnumerator();
+                                                    while (airSegmentList.MoveNext())
+                                                    {
+                                                        typeBaseAirSegment airSeg = (typeBaseAirSegment)airSegmentList.Current;
+                                                        if (airSeg.Key.CompareTo(key) == 0)
+                                                        {
+                                                            pricingSegments.Add(airSeg);
+                                                            break;
+                                                        }
+
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    break;
+                                }
+                            }
+                        }
                     }
 
                     AirPriceRsp priceRsp = AirReq.AirPrice(pricingSegments);

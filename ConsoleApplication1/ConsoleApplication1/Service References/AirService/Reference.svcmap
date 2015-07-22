@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="82e37b7b-6150-4944-8f6a-660b3201d9fb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0de7868f-4d13-42f7-92f1-be834ce0c089" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,16 +19,16 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="c:\users\vivek.pramanik\documents\visual studio 2012\Projects\ConsoleApplication1\ConsoleApplication1\Wsdl\air_v29_0\Air.wsdl" Protocol="file" SourceId="1" />
+    <MetadataSource Address="c:\users\vivek.pramanik\documents\visual studio 2012\Projects\ConsoleApplication1\ConsoleApplication1\Wsdl\air_v33_0\Air.wsdl" Protocol="file" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CommonReqRsp.xsd" MetadataType="Schema" ID="a216c794-cc32-44ff-9f2b-e71441053516" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/common_v29_0/CommonReqRsp.xsd" />
-    <MetadataFile FileName="AirReqRsp.xsd" MetadataType="Schema" ID="c7698ddd-b241-480f-b88a-35012e4221a2" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/air_v29_0/AirReqRsp.xsd" />
-    <MetadataFile FileName="Common.xsd" MetadataType="Schema" ID="2bbdc281-7f88-497b-9417-4dba6d7690c5" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/common_v29_0/Common.xsd" />
-    <MetadataFile FileName="Rail.xsd" MetadataType="Schema" ID="1373ffce-d6cc-402d-9759-fe0479991d9d" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/rail_v29_0/Rail.xsd" />
-    <MetadataFile FileName="AirService.wsdl" MetadataType="Wsdl" ID="0418080a-36f5-4495-89a3-58c52e4c9a72" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/air_v29_0/AirAbstract.wsdl" />
-    <MetadataFile FileName="AirService1.wsdl" MetadataType="Wsdl" ID="dcca6174-5919-459c-8995-fdae9d26baa3" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/air_v29_0/Air.wsdl" />
-    <MetadataFile FileName="Air.xsd" MetadataType="Schema" ID="6f675aad-2016-4dcb-b82f-1891139da96d" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/air_v29_0/Air.xsd" />
+    <MetadataFile FileName="Air.xsd" MetadataType="Schema" ID="339b7ce9-3fb0-405a-80f1-058546dc6c9e" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/air_v33_0/Air.xsd" />
+    <MetadataFile FileName="AirService.wsdl" MetadataType="Wsdl" ID="fc5452c9-6e6d-4fe6-b31c-964ee1e8253d" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/air_v33_0/AirAbstract.wsdl" />
+    <MetadataFile FileName="AirService1.wsdl" MetadataType="Wsdl" ID="fc59ccfe-3f49-447f-9b8d-2055dc2c2f2a" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/air_v33_0/Air.wsdl" />
+    <MetadataFile FileName="Rail.xsd" MetadataType="Schema" ID="7bfc96a2-5c3b-48ff-b0b1-65a7eb4ff742" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/rail_v33_0/Rail.xsd" />
+    <MetadataFile FileName="CommonReqRsp.xsd" MetadataType="Schema" ID="0cffae54-5d1e-4a0c-94db-e1de39aa323b" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/common_v33_0/CommonReqRsp.xsd" />
+    <MetadataFile FileName="AirReqRsp.xsd" MetadataType="Schema" ID="ae44a416-084a-40a3-96dd-4cc4f42e0a43" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/air_v33_0/AirReqRsp.xsd" />
+    <MetadataFile FileName="Common.xsd" MetadataType="Schema" ID="954bf8d9-f799-4b34-a1c1-5b6ff626d46b" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication1/ConsoleApplication1/Wsdl/common_v33_0/Common.xsd" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

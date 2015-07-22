@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.travelport.com/service/vehicle_v29_0" xmlns:ns1="http://www.travelport.com/schema/vehicle_v29_0" name="VehicleServices" targetNamespace="http://www.travelport.com/service/vehicle_v29_0" xmlns="http://schemas.xmlsoap.org/wsdl/">
-  <import namespace="http://www.travelport.com/service/vehicle_v29_0" location="VehicleAbstract.wsdl" />
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.travelport.com/service/vehicle_v33_0" xmlns:ns1="http://www.travelport.com/schema/vehicle_v33_0" name="VehicleServices" targetNamespace="http://www.travelport.com/service/vehicle_v33_0" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <import namespace="http://www.travelport.com/service/vehicle_v33_0" location="VehicleAbstract.wsdl" />
   <types />
   <binding name="VehicleSearchServiceBinding" type="tns:VehicleSearchServicePortType">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />

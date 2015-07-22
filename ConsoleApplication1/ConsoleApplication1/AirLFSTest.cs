@@ -13,13 +13,13 @@ namespace ConsoleApplication1
         private string origin = "DTW";
         private string destination = "SFO";
 
-        public LowFareSearchRsp LowFareShop()
+        public LowFareSearchRsp LowFareShop(bool solutionResult)
         {
             LowFareSearchReq lowFareSearchReq = new LowFareSearchReq();
             LowFareSearchRsp lowFareSearchRsp;
 
 
-            lowFareSearchReq = SetUpLFSSearch(lowFareSearchReq);
+            lowFareSearchReq = SetUpLFSSearch(lowFareSearchReq, solutionResult);
 
             AirLowFareSearchPortTypeClient client = new AirLowFareSearchPortTypeClient("AirLowFareSearchPort", WsdlService.AIR_ENDPOINT);
             client.ClientCredentials.UserName.UserName = Helper.RetrunUsername();
@@ -42,9 +42,11 @@ namespace ConsoleApplication1
             }
         }
 
-        private LowFareSearchReq SetUpLFSSearch(LowFareSearchReq lowFareSearchReq)
+        private LowFareSearchReq SetUpLFSSearch(LowFareSearchReq lowFareSearchReq, bool solutionResult)
         {
             lowFareSearchReq.TargetBranch = CommonUtility.GetConfigValue(ProjectConstants.G_TARGET_BRANCH);
+            lowFareSearchReq.SolutionResult = solutionResult;  //Change it to true if you want AirPricingSolution, by default it is false
+                                                      //and will send AirPricePoint in the result
 
             //set the GDS via a search modifier
             String[] gds = new String[] { "1G" };

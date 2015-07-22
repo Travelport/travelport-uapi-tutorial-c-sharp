@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://www.travelport.com/schema/util_v29_0" xmlns:air="http://www.travelport.com/schema/air_v29_0" xmlns:common="http://www.travelport.com/schema/common_v29_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/util_v29_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="../common_v29_0/CommonReqRsp.xsd" namespace="http://www.travelport.com/schema/common_v29_0" />
-  <xs:import schemaLocation="../common_v29_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v29_0" />
-  <xs:import schemaLocation="../air_v29_0/Air.xsd" namespace="http://www.travelport.com/schema/air_v29_0" />
+<xs:schema xmlns="http://www.travelport.com/schema/util_v33_0" xmlns:air="http://www.travelport.com/schema/air_v33_0" xmlns:common="http://www.travelport.com/schema/common_v33_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/util_v33_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="../common_v33_0/CommonReqRsp.xsd" namespace="http://www.travelport.com/schema/common_v33_0" />
+  <xs:import schemaLocation="../common_v33_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v33_0" />
+  <xs:import schemaLocation="../air_v33_0/Air.xsd" namespace="http://www.travelport.com/schema/air_v33_0" />
   <xs:annotation>
     <xs:documentation>
             (c) Travelport GDS 2008 All rights reserved. Proprietary
@@ -481,39 +481,6 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DocumentTransmissionReq">
-    <xs:annotation>
-      <xs:documentation>
-                Transmit reservation documents to one or more travelers
-                on a Pnr. Currently supported format is email.
-            </xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent mixed="false">
-        <xs:extension base="common:BaseReq">
-          <xs:sequence>
-            <xs:choice>
-              <xs:element minOccurs="0" ref="common:LocatorCode" />
-              <xs:element minOccurs="0" ref="common:TicketNumber" />
-            </xs:choice>
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="TemplateData" />
-            <xs:element ref="EmailHeaderInfo" />
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DocumentTransmissionRsp">
-    <xs:complexType>
-      <xs:complexContent mixed="false">
-        <xs:extension base="common:BaseRsp">
-          <xs:sequence>
-            <xs:element ref="EmailHeaderInfo" />
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="ReferenceDataRetrieveReq">
     <xs:annotation>
       <xs:documentation>
@@ -528,7 +495,7 @@
           </xs:sequence>
           <xs:attribute name="TypeCode" type="common:typeTypeCode" use="required">
             <xs:annotation>
-              <xs:documentation>The code of the reference data type. Valid values are 'PaymentType', 'PaymentFormatType', 'MerchandisingOfferType', 'HotelTaxType', 'HotelAmenities','Airport','City','Country','CityAirport','BusinessType','Currency','PosChannel','StateProvince','SupplierType','RoleCategoryType','ResourceCategoryType','PaymentType','EmailType','HotelRateCategory','FulfillmentType','HotelRoomViewType', 'HotelMealPlans' , 'GeoPoliticalAreaType', 'AirAndRailMiscType', 'AirAndRailSupplierType', 'HotelMiscType' , 'HotelSupplierType' , 'VehicleMiscType' , 'VehicleSupplierType' , 'AccountingReferenceType' , 'TRMLocation' , 'Title' , 'PassengerTypeCode' , 'Gender' , 'PostalAddressType' , 'AccountingRemarkType' , 'VehicleSpecialEquipment' and 'ReferencePointSearch'.</xs:documentation>
+              <xs:documentation>The code of the reference data type. Valid values are 'PaymentType', 'PaymentFormatType', 'MerchandisingOfferType', 'HotelTaxType', 'HotelAmenities','Airport','City','Country','CityAirport','BusinessType','Currency','PosChannel','StateProvince','SupplierType','RoleCategoryType','ResourceCategoryType','PaymentType','EmailType','HotelRateCategory','FulfillmentType','HotelRoomViewType', 'HotelMealPlans' , 'GeoPoliticalAreaType', 'AirAndRailMiscType', 'AirAndRailSupplierType', 'HotelMiscType' , 'HotelSupplierType' , 'VehicleMiscType' , 'VehicleSupplierType' , 'AccountingReferenceType' , 'TRMLocation' , 'Title' , 'PassengerTypeCode' , 'Gender' , 'PostalAddressType' , 'AccountingRemarkType' , 'VehicleSpecialEquipment', 'ReferencePointSearch', 'RailStationLocation', 'RailAccommodation', and 'RailDiscountLoyalty'.</xs:documentation>
             </xs:annotation>
           </xs:attribute>
         </xs:extension>
@@ -1122,75 +1089,6 @@
         </xs:annotation>
       </xs:attribute>
       <xs:attributeGroup ref="attrProviderSupplierCapabilities" />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="TemplateData">
-    <xs:annotation>
-      <xs:documentation>
-                Takes, as content, the text used to add to the template.
-            </xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:simpleContent>
-        <xs:extension base="xs:string">
-          <xs:attribute name="FieldName" type="xs:string" use="required">
-            <xs:annotation>
-              <xs:documentation>
-                                Key, as defined in the template, where
-                                the TemplateData content is inserted.
-                            </xs:documentation>
-            </xs:annotation>
-          </xs:attribute>
-        </xs:extension>
-      </xs:simpleContent>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="EmailHeaderInfo">
-    <xs:annotation>
-      <xs:documentation>
-                Takes a list of email recipients, sender, and a template
-                name to apply.
-            </xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded" name="Recipient">
-          <xs:annotation>
-            <xs:documentation>
-                            Email recipient.
-                        </xs:documentation>
-          </xs:annotation>
-          <xs:complexType>
-            <xs:complexContent mixed="false">
-              <xs:extension base="typeEmailAddress">
-                <xs:attribute default="TO" name="RecipientType" type="typeEmailRecipientType" use="optional" />
-              </xs:extension>
-            </xs:complexContent>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="From" type="typeEmailAddress">
-          <xs:annotation>
-            <xs:documentation>
-                            Email sender
-                        </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="Subject" type="xs:string">
-          <xs:annotation>
-            <xs:documentation>
-                            Email subject
-                        </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-      </xs:sequence>
-      <xs:attribute name="TemplateName" type="xs:string" use="required">
-        <xs:annotation>
-          <xs:documentation>
-                        The pre-defined template to use in sending this
-                        email
-                    </xs:documentation>
-        </xs:annotation>
-      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:element name="ReferenceDataItem">

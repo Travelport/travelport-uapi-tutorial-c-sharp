@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://www.travelport.com/schema/common_v28_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/common_v28_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns="http://www.travelport.com/schema/common_v32_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/common_v32_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:include schemaLocation="Common.xsd" />
   <xs:annotation>
     <xs:documentation>(c) Travelport GDS 2008 All rights reserved. Proprietary Information of Travelport GDS.</xs:documentation>
@@ -10,6 +10,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" maxOccurs="1" ref="OverridePCC" />
         </xs:sequence>
+        <xs:attribute default="false" name="RetrieveProviderReservationDetails" type="xs:boolean" use="optional" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -46,7 +47,7 @@
     </xs:attribute>
     <xs:attribute name="LanguageCode" type="xs:language" use="optional">
       <xs:annotation>
-        <xs:documentation>ISO  639 Language Code used to receive specific information in the requested  language. Supported  Provider: ACH. Supported Carriers:U2</xs:documentation>
+        <xs:documentation>ISO 639 LanguageCode is used to retrieve specific information in the requested language.  Use a 2 or 4 character language code, example FR or FRFR for French, EN or ENGB for English.  The supported providers: ACH, RCH.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
@@ -137,6 +138,12 @@
               <xs:documentation>SSR element outside Booking Traveler without any Segment Ref or Booking Traveler Ref.</xs:documentation>
             </xs:annotation>
           </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="EmailNotification" />
+          <xs:element minOccurs="0" maxOccurs="1" ref="QueuePlace">
+            <xs:annotation>
+              <xs:documentation>Allow queue placement of a PNR at the time of booking in AirCreateReservationReq,HotelCreateReservationReq,PassiveCreateReservationReq and VehicleCreateReservationReq for providers 1G,1V,1P and 1J.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
         </xs:sequence>
         <xs:attribute name="RuleName" use="optional">
           <xs:annotation>
@@ -195,4 +202,20 @@
       <xs:enumeration value="FATAL" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:complexType name="BaseCreateWithFormOfPaymentReq">
+    <xs:annotation>
+      <xs:documentation>Container for BaseCreateReservation along with Form Of Payment</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="BaseCreateReservationReq">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="FormOfPayment">
+            <xs:annotation>
+              <xs:documentation>Provider:1G,1V,1P,1J,ACH,SDK.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
 </xs:schema>

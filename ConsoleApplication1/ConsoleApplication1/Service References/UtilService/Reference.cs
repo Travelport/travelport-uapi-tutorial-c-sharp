@@ -16,7 +16,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class ErrorInfo : typeErrorInfo {
     }
     
@@ -25,7 +25,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typeErrorInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string codeField;
@@ -170,7 +170,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class AuxdataEntry : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string reasonField;
@@ -217,7 +217,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class BaseRsp : object, System.ComponentModel.INotifyPropertyChanged {
         
         private ResponseMessage[] responseMessageField;
@@ -305,7 +305,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class ResponseMessage : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string codeField;
@@ -405,7 +405,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum ResponseMessageType {
         
         /// <remarks/>
@@ -423,7 +423,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class BaseSearchRsp : BaseRsp {
         
         private NextResultReference[] nextResultReferenceField;
@@ -446,7 +446,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class NextResultReference : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string providerCodeField;
@@ -488,12 +488,155 @@ namespace ConsoleApplication1.UtilService {
     }
     
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class typeGeneralReference : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string keyField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Key {
+            get {
+                return this.keyField;
+            }
+            set {
+                this.keyField = value;
+                this.RaisePropertyChanged("Key");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class typeFormOfPaymentPNRReference : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string keyField;
+        
+        private bool providerReservationLevelField;
+        
+        public typeFormOfPaymentPNRReference() {
+            this.providerReservationLevelField = true;
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Key {
+            get {
+                return this.keyField;
+            }
+            set {
+                this.keyField = value;
+                this.RaisePropertyChanged("Key");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.ComponentModel.DefaultValueAttribute(true)]
+        public bool ProviderReservationLevel {
+            get {
+                return this.providerReservationLevelField;
+            }
+            set {
+                this.providerReservationLevelField = value;
+                this.RaisePropertyChanged("ProviderReservationLevel");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class typeAgencyPayment : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string agencyBillingIdentifierField;
+        
+        private string agencyBillingNumberField;
+        
+        private string agencyBillingPasswordField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string AgencyBillingIdentifier {
+            get {
+                return this.agencyBillingIdentifierField;
+            }
+            set {
+                this.agencyBillingIdentifierField = value;
+                this.RaisePropertyChanged("AgencyBillingIdentifier");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string AgencyBillingNumber {
+            get {
+                return this.agencyBillingNumberField;
+            }
+            set {
+                this.agencyBillingNumberField = value;
+                this.RaisePropertyChanged("AgencyBillingNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string AgencyBillingPassword {
+            get {
+                return this.agencyBillingPasswordField;
+            }
+            set {
+                this.agencyBillingPasswordField = value;
+                this.RaisePropertyChanged("AgencyBillingPassword");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(typeCreditCardType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typePaymentCard : object, System.ComponentModel.INotifyPropertyChanged {
         
         private PhoneNumber phoneNumberField;
@@ -623,7 +766,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class PhoneNumber : object, System.ComponentModel.INotifyPropertyChanged {
         
         private ProviderReservationInfoRef[] providerReservationInfoRefField;
@@ -837,7 +980,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class ProviderReservationInfoRef : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -867,7 +1010,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum PhoneNumberType {
         
         /// <remarks/>
@@ -896,12 +1039,15 @@ namespace ConsoleApplication1.UtilService {
         
         /// <remarks/>
         Email,
+        
+        /// <remarks/>
+        Reservations,
     }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeElementStatus {
         
         /// <remarks/>
@@ -919,7 +1065,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typeStructuredAddress : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string addressNameField;
@@ -1105,7 +1251,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class State : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string valueField;
@@ -1137,7 +1283,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typeCreditCardType : typePaymentCard {
         
         private string extendedPaymentField;
@@ -1156,8 +1302,11 @@ namespace ConsoleApplication1.UtilService {
         
         private string bankStateCodeField;
         
+        private bool enettField;
+        
         public typeCreditCardType() {
             this.thirdPartyPaymentField = false;
+            this.enettField = false;
         }
         
         /// <remarks/>
@@ -1256,6 +1405,19 @@ namespace ConsoleApplication1.UtilService {
                 this.RaisePropertyChanged("BankStateCode");
             }
         }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.ComponentModel.DefaultValueAttribute(false)]
+        public bool Enett {
+            get {
+                return this.enettField;
+            }
+            set {
+                this.enettField = value;
+                this.RaisePropertyChanged("Enett");
+            }
+        }
     }
     
     /// <remarks/>
@@ -1263,7 +1425,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typeNonAirReservationRef : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string locatorCodeField;
@@ -1295,7 +1457,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typeSegmentRef : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -1327,7 +1489,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typeRemark : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string providerReservationInfoRefField;
@@ -1389,7 +1551,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typeRemarkWithTravelerRef : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string remarkDataField;
@@ -1464,7 +1626,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typeAssociatedRemark : typeRemarkWithTravelerRef {
         
         private string keyField;
@@ -1543,7 +1705,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typeAssociatedRemarkWithSegmentRef : typeAssociatedRemark {
         
         private string segmentRefField;
@@ -1566,7 +1728,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class SeatAssignment : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -1738,7 +1900,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typeProviderReservationSpecificInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private OperatedBy[] operatedByField;
@@ -1840,7 +2002,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class OperatedBy : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string valueField;
@@ -1871,12 +2033,13 @@ namespace ConsoleApplication1.UtilService {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseCoreSearchReq))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseReq))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseCreateReservationReq))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseCreateWithFormOfPaymentReq))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseSearchReq))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class BaseCoreReq : object, System.ComponentModel.INotifyPropertyChanged {
         
         private BillingPointOfSaleInfo billingPointOfSaleInfoField;
@@ -2034,7 +2197,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class BillingPointOfSaleInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string originApplicationField;
@@ -2080,7 +2243,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class AgentIDOverride : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string supplierCodeField;
@@ -2138,7 +2301,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeLoggingLevel {
         
         /// <remarks/>
@@ -2165,7 +2328,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class BaseCoreSearchReq : BaseCoreReq {
         
         private NextResultReference[] nextResultReferenceField;
@@ -2185,12 +2348,13 @@ namespace ConsoleApplication1.UtilService {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseCreateReservationReq))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseCreateWithFormOfPaymentReq))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseSearchReq))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class BaseReq : BaseCoreReq {
         
         private OverridePCC overridePCCField;
@@ -2232,7 +2396,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class OverridePCC : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string providerCodeField;
@@ -2274,11 +2438,12 @@ namespace ConsoleApplication1.UtilService {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseCreateWithFormOfPaymentReq))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class BaseCreateReservationReq : BaseReq {
         
         private LinkedUniversalRecord[] linkedUniversalRecordField;
@@ -2316,6 +2481,8 @@ namespace ConsoleApplication1.UtilService {
         private SSR[] sSRField;
         
         private EmailNotification emailNotificationField;
+        
+        private QueuePlace queuePlaceField;
         
         private string ruleNameField;
         
@@ -2546,6 +2713,18 @@ namespace ConsoleApplication1.UtilService {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=18)]
+        public QueuePlace QueuePlace {
+            get {
+                return this.queuePlaceField;
+            }
+            set {
+                this.queuePlaceField = value;
+                this.RaisePropertyChanged("QueuePlace");
+            }
+        }
+        
+        /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public string RuleName {
             get {
@@ -2623,7 +2802,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class LinkedUniversalRecord : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string locatorCodeField;
@@ -2725,7 +2904,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class BookingTraveler : object, System.ComponentModel.INotifyPropertyChanged {
         
         private BookingTravelerName bookingTravelerNameField;
@@ -3154,7 +3333,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class BookingTravelerName : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string prefixField;
@@ -3242,7 +3421,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class DeliveryInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private DeliveryInfoShippingAddress shippingAddressField;
@@ -3372,7 +3551,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class DeliveryInfoShippingAddress : typeStructuredAddress {
     }
     
@@ -3381,7 +3560,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class Email : object, System.ComponentModel.INotifyPropertyChanged {
         
         private ProviderReservationInfoRef[] providerReservationInfoRefField;
@@ -3525,7 +3704,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class GeneralRemark : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string remarkDataField;
@@ -3812,7 +3991,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeProduct {
         
         /// <remarks/>
@@ -3837,7 +4016,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeDirection {
         
         /// <remarks/>
@@ -3852,7 +4031,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class LoyaltyCard : object, System.ComponentModel.INotifyPropertyChanged {
         
         private typeProviderReservationSpecificInfo[] providerReservationSpecificInfoField;
@@ -3880,6 +4059,8 @@ namespace ConsoleApplication1.UtilService {
         private string levelField;
         
         private string priorityCodeField;
+        
+        private string vendorLocationRefField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("ProviderReservationSpecificInfo", Order=0)]
@@ -4037,6 +4218,18 @@ namespace ConsoleApplication1.UtilService {
             }
         }
         
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string VendorLocationRef {
+            get {
+                return this.vendorLocationRefField;
+            }
+            set {
+                this.vendorLocationRefField = value;
+                this.RaisePropertyChanged("VendorLocationRef");
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -4052,7 +4245,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class DiscountCard : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -4182,7 +4375,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class SSR : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -4466,7 +4659,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class NameRemark : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string remarkDataField;
@@ -4596,7 +4789,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class AirSeatAssignment : SeatAssignment {
     }
     
@@ -4605,7 +4798,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class RailSeatAssignment : object, System.ComponentModel.INotifyPropertyChanged {
         
         private Characteristic[] characteristicField;
@@ -4763,7 +4956,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class Characteristic : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string seatTypeField;
@@ -4837,7 +5030,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class DriversLicense : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -4939,7 +5132,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class AppliedProfile : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -5111,7 +5304,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class CustomizedNameData : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -5171,7 +5364,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class TravelComplianceData : object, System.ComponentModel.INotifyPropertyChanged {
         
         private TravelComplianceDataPolicyCompliance[] policyComplianceField;
@@ -5357,7 +5550,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class TravelComplianceDataPolicyCompliance : object, System.ComponentModel.INotifyPropertyChanged {
         
         private bool inPolicyField;
@@ -5403,7 +5596,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class TravelComplianceDataContractCompliance : object, System.ComponentModel.INotifyPropertyChanged {
         
         private bool inContractField;
@@ -5449,7 +5642,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class TravelComplianceDataPreferredSupplier : object, System.ComponentModel.INotifyPropertyChanged {
         
         private bool preferredField;
@@ -5493,7 +5686,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeProfileType {
         
         /// <remarks/>
@@ -5526,7 +5719,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class TravelInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string tripNameField;
@@ -5572,7 +5765,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class OSI : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -5730,7 +5923,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class AccountingRemark : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string remarkDataField;
@@ -5921,7 +6114,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class XMLRemark : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -6037,7 +6230,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class UnassociatedRemark : typeRemarkWithTravelerRef {
         
         private string keyField;
@@ -6116,7 +6309,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class Postscript : typeRemark {
         
         private string keyField;
@@ -6139,7 +6332,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class PassiveInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string[] ticketNumberField;
@@ -6255,7 +6448,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class Commission : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -6416,7 +6609,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeCommissionLevel {
         
         /// <remarks/>
@@ -6432,7 +6625,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeCommissionType {
         
         /// <remarks/>
@@ -6448,7 +6641,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeCommissionModifier {
         
         /// <remarks/>
@@ -6478,7 +6671,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class ContinuityCheckOverride : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -6524,7 +6717,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class AgencyContactInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private PhoneNumber[] phoneNumberField;
@@ -6570,7 +6763,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class CustomerID : typeRemark {
         
         private string keyField;
@@ -6593,7 +6786,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class FileFinishingInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private ShopInformation shopInformationField;
@@ -6695,7 +6888,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class ShopInformation : object, System.ComponentModel.INotifyPropertyChanged {
         
         private ShopInformationSearchRequest[] searchRequestField;
@@ -6783,7 +6976,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class ShopInformationSearchRequest : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string originField;
@@ -6857,7 +7050,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class ShopInformationFlightsOffered : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string originField;
@@ -7022,7 +7215,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class PolicyInformation : object, System.ComponentModel.INotifyPropertyChanged {
         
         private PolicyInformationReasonCode reasonCodeField;
@@ -7124,7 +7317,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class PolicyInformationReasonCode : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string outOfPolicyField;
@@ -7184,7 +7377,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class Remark : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -7228,7 +7421,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typePolicy {
         
         /// <remarks/>
@@ -7252,7 +7445,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class AccountInformation : object, System.ComponentModel.INotifyPropertyChanged {
         
         private typeStructuredAddress addressField;
@@ -7312,7 +7505,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class AgencyInformation : object, System.ComponentModel.INotifyPropertyChanged {
         
         private typeStructuredAddress addressField;
@@ -7372,7 +7565,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class TravelerInformation : object, System.ComponentModel.INotifyPropertyChanged {
         
         private TravelerInformationEmergencyContact emergencyContactField;
@@ -7460,7 +7653,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class TravelerInformationEmergencyContact : object, System.ComponentModel.INotifyPropertyChanged {
         
         private PhoneNumber phoneNumberField;
@@ -7520,7 +7713,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class CustomProfileInformation : object, System.ComponentModel.INotifyPropertyChanged {
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -7538,7 +7731,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class CommissionRemark : object, System.ComponentModel.INotifyPropertyChanged {
         
         private object[] itemsField;
@@ -7669,7 +7862,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class CommissionRemarkPassengerTypeLevel : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string travelerTypeField;
@@ -7743,7 +7936,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class CommissionRemarkProviderReservationLevel : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string amountField;
@@ -7803,7 +7996,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class ConsolidatorRemark : object, System.ComponentModel.INotifyPropertyChanged {
         
         private PseudoCityCode[] pseudoCityCodeField;
@@ -7933,7 +8126,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class PseudoCityCode : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string valueField;
@@ -7965,7 +8158,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class InvoiceRemark : typeAssociatedRemark {
         
         private object itemField;
@@ -8005,7 +8198,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", IncludeInSchema=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0", IncludeInSchema=false)]
     public enum ItemChoiceType {
         
         /// <remarks/>
@@ -8026,7 +8219,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class EmailNotification : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string[] emailRefField;
@@ -8070,7 +8263,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum EmailNotificationRecipients {
         
         /// <remarks/>
@@ -8088,7 +8281,1275 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class QueuePlace : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string pseudoCityCodeField;
+        
+        private QueueSelector[] queueSelectorField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string PseudoCityCode {
+            get {
+                return this.pseudoCityCodeField;
+            }
+            set {
+                this.pseudoCityCodeField = value;
+                this.RaisePropertyChanged("PseudoCityCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("QueueSelector", Order=1)]
+        public QueueSelector[] QueueSelector {
+            get {
+                return this.queueSelectorField;
+            }
+            set {
+                this.queueSelectorField = value;
+                this.RaisePropertyChanged("QueueSelector");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class QueueSelector : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string queueField;
+        
+        private string categoryField;
+        
+        private string dateRangeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Queue {
+            get {
+                return this.queueField;
+            }
+            set {
+                this.queueField = value;
+                this.RaisePropertyChanged("Queue");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Category {
+            get {
+                return this.categoryField;
+            }
+            set {
+                this.categoryField = value;
+                this.RaisePropertyChanged("Category");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string DateRange {
+            get {
+                return this.dateRangeField;
+            }
+            set {
+                this.dateRangeField = value;
+                this.RaisePropertyChanged("DateRange");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class BaseCreateWithFormOfPaymentReq : BaseCreateReservationReq {
+        
+        private FormOfPayment[] formOfPaymentField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("FormOfPayment", Order=0)]
+        public FormOfPayment[] FormOfPayment {
+            get {
+                return this.formOfPaymentField;
+            }
+            set {
+                this.formOfPaymentField = value;
+                this.RaisePropertyChanged("FormOfPayment");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class FormOfPayment : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private object itemField;
+        
+        private typeFormOfPaymentPNRReference[] providerReservationInfoRefField;
+        
+        private typeGeneralReference[] segmentRefField;
+        
+        private string keyField;
+        
+        private string typeField;
+        
+        private string fulfillmentTypeField;
+        
+        private string fulfillmentLocationField;
+        
+        private typeFulfillmentIDType fulfillmentIDTypeField;
+        
+        private bool fulfillmentIDTypeFieldSpecified;
+        
+        private string fulfillmentIDNumberField;
+        
+        private bool isAgentTypeField;
+        
+        private string agentTextField;
+        
+        private string reuseFOPField;
+        
+        private string externalReferenceField;
+        
+        private bool reusableField;
+        
+        private string profileIDField;
+        
+        private string profileKeyField;
+        
+        private typeElementStatus elStatField;
+        
+        private bool elStatFieldSpecified;
+        
+        private bool keyOverrideField;
+        
+        private bool keyOverrideFieldSpecified;
+        
+        public FormOfPayment() {
+            this.isAgentTypeField = false;
+            this.reusableField = false;
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("AgencyPayment", typeof(typeAgencyPayment), Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("AgentVoucher", typeof(AgentVoucher), Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("Certificate", typeof(Certificate), Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("Check", typeof(Check), Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("CreditCard", typeof(CreditCard), Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("DebitCard", typeof(DebitCard), Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("DirectPayment", typeof(DirectPayment), Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("EnettVan", typeof(EnettVan), Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("MiscFormOfPayment", typeof(MiscFormOfPayment), Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("PaymentAdvice", typeof(PaymentAdvice), Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("Requisition", typeof(Requisition), Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("TicketNumber", typeof(string), Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("UnitedNations", typeof(UnitedNations), Order=0)]
+        public object Item {
+            get {
+                return this.itemField;
+            }
+            set {
+                this.itemField = value;
+                this.RaisePropertyChanged("Item");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ProviderReservationInfoRef", Order=1)]
+        public typeFormOfPaymentPNRReference[] ProviderReservationInfoRef {
+            get {
+                return this.providerReservationInfoRefField;
+            }
+            set {
+                this.providerReservationInfoRefField = value;
+                this.RaisePropertyChanged("ProviderReservationInfoRef");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("SegmentRef", Order=2)]
+        public typeGeneralReference[] SegmentRef {
+            get {
+                return this.segmentRefField;
+            }
+            set {
+                this.segmentRefField = value;
+                this.RaisePropertyChanged("SegmentRef");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Key {
+            get {
+                return this.keyField;
+            }
+            set {
+                this.keyField = value;
+                this.RaisePropertyChanged("Key");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Type {
+            get {
+                return this.typeField;
+            }
+            set {
+                this.typeField = value;
+                this.RaisePropertyChanged("Type");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string FulfillmentType {
+            get {
+                return this.fulfillmentTypeField;
+            }
+            set {
+                this.fulfillmentTypeField = value;
+                this.RaisePropertyChanged("FulfillmentType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string FulfillmentLocation {
+            get {
+                return this.fulfillmentLocationField;
+            }
+            set {
+                this.fulfillmentLocationField = value;
+                this.RaisePropertyChanged("FulfillmentLocation");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public typeFulfillmentIDType FulfillmentIDType {
+            get {
+                return this.fulfillmentIDTypeField;
+            }
+            set {
+                this.fulfillmentIDTypeField = value;
+                this.RaisePropertyChanged("FulfillmentIDType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool FulfillmentIDTypeSpecified {
+            get {
+                return this.fulfillmentIDTypeFieldSpecified;
+            }
+            set {
+                this.fulfillmentIDTypeFieldSpecified = value;
+                this.RaisePropertyChanged("FulfillmentIDTypeSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string FulfillmentIDNumber {
+            get {
+                return this.fulfillmentIDNumberField;
+            }
+            set {
+                this.fulfillmentIDNumberField = value;
+                this.RaisePropertyChanged("FulfillmentIDNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.ComponentModel.DefaultValueAttribute(false)]
+        public bool IsAgentType {
+            get {
+                return this.isAgentTypeField;
+            }
+            set {
+                this.isAgentTypeField = value;
+                this.RaisePropertyChanged("IsAgentType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string AgentText {
+            get {
+                return this.agentTextField;
+            }
+            set {
+                this.agentTextField = value;
+                this.RaisePropertyChanged("AgentText");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string ReuseFOP {
+            get {
+                return this.reuseFOPField;
+            }
+            set {
+                this.reuseFOPField = value;
+                this.RaisePropertyChanged("ReuseFOP");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string ExternalReference {
+            get {
+                return this.externalReferenceField;
+            }
+            set {
+                this.externalReferenceField = value;
+                this.RaisePropertyChanged("ExternalReference");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.ComponentModel.DefaultValueAttribute(false)]
+        public bool Reusable {
+            get {
+                return this.reusableField;
+            }
+            set {
+                this.reusableField = value;
+                this.RaisePropertyChanged("Reusable");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string ProfileID {
+            get {
+                return this.profileIDField;
+            }
+            set {
+                this.profileIDField = value;
+                this.RaisePropertyChanged("ProfileID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string ProfileKey {
+            get {
+                return this.profileKeyField;
+            }
+            set {
+                this.profileKeyField = value;
+                this.RaisePropertyChanged("ProfileKey");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public typeElementStatus ElStat {
+            get {
+                return this.elStatField;
+            }
+            set {
+                this.elStatField = value;
+                this.RaisePropertyChanged("ElStat");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ElStatSpecified {
+            get {
+                return this.elStatFieldSpecified;
+            }
+            set {
+                this.elStatFieldSpecified = value;
+                this.RaisePropertyChanged("ElStatSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public bool KeyOverride {
+            get {
+                return this.keyOverrideField;
+            }
+            set {
+                this.keyOverrideField = value;
+                this.RaisePropertyChanged("KeyOverride");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool KeyOverrideSpecified {
+            get {
+                return this.keyOverrideFieldSpecified;
+            }
+            set {
+                this.keyOverrideFieldSpecified = value;
+                this.RaisePropertyChanged("KeyOverrideSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class AgentVoucher : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string numberField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Number {
+            get {
+                return this.numberField;
+            }
+            set {
+                this.numberField = value;
+                this.RaisePropertyChanged("Number");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class Certificate : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string numberField;
+        
+        private string amountField;
+        
+        private string discountAmountField;
+        
+        private string discountPercentageField;
+        
+        private System.DateTime notValidBeforeField;
+        
+        private bool notValidBeforeFieldSpecified;
+        
+        private System.DateTime notValidAfterField;
+        
+        private bool notValidAfterFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Number {
+            get {
+                return this.numberField;
+            }
+            set {
+                this.numberField = value;
+                this.RaisePropertyChanged("Number");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                this.amountField = value;
+                this.RaisePropertyChanged("Amount");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string DiscountAmount {
+            get {
+                return this.discountAmountField;
+            }
+            set {
+                this.discountAmountField = value;
+                this.RaisePropertyChanged("DiscountAmount");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="integer")]
+        public string DiscountPercentage {
+            get {
+                return this.discountPercentageField;
+            }
+            set {
+                this.discountPercentageField = value;
+                this.RaisePropertyChanged("DiscountPercentage");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="date")]
+        public System.DateTime NotValidBefore {
+            get {
+                return this.notValidBeforeField;
+            }
+            set {
+                this.notValidBeforeField = value;
+                this.RaisePropertyChanged("NotValidBefore");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool NotValidBeforeSpecified {
+            get {
+                return this.notValidBeforeFieldSpecified;
+            }
+            set {
+                this.notValidBeforeFieldSpecified = value;
+                this.RaisePropertyChanged("NotValidBeforeSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="date")]
+        public System.DateTime NotValidAfter {
+            get {
+                return this.notValidAfterField;
+            }
+            set {
+                this.notValidAfterField = value;
+                this.RaisePropertyChanged("NotValidAfter");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool NotValidAfterSpecified {
+            get {
+                return this.notValidAfterFieldSpecified;
+            }
+            set {
+                this.notValidAfterFieldSpecified = value;
+                this.RaisePropertyChanged("NotValidAfterSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class Check : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string mICRNumberField;
+        
+        private string routingNumberField;
+        
+        private string accountNumberField;
+        
+        private string checkNumberField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string MICRNumber {
+            get {
+                return this.mICRNumberField;
+            }
+            set {
+                this.mICRNumberField = value;
+                this.RaisePropertyChanged("MICRNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string RoutingNumber {
+            get {
+                return this.routingNumberField;
+            }
+            set {
+                this.routingNumberField = value;
+                this.RaisePropertyChanged("RoutingNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string AccountNumber {
+            get {
+                return this.accountNumberField;
+            }
+            set {
+                this.accountNumberField = value;
+                this.RaisePropertyChanged("AccountNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string CheckNumber {
+            get {
+                return this.checkNumberField;
+            }
+            set {
+                this.checkNumberField = value;
+                this.RaisePropertyChanged("CheckNumber");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class CreditCard : typeCreditCardType {
+        
+        private string profileIDField;
+        
+        private string keyField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string ProfileID {
+            get {
+                return this.profileIDField;
+            }
+            set {
+                this.profileIDField = value;
+                this.RaisePropertyChanged("ProfileID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Key {
+            get {
+                return this.keyField;
+            }
+            set {
+                this.keyField = value;
+                this.RaisePropertyChanged("Key");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class DebitCard : typePaymentCard {
+        
+        private string issueNumberField;
+        
+        private string profileIDField;
+        
+        private string keyField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string IssueNumber {
+            get {
+                return this.issueNumberField;
+            }
+            set {
+                this.issueNumberField = value;
+                this.RaisePropertyChanged("IssueNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string ProfileID {
+            get {
+                return this.profileIDField;
+            }
+            set {
+                this.profileIDField = value;
+                this.RaisePropertyChanged("ProfileID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Key {
+            get {
+                return this.keyField;
+            }
+            set {
+                this.keyField = value;
+                this.RaisePropertyChanged("Key");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class DirectPayment : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string textField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Text {
+            get {
+                return this.textField;
+            }
+            set {
+                this.textField = value;
+                this.RaisePropertyChanged("Text");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class EnettVan : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string minPercentageField;
+        
+        private string maxPercentageField;
+        
+        private string expiryDaysField;
+        
+        private bool multiUseField;
+        
+        public EnettVan() {
+            this.multiUseField = true;
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="nonNegativeInteger")]
+        public string MinPercentage {
+            get {
+                return this.minPercentageField;
+            }
+            set {
+                this.minPercentageField = value;
+                this.RaisePropertyChanged("MinPercentage");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="nonNegativeInteger")]
+        public string MaxPercentage {
+            get {
+                return this.maxPercentageField;
+            }
+            set {
+                this.maxPercentageField = value;
+                this.RaisePropertyChanged("MaxPercentage");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="duration")]
+        public string ExpiryDays {
+            get {
+                return this.expiryDaysField;
+            }
+            set {
+                this.expiryDaysField = value;
+                this.RaisePropertyChanged("ExpiryDays");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.ComponentModel.DefaultValueAttribute(true)]
+        public bool MultiUse {
+            get {
+                return this.multiUseField;
+            }
+            set {
+                this.multiUseField = value;
+                this.RaisePropertyChanged("MultiUse");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class MiscFormOfPayment : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string creditCardTypeField;
+        
+        private string creditCardNumberField;
+        
+        private string expDateField;
+        
+        private string textField;
+        
+        private string categoryField;
+        
+        private bool acceptanceOverrideField;
+        
+        private bool acceptanceOverrideFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string CreditCardType {
+            get {
+                return this.creditCardTypeField;
+            }
+            set {
+                this.creditCardTypeField = value;
+                this.RaisePropertyChanged("CreditCardType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string CreditCardNumber {
+            get {
+                return this.creditCardNumberField;
+            }
+            set {
+                this.creditCardNumberField = value;
+                this.RaisePropertyChanged("CreditCardNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="gYearMonth")]
+        public string ExpDate {
+            get {
+                return this.expDateField;
+            }
+            set {
+                this.expDateField = value;
+                this.RaisePropertyChanged("ExpDate");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Text {
+            get {
+                return this.textField;
+            }
+            set {
+                this.textField = value;
+                this.RaisePropertyChanged("Text");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Category {
+            get {
+                return this.categoryField;
+            }
+            set {
+                this.categoryField = value;
+                this.RaisePropertyChanged("Category");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public bool AcceptanceOverride {
+            get {
+                return this.acceptanceOverrideField;
+            }
+            set {
+                this.acceptanceOverrideField = value;
+                this.RaisePropertyChanged("AcceptanceOverride");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool AcceptanceOverrideSpecified {
+            get {
+                return this.acceptanceOverrideFieldSpecified;
+            }
+            set {
+                this.acceptanceOverrideFieldSpecified = value;
+                this.RaisePropertyChanged("AcceptanceOverrideSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class PaymentAdvice : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string typeField;
+        
+        private string documentNumberField;
+        
+        private System.DateTime issueDateField;
+        
+        private string issueCityField;
+        
+        private string originalFOPField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Type {
+            get {
+                return this.typeField;
+            }
+            set {
+                this.typeField = value;
+                this.RaisePropertyChanged("Type");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string DocumentNumber {
+            get {
+                return this.documentNumberField;
+            }
+            set {
+                this.documentNumberField = value;
+                this.RaisePropertyChanged("DocumentNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="date")]
+        public System.DateTime IssueDate {
+            get {
+                return this.issueDateField;
+            }
+            set {
+                this.issueDateField = value;
+                this.RaisePropertyChanged("IssueDate");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string IssueCity {
+            get {
+                return this.issueCityField;
+            }
+            set {
+                this.issueCityField = value;
+                this.RaisePropertyChanged("IssueCity");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string OriginalFOP {
+            get {
+                return this.originalFOPField;
+            }
+            set {
+                this.originalFOPField = value;
+                this.RaisePropertyChanged("OriginalFOP");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class Requisition : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string numberField;
+        
+        private RequisitionCategory categoryField;
+        
+        private bool categoryFieldSpecified;
+        
+        private RequisitionType typeField;
+        
+        private bool typeFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Number {
+            get {
+                return this.numberField;
+            }
+            set {
+                this.numberField = value;
+                this.RaisePropertyChanged("Number");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public RequisitionCategory Category {
+            get {
+                return this.categoryField;
+            }
+            set {
+                this.categoryField = value;
+                this.RaisePropertyChanged("Category");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool CategorySpecified {
+            get {
+                return this.categoryFieldSpecified;
+            }
+            set {
+                this.categoryFieldSpecified = value;
+                this.RaisePropertyChanged("CategorySpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public RequisitionType Type {
+            get {
+                return this.typeField;
+            }
+            set {
+                this.typeField = value;
+                this.RaisePropertyChanged("Type");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeFieldSpecified;
+            }
+            set {
+                this.typeFieldSpecified = value;
+                this.RaisePropertyChanged("TypeSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public enum RequisitionCategory {
+        
+        /// <remarks/>
+        Government,
+        
+        /// <remarks/>
+        Other,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public enum RequisitionType {
+        
+        /// <remarks/>
+        Cash,
+        
+        /// <remarks/>
+        Credit,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public partial class UnitedNations : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string numberField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Number {
+            get {
+                return this.numberField;
+            }
+            set {
+                this.numberField = value;
+                this.RaisePropertyChanged("Number");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
+    public enum typeFulfillmentIDType {
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Bahn Card")]
+        BahnCard,
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Credit Card")]
+        CreditCard,
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Euro Cheque Card")]
+        EuroChequeCard,
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Collection Reference")]
+        CollectionReference,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class BaseSearchReq : BaseReq {
         
         private NextResultReference[] nextResultReferenceField;
@@ -8107,12 +9568,12 @@ namespace ConsoleApplication1.UtilService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.UpsellAdminPortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.UpsellAdminPortType")]
     public interface UpsellAdminPortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UpsellAdminService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UpsellAdminService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UpsellAdminService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -8132,7 +9593,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class UpsellAdminReq : BaseReq {
         
         private object itemField;
@@ -8157,7 +9618,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class AirUpsellCriteria : object, System.ComponentModel.INotifyPropertyChanged {
         
         private AirUpsellAdd[] airUpsellAddField;
@@ -8217,7 +9678,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class AirUpsellAdd : object, System.ComponentModel.INotifyPropertyChanged {
         
         private AirUpsellQualify airUpsellQualifyField;
@@ -8263,7 +9724,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class AirUpsellQualify : object, System.ComponentModel.INotifyPropertyChanged {
         
         private typeTimeSpec departureTimeField;
@@ -8341,7 +9802,7 @@ namespace ConsoleApplication1.UtilService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v33_0", Order=3)]
         public AccountCode AccountCode {
             get {
                 return this.accountCodeField;
@@ -8548,7 +10009,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typeTimeSpec : object, System.ComponentModel.INotifyPropertyChanged {
         
         private object itemField;
@@ -8595,7 +10056,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typeSpecificTime : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string timeField;
@@ -8627,7 +10088,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typeTimeRange : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string earliestTimeField;
@@ -8673,7 +10134,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typeFlexibleTimeSpec : typeTimeSpec {
         
         private typeFlexibleTimeSpecSearchExtraDays searchExtraDaysField;
@@ -8696,7 +10157,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typeFlexibleTimeSpecSearchExtraDays : object, System.ComponentModel.INotifyPropertyChanged {
         
         private int daysBeforeField;
@@ -8770,7 +10231,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class typeFlightSpec : object, System.ComponentModel.INotifyPropertyChanged {
         
         private object itemField;
@@ -8803,7 +10264,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class typeFlightNumberRange : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string flightNumberRangeStartField;
@@ -8849,7 +10310,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class typeSpecificFlightNumber : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string flightNumberField;
@@ -8881,7 +10342,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class AccountCode : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string codeField;
@@ -8955,7 +10416,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class AirUpsellOffer : object, System.ComponentModel.INotifyPropertyChanged {
         
         private AccountCode accountCodeField;
@@ -8975,7 +10436,7 @@ namespace ConsoleApplication1.UtilService {
         private bool keyOverrideFieldSpecified;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public AccountCode AccountCode {
             get {
                 return this.accountCodeField;
@@ -9085,7 +10546,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class AirUpsellUpdate : object, System.ComponentModel.INotifyPropertyChanged {
         
         private AirUpsellQualify airUpsellQualifyField;
@@ -9131,7 +10592,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class AirUpsellDelete : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string qualifyRefField;
@@ -9177,7 +10638,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class HotelUpsellCriteria : object, System.ComponentModel.INotifyPropertyChanged {
         
         private HotelUpsellAdd[] hotelUpsellAddField;
@@ -9237,7 +10698,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class HotelUpsellAdd : object, System.ComponentModel.INotifyPropertyChanged {
         
         private HotelUpsellQualify hotelUpsellQualifyField;
@@ -9283,7 +10744,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class HotelUpsellQualify : object, System.ComponentModel.INotifyPropertyChanged {
         
         private CorporateDiscountID corporateDiscountIDField;
@@ -9313,7 +10774,7 @@ namespace ConsoleApplication1.UtilService {
         private string offerRefField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public CorporateDiscountID CorporateDiscountID {
             get {
                 return this.corporateDiscountIDField;
@@ -9483,7 +10944,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class CorporateDiscountID : object, System.ComponentModel.INotifyPropertyChanged {
         
         private bool negotiatedRateCodeField;
@@ -9543,7 +11004,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class HotelUpsellOffer : object, System.ComponentModel.INotifyPropertyChanged {
         
         private CorporateDiscountID corporateDiscountIDField;
@@ -9561,7 +11022,7 @@ namespace ConsoleApplication1.UtilService {
         private bool keyOverrideFieldSpecified;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public CorporateDiscountID CorporateDiscountID {
             get {
                 return this.corporateDiscountIDField;
@@ -9659,7 +11120,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class HotelUpsellUpdate : object, System.ComponentModel.INotifyPropertyChanged {
         
         private HotelUpsellQualify hotelUpsellQualifyField;
@@ -9705,7 +11166,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class HotelUpsellDelete : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string qualifyRefField;
@@ -9751,7 +11212,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class VehicleUpsellCriteria : object, System.ComponentModel.INotifyPropertyChanged {
         
         private VehicleUpsellAdd[] vehicleUpsellAddField;
@@ -9811,7 +11272,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class VehicleUpsellAdd : object, System.ComponentModel.INotifyPropertyChanged {
         
         private VehicleUpsellQualify vehicleUpsellQualifyField;
@@ -9857,7 +11318,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class VehicleUpsellQualify : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -10349,7 +11810,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeVehicleLocation {
         
         /// <remarks/>
@@ -10401,7 +11862,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeVehicleTransmission {
         
         /// <remarks/>
@@ -10426,7 +11887,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeVehicleClass {
         
         /// <remarks/>
@@ -10553,7 +12014,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeVehicleCategory {
         
         /// <remarks/>
@@ -10629,7 +12090,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeDoorCount {
         
         /// <remarks/>
@@ -10645,7 +12106,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeRateCategory {
         
         /// <remarks/>
@@ -10693,7 +12154,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class VehicleUpsellOffer : object, System.ComponentModel.INotifyPropertyChanged {
         
         private bool airConditioningField;
@@ -10947,7 +12408,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeFuel {
         
         /// <remarks/>
@@ -10980,7 +12441,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class VehicleUpsellUpdate : object, System.ComponentModel.INotifyPropertyChanged {
         
         private VehicleUpsellQualify vehicleUpsellQualifyField;
@@ -11026,7 +12487,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class VehicleUpsellDelete : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string qualifyRefField;
@@ -11072,7 +12533,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class UpsellAdminRsp : BaseRsp {
         
         private object[] itemsField;
@@ -11097,7 +12558,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class AirUpsellRule : object, System.ComponentModel.INotifyPropertyChanged {
         
         private AirUpsellQualify airUpsellQualifyField;
@@ -11143,7 +12604,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class HotelUpsellRule : object, System.ComponentModel.INotifyPropertyChanged {
         
         private HotelUpsellQualify hotelUpsellQualifyField;
@@ -11189,7 +12650,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class VehicleUpsellRule : object, System.ComponentModel.INotifyPropertyChanged {
         
         private VehicleUpsellQualify vehicleUpsellQualifyField;
@@ -11236,7 +12697,7 @@ namespace ConsoleApplication1.UtilService {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class serviceRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.UpsellAdminReq UpsellAdminReq;
         
         public serviceRequest() {
@@ -11253,7 +12714,7 @@ namespace ConsoleApplication1.UtilService {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class serviceResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.UpsellAdminRsp UpsellAdminRsp;
         
         public serviceResponse() {
@@ -11316,12 +12777,12 @@ namespace ConsoleApplication1.UtilService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.BrandedFareAdminPortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.BrandedFareAdminPortType")]
     public interface BrandedFareAdminPortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/BrandedFareService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/BrandedFareService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/BrandedFareService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -11341,7 +12802,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class BrandedFareAdminReq : BaseReq {
         
         private FareFamilyAdd[] fareFamilyAddField;
@@ -11392,7 +12853,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class FareFamilyAdd : object, System.ComponentModel.INotifyPropertyChanged {
         
         private FareFamily fareFamilyField;
@@ -11424,7 +12885,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class FareFamily : object, System.ComponentModel.INotifyPropertyChanged {
         
         private typeFlightSpec flightSpecField;
@@ -11526,7 +12987,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class FareFamilyUpdate : object, System.ComponentModel.INotifyPropertyChanged {
         
         private FareFamily fareFamilyField;
@@ -11558,7 +13019,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class FareFamilyDelete : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string fareFamilyRefField;
@@ -11604,7 +13065,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class BrandedFareAdminRsp : BaseRsp {
         
         private FareFamily[] fareFamilyField;
@@ -11628,7 +13089,7 @@ namespace ConsoleApplication1.UtilService {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class serviceRequest1 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.BrandedFareAdminReq BrandedFareAdminReq;
         
         public serviceRequest1() {
@@ -11645,7 +13106,7 @@ namespace ConsoleApplication1.UtilService {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class serviceResponse1 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.BrandedFareAdminRsp BrandedFareAdminRsp;
         
         public serviceResponse1() {
@@ -11708,12 +13169,12 @@ namespace ConsoleApplication1.UtilService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.UpsellAdminSearchPortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.UpsellAdminSearchPortType")]
     public interface UpsellAdminSearchPortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UpsellAdminSearchService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UpsellAdminSearchService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UpsellAdminSearchService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -11733,7 +13194,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class UpsellSearchReq : BaseReq {
         
         private object itemField;
@@ -11772,7 +13233,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class AirUpsellSearchCriteria : object, System.ComponentModel.INotifyPropertyChanged {
         
         private AirUpsellOfferSearchCriteria airUpsellOfferSearchCriteriaField;
@@ -11818,7 +13279,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class AirUpsellOfferSearchCriteria : object, System.ComponentModel.INotifyPropertyChanged {
         
         private AccountCode accountCodeField;
@@ -11826,7 +13287,7 @@ namespace ConsoleApplication1.UtilService {
         private string classOfServiceField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public AccountCode AccountCode {
             get {
                 return this.accountCodeField;
@@ -11864,7 +13325,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class AirUpsellQualifySearchCriteria : UpsellSearchCriteria {
         
         private AccountCode accountCodeField;
@@ -11876,7 +13337,7 @@ namespace ConsoleApplication1.UtilService {
         private string destinationField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public AccountCode AccountCode {
             get {
                 return this.accountCodeField;
@@ -11929,7 +13390,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class UpsellSearchCriteria : object, System.ComponentModel.INotifyPropertyChanged {
         
         private EffectiveDate effectiveDateField;
@@ -11975,7 +13436,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class EffectiveDate : object, System.ComponentModel.INotifyPropertyChanged {
         
         private System.DateTime earliestDateField;
@@ -12026,7 +13487,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ExpirationDate : object, System.ComponentModel.INotifyPropertyChanged {
         
         private System.DateTime earliestDateField;
@@ -12077,7 +13538,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class HotelUpsellSearchCriteria : object, System.ComponentModel.INotifyPropertyChanged {
         
         private HotelUpsellOfferSearchCriteria hotelUpsellOfferSearchCriteriaField;
@@ -12123,7 +13584,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class HotelUpsellOfferSearchCriteria : object, System.ComponentModel.INotifyPropertyChanged {
         
         private CorporateDiscountID corporateDiscountIDField;
@@ -12131,7 +13592,7 @@ namespace ConsoleApplication1.UtilService {
         private string ratePlanTypeField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public CorporateDiscountID CorporateDiscountID {
             get {
                 return this.corporateDiscountIDField;
@@ -12169,7 +13630,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class HotelUpsellQualifySearchCriteria : UpsellSearchCriteria {
         
         private CorporateDiscountID corporateDiscountIDField;
@@ -12183,7 +13644,7 @@ namespace ConsoleApplication1.UtilService {
         private string ratePlanTypeField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public CorporateDiscountID CorporateDiscountID {
             get {
                 return this.corporateDiscountIDField;
@@ -12248,7 +13709,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class VehicleUpsellSearchCriteria : object, System.ComponentModel.INotifyPropertyChanged {
         
         private VehicleUpsellOfferSearchCriteria vehicleUpsellOfferSearchCriteriaField;
@@ -12294,7 +13755,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class VehicleUpsellOfferSearchCriteria : object, System.ComponentModel.INotifyPropertyChanged {
         
         private typeVehicleClass vehicleClassField;
@@ -12438,7 +13899,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class VehicleUpsellQualifySearchCriteria : UpsellSearchCriteria {
         
         private string vendorCodeField;
@@ -12629,7 +14090,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class UpsellSearchModifier : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string maxResultsField;
@@ -12682,7 +14143,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class UpsellSearchRsp : BaseRsp {
         
         private object[] itemsField;
@@ -12721,7 +14182,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class AirUpsellSearchResult : object, System.ComponentModel.INotifyPropertyChanged {
         
         private AirUpsellQualify[] airUpsellQualifyField;
@@ -12767,7 +14228,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class HotelUpsellSearchResult : object, System.ComponentModel.INotifyPropertyChanged {
         
         private HotelUpsellQualify[] hotelUpsellQualifyField;
@@ -12813,7 +14274,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class VehicleUpsellSearchResult : object, System.ComponentModel.INotifyPropertyChanged {
         
         private VehicleUpsellQualify[] vehicleUpsellQualifyField;
@@ -12860,7 +14321,7 @@ namespace ConsoleApplication1.UtilService {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class serviceRequest2 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.UpsellSearchReq UpsellSearchReq;
         
         public serviceRequest2() {
@@ -12877,7 +14338,7 @@ namespace ConsoleApplication1.UtilService {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class serviceResponse2 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.UpsellSearchRsp UpsellSearchRsp;
         
         public serviceResponse2() {
@@ -12940,12 +14401,12 @@ namespace ConsoleApplication1.UtilService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.UtilCreditCardAuthPortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.UtilCreditCardAuthPortType")]
     public interface UtilCreditCardAuthPortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/CreditCardAuthorizationService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/CreditCardAuthorizationService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/CreditCardAuthorizationService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -12965,7 +14426,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class CreditCardAuthReq : BaseReq {
         
         private string locatorCodeField;
@@ -12975,7 +14436,7 @@ namespace ConsoleApplication1.UtilService {
         private string platingCarrierField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public string LocatorCode {
             get {
                 return this.locatorCodeField;
@@ -13016,7 +14477,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class CreditCardPaymentAuth : object, System.ComponentModel.INotifyPropertyChanged {
         
         private object itemField;
@@ -13028,8 +14489,8 @@ namespace ConsoleApplication1.UtilService {
         private bool performAVSField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("CreditCard", typeof(CreditCard), Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("FormOfPaymentRef", typeof(FormOfPaymentRef), Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("CreditCard", typeof(CreditCard), Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("FormOfPaymentRef", typeof(FormOfPaymentRef), Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public object Item {
             get {
                 return this.itemField;
@@ -13091,44 +14552,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
-    public partial class CreditCard : typeCreditCardType {
-        
-        private string profileIDField;
-        
-        private string keyField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string ProfileID {
-            get {
-                return this.profileIDField;
-            }
-            set {
-                this.profileIDField = value;
-                this.RaisePropertyChanged("ProfileID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Key {
-            get {
-                return this.keyField;
-            }
-            set {
-                this.keyField = value;
-                this.RaisePropertyChanged("Key");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class FormOfPaymentRef : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -13160,13 +14584,13 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class CreditCardAuthRsp : BaseRsp {
         
         private CreditCardAuth[] creditCardAuthField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("CreditCardAuth", Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("CreditCardAuth", Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public CreditCardAuth[] CreditCardAuth {
             get {
                 return this.creditCardAuthField;
@@ -13183,7 +14607,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class CreditCardAuth : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -13356,7 +14780,7 @@ namespace ConsoleApplication1.UtilService {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class serviceRequest3 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.CreditCardAuthReq CreditCardAuthReq;
         
         public serviceRequest3() {
@@ -13373,7 +14797,7 @@ namespace ConsoleApplication1.UtilService {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class serviceResponse3 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.CreditCardAuthRsp CreditCardAuthRsp;
         
         public serviceResponse3() {
@@ -13436,12 +14860,12 @@ namespace ConsoleApplication1.UtilService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.DocumentTransmissionPortType")]
-    public interface DocumentTransmissionPortType {
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.McoCreateAgencyFeePortType")]
+    public interface McoCreateAgencyFeePortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -13461,429 +14885,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
-    public partial class DocumentTransmissionReq : BaseReq {
-        
-        private string itemField;
-        
-        private ItemChoiceType1 itemElementNameField;
-        
-        private TemplateData[] templateDataField;
-        
-        private EmailHeaderInfo emailHeaderInfoField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("LocatorCode", typeof(string), Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("TicketNumber", typeof(string), Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
-        [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
-        public string Item {
-            get {
-                return this.itemField;
-            }
-            set {
-                this.itemField = value;
-                this.RaisePropertyChanged("Item");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public ItemChoiceType1 ItemElementName {
-            get {
-                return this.itemElementNameField;
-            }
-            set {
-                this.itemElementNameField = value;
-                this.RaisePropertyChanged("ItemElementName");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("TemplateData", Order=2)]
-        public TemplateData[] TemplateData {
-            get {
-                return this.templateDataField;
-            }
-            set {
-                this.templateDataField = value;
-                this.RaisePropertyChanged("TemplateData");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public EmailHeaderInfo EmailHeaderInfo {
-            get {
-                return this.emailHeaderInfoField;
-            }
-            set {
-                this.emailHeaderInfoField = value;
-                this.RaisePropertyChanged("EmailHeaderInfo");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", IncludeInSchema=false)]
-    public enum ItemChoiceType1 {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("http://www.travelport.com/schema/common_v29_0:LocatorCode")]
-        LocatorCode,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("http://www.travelport.com/schema/common_v29_0:TicketNumber")]
-        TicketNumber,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
-    public partial class TemplateData : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string fieldNameField;
-        
-        private string valueField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string FieldName {
-            get {
-                return this.fieldNameField;
-            }
-            set {
-                this.fieldNameField = value;
-                this.RaisePropertyChanged("FieldName");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlTextAttribute()]
-        public string Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-                this.RaisePropertyChanged("Value");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
-    public partial class EmailHeaderInfo : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private EmailHeaderInfoRecipient[] recipientField;
-        
-        private typeEmailAddress fromField;
-        
-        private string subjectField;
-        
-        private string templateNameField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Recipient", Order=0)]
-        public EmailHeaderInfoRecipient[] Recipient {
-            get {
-                return this.recipientField;
-            }
-            set {
-                this.recipientField = value;
-                this.RaisePropertyChanged("Recipient");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public typeEmailAddress From {
-            get {
-                return this.fromField;
-            }
-            set {
-                this.fromField = value;
-                this.RaisePropertyChanged("From");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Subject {
-            get {
-                return this.subjectField;
-            }
-            set {
-                this.subjectField = value;
-                this.RaisePropertyChanged("Subject");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string TemplateName {
-            get {
-                return this.templateNameField;
-            }
-            set {
-                this.templateNameField = value;
-                this.RaisePropertyChanged("TemplateName");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
-    public partial class EmailHeaderInfoRecipient : typeEmailAddress {
-        
-        private typeEmailRecipientType recipientTypeField;
-        
-        public EmailHeaderInfoRecipient() {
-            this.recipientTypeField = typeEmailRecipientType.TO;
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        [System.ComponentModel.DefaultValueAttribute(typeEmailRecipientType.TO)]
-        public typeEmailRecipientType RecipientType {
-            get {
-                return this.recipientTypeField;
-            }
-            set {
-                this.recipientTypeField = value;
-                this.RaisePropertyChanged("RecipientType");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v29_0")]
-    public enum typeEmailRecipientType {
-        
-        /// <remarks/>
-        TO,
-        
-        /// <remarks/>
-        CC,
-        
-        /// <remarks/>
-        BCC,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v29_0")]
-    public partial class typeEmailAddress : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private Email emailField;
-        
-        private string simpleNameField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
-        public Email Email {
-            get {
-                return this.emailField;
-            }
-            set {
-                this.emailField = value;
-                this.RaisePropertyChanged("Email");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", Order=1)]
-        public string SimpleName {
-            get {
-                return this.simpleNameField;
-            }
-            set {
-                this.simpleNameField = value;
-                this.RaisePropertyChanged("SimpleName");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
-    public partial class DocumentTransmissionRsp : BaseRsp {
-        
-        private EmailHeaderInfo emailHeaderInfoField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public EmailHeaderInfo EmailHeaderInfo {
-            get {
-                return this.emailHeaderInfoField;
-            }
-            set {
-                this.emailHeaderInfoField = value;
-                this.RaisePropertyChanged("EmailHeaderInfo");
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceRequest4 {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
-        public ConsoleApplication1.UtilService.DocumentTransmissionReq DocumentTransmissionReq;
-        
-        public serviceRequest4() {
-        }
-        
-        public serviceRequest4(ConsoleApplication1.UtilService.DocumentTransmissionReq DocumentTransmissionReq) {
-            this.DocumentTransmissionReq = DocumentTransmissionReq;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceResponse4 {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
-        public ConsoleApplication1.UtilService.DocumentTransmissionRsp DocumentTransmissionRsp;
-        
-        public serviceResponse4() {
-        }
-        
-        public serviceResponse4(ConsoleApplication1.UtilService.DocumentTransmissionRsp DocumentTransmissionRsp) {
-            this.DocumentTransmissionRsp = DocumentTransmissionRsp;
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DocumentTransmissionPortTypeChannel : ConsoleApplication1.UtilService.DocumentTransmissionPortType, System.ServiceModel.IClientChannel {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DocumentTransmissionPortTypeClient : System.ServiceModel.ClientBase<ConsoleApplication1.UtilService.DocumentTransmissionPortType>, ConsoleApplication1.UtilService.DocumentTransmissionPortType {
-        
-        public DocumentTransmissionPortTypeClient() {
-        }
-        
-        public DocumentTransmissionPortTypeClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
-        }
-        
-        public DocumentTransmissionPortTypeClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
-        }
-        
-        public DocumentTransmissionPortTypeClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
-        }
-        
-        public DocumentTransmissionPortTypeClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication1.UtilService.serviceResponse4 ConsoleApplication1.UtilService.DocumentTransmissionPortType.service(ConsoleApplication1.UtilService.serviceRequest4 request) {
-            return base.Channel.service(request);
-        }
-        
-        public ConsoleApplication1.UtilService.DocumentTransmissionRsp service(ConsoleApplication1.UtilService.DocumentTransmissionReq DocumentTransmissionReq) {
-            ConsoleApplication1.UtilService.serviceRequest4 inValue = new ConsoleApplication1.UtilService.serviceRequest4();
-            inValue.DocumentTransmissionReq = DocumentTransmissionReq;
-            ConsoleApplication1.UtilService.serviceResponse4 retVal = ((ConsoleApplication1.UtilService.DocumentTransmissionPortType)(this)).service(inValue);
-            return retVal.DocumentTransmissionRsp;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse4> ConsoleApplication1.UtilService.DocumentTransmissionPortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest4 request) {
-            return base.Channel.serviceAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse4> serviceAsync(ConsoleApplication1.UtilService.DocumentTransmissionReq DocumentTransmissionReq) {
-            ConsoleApplication1.UtilService.serviceRequest4 inValue = new ConsoleApplication1.UtilService.serviceRequest4();
-            inValue.DocumentTransmissionReq = DocumentTransmissionReq;
-            return ((ConsoleApplication1.UtilService.DocumentTransmissionPortType)(this)).serviceAsync(inValue);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.McoCreateAgencyFeePortType")]
-    public interface McoCreateAgencyFeePortType {
-        
-        // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typePaymentCard))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeRemark))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeRemarkWithTravelerRef))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SeatAssignment))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseCoreReq))]
-        ConsoleApplication1.UtilService.serviceResponse5 service(ConsoleApplication1.UtilService.serviceRequest5 request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse5> serviceAsync(ConsoleApplication1.UtilService.serviceRequest5 request);
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class CreateAgencyFeeMcoReq : BaseReq {
         
         private Name nameField;
@@ -13903,7 +14905,7 @@ namespace ConsoleApplication1.UtilService {
         private string ticketNumberField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public Name Name {
             get {
                 return this.nameField;
@@ -13915,8 +14917,8 @@ namespace ConsoleApplication1.UtilService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("FormOfPayment", typeof(FormOfPayment), Namespace="http://www.travelport.com/schema/common_v29_0", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute("FormOfPaymentRef", typeof(FormOfPaymentRef), Namespace="http://www.travelport.com/schema/common_v29_0", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute("FormOfPayment", typeof(FormOfPayment), Namespace="http://www.travelport.com/schema/common_v33_0", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute("FormOfPaymentRef", typeof(FormOfPaymentRef), Namespace="http://www.travelport.com/schema/common_v33_0", Order=1)]
         public object Item {
             get {
                 return this.itemField;
@@ -13928,7 +14930,7 @@ namespace ConsoleApplication1.UtilService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("GeneralRemark", Namespace="http://www.travelport.com/schema/common_v29_0", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute("GeneralRemark", Namespace="http://www.travelport.com/schema/common_v33_0", Order=2)]
         public GeneralRemark[] GeneralRemark {
             get {
                 return this.generalRemarkField;
@@ -13940,7 +14942,7 @@ namespace ConsoleApplication1.UtilService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("AccountingRemark", Namespace="http://www.travelport.com/schema/common_v29_0", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute("AccountingRemark", Namespace="http://www.travelport.com/schema/common_v33_0", Order=3)]
         public AccountingRemark[] AccountingRemark {
             get {
                 return this.accountingRemarkField;
@@ -14005,7 +15007,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class Name : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string prefixField;
@@ -14107,1178 +15109,13 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
-    public partial class FormOfPayment : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private object itemField;
-        
-        private typeFormOfPaymentPNRReference[] providerReservationInfoRefField;
-        
-        private typeGeneralReference[] segmentRefField;
-        
-        private string keyField;
-        
-        private string typeField;
-        
-        private string fulfillmentTypeField;
-        
-        private string fulfillmentLocationField;
-        
-        private typeFulfillmentIDType fulfillmentIDTypeField;
-        
-        private bool fulfillmentIDTypeFieldSpecified;
-        
-        private string fulfillmentIDNumberField;
-        
-        private bool isAgentTypeField;
-        
-        private string agentTextField;
-        
-        private string reuseFOPField;
-        
-        private string externalReferenceField;
-        
-        private bool reusableField;
-        
-        private string profileIDField;
-        
-        private string profileKeyField;
-        
-        private typeElementStatus elStatField;
-        
-        private bool elStatFieldSpecified;
-        
-        private bool keyOverrideField;
-        
-        private bool keyOverrideFieldSpecified;
-        
-        public FormOfPayment() {
-            this.isAgentTypeField = false;
-            this.reusableField = false;
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("AgencyPayment", typeof(typeAgencyPayment), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("AgentVoucher", typeof(AgentVoucher), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("Certificate", typeof(Certificate), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("Check", typeof(Check), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("CreditCard", typeof(CreditCard), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("DebitCard", typeof(DebitCard), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("DirectPayment", typeof(DirectPayment), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("MiscFormOfPayment", typeof(MiscFormOfPayment), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("PaymentAdvice", typeof(PaymentAdvice), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("Requisition", typeof(Requisition), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("TicketNumber", typeof(string), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("UnitedNations", typeof(UnitedNations), Order=0)]
-        public object Item {
-            get {
-                return this.itemField;
-            }
-            set {
-                this.itemField = value;
-                this.RaisePropertyChanged("Item");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ProviderReservationInfoRef", Order=1)]
-        public typeFormOfPaymentPNRReference[] ProviderReservationInfoRef {
-            get {
-                return this.providerReservationInfoRefField;
-            }
-            set {
-                this.providerReservationInfoRefField = value;
-                this.RaisePropertyChanged("ProviderReservationInfoRef");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("SegmentRef", Order=2)]
-        public typeGeneralReference[] SegmentRef {
-            get {
-                return this.segmentRefField;
-            }
-            set {
-                this.segmentRefField = value;
-                this.RaisePropertyChanged("SegmentRef");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Key {
-            get {
-                return this.keyField;
-            }
-            set {
-                this.keyField = value;
-                this.RaisePropertyChanged("Key");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Type {
-            get {
-                return this.typeField;
-            }
-            set {
-                this.typeField = value;
-                this.RaisePropertyChanged("Type");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string FulfillmentType {
-            get {
-                return this.fulfillmentTypeField;
-            }
-            set {
-                this.fulfillmentTypeField = value;
-                this.RaisePropertyChanged("FulfillmentType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string FulfillmentLocation {
-            get {
-                return this.fulfillmentLocationField;
-            }
-            set {
-                this.fulfillmentLocationField = value;
-                this.RaisePropertyChanged("FulfillmentLocation");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public typeFulfillmentIDType FulfillmentIDType {
-            get {
-                return this.fulfillmentIDTypeField;
-            }
-            set {
-                this.fulfillmentIDTypeField = value;
-                this.RaisePropertyChanged("FulfillmentIDType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool FulfillmentIDTypeSpecified {
-            get {
-                return this.fulfillmentIDTypeFieldSpecified;
-            }
-            set {
-                this.fulfillmentIDTypeFieldSpecified = value;
-                this.RaisePropertyChanged("FulfillmentIDTypeSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string FulfillmentIDNumber {
-            get {
-                return this.fulfillmentIDNumberField;
-            }
-            set {
-                this.fulfillmentIDNumberField = value;
-                this.RaisePropertyChanged("FulfillmentIDNumber");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        [System.ComponentModel.DefaultValueAttribute(false)]
-        public bool IsAgentType {
-            get {
-                return this.isAgentTypeField;
-            }
-            set {
-                this.isAgentTypeField = value;
-                this.RaisePropertyChanged("IsAgentType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string AgentText {
-            get {
-                return this.agentTextField;
-            }
-            set {
-                this.agentTextField = value;
-                this.RaisePropertyChanged("AgentText");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string ReuseFOP {
-            get {
-                return this.reuseFOPField;
-            }
-            set {
-                this.reuseFOPField = value;
-                this.RaisePropertyChanged("ReuseFOP");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string ExternalReference {
-            get {
-                return this.externalReferenceField;
-            }
-            set {
-                this.externalReferenceField = value;
-                this.RaisePropertyChanged("ExternalReference");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        [System.ComponentModel.DefaultValueAttribute(false)]
-        public bool Reusable {
-            get {
-                return this.reusableField;
-            }
-            set {
-                this.reusableField = value;
-                this.RaisePropertyChanged("Reusable");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string ProfileID {
-            get {
-                return this.profileIDField;
-            }
-            set {
-                this.profileIDField = value;
-                this.RaisePropertyChanged("ProfileID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string ProfileKey {
-            get {
-                return this.profileKeyField;
-            }
-            set {
-                this.profileKeyField = value;
-                this.RaisePropertyChanged("ProfileKey");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public typeElementStatus ElStat {
-            get {
-                return this.elStatField;
-            }
-            set {
-                this.elStatField = value;
-                this.RaisePropertyChanged("ElStat");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool ElStatSpecified {
-            get {
-                return this.elStatFieldSpecified;
-            }
-            set {
-                this.elStatFieldSpecified = value;
-                this.RaisePropertyChanged("ElStatSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public bool KeyOverride {
-            get {
-                return this.keyOverrideField;
-            }
-            set {
-                this.keyOverrideField = value;
-                this.RaisePropertyChanged("KeyOverride");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool KeyOverrideSpecified {
-            get {
-                return this.keyOverrideFieldSpecified;
-            }
-            set {
-                this.keyOverrideFieldSpecified = value;
-                this.RaisePropertyChanged("KeyOverrideSpecified");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
-    public partial class typeAgencyPayment : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string agencyBillingIdentifierField;
-        
-        private string agencyBillingNumberField;
-        
-        private string agencyBillingPasswordField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string AgencyBillingIdentifier {
-            get {
-                return this.agencyBillingIdentifierField;
-            }
-            set {
-                this.agencyBillingIdentifierField = value;
-                this.RaisePropertyChanged("AgencyBillingIdentifier");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string AgencyBillingNumber {
-            get {
-                return this.agencyBillingNumberField;
-            }
-            set {
-                this.agencyBillingNumberField = value;
-                this.RaisePropertyChanged("AgencyBillingNumber");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string AgencyBillingPassword {
-            get {
-                return this.agencyBillingPasswordField;
-            }
-            set {
-                this.agencyBillingPasswordField = value;
-                this.RaisePropertyChanged("AgencyBillingPassword");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
-    public partial class AgentVoucher : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string numberField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Number {
-            get {
-                return this.numberField;
-            }
-            set {
-                this.numberField = value;
-                this.RaisePropertyChanged("Number");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
-    public partial class Certificate : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string numberField;
-        
-        private string amountField;
-        
-        private string discountAmountField;
-        
-        private string discountPercentageField;
-        
-        private System.DateTime notValidBeforeField;
-        
-        private bool notValidBeforeFieldSpecified;
-        
-        private System.DateTime notValidAfterField;
-        
-        private bool notValidAfterFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Number {
-            get {
-                return this.numberField;
-            }
-            set {
-                this.numberField = value;
-                this.RaisePropertyChanged("Number");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Amount {
-            get {
-                return this.amountField;
-            }
-            set {
-                this.amountField = value;
-                this.RaisePropertyChanged("Amount");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string DiscountAmount {
-            get {
-                return this.discountAmountField;
-            }
-            set {
-                this.discountAmountField = value;
-                this.RaisePropertyChanged("DiscountAmount");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(DataType="integer")]
-        public string DiscountPercentage {
-            get {
-                return this.discountPercentageField;
-            }
-            set {
-                this.discountPercentageField = value;
-                this.RaisePropertyChanged("DiscountPercentage");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(DataType="date")]
-        public System.DateTime NotValidBefore {
-            get {
-                return this.notValidBeforeField;
-            }
-            set {
-                this.notValidBeforeField = value;
-                this.RaisePropertyChanged("NotValidBefore");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool NotValidBeforeSpecified {
-            get {
-                return this.notValidBeforeFieldSpecified;
-            }
-            set {
-                this.notValidBeforeFieldSpecified = value;
-                this.RaisePropertyChanged("NotValidBeforeSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(DataType="date")]
-        public System.DateTime NotValidAfter {
-            get {
-                return this.notValidAfterField;
-            }
-            set {
-                this.notValidAfterField = value;
-                this.RaisePropertyChanged("NotValidAfter");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool NotValidAfterSpecified {
-            get {
-                return this.notValidAfterFieldSpecified;
-            }
-            set {
-                this.notValidAfterFieldSpecified = value;
-                this.RaisePropertyChanged("NotValidAfterSpecified");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
-    public partial class Check : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string mICRNumberField;
-        
-        private string routingNumberField;
-        
-        private string accountNumberField;
-        
-        private string checkNumberField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string MICRNumber {
-            get {
-                return this.mICRNumberField;
-            }
-            set {
-                this.mICRNumberField = value;
-                this.RaisePropertyChanged("MICRNumber");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string RoutingNumber {
-            get {
-                return this.routingNumberField;
-            }
-            set {
-                this.routingNumberField = value;
-                this.RaisePropertyChanged("RoutingNumber");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string AccountNumber {
-            get {
-                return this.accountNumberField;
-            }
-            set {
-                this.accountNumberField = value;
-                this.RaisePropertyChanged("AccountNumber");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string CheckNumber {
-            get {
-                return this.checkNumberField;
-            }
-            set {
-                this.checkNumberField = value;
-                this.RaisePropertyChanged("CheckNumber");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
-    public partial class DebitCard : typePaymentCard {
-        
-        private string issueNumberField;
-        
-        private string profileIDField;
-        
-        private string keyField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string IssueNumber {
-            get {
-                return this.issueNumberField;
-            }
-            set {
-                this.issueNumberField = value;
-                this.RaisePropertyChanged("IssueNumber");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string ProfileID {
-            get {
-                return this.profileIDField;
-            }
-            set {
-                this.profileIDField = value;
-                this.RaisePropertyChanged("ProfileID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Key {
-            get {
-                return this.keyField;
-            }
-            set {
-                this.keyField = value;
-                this.RaisePropertyChanged("Key");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
-    public partial class DirectPayment : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string textField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Text {
-            get {
-                return this.textField;
-            }
-            set {
-                this.textField = value;
-                this.RaisePropertyChanged("Text");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
-    public partial class MiscFormOfPayment : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string creditCardTypeField;
-        
-        private string creditCardNumberField;
-        
-        private string expDateField;
-        
-        private string textField;
-        
-        private string categoryField;
-        
-        private bool acceptanceOverrideField;
-        
-        private bool acceptanceOverrideFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string CreditCardType {
-            get {
-                return this.creditCardTypeField;
-            }
-            set {
-                this.creditCardTypeField = value;
-                this.RaisePropertyChanged("CreditCardType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string CreditCardNumber {
-            get {
-                return this.creditCardNumberField;
-            }
-            set {
-                this.creditCardNumberField = value;
-                this.RaisePropertyChanged("CreditCardNumber");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(DataType="gYearMonth")]
-        public string ExpDate {
-            get {
-                return this.expDateField;
-            }
-            set {
-                this.expDateField = value;
-                this.RaisePropertyChanged("ExpDate");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Text {
-            get {
-                return this.textField;
-            }
-            set {
-                this.textField = value;
-                this.RaisePropertyChanged("Text");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Category {
-            get {
-                return this.categoryField;
-            }
-            set {
-                this.categoryField = value;
-                this.RaisePropertyChanged("Category");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public bool AcceptanceOverride {
-            get {
-                return this.acceptanceOverrideField;
-            }
-            set {
-                this.acceptanceOverrideField = value;
-                this.RaisePropertyChanged("AcceptanceOverride");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool AcceptanceOverrideSpecified {
-            get {
-                return this.acceptanceOverrideFieldSpecified;
-            }
-            set {
-                this.acceptanceOverrideFieldSpecified = value;
-                this.RaisePropertyChanged("AcceptanceOverrideSpecified");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
-    public partial class PaymentAdvice : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string typeField;
-        
-        private string documentNumberField;
-        
-        private System.DateTime issueDateField;
-        
-        private string issueCityField;
-        
-        private string originalFOPField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Type {
-            get {
-                return this.typeField;
-            }
-            set {
-                this.typeField = value;
-                this.RaisePropertyChanged("Type");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string DocumentNumber {
-            get {
-                return this.documentNumberField;
-            }
-            set {
-                this.documentNumberField = value;
-                this.RaisePropertyChanged("DocumentNumber");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(DataType="date")]
-        public System.DateTime IssueDate {
-            get {
-                return this.issueDateField;
-            }
-            set {
-                this.issueDateField = value;
-                this.RaisePropertyChanged("IssueDate");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string IssueCity {
-            get {
-                return this.issueCityField;
-            }
-            set {
-                this.issueCityField = value;
-                this.RaisePropertyChanged("IssueCity");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string OriginalFOP {
-            get {
-                return this.originalFOPField;
-            }
-            set {
-                this.originalFOPField = value;
-                this.RaisePropertyChanged("OriginalFOP");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
-    public partial class Requisition : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string numberField;
-        
-        private RequisitionCategory categoryField;
-        
-        private bool categoryFieldSpecified;
-        
-        private RequisitionType typeField;
-        
-        private bool typeFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Number {
-            get {
-                return this.numberField;
-            }
-            set {
-                this.numberField = value;
-                this.RaisePropertyChanged("Number");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public RequisitionCategory Category {
-            get {
-                return this.categoryField;
-            }
-            set {
-                this.categoryField = value;
-                this.RaisePropertyChanged("Category");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool CategorySpecified {
-            get {
-                return this.categoryFieldSpecified;
-            }
-            set {
-                this.categoryFieldSpecified = value;
-                this.RaisePropertyChanged("CategorySpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public RequisitionType Type {
-            get {
-                return this.typeField;
-            }
-            set {
-                this.typeField = value;
-                this.RaisePropertyChanged("Type");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool TypeSpecified {
-            get {
-                return this.typeFieldSpecified;
-            }
-            set {
-                this.typeFieldSpecified = value;
-                this.RaisePropertyChanged("TypeSpecified");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
-    public enum RequisitionCategory {
-        
-        /// <remarks/>
-        Government,
-        
-        /// <remarks/>
-        Other,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
-    public enum RequisitionType {
-        
-        /// <remarks/>
-        Cash,
-        
-        /// <remarks/>
-        Credit,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
-    public partial class UnitedNations : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string numberField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Number {
-            get {
-                return this.numberField;
-            }
-            set {
-                this.numberField = value;
-                this.RaisePropertyChanged("Number");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
-    public partial class typeFormOfPaymentPNRReference : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string keyField;
-        
-        private bool providerReservationLevelField;
-        
-        public typeFormOfPaymentPNRReference() {
-            this.providerReservationLevelField = true;
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Key {
-            get {
-                return this.keyField;
-            }
-            set {
-                this.keyField = value;
-                this.RaisePropertyChanged("Key");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        [System.ComponentModel.DefaultValueAttribute(true)]
-        public bool ProviderReservationLevel {
-            get {
-                return this.providerReservationLevelField;
-            }
-            set {
-                this.providerReservationLevelField = value;
-                this.RaisePropertyChanged("ProviderReservationLevel");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
-    public partial class typeGeneralReference : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string keyField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Key {
-            get {
-                return this.keyField;
-            }
-            set {
-                this.keyField = value;
-                this.RaisePropertyChanged("Key");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
-    public enum typeFulfillmentIDType {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Bahn Card")]
-        BahnCard,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Credit Card")]
-        CreditCard,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Euro Cheque Card")]
-        EuroChequeCard,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("Collection Reference")]
-        CollectionReference,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class CreateAgencyFeeMcoRsp : BaseRsp {
         
         private MCO mCOField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public MCO MCO {
             get {
                 return this.mCOField;
@@ -15295,7 +15132,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class MCO : MCOInformation {
         
         private FormOfPayment[] formOfPaymentField;
@@ -15640,7 +15477,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class Endorsement : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string valueField;
@@ -15672,7 +15509,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class MCOExchangeInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private FormOfPayment formOfPaymentField;
@@ -15788,7 +15625,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class ExchangedCoupon : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string ticketNumberField;
@@ -15834,7 +15671,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class MCOFeeInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string amountField;
@@ -15906,7 +15743,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum MCOFeeInfoFeeAppliesToInd {
         
         /// <remarks/>
@@ -15923,7 +15760,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class MCORemark : object, System.ComponentModel.INotifyPropertyChanged {
         
         private bool additionalRmkField;
@@ -15983,7 +15820,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class MCOPriceData : object, System.ComponentModel.INotifyPropertyChanged {
         
         private typeTaxInfo[] taxInfoField;
@@ -16072,7 +15909,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typeTaxInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private TaxDetail[] taxDetailField;
@@ -16314,7 +16151,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class TaxDetail : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string amountField;
@@ -16402,7 +16239,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/air_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/air_v33_0")]
     public partial class typeTaxInfoWithPaymentRef : typeTaxInfo {
         
         private PaymentRef[] paymentRefField;
@@ -16425,7 +16262,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v33_0")]
     public partial class PaymentRef : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -16457,7 +16294,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class MCOPriceDataCommission : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string amountField;
@@ -16503,7 +16340,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class StockControl : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string typeField;
@@ -16549,7 +16386,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class MCOText : typeFreeFormText {
         
         private string typeField;
@@ -16572,7 +16409,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class typeFreeFormText : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string valueField;
@@ -16604,7 +16441,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class MCOInformation : object, System.ComponentModel.INotifyPropertyChanged {
         
         private PassengerInfo[] passengerInfoField;
@@ -16678,7 +16515,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class PassengerInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private Name nameField;
@@ -16737,15 +16574,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceRequest5 {
+    public partial class serviceRequest4 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.CreateAgencyFeeMcoReq CreateAgencyFeeMcoReq;
         
-        public serviceRequest5() {
+        public serviceRequest4() {
         }
         
-        public serviceRequest5(ConsoleApplication1.UtilService.CreateAgencyFeeMcoReq CreateAgencyFeeMcoReq) {
+        public serviceRequest4(ConsoleApplication1.UtilService.CreateAgencyFeeMcoReq CreateAgencyFeeMcoReq) {
             this.CreateAgencyFeeMcoReq = CreateAgencyFeeMcoReq;
         }
     }
@@ -16754,15 +16591,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceResponse5 {
+    public partial class serviceResponse4 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.CreateAgencyFeeMcoRsp CreateAgencyFeeMcoRsp;
         
-        public serviceResponse5() {
+        public serviceResponse4() {
         }
         
-        public serviceResponse5(ConsoleApplication1.UtilService.CreateAgencyFeeMcoRsp CreateAgencyFeeMcoRsp) {
+        public serviceResponse4(ConsoleApplication1.UtilService.CreateAgencyFeeMcoRsp CreateAgencyFeeMcoRsp) {
             this.CreateAgencyFeeMcoRsp = CreateAgencyFeeMcoRsp;
         }
     }
@@ -16795,36 +16632,36 @@ namespace ConsoleApplication1.UtilService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication1.UtilService.serviceResponse5 ConsoleApplication1.UtilService.McoCreateAgencyFeePortType.service(ConsoleApplication1.UtilService.serviceRequest5 request) {
+        ConsoleApplication1.UtilService.serviceResponse4 ConsoleApplication1.UtilService.McoCreateAgencyFeePortType.service(ConsoleApplication1.UtilService.serviceRequest4 request) {
             return base.Channel.service(request);
         }
         
         public ConsoleApplication1.UtilService.CreateAgencyFeeMcoRsp service(ConsoleApplication1.UtilService.CreateAgencyFeeMcoReq CreateAgencyFeeMcoReq) {
-            ConsoleApplication1.UtilService.serviceRequest5 inValue = new ConsoleApplication1.UtilService.serviceRequest5();
+            ConsoleApplication1.UtilService.serviceRequest4 inValue = new ConsoleApplication1.UtilService.serviceRequest4();
             inValue.CreateAgencyFeeMcoReq = CreateAgencyFeeMcoReq;
-            ConsoleApplication1.UtilService.serviceResponse5 retVal = ((ConsoleApplication1.UtilService.McoCreateAgencyFeePortType)(this)).service(inValue);
+            ConsoleApplication1.UtilService.serviceResponse4 retVal = ((ConsoleApplication1.UtilService.McoCreateAgencyFeePortType)(this)).service(inValue);
             return retVal.CreateAgencyFeeMcoRsp;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse5> ConsoleApplication1.UtilService.McoCreateAgencyFeePortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest5 request) {
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse4> ConsoleApplication1.UtilService.McoCreateAgencyFeePortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest4 request) {
             return base.Channel.serviceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse5> serviceAsync(ConsoleApplication1.UtilService.CreateAgencyFeeMcoReq CreateAgencyFeeMcoReq) {
-            ConsoleApplication1.UtilService.serviceRequest5 inValue = new ConsoleApplication1.UtilService.serviceRequest5();
+        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse4> serviceAsync(ConsoleApplication1.UtilService.CreateAgencyFeeMcoReq CreateAgencyFeeMcoReq) {
+            ConsoleApplication1.UtilService.serviceRequest4 inValue = new ConsoleApplication1.UtilService.serviceRequest4();
             inValue.CreateAgencyFeeMcoReq = CreateAgencyFeeMcoReq;
             return ((ConsoleApplication1.UtilService.McoCreateAgencyFeePortType)(this)).serviceAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.McoVoidPortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.McoVoidPortType")]
     public interface McoVoidPortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -16833,10 +16670,10 @@ namespace ConsoleApplication1.UtilService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeRemarkWithTravelerRef))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SeatAssignment))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseCoreReq))]
-        ConsoleApplication1.UtilService.serviceResponse6 service(ConsoleApplication1.UtilService.serviceRequest6 request);
+        ConsoleApplication1.UtilService.serviceResponse5 service(ConsoleApplication1.UtilService.serviceRequest5 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse6> serviceAsync(ConsoleApplication1.UtilService.serviceRequest6 request);
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse5> serviceAsync(ConsoleApplication1.UtilService.serviceRequest5 request);
     }
     
     /// <remarks/>
@@ -16844,7 +16681,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class McoVoidReq : BaseReq {
         
         private GeneralRemark[] generalRemarkField;
@@ -16858,7 +16695,7 @@ namespace ConsoleApplication1.UtilService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("GeneralRemark", Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("GeneralRemark", Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public GeneralRemark[] GeneralRemark {
             get {
                 return this.generalRemarkField;
@@ -16900,13 +16737,13 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class McoVoidRsp : BaseRsp {
         
         private MCO mCOField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public MCO MCO {
             get {
                 return this.mCOField;
@@ -16922,15 +16759,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceRequest6 {
+    public partial class serviceRequest5 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.McoVoidReq McoVoidReq;
         
-        public serviceRequest6() {
+        public serviceRequest5() {
         }
         
-        public serviceRequest6(ConsoleApplication1.UtilService.McoVoidReq McoVoidReq) {
+        public serviceRequest5(ConsoleApplication1.UtilService.McoVoidReq McoVoidReq) {
             this.McoVoidReq = McoVoidReq;
         }
     }
@@ -16939,15 +16776,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceResponse6 {
+    public partial class serviceResponse5 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.McoVoidRsp McoVoidRsp;
         
-        public serviceResponse6() {
+        public serviceResponse5() {
         }
         
-        public serviceResponse6(ConsoleApplication1.UtilService.McoVoidRsp McoVoidRsp) {
+        public serviceResponse5(ConsoleApplication1.UtilService.McoVoidRsp McoVoidRsp) {
             this.McoVoidRsp = McoVoidRsp;
         }
     }
@@ -16980,36 +16817,36 @@ namespace ConsoleApplication1.UtilService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication1.UtilService.serviceResponse6 ConsoleApplication1.UtilService.McoVoidPortType.service(ConsoleApplication1.UtilService.serviceRequest6 request) {
+        ConsoleApplication1.UtilService.serviceResponse5 ConsoleApplication1.UtilService.McoVoidPortType.service(ConsoleApplication1.UtilService.serviceRequest5 request) {
             return base.Channel.service(request);
         }
         
         public ConsoleApplication1.UtilService.McoVoidRsp service(ConsoleApplication1.UtilService.McoVoidReq McoVoidReq) {
-            ConsoleApplication1.UtilService.serviceRequest6 inValue = new ConsoleApplication1.UtilService.serviceRequest6();
+            ConsoleApplication1.UtilService.serviceRequest5 inValue = new ConsoleApplication1.UtilService.serviceRequest5();
             inValue.McoVoidReq = McoVoidReq;
-            ConsoleApplication1.UtilService.serviceResponse6 retVal = ((ConsoleApplication1.UtilService.McoVoidPortType)(this)).service(inValue);
+            ConsoleApplication1.UtilService.serviceResponse5 retVal = ((ConsoleApplication1.UtilService.McoVoidPortType)(this)).service(inValue);
             return retVal.McoVoidRsp;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse6> ConsoleApplication1.UtilService.McoVoidPortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest6 request) {
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse5> ConsoleApplication1.UtilService.McoVoidPortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest5 request) {
             return base.Channel.serviceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse6> serviceAsync(ConsoleApplication1.UtilService.McoVoidReq McoVoidReq) {
-            ConsoleApplication1.UtilService.serviceRequest6 inValue = new ConsoleApplication1.UtilService.serviceRequest6();
+        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse5> serviceAsync(ConsoleApplication1.UtilService.McoVoidReq McoVoidReq) {
+            ConsoleApplication1.UtilService.serviceRequest5 inValue = new ConsoleApplication1.UtilService.serviceRequest5();
             inValue.McoVoidReq = McoVoidReq;
             return ((ConsoleApplication1.UtilService.McoVoidPortType)(this)).serviceAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.ReportRetrievePortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.ReportRetrievePortType")]
     public interface ReportRetrievePortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -17018,10 +16855,10 @@ namespace ConsoleApplication1.UtilService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeRemarkWithTravelerRef))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SeatAssignment))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseCoreReq))]
-        ConsoleApplication1.UtilService.serviceResponse7 service(ConsoleApplication1.UtilService.serviceRequest7 request);
+        ConsoleApplication1.UtilService.serviceResponse6 service(ConsoleApplication1.UtilService.serviceRequest6 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse7> serviceAsync(ConsoleApplication1.UtilService.serviceRequest7 request);
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse6> serviceAsync(ConsoleApplication1.UtilService.serviceRequest6 request);
     }
     
     /// <remarks/>
@@ -17029,7 +16866,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class MirReportRetrieveReq : BaseReq {
         
         private string locatorCodeField;
@@ -17078,7 +16915,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public enum MirReportRetrieveReqReportFormat {
         
         /// <remarks/>
@@ -17096,7 +16933,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class MirReportRetrieveRsp : BaseRsp {
         
         private string reportField;
@@ -17118,15 +16955,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceRequest7 {
+    public partial class serviceRequest6 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.MirReportRetrieveReq MirReportRetrieveReq;
         
-        public serviceRequest7() {
+        public serviceRequest6() {
         }
         
-        public serviceRequest7(ConsoleApplication1.UtilService.MirReportRetrieveReq MirReportRetrieveReq) {
+        public serviceRequest6(ConsoleApplication1.UtilService.MirReportRetrieveReq MirReportRetrieveReq) {
             this.MirReportRetrieveReq = MirReportRetrieveReq;
         }
     }
@@ -17135,15 +16972,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceResponse7 {
+    public partial class serviceResponse6 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.MirReportRetrieveRsp MirReportRetrieveRsp;
         
-        public serviceResponse7() {
+        public serviceResponse6() {
         }
         
-        public serviceResponse7(ConsoleApplication1.UtilService.MirReportRetrieveRsp MirReportRetrieveRsp) {
+        public serviceResponse6(ConsoleApplication1.UtilService.MirReportRetrieveRsp MirReportRetrieveRsp) {
             this.MirReportRetrieveRsp = MirReportRetrieveRsp;
         }
     }
@@ -17176,36 +17013,36 @@ namespace ConsoleApplication1.UtilService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication1.UtilService.serviceResponse7 ConsoleApplication1.UtilService.ReportRetrievePortType.service(ConsoleApplication1.UtilService.serviceRequest7 request) {
+        ConsoleApplication1.UtilService.serviceResponse6 ConsoleApplication1.UtilService.ReportRetrievePortType.service(ConsoleApplication1.UtilService.serviceRequest6 request) {
             return base.Channel.service(request);
         }
         
         public ConsoleApplication1.UtilService.MirReportRetrieveRsp service(ConsoleApplication1.UtilService.MirReportRetrieveReq MirReportRetrieveReq) {
-            ConsoleApplication1.UtilService.serviceRequest7 inValue = new ConsoleApplication1.UtilService.serviceRequest7();
+            ConsoleApplication1.UtilService.serviceRequest6 inValue = new ConsoleApplication1.UtilService.serviceRequest6();
             inValue.MirReportRetrieveReq = MirReportRetrieveReq;
-            ConsoleApplication1.UtilService.serviceResponse7 retVal = ((ConsoleApplication1.UtilService.ReportRetrievePortType)(this)).service(inValue);
+            ConsoleApplication1.UtilService.serviceResponse6 retVal = ((ConsoleApplication1.UtilService.ReportRetrievePortType)(this)).service(inValue);
             return retVal.MirReportRetrieveRsp;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse7> ConsoleApplication1.UtilService.ReportRetrievePortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest7 request) {
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse6> ConsoleApplication1.UtilService.ReportRetrievePortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest6 request) {
             return base.Channel.serviceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse7> serviceAsync(ConsoleApplication1.UtilService.MirReportRetrieveReq MirReportRetrieveReq) {
-            ConsoleApplication1.UtilService.serviceRequest7 inValue = new ConsoleApplication1.UtilService.serviceRequest7();
+        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse6> serviceAsync(ConsoleApplication1.UtilService.MirReportRetrieveReq MirReportRetrieveReq) {
+            ConsoleApplication1.UtilService.serviceRequest6 inValue = new ConsoleApplication1.UtilService.serviceRequest6();
             inValue.MirReportRetrieveReq = MirReportRetrieveReq;
             return ((ConsoleApplication1.UtilService.ReportRetrievePortType)(this)).serviceAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.McoSearchPortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.McoSearchPortType")]
     public interface McoSearchPortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -17214,10 +17051,10 @@ namespace ConsoleApplication1.UtilService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeRemarkWithTravelerRef))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SeatAssignment))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseCoreReq))]
-        ConsoleApplication1.UtilService.serviceResponse8 service(ConsoleApplication1.UtilService.serviceRequest8 request);
+        ConsoleApplication1.UtilService.serviceResponse7 service(ConsoleApplication1.UtilService.serviceRequest7 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse8> serviceAsync(ConsoleApplication1.UtilService.serviceRequest8 request);
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse7> serviceAsync(ConsoleApplication1.UtilService.serviceRequest7 request);
     }
     
     /// <remarks/>
@@ -17225,7 +17062,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class McoSearchReq : BaseReq {
         
         private Name nameField;
@@ -17241,7 +17078,7 @@ namespace ConsoleApplication1.UtilService {
         private McoSearchModifiers mcoSearchModifiersField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public Name Name {
             get {
                 return this.nameField;
@@ -17253,7 +17090,7 @@ namespace ConsoleApplication1.UtilService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Carrier", Namespace="http://www.travelport.com/schema/common_v29_0", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute("Carrier", Namespace="http://www.travelport.com/schema/common_v33_0", Order=1)]
         public Carrier[] Carrier {
             get {
                 return this.carrierField;
@@ -17265,7 +17102,7 @@ namespace ConsoleApplication1.UtilService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Airport", Namespace="http://www.travelport.com/schema/common_v29_0", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute("Airport", Namespace="http://www.travelport.com/schema/common_v33_0", Order=2)]
         public Airport[] Airport {
             get {
                 return this.airportField;
@@ -17277,7 +17114,7 @@ namespace ConsoleApplication1.UtilService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v33_0", Order=3)]
         public string TicketNumber {
             get {
                 return this.ticketNumberField;
@@ -17318,7 +17155,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class Carrier : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string codeField;
@@ -17350,7 +17187,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class Airport : Location {
         
         private string codeField;
@@ -17373,7 +17210,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class Location : object, System.ComponentModel.INotifyPropertyChanged {
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -17391,7 +17228,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class McoSearchModifiers : object, System.ComponentModel.INotifyPropertyChanged {
         
         private typeMCOType typeField;
@@ -17514,7 +17351,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeMCOType {
         
         /// <remarks/>
@@ -17530,7 +17367,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeMCOStatus {
         
         /// <remarks/>
@@ -17554,7 +17391,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class McoSearchRsp : BaseRsp {
         
         private McoSearchResult[] mcoSearchResultField;
@@ -17577,7 +17414,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class McoSearchResult : object, System.ComponentModel.INotifyPropertyChanged {
         
         private Name nameField;
@@ -17593,7 +17430,7 @@ namespace ConsoleApplication1.UtilService {
         private string locatorCodeField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public Name Name {
             get {
                 return this.nameField;
@@ -17678,15 +17515,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceRequest8 {
+    public partial class serviceRequest7 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.McoSearchReq McoSearchReq;
         
-        public serviceRequest8() {
+        public serviceRequest7() {
         }
         
-        public serviceRequest8(ConsoleApplication1.UtilService.McoSearchReq McoSearchReq) {
+        public serviceRequest7(ConsoleApplication1.UtilService.McoSearchReq McoSearchReq) {
             this.McoSearchReq = McoSearchReq;
         }
     }
@@ -17695,15 +17532,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceResponse8 {
+    public partial class serviceResponse7 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.McoSearchRsp McoSearchRsp;
         
-        public serviceResponse8() {
+        public serviceResponse7() {
         }
         
-        public serviceResponse8(ConsoleApplication1.UtilService.McoSearchRsp McoSearchRsp) {
+        public serviceResponse7(ConsoleApplication1.UtilService.McoSearchRsp McoSearchRsp) {
             this.McoSearchRsp = McoSearchRsp;
         }
     }
@@ -17736,36 +17573,36 @@ namespace ConsoleApplication1.UtilService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication1.UtilService.serviceResponse8 ConsoleApplication1.UtilService.McoSearchPortType.service(ConsoleApplication1.UtilService.serviceRequest8 request) {
+        ConsoleApplication1.UtilService.serviceResponse7 ConsoleApplication1.UtilService.McoSearchPortType.service(ConsoleApplication1.UtilService.serviceRequest7 request) {
             return base.Channel.service(request);
         }
         
         public ConsoleApplication1.UtilService.McoSearchRsp service(ConsoleApplication1.UtilService.McoSearchReq McoSearchReq) {
-            ConsoleApplication1.UtilService.serviceRequest8 inValue = new ConsoleApplication1.UtilService.serviceRequest8();
+            ConsoleApplication1.UtilService.serviceRequest7 inValue = new ConsoleApplication1.UtilService.serviceRequest7();
             inValue.McoSearchReq = McoSearchReq;
-            ConsoleApplication1.UtilService.serviceResponse8 retVal = ((ConsoleApplication1.UtilService.McoSearchPortType)(this)).service(inValue);
+            ConsoleApplication1.UtilService.serviceResponse7 retVal = ((ConsoleApplication1.UtilService.McoSearchPortType)(this)).service(inValue);
             return retVal.McoSearchRsp;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse8> ConsoleApplication1.UtilService.McoSearchPortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest8 request) {
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse7> ConsoleApplication1.UtilService.McoSearchPortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest7 request) {
             return base.Channel.serviceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse8> serviceAsync(ConsoleApplication1.UtilService.McoSearchReq McoSearchReq) {
-            ConsoleApplication1.UtilService.serviceRequest8 inValue = new ConsoleApplication1.UtilService.serviceRequest8();
+        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse7> serviceAsync(ConsoleApplication1.UtilService.McoSearchReq McoSearchReq) {
+            ConsoleApplication1.UtilService.serviceRequest7 inValue = new ConsoleApplication1.UtilService.serviceRequest7();
             inValue.McoSearchReq = McoSearchReq;
             return ((ConsoleApplication1.UtilService.McoSearchPortType)(this)).serviceAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.MctCountPortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.MctCountPortType")]
     public interface MctCountPortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -17774,10 +17611,10 @@ namespace ConsoleApplication1.UtilService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeRemarkWithTravelerRef))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SeatAssignment))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseCoreReq))]
-        ConsoleApplication1.UtilService.serviceResponse9 service(ConsoleApplication1.UtilService.serviceRequest9 request);
+        ConsoleApplication1.UtilService.serviceResponse8 service(ConsoleApplication1.UtilService.serviceRequest8 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse9> serviceAsync(ConsoleApplication1.UtilService.serviceRequest9 request);
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse8> serviceAsync(ConsoleApplication1.UtilService.serviceRequest8 request);
     }
     
     /// <remarks/>
@@ -17785,7 +17622,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class MctCountReq : BaseReq {
         
         private MctSearch mctSearchField;
@@ -17808,7 +17645,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class MctSearch : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string arriveStationField;
@@ -18048,7 +17885,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v33_0")]
     public enum typeMctConnection {
         
         /// <remarks/>
@@ -18069,7 +17906,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class MctCountRsp : BaseRsp {
         
         private MctCount[] mctCountField;
@@ -18092,7 +17929,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class MctCount : object, System.ComponentModel.INotifyPropertyChanged {
         
         private typeMctConnection connectionField;
@@ -18151,15 +17988,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceRequest9 {
+    public partial class serviceRequest8 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.MctCountReq MctCountReq;
         
-        public serviceRequest9() {
+        public serviceRequest8() {
         }
         
-        public serviceRequest9(ConsoleApplication1.UtilService.MctCountReq MctCountReq) {
+        public serviceRequest8(ConsoleApplication1.UtilService.MctCountReq MctCountReq) {
             this.MctCountReq = MctCountReq;
         }
     }
@@ -18168,15 +18005,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceResponse9 {
+    public partial class serviceResponse8 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.MctCountRsp MctCountRsp;
         
-        public serviceResponse9() {
+        public serviceResponse8() {
         }
         
-        public serviceResponse9(ConsoleApplication1.UtilService.MctCountRsp MctCountRsp) {
+        public serviceResponse8(ConsoleApplication1.UtilService.MctCountRsp MctCountRsp) {
             this.MctCountRsp = MctCountRsp;
         }
     }
@@ -18209,36 +18046,36 @@ namespace ConsoleApplication1.UtilService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication1.UtilService.serviceResponse9 ConsoleApplication1.UtilService.MctCountPortType.service(ConsoleApplication1.UtilService.serviceRequest9 request) {
+        ConsoleApplication1.UtilService.serviceResponse8 ConsoleApplication1.UtilService.MctCountPortType.service(ConsoleApplication1.UtilService.serviceRequest8 request) {
             return base.Channel.service(request);
         }
         
         public ConsoleApplication1.UtilService.MctCountRsp service(ConsoleApplication1.UtilService.MctCountReq MctCountReq) {
-            ConsoleApplication1.UtilService.serviceRequest9 inValue = new ConsoleApplication1.UtilService.serviceRequest9();
+            ConsoleApplication1.UtilService.serviceRequest8 inValue = new ConsoleApplication1.UtilService.serviceRequest8();
             inValue.MctCountReq = MctCountReq;
-            ConsoleApplication1.UtilService.serviceResponse9 retVal = ((ConsoleApplication1.UtilService.MctCountPortType)(this)).service(inValue);
+            ConsoleApplication1.UtilService.serviceResponse8 retVal = ((ConsoleApplication1.UtilService.MctCountPortType)(this)).service(inValue);
             return retVal.MctCountRsp;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse9> ConsoleApplication1.UtilService.MctCountPortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest9 request) {
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse8> ConsoleApplication1.UtilService.MctCountPortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest8 request) {
             return base.Channel.serviceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse9> serviceAsync(ConsoleApplication1.UtilService.MctCountReq MctCountReq) {
-            ConsoleApplication1.UtilService.serviceRequest9 inValue = new ConsoleApplication1.UtilService.serviceRequest9();
+        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse8> serviceAsync(ConsoleApplication1.UtilService.MctCountReq MctCountReq) {
+            ConsoleApplication1.UtilService.serviceRequest8 inValue = new ConsoleApplication1.UtilService.serviceRequest8();
             inValue.MctCountReq = MctCountReq;
             return ((ConsoleApplication1.UtilService.MctCountPortType)(this)).serviceAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.MctLookupPortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.MctLookupPortType")]
     public interface MctLookupPortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -18247,10 +18084,10 @@ namespace ConsoleApplication1.UtilService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeRemarkWithTravelerRef))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SeatAssignment))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseCoreReq))]
-        ConsoleApplication1.UtilService.serviceResponse10 service(ConsoleApplication1.UtilService.serviceRequest10 request);
+        ConsoleApplication1.UtilService.serviceResponse9 service(ConsoleApplication1.UtilService.serviceRequest9 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse10> serviceAsync(ConsoleApplication1.UtilService.serviceRequest10 request);
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse9> serviceAsync(ConsoleApplication1.UtilService.serviceRequest9 request);
     }
     
     /// <remarks/>
@@ -18258,7 +18095,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class MctLookupReq : BaseReq {
         
         private object itemField;
@@ -18282,13 +18119,13 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class MctQuery : object, System.ComponentModel.INotifyPropertyChanged {
         
         private typeBaseAirSegment[] airSegmentField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("AirSegment", Namespace="http://www.travelport.com/schema/air_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("AirSegment", Namespace="http://www.travelport.com/schema/air_v33_0", Order=0)]
         public typeBaseAirSegment[] AirSegment {
             get {
                 return this.airSegmentField;
@@ -18314,7 +18151,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/air_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/air_v33_0")]
     public partial class typeBaseAirSegment : Segment {
         
         private SponsoredFltInfo sponsoredFltInfoField;
@@ -18423,8 +18260,18 @@ namespace ConsoleApplication1.UtilService {
         
         private string railCoachNumberField;
         
+        private System.DateTime bookingDateField;
+        
+        private bool bookingDateFieldSpecified;
+        
+        private bool flownSegmentField;
+        
+        private bool scheduleChangeField;
+        
         public typeBaseAirSegment() {
             this.changeOfPlaneField = false;
+            this.flownSegmentField = false;
+            this.scheduleChangeField = false;
         }
         
         /// <remarks/>
@@ -18512,7 +18359,7 @@ namespace ConsoleApplication1.UtilService {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("SellMessage", Namespace="http://www.travelport.com/schema/common_v29_0", Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute("SellMessage", Namespace="http://www.travelport.com/schema/common_v33_0", Order=7)]
         public string[] SellMessage {
             get {
                 return this.sellMessageField;
@@ -19063,6 +18910,56 @@ namespace ConsoleApplication1.UtilService {
                 this.RaisePropertyChanged("RailCoachNumber");
             }
         }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="date")]
+        public System.DateTime BookingDate {
+            get {
+                return this.bookingDateField;
+            }
+            set {
+                this.bookingDateField = value;
+                this.RaisePropertyChanged("BookingDate");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool BookingDateSpecified {
+            get {
+                return this.bookingDateFieldSpecified;
+            }
+            set {
+                this.bookingDateFieldSpecified = value;
+                this.RaisePropertyChanged("BookingDateSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.ComponentModel.DefaultValueAttribute(false)]
+        public bool FlownSegment {
+            get {
+                return this.flownSegmentField;
+            }
+            set {
+                this.flownSegmentField = value;
+                this.RaisePropertyChanged("FlownSegment");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.ComponentModel.DefaultValueAttribute(false)]
+        public bool ScheduleChange {
+            get {
+                return this.scheduleChangeField;
+            }
+            set {
+                this.scheduleChangeField = value;
+                this.RaisePropertyChanged("ScheduleChange");
+            }
+        }
     }
     
     /// <remarks/>
@@ -19070,7 +18967,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v33_0")]
     public partial class SponsoredFltInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string sponsoredLNBField;
@@ -19130,7 +19027,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v33_0")]
     public partial class CodeshareInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string operatingCarrierField;
@@ -19190,7 +19087,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v33_0")]
     public partial class AirAvailInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private BookingCodeInfo[] bookingCodeInfoField;
@@ -19264,7 +19161,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v33_0")]
     public partial class BookingCodeInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string cabinClassField;
@@ -19310,7 +19207,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v33_0")]
     public partial class AirAvailInfoFareTokenInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string fareInfoRefField;
@@ -19356,7 +19253,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v33_0")]
     public partial class FlightDetails : object, System.ComponentModel.INotifyPropertyChanged {
         
         private Connection connectionField;
@@ -19640,7 +19537,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v33_0")]
     public partial class Connection : object, System.ComponentModel.INotifyPropertyChanged {
         
         private FareNote fareNoteField;
@@ -19879,7 +19776,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v33_0")]
     public partial class FareNote : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -19887,6 +19784,8 @@ namespace ConsoleApplication1.UtilService {
         private string precedenceField;
         
         private string noteNameField;
+        
+        private string fareInfoMessageRefField;
         
         private typeElementStatus elStatField;
         
@@ -19931,6 +19830,18 @@ namespace ConsoleApplication1.UtilService {
             set {
                 this.noteNameField = value;
                 this.RaisePropertyChanged("NoteName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string FareInfoMessageRef {
+            get {
+                return this.fareInfoMessageRefField;
+            }
+            set {
+                this.fareInfoMessageRefField = value;
+                this.RaisePropertyChanged("FareInfoMessageRef");
             }
         }
         
@@ -20007,7 +19918,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/air_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/air_v33_0")]
     public enum typeIgnoreStopOver {
         
         /// <remarks/>
@@ -20023,7 +19934,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/air_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/air_v33_0")]
     public enum typeMealService {
         
         /// <remarks/>
@@ -20077,7 +19988,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v33_0")]
     public partial class FlightDetailsRef : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -20109,7 +20020,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v33_0")]
     public partial class AlternateLocationDistanceRef : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -20141,7 +20052,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/air_v33_0")]
     public partial class RailCoachDetails : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string railCoachNumberField;
@@ -20213,7 +20124,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/air_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/air_v33_0")]
     public enum typeEticketability {
         
         /// <remarks/>
@@ -20235,7 +20146,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class Segment : object, System.ComponentModel.INotifyPropertyChanged {
         
         private SegmentRemark[] segmentRemarkField;
@@ -20393,7 +20304,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class SegmentRemark : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -20439,7 +20350,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class MctLookupRsp : BaseRsp {
         
         private MctStandard[] mctStandardField;
@@ -20476,7 +20387,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class MctStandard : object, System.ComponentModel.INotifyPropertyChanged {
         
         private typeMctConnection typeField;
@@ -20522,7 +20433,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class MctException : object, System.ComponentModel.INotifyPropertyChanged {
         
         private int timeField;
@@ -20875,15 +20786,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceRequest10 {
+    public partial class serviceRequest9 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.MctLookupReq MctLookupReq;
         
-        public serviceRequest10() {
+        public serviceRequest9() {
         }
         
-        public serviceRequest10(ConsoleApplication1.UtilService.MctLookupReq MctLookupReq) {
+        public serviceRequest9(ConsoleApplication1.UtilService.MctLookupReq MctLookupReq) {
             this.MctLookupReq = MctLookupReq;
         }
     }
@@ -20892,15 +20803,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceResponse10 {
+    public partial class serviceResponse9 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.MctLookupRsp MctLookupRsp;
         
-        public serviceResponse10() {
+        public serviceResponse9() {
         }
         
-        public serviceResponse10(ConsoleApplication1.UtilService.MctLookupRsp MctLookupRsp) {
+        public serviceResponse9(ConsoleApplication1.UtilService.MctLookupRsp MctLookupRsp) {
             this.MctLookupRsp = MctLookupRsp;
         }
     }
@@ -20933,36 +20844,36 @@ namespace ConsoleApplication1.UtilService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication1.UtilService.serviceResponse10 ConsoleApplication1.UtilService.MctLookupPortType.service(ConsoleApplication1.UtilService.serviceRequest10 request) {
+        ConsoleApplication1.UtilService.serviceResponse9 ConsoleApplication1.UtilService.MctLookupPortType.service(ConsoleApplication1.UtilService.serviceRequest9 request) {
             return base.Channel.service(request);
         }
         
         public ConsoleApplication1.UtilService.MctLookupRsp service(ConsoleApplication1.UtilService.MctLookupReq MctLookupReq) {
-            ConsoleApplication1.UtilService.serviceRequest10 inValue = new ConsoleApplication1.UtilService.serviceRequest10();
+            ConsoleApplication1.UtilService.serviceRequest9 inValue = new ConsoleApplication1.UtilService.serviceRequest9();
             inValue.MctLookupReq = MctLookupReq;
-            ConsoleApplication1.UtilService.serviceResponse10 retVal = ((ConsoleApplication1.UtilService.MctLookupPortType)(this)).service(inValue);
+            ConsoleApplication1.UtilService.serviceResponse9 retVal = ((ConsoleApplication1.UtilService.MctLookupPortType)(this)).service(inValue);
             return retVal.MctLookupRsp;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse10> ConsoleApplication1.UtilService.MctLookupPortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest10 request) {
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse9> ConsoleApplication1.UtilService.MctLookupPortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest9 request) {
             return base.Channel.serviceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse10> serviceAsync(ConsoleApplication1.UtilService.MctLookupReq MctLookupReq) {
-            ConsoleApplication1.UtilService.serviceRequest10 inValue = new ConsoleApplication1.UtilService.serviceRequest10();
+        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse9> serviceAsync(ConsoleApplication1.UtilService.MctLookupReq MctLookupReq) {
+            ConsoleApplication1.UtilService.serviceRequest9 inValue = new ConsoleApplication1.UtilService.serviceRequest9();
             inValue.MctLookupReq = MctLookupReq;
             return ((ConsoleApplication1.UtilService.MctLookupPortType)(this)).serviceAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.CalculateTaxPortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.CalculateTaxPortType")]
     public interface CalculateTaxPortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -20971,10 +20882,10 @@ namespace ConsoleApplication1.UtilService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeRemarkWithTravelerRef))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SeatAssignment))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseCoreReq))]
-        ConsoleApplication1.UtilService.serviceResponse11 service(ConsoleApplication1.UtilService.serviceRequest11 request);
+        ConsoleApplication1.UtilService.serviceResponse10 service(ConsoleApplication1.UtilService.serviceRequest10 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse11> serviceAsync(ConsoleApplication1.UtilService.serviceRequest11 request);
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse10> serviceAsync(ConsoleApplication1.UtilService.serviceRequest10 request);
     }
     
     /// <remarks/>
@@ -20982,7 +20893,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class CalculateTaxReq : BaseReq {
         
         private TaxCalcInfo[] taxCalcInfoField;
@@ -21005,7 +20916,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class TaxCalcInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string originField;
@@ -21107,7 +21018,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class CalculateTaxRsp : BaseRsp {
         
         private CalculateTaxResult calculateTaxResultField;
@@ -21130,7 +21041,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class CalculateTaxResult : object, System.ComponentModel.INotifyPropertyChanged {
         
         private TaxCalcInfo[] taxCalcInfoField;
@@ -21203,15 +21114,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceRequest11 {
+    public partial class serviceRequest10 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.CalculateTaxReq CalculateTaxReq;
         
-        public serviceRequest11() {
+        public serviceRequest10() {
         }
         
-        public serviceRequest11(ConsoleApplication1.UtilService.CalculateTaxReq CalculateTaxReq) {
+        public serviceRequest10(ConsoleApplication1.UtilService.CalculateTaxReq CalculateTaxReq) {
             this.CalculateTaxReq = CalculateTaxReq;
         }
     }
@@ -21220,15 +21131,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceResponse11 {
+    public partial class serviceResponse10 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.CalculateTaxRsp CalculateTaxRsp;
         
-        public serviceResponse11() {
+        public serviceResponse10() {
         }
         
-        public serviceResponse11(ConsoleApplication1.UtilService.CalculateTaxRsp CalculateTaxRsp) {
+        public serviceResponse10(ConsoleApplication1.UtilService.CalculateTaxRsp CalculateTaxRsp) {
             this.CalculateTaxRsp = CalculateTaxRsp;
         }
     }
@@ -21261,36 +21172,36 @@ namespace ConsoleApplication1.UtilService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication1.UtilService.serviceResponse11 ConsoleApplication1.UtilService.CalculateTaxPortType.service(ConsoleApplication1.UtilService.serviceRequest11 request) {
+        ConsoleApplication1.UtilService.serviceResponse10 ConsoleApplication1.UtilService.CalculateTaxPortType.service(ConsoleApplication1.UtilService.serviceRequest10 request) {
             return base.Channel.service(request);
         }
         
         public ConsoleApplication1.UtilService.CalculateTaxRsp service(ConsoleApplication1.UtilService.CalculateTaxReq CalculateTaxReq) {
-            ConsoleApplication1.UtilService.serviceRequest11 inValue = new ConsoleApplication1.UtilService.serviceRequest11();
+            ConsoleApplication1.UtilService.serviceRequest10 inValue = new ConsoleApplication1.UtilService.serviceRequest10();
             inValue.CalculateTaxReq = CalculateTaxReq;
-            ConsoleApplication1.UtilService.serviceResponse11 retVal = ((ConsoleApplication1.UtilService.CalculateTaxPortType)(this)).service(inValue);
+            ConsoleApplication1.UtilService.serviceResponse10 retVal = ((ConsoleApplication1.UtilService.CalculateTaxPortType)(this)).service(inValue);
             return retVal.CalculateTaxRsp;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse11> ConsoleApplication1.UtilService.CalculateTaxPortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest11 request) {
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse10> ConsoleApplication1.UtilService.CalculateTaxPortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest10 request) {
             return base.Channel.serviceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse11> serviceAsync(ConsoleApplication1.UtilService.CalculateTaxReq CalculateTaxReq) {
-            ConsoleApplication1.UtilService.serviceRequest11 inValue = new ConsoleApplication1.UtilService.serviceRequest11();
+        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse10> serviceAsync(ConsoleApplication1.UtilService.CalculateTaxReq CalculateTaxReq) {
+            ConsoleApplication1.UtilService.serviceRequest10 inValue = new ConsoleApplication1.UtilService.serviceRequest10();
             inValue.CalculateTaxReq = CalculateTaxReq;
             return ((ConsoleApplication1.UtilService.CalculateTaxPortType)(this)).serviceAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.ContentProviderRetrievePortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.ContentProviderRetrievePortType")]
     public interface ContentProviderRetrievePortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -21299,10 +21210,10 @@ namespace ConsoleApplication1.UtilService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeRemarkWithTravelerRef))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SeatAssignment))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseCoreReq))]
-        ConsoleApplication1.UtilService.serviceResponse12 service(ConsoleApplication1.UtilService.serviceRequest12 request);
+        ConsoleApplication1.UtilService.serviceResponse11 service(ConsoleApplication1.UtilService.serviceRequest11 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse12> serviceAsync(ConsoleApplication1.UtilService.serviceRequest12 request);
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse11> serviceAsync(ConsoleApplication1.UtilService.serviceRequest11 request);
     }
     
     /// <remarks/>
@@ -21310,7 +21221,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ContentProviderRetrieveReq : BaseReq {
         
         private string providerCodeField;
@@ -21364,7 +21275,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v33_0")]
     public enum typeShowProvidersType {
         
         /// <remarks/>
@@ -21379,7 +21290,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ContentProviderRetrieveRsp : BaseRsp {
         
         private ContentProvider[] contentProviderField;
@@ -21402,7 +21313,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ContentProvider : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string providerCodeField;
@@ -21665,7 +21576,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public enum ContentProviderAgencyCredentials {
         
         /// <remarks/>
@@ -21681,7 +21592,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v33_0")]
     public enum typeProviderSupplierCapabilityType {
         
         /// <remarks/>
@@ -21698,15 +21609,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceRequest12 {
+    public partial class serviceRequest11 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.ContentProviderRetrieveReq ContentProviderRetrieveReq;
         
-        public serviceRequest12() {
+        public serviceRequest11() {
         }
         
-        public serviceRequest12(ConsoleApplication1.UtilService.ContentProviderRetrieveReq ContentProviderRetrieveReq) {
+        public serviceRequest11(ConsoleApplication1.UtilService.ContentProviderRetrieveReq ContentProviderRetrieveReq) {
             this.ContentProviderRetrieveReq = ContentProviderRetrieveReq;
         }
     }
@@ -21715,15 +21626,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceResponse12 {
+    public partial class serviceResponse11 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.ContentProviderRetrieveRsp ContentProviderRetrieveRsp;
         
-        public serviceResponse12() {
+        public serviceResponse11() {
         }
         
-        public serviceResponse12(ConsoleApplication1.UtilService.ContentProviderRetrieveRsp ContentProviderRetrieveRsp) {
+        public serviceResponse11(ConsoleApplication1.UtilService.ContentProviderRetrieveRsp ContentProviderRetrieveRsp) {
             this.ContentProviderRetrieveRsp = ContentProviderRetrieveRsp;
         }
     }
@@ -21756,36 +21667,36 @@ namespace ConsoleApplication1.UtilService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication1.UtilService.serviceResponse12 ConsoleApplication1.UtilService.ContentProviderRetrievePortType.service(ConsoleApplication1.UtilService.serviceRequest12 request) {
+        ConsoleApplication1.UtilService.serviceResponse11 ConsoleApplication1.UtilService.ContentProviderRetrievePortType.service(ConsoleApplication1.UtilService.serviceRequest11 request) {
             return base.Channel.service(request);
         }
         
         public ConsoleApplication1.UtilService.ContentProviderRetrieveRsp service(ConsoleApplication1.UtilService.ContentProviderRetrieveReq ContentProviderRetrieveReq) {
-            ConsoleApplication1.UtilService.serviceRequest12 inValue = new ConsoleApplication1.UtilService.serviceRequest12();
+            ConsoleApplication1.UtilService.serviceRequest11 inValue = new ConsoleApplication1.UtilService.serviceRequest11();
             inValue.ContentProviderRetrieveReq = ContentProviderRetrieveReq;
-            ConsoleApplication1.UtilService.serviceResponse12 retVal = ((ConsoleApplication1.UtilService.ContentProviderRetrievePortType)(this)).service(inValue);
+            ConsoleApplication1.UtilService.serviceResponse11 retVal = ((ConsoleApplication1.UtilService.ContentProviderRetrievePortType)(this)).service(inValue);
             return retVal.ContentProviderRetrieveRsp;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse12> ConsoleApplication1.UtilService.ContentProviderRetrievePortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest12 request) {
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse11> ConsoleApplication1.UtilService.ContentProviderRetrievePortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest11 request) {
             return base.Channel.serviceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse12> serviceAsync(ConsoleApplication1.UtilService.ContentProviderRetrieveReq ContentProviderRetrieveReq) {
-            ConsoleApplication1.UtilService.serviceRequest12 inValue = new ConsoleApplication1.UtilService.serviceRequest12();
+        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse11> serviceAsync(ConsoleApplication1.UtilService.ContentProviderRetrieveReq ContentProviderRetrieveReq) {
+            ConsoleApplication1.UtilService.serviceRequest11 inValue = new ConsoleApplication1.UtilService.serviceRequest11();
             inValue.ContentProviderRetrieveReq = ContentProviderRetrieveReq;
             return ((ConsoleApplication1.UtilService.ContentProviderRetrievePortType)(this)).serviceAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.UtilCurrencyConversionPortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.UtilCurrencyConversionPortType")]
     public interface UtilCurrencyConversionPortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/CurrencyConversionService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/CurrencyConversionService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/CurrencyConversionService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -21794,10 +21705,10 @@ namespace ConsoleApplication1.UtilService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeRemarkWithTravelerRef))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SeatAssignment))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseCoreReq))]
-        ConsoleApplication1.UtilService.serviceResponse13 service(ConsoleApplication1.UtilService.serviceRequest13 request);
+        ConsoleApplication1.UtilService.serviceResponse12 service(ConsoleApplication1.UtilService.serviceRequest12 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/CurrencyConversionService", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse13> serviceAsync(ConsoleApplication1.UtilService.serviceRequest13 request);
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse12> serviceAsync(ConsoleApplication1.UtilService.serviceRequest12 request);
     }
     
     /// <remarks/>
@@ -21805,7 +21716,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class CurrencyConversionReq : BaseReq {
         
         private CurrencyConversion[] currencyConversionField;
@@ -21828,7 +21739,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class CurrencyConversion : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string fromField;
@@ -21958,7 +21869,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class CurrencyConversionRsp : BaseRsp {
         
         private CurrencyConversion[] currencyConversionField;
@@ -21980,15 +21891,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceRequest13 {
+    public partial class serviceRequest12 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.CurrencyConversionReq CurrencyConversionReq;
         
-        public serviceRequest13() {
+        public serviceRequest12() {
         }
         
-        public serviceRequest13(ConsoleApplication1.UtilService.CurrencyConversionReq CurrencyConversionReq) {
+        public serviceRequest12(ConsoleApplication1.UtilService.CurrencyConversionReq CurrencyConversionReq) {
             this.CurrencyConversionReq = CurrencyConversionReq;
         }
     }
@@ -21997,15 +21908,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceResponse13 {
+    public partial class serviceResponse12 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.CurrencyConversionRsp CurrencyConversionRsp;
         
-        public serviceResponse13() {
+        public serviceResponse12() {
         }
         
-        public serviceResponse13(ConsoleApplication1.UtilService.CurrencyConversionRsp CurrencyConversionRsp) {
+        public serviceResponse12(ConsoleApplication1.UtilService.CurrencyConversionRsp CurrencyConversionRsp) {
             this.CurrencyConversionRsp = CurrencyConversionRsp;
         }
     }
@@ -22038,36 +21949,36 @@ namespace ConsoleApplication1.UtilService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication1.UtilService.serviceResponse13 ConsoleApplication1.UtilService.UtilCurrencyConversionPortType.service(ConsoleApplication1.UtilService.serviceRequest13 request) {
+        ConsoleApplication1.UtilService.serviceResponse12 ConsoleApplication1.UtilService.UtilCurrencyConversionPortType.service(ConsoleApplication1.UtilService.serviceRequest12 request) {
             return base.Channel.service(request);
         }
         
         public ConsoleApplication1.UtilService.CurrencyConversionRsp service(ConsoleApplication1.UtilService.CurrencyConversionReq CurrencyConversionReq) {
-            ConsoleApplication1.UtilService.serviceRequest13 inValue = new ConsoleApplication1.UtilService.serviceRequest13();
+            ConsoleApplication1.UtilService.serviceRequest12 inValue = new ConsoleApplication1.UtilService.serviceRequest12();
             inValue.CurrencyConversionReq = CurrencyConversionReq;
-            ConsoleApplication1.UtilService.serviceResponse13 retVal = ((ConsoleApplication1.UtilService.UtilCurrencyConversionPortType)(this)).service(inValue);
+            ConsoleApplication1.UtilService.serviceResponse12 retVal = ((ConsoleApplication1.UtilService.UtilCurrencyConversionPortType)(this)).service(inValue);
             return retVal.CurrencyConversionRsp;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse13> ConsoleApplication1.UtilService.UtilCurrencyConversionPortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest13 request) {
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse12> ConsoleApplication1.UtilService.UtilCurrencyConversionPortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest12 request) {
             return base.Channel.serviceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse13> serviceAsync(ConsoleApplication1.UtilService.CurrencyConversionReq CurrencyConversionReq) {
-            ConsoleApplication1.UtilService.serviceRequest13 inValue = new ConsoleApplication1.UtilService.serviceRequest13();
+        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse12> serviceAsync(ConsoleApplication1.UtilService.CurrencyConversionReq CurrencyConversionReq) {
+            ConsoleApplication1.UtilService.serviceRequest12 inValue = new ConsoleApplication1.UtilService.serviceRequest12();
             inValue.CurrencyConversionReq = CurrencyConversionReq;
             return ((ConsoleApplication1.UtilService.UtilCurrencyConversionPortType)(this)).serviceAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.ReferenceDataRetrievePortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.ReferenceDataRetrievePortType")]
     public interface ReferenceDataRetrievePortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -22076,10 +21987,10 @@ namespace ConsoleApplication1.UtilService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeRemarkWithTravelerRef))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SeatAssignment))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseCoreReq))]
-        ConsoleApplication1.UtilService.serviceResponse14 service(ConsoleApplication1.UtilService.serviceRequest14 request);
+        ConsoleApplication1.UtilService.serviceResponse13 service(ConsoleApplication1.UtilService.serviceRequest13 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse14> serviceAsync(ConsoleApplication1.UtilService.serviceRequest14 request);
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse13> serviceAsync(ConsoleApplication1.UtilService.serviceRequest13 request);
     }
     
     /// <remarks/>
@@ -22087,7 +21998,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataRetrieveReq : BaseReq {
         
         private ReferenceDataSearchModifiers referenceDataSearchModifiersField;
@@ -22124,7 +22035,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataSearchModifiers : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string maxResultsField;
@@ -22191,7 +22102,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataRetrieveRsp : BaseRsp {
         
         private ReferenceDataItem[] referenceDataItemField;
@@ -22228,7 +22139,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataItem : object, System.ComponentModel.INotifyPropertyChanged {
         
         private ReferenceDataItemAdditionalInfo[] additionalInfoField;
@@ -22316,7 +22227,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataItemAdditionalInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string typeField;
@@ -22361,15 +22272,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceRequest14 {
+    public partial class serviceRequest13 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.ReferenceDataRetrieveReq ReferenceDataRetrieveReq;
         
-        public serviceRequest14() {
+        public serviceRequest13() {
         }
         
-        public serviceRequest14(ConsoleApplication1.UtilService.ReferenceDataRetrieveReq ReferenceDataRetrieveReq) {
+        public serviceRequest13(ConsoleApplication1.UtilService.ReferenceDataRetrieveReq ReferenceDataRetrieveReq) {
             this.ReferenceDataRetrieveReq = ReferenceDataRetrieveReq;
         }
     }
@@ -22378,15 +22289,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceResponse14 {
+    public partial class serviceResponse13 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.ReferenceDataRetrieveRsp ReferenceDataRetrieveRsp;
         
-        public serviceResponse14() {
+        public serviceResponse13() {
         }
         
-        public serviceResponse14(ConsoleApplication1.UtilService.ReferenceDataRetrieveRsp ReferenceDataRetrieveRsp) {
+        public serviceResponse13(ConsoleApplication1.UtilService.ReferenceDataRetrieveRsp ReferenceDataRetrieveRsp) {
             this.ReferenceDataRetrieveRsp = ReferenceDataRetrieveRsp;
         }
     }
@@ -22419,36 +22330,36 @@ namespace ConsoleApplication1.UtilService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication1.UtilService.serviceResponse14 ConsoleApplication1.UtilService.ReferenceDataRetrievePortType.service(ConsoleApplication1.UtilService.serviceRequest14 request) {
+        ConsoleApplication1.UtilService.serviceResponse13 ConsoleApplication1.UtilService.ReferenceDataRetrievePortType.service(ConsoleApplication1.UtilService.serviceRequest13 request) {
             return base.Channel.service(request);
         }
         
         public ConsoleApplication1.UtilService.ReferenceDataRetrieveRsp service(ConsoleApplication1.UtilService.ReferenceDataRetrieveReq ReferenceDataRetrieveReq) {
-            ConsoleApplication1.UtilService.serviceRequest14 inValue = new ConsoleApplication1.UtilService.serviceRequest14();
+            ConsoleApplication1.UtilService.serviceRequest13 inValue = new ConsoleApplication1.UtilService.serviceRequest13();
             inValue.ReferenceDataRetrieveReq = ReferenceDataRetrieveReq;
-            ConsoleApplication1.UtilService.serviceResponse14 retVal = ((ConsoleApplication1.UtilService.ReferenceDataRetrievePortType)(this)).service(inValue);
+            ConsoleApplication1.UtilService.serviceResponse13 retVal = ((ConsoleApplication1.UtilService.ReferenceDataRetrievePortType)(this)).service(inValue);
             return retVal.ReferenceDataRetrieveRsp;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse14> ConsoleApplication1.UtilService.ReferenceDataRetrievePortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest14 request) {
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse13> ConsoleApplication1.UtilService.ReferenceDataRetrievePortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest13 request) {
             return base.Channel.serviceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse14> serviceAsync(ConsoleApplication1.UtilService.ReferenceDataRetrieveReq ReferenceDataRetrieveReq) {
-            ConsoleApplication1.UtilService.serviceRequest14 inValue = new ConsoleApplication1.UtilService.serviceRequest14();
+        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse13> serviceAsync(ConsoleApplication1.UtilService.ReferenceDataRetrieveReq ReferenceDataRetrieveReq) {
+            ConsoleApplication1.UtilService.serviceRequest13 inValue = new ConsoleApplication1.UtilService.serviceRequest13();
             inValue.ReferenceDataRetrieveReq = ReferenceDataRetrieveReq;
             return ((ConsoleApplication1.UtilService.ReferenceDataRetrievePortType)(this)).serviceAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.ReferenceDataLookupPortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.ReferenceDataLookupPortType")]
     public interface ReferenceDataLookupPortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/ReferenceDataLookupService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/ReferenceDataLookupService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/ReferenceDataLookupService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -22457,10 +22368,10 @@ namespace ConsoleApplication1.UtilService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeRemarkWithTravelerRef))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SeatAssignment))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseCoreReq))]
-        ConsoleApplication1.UtilService.serviceResponse15 service(ConsoleApplication1.UtilService.serviceRequest15 request);
+        ConsoleApplication1.UtilService.serviceResponse14 service(ConsoleApplication1.UtilService.serviceRequest14 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/ReferenceDataLookupService", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse15> serviceAsync(ConsoleApplication1.UtilService.serviceRequest15 request);
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse14> serviceAsync(ConsoleApplication1.UtilService.serviceRequest14 request);
     }
     
     /// <remarks/>
@@ -22468,7 +22379,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataSearchReq : BaseReq {
         
         private ReferenceDataSearchModifiers referenceDataSearchModifiersField;
@@ -22505,12 +22416,12 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataSearchItem : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string itemField;
         
-        private ItemChoiceType2 itemElementNameField;
+        private ItemChoiceType1 itemElementNameField;
         
         private ReferenceDataSearchItemType typeField;
         
@@ -22531,7 +22442,7 @@ namespace ConsoleApplication1.UtilService {
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public ItemChoiceType2 ItemElementName {
+        public ItemChoiceType1 ItemElementName {
             get {
                 return this.itemElementNameField;
             }
@@ -22566,8 +22477,8 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", IncludeInSchema=false)]
-    public enum ItemChoiceType2 {
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", IncludeInSchema=false)]
+    public enum ItemChoiceType1 {
         
         /// <remarks/>
         Code,
@@ -22579,7 +22490,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public enum ReferenceDataSearchItemType {
         
         /// <remarks/>
@@ -22621,7 +22532,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataSearchRsp : BaseRsp {
         
         private object[] itemsField;
@@ -22653,7 +22564,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataSearchRspAirport : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string codeField;
@@ -22727,7 +22638,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataSearchRspCarrier : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string codeField;
@@ -22787,7 +22698,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataSearchRspCity : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string codeField;
@@ -22861,7 +22772,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataSearchRspCountry : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string codeField;
@@ -22963,7 +22874,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataSearchRspCurrency : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string codeField;
@@ -23023,7 +22934,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataSearchRspEquipment : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string codeField;
@@ -23069,7 +22980,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataSearchRspPassengerType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string codeField;
@@ -23115,7 +23026,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataSearchRspSsrType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string codeField;
@@ -23231,7 +23142,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataSearchRspState : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string codeField;
@@ -23291,7 +23202,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataSearchRspTaxCategory : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string codeField;
@@ -23336,15 +23247,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceRequest15 {
+    public partial class serviceRequest14 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.ReferenceDataSearchReq ReferenceDataSearchReq;
         
-        public serviceRequest15() {
+        public serviceRequest14() {
         }
         
-        public serviceRequest15(ConsoleApplication1.UtilService.ReferenceDataSearchReq ReferenceDataSearchReq) {
+        public serviceRequest14(ConsoleApplication1.UtilService.ReferenceDataSearchReq ReferenceDataSearchReq) {
             this.ReferenceDataSearchReq = ReferenceDataSearchReq;
         }
     }
@@ -23353,15 +23264,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceResponse15 {
+    public partial class serviceResponse14 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.ReferenceDataSearchRsp ReferenceDataSearchRsp;
         
-        public serviceResponse15() {
+        public serviceResponse14() {
         }
         
-        public serviceResponse15(ConsoleApplication1.UtilService.ReferenceDataSearchRsp ReferenceDataSearchRsp) {
+        public serviceResponse14(ConsoleApplication1.UtilService.ReferenceDataSearchRsp ReferenceDataSearchRsp) {
             this.ReferenceDataSearchRsp = ReferenceDataSearchRsp;
         }
     }
@@ -23394,36 +23305,36 @@ namespace ConsoleApplication1.UtilService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication1.UtilService.serviceResponse15 ConsoleApplication1.UtilService.ReferenceDataLookupPortType.service(ConsoleApplication1.UtilService.serviceRequest15 request) {
+        ConsoleApplication1.UtilService.serviceResponse14 ConsoleApplication1.UtilService.ReferenceDataLookupPortType.service(ConsoleApplication1.UtilService.serviceRequest14 request) {
             return base.Channel.service(request);
         }
         
         public ConsoleApplication1.UtilService.ReferenceDataSearchRsp service(ConsoleApplication1.UtilService.ReferenceDataSearchReq ReferenceDataSearchReq) {
-            ConsoleApplication1.UtilService.serviceRequest15 inValue = new ConsoleApplication1.UtilService.serviceRequest15();
+            ConsoleApplication1.UtilService.serviceRequest14 inValue = new ConsoleApplication1.UtilService.serviceRequest14();
             inValue.ReferenceDataSearchReq = ReferenceDataSearchReq;
-            ConsoleApplication1.UtilService.serviceResponse15 retVal = ((ConsoleApplication1.UtilService.ReferenceDataLookupPortType)(this)).service(inValue);
+            ConsoleApplication1.UtilService.serviceResponse14 retVal = ((ConsoleApplication1.UtilService.ReferenceDataLookupPortType)(this)).service(inValue);
             return retVal.ReferenceDataSearchRsp;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse15> ConsoleApplication1.UtilService.ReferenceDataLookupPortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest15 request) {
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse14> ConsoleApplication1.UtilService.ReferenceDataLookupPortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest14 request) {
             return base.Channel.serviceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse15> serviceAsync(ConsoleApplication1.UtilService.ReferenceDataSearchReq ReferenceDataSearchReq) {
-            ConsoleApplication1.UtilService.serviceRequest15 inValue = new ConsoleApplication1.UtilService.serviceRequest15();
+        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse14> serviceAsync(ConsoleApplication1.UtilService.ReferenceDataSearchReq ReferenceDataSearchReq) {
+            ConsoleApplication1.UtilService.serviceRequest14 inValue = new ConsoleApplication1.UtilService.serviceRequest14();
             inValue.ReferenceDataSearchReq = ReferenceDataSearchReq;
             return ((ConsoleApplication1.UtilService.ReferenceDataLookupPortType)(this)).serviceAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.BrandedFareSearchPortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.BrandedFareSearchPortType")]
     public interface BrandedFareSearchPortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/BrandedFareService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/BrandedFareService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/BrandedFareService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -23432,10 +23343,10 @@ namespace ConsoleApplication1.UtilService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeRemarkWithTravelerRef))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SeatAssignment))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseCoreReq))]
-        ConsoleApplication1.UtilService.serviceResponse16 service(ConsoleApplication1.UtilService.serviceRequest16 request);
+        ConsoleApplication1.UtilService.serviceResponse15 service(ConsoleApplication1.UtilService.serviceRequest15 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/BrandedFareService", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse16> serviceAsync(ConsoleApplication1.UtilService.serviceRequest16 request);
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse15> serviceAsync(ConsoleApplication1.UtilService.serviceRequest15 request);
     }
     
     /// <remarks/>
@@ -23443,7 +23354,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class BrandedFareSearchReq : BaseReq {
         
         private FareFamilyCriteria fareFamilyCriteriaField;
@@ -23480,7 +23391,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class FareFamilyCriteria : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string carrierField;
@@ -23540,7 +23451,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class BrandedFareSearchModifier : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string maxResultsField;
@@ -23593,7 +23504,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class BrandedFareSearchRsp : BaseRsp {
         
         private FareFamily[] fareFamilyField;
@@ -23629,15 +23540,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceRequest16 {
+    public partial class serviceRequest15 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.BrandedFareSearchReq BrandedFareSearchReq;
         
-        public serviceRequest16() {
+        public serviceRequest15() {
         }
         
-        public serviceRequest16(ConsoleApplication1.UtilService.BrandedFareSearchReq BrandedFareSearchReq) {
+        public serviceRequest15(ConsoleApplication1.UtilService.BrandedFareSearchReq BrandedFareSearchReq) {
             this.BrandedFareSearchReq = BrandedFareSearchReq;
         }
     }
@@ -23646,15 +23557,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceResponse16 {
+    public partial class serviceResponse15 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.BrandedFareSearchRsp BrandedFareSearchRsp;
         
-        public serviceResponse16() {
+        public serviceResponse15() {
         }
         
-        public serviceResponse16(ConsoleApplication1.UtilService.BrandedFareSearchRsp BrandedFareSearchRsp) {
+        public serviceResponse15(ConsoleApplication1.UtilService.BrandedFareSearchRsp BrandedFareSearchRsp) {
             this.BrandedFareSearchRsp = BrandedFareSearchRsp;
         }
     }
@@ -23687,36 +23598,36 @@ namespace ConsoleApplication1.UtilService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication1.UtilService.serviceResponse16 ConsoleApplication1.UtilService.BrandedFareSearchPortType.service(ConsoleApplication1.UtilService.serviceRequest16 request) {
+        ConsoleApplication1.UtilService.serviceResponse15 ConsoleApplication1.UtilService.BrandedFareSearchPortType.service(ConsoleApplication1.UtilService.serviceRequest15 request) {
             return base.Channel.service(request);
         }
         
         public ConsoleApplication1.UtilService.BrandedFareSearchRsp service(ConsoleApplication1.UtilService.BrandedFareSearchReq BrandedFareSearchReq) {
-            ConsoleApplication1.UtilService.serviceRequest16 inValue = new ConsoleApplication1.UtilService.serviceRequest16();
+            ConsoleApplication1.UtilService.serviceRequest15 inValue = new ConsoleApplication1.UtilService.serviceRequest15();
             inValue.BrandedFareSearchReq = BrandedFareSearchReq;
-            ConsoleApplication1.UtilService.serviceResponse16 retVal = ((ConsoleApplication1.UtilService.BrandedFareSearchPortType)(this)).service(inValue);
+            ConsoleApplication1.UtilService.serviceResponse15 retVal = ((ConsoleApplication1.UtilService.BrandedFareSearchPortType)(this)).service(inValue);
             return retVal.BrandedFareSearchRsp;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse16> ConsoleApplication1.UtilService.BrandedFareSearchPortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest16 request) {
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse15> ConsoleApplication1.UtilService.BrandedFareSearchPortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest15 request) {
             return base.Channel.serviceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse16> serviceAsync(ConsoleApplication1.UtilService.BrandedFareSearchReq BrandedFareSearchReq) {
-            ConsoleApplication1.UtilService.serviceRequest16 inValue = new ConsoleApplication1.UtilService.serviceRequest16();
+        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse15> serviceAsync(ConsoleApplication1.UtilService.BrandedFareSearchReq BrandedFareSearchReq) {
+            ConsoleApplication1.UtilService.serviceRequest15 inValue = new ConsoleApplication1.UtilService.serviceRequest15();
             inValue.BrandedFareSearchReq = BrandedFareSearchReq;
             return ((ConsoleApplication1.UtilService.BrandedFareSearchPortType)(this)).serviceAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.AgencyCreateServiceFeePortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.AgencyCreateServiceFeePortType")]
     public interface AgencyCreateServiceFeePortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/AgencyFeeService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/AgencyFeeService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/AgencyFeeService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -23725,10 +23636,10 @@ namespace ConsoleApplication1.UtilService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeRemarkWithTravelerRef))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SeatAssignment))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseCoreReq))]
-        ConsoleApplication1.UtilService.serviceResponse17 service(ConsoleApplication1.UtilService.serviceRequest17 request);
+        ConsoleApplication1.UtilService.serviceResponse16 service(ConsoleApplication1.UtilService.serviceRequest16 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/AgencyFeeService", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse17> serviceAsync(ConsoleApplication1.UtilService.serviceRequest17 request);
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse16> serviceAsync(ConsoleApplication1.UtilService.serviceRequest16 request);
     }
     
     /// <remarks/>
@@ -23736,7 +23647,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class AgencyServiceFeeCreateReq : BaseReq {
         
         private ServiceFeeInfo[] serviceFeeInfoField;
@@ -23748,7 +23659,7 @@ namespace ConsoleApplication1.UtilService {
         private string providerCodeField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ServiceFeeInfo", Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("ServiceFeeInfo", Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public ServiceFeeInfo[] ServiceFeeInfo {
             get {
                 return this.serviceFeeInfoField;
@@ -23801,7 +23712,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class ServiceFeeInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private FormOfPayment formOfPaymentField;
@@ -24085,7 +23996,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class ServiceFeeTaxInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string categoryField;
@@ -24131,7 +24042,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public partial class Payment : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string keyField;
@@ -24315,7 +24226,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum PaymentType {
         
         /// <remarks/>
@@ -24343,7 +24254,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/common_v33_0")]
     public enum typeStatus {
         
         /// <remarks/>
@@ -24361,13 +24272,13 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class AgencyServiceFeeCreateRsp : BaseRsp {
         
         private ServiceFeeInfo[] serviceFeeInfoField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ServiceFeeInfo", Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("ServiceFeeInfo", Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public ServiceFeeInfo[] ServiceFeeInfo {
             get {
                 return this.serviceFeeInfoField;
@@ -24383,15 +24294,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceRequest17 {
+    public partial class serviceRequest16 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.AgencyServiceFeeCreateReq AgencyServiceFeeCreateReq;
         
-        public serviceRequest17() {
+        public serviceRequest16() {
         }
         
-        public serviceRequest17(ConsoleApplication1.UtilService.AgencyServiceFeeCreateReq AgencyServiceFeeCreateReq) {
+        public serviceRequest16(ConsoleApplication1.UtilService.AgencyServiceFeeCreateReq AgencyServiceFeeCreateReq) {
             this.AgencyServiceFeeCreateReq = AgencyServiceFeeCreateReq;
         }
     }
@@ -24400,15 +24311,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceResponse17 {
+    public partial class serviceResponse16 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.AgencyServiceFeeCreateRsp AgencyServiceFeeCreateRsp;
         
-        public serviceResponse17() {
+        public serviceResponse16() {
         }
         
-        public serviceResponse17(ConsoleApplication1.UtilService.AgencyServiceFeeCreateRsp AgencyServiceFeeCreateRsp) {
+        public serviceResponse16(ConsoleApplication1.UtilService.AgencyServiceFeeCreateRsp AgencyServiceFeeCreateRsp) {
             this.AgencyServiceFeeCreateRsp = AgencyServiceFeeCreateRsp;
         }
     }
@@ -24441,36 +24352,36 @@ namespace ConsoleApplication1.UtilService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication1.UtilService.serviceResponse17 ConsoleApplication1.UtilService.AgencyCreateServiceFeePortType.service(ConsoleApplication1.UtilService.serviceRequest17 request) {
+        ConsoleApplication1.UtilService.serviceResponse16 ConsoleApplication1.UtilService.AgencyCreateServiceFeePortType.service(ConsoleApplication1.UtilService.serviceRequest16 request) {
             return base.Channel.service(request);
         }
         
         public ConsoleApplication1.UtilService.AgencyServiceFeeCreateRsp service(ConsoleApplication1.UtilService.AgencyServiceFeeCreateReq AgencyServiceFeeCreateReq) {
-            ConsoleApplication1.UtilService.serviceRequest17 inValue = new ConsoleApplication1.UtilService.serviceRequest17();
+            ConsoleApplication1.UtilService.serviceRequest16 inValue = new ConsoleApplication1.UtilService.serviceRequest16();
             inValue.AgencyServiceFeeCreateReq = AgencyServiceFeeCreateReq;
-            ConsoleApplication1.UtilService.serviceResponse17 retVal = ((ConsoleApplication1.UtilService.AgencyCreateServiceFeePortType)(this)).service(inValue);
+            ConsoleApplication1.UtilService.serviceResponse16 retVal = ((ConsoleApplication1.UtilService.AgencyCreateServiceFeePortType)(this)).service(inValue);
             return retVal.AgencyServiceFeeCreateRsp;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse17> ConsoleApplication1.UtilService.AgencyCreateServiceFeePortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest17 request) {
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse16> ConsoleApplication1.UtilService.AgencyCreateServiceFeePortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest16 request) {
             return base.Channel.serviceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse17> serviceAsync(ConsoleApplication1.UtilService.AgencyServiceFeeCreateReq AgencyServiceFeeCreateReq) {
-            ConsoleApplication1.UtilService.serviceRequest17 inValue = new ConsoleApplication1.UtilService.serviceRequest17();
+        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse16> serviceAsync(ConsoleApplication1.UtilService.AgencyServiceFeeCreateReq AgencyServiceFeeCreateReq) {
+            ConsoleApplication1.UtilService.serviceRequest16 inValue = new ConsoleApplication1.UtilService.serviceRequest16();
             inValue.AgencyServiceFeeCreateReq = AgencyServiceFeeCreateReq;
             return ((ConsoleApplication1.UtilService.AgencyCreateServiceFeePortType)(this)).serviceAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.FindEmployeesOnFlightServicePortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.FindEmployeesOnFlightServicePortType")]
     public interface FindEmployeesOnFlightServicePortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/FindEmployeesOnFlightService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/FindEmployeesOnFlightService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/FindEmployeesOnFlightService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -24479,10 +24390,10 @@ namespace ConsoleApplication1.UtilService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeRemarkWithTravelerRef))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SeatAssignment))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseCoreReq))]
-        ConsoleApplication1.UtilService.serviceResponse18 service(ConsoleApplication1.UtilService.serviceRequest18 request);
+        ConsoleApplication1.UtilService.serviceResponse17 service(ConsoleApplication1.UtilService.serviceRequest17 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/FindEmployeesOnFlightService", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse18> serviceAsync(ConsoleApplication1.UtilService.serviceRequest18 request);
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse17> serviceAsync(ConsoleApplication1.UtilService.serviceRequest17 request);
     }
     
     /// <remarks/>
@@ -24490,7 +24401,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class FindEmployeesOnFlightReq : BaseReq {
         
         private FlightCriteria[] flightCriteriaField;
@@ -24527,7 +24438,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class FlightCriteria : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string carrierField;
@@ -24629,7 +24540,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class FindEmployeesOnFlightRsp : BaseRsp {
         
         private FindEmployeesOnFlightRspEmployeesOnFlight[] employeesOnFlightField;
@@ -24652,7 +24563,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class FindEmployeesOnFlightRspEmployeesOnFlight : object, System.ComponentModel.INotifyPropertyChanged {
         
         private Name[] nameField;
@@ -24670,7 +24581,7 @@ namespace ConsoleApplication1.UtilService {
         private string carrierField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Name", Namespace="http://www.travelport.com/schema/common_v29_0", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("Name", Namespace="http://www.travelport.com/schema/common_v33_0", Order=0)]
         public Name[] Name {
             get {
                 return this.nameField;
@@ -24767,15 +24678,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceRequest18 {
+    public partial class serviceRequest17 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.FindEmployeesOnFlightReq FindEmployeesOnFlightReq;
         
-        public serviceRequest18() {
+        public serviceRequest17() {
         }
         
-        public serviceRequest18(ConsoleApplication1.UtilService.FindEmployeesOnFlightReq FindEmployeesOnFlightReq) {
+        public serviceRequest17(ConsoleApplication1.UtilService.FindEmployeesOnFlightReq FindEmployeesOnFlightReq) {
             this.FindEmployeesOnFlightReq = FindEmployeesOnFlightReq;
         }
     }
@@ -24784,15 +24695,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceResponse18 {
+    public partial class serviceResponse17 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.FindEmployeesOnFlightRsp FindEmployeesOnFlightRsp;
         
-        public serviceResponse18() {
+        public serviceResponse17() {
         }
         
-        public serviceResponse18(ConsoleApplication1.UtilService.FindEmployeesOnFlightRsp FindEmployeesOnFlightRsp) {
+        public serviceResponse17(ConsoleApplication1.UtilService.FindEmployeesOnFlightRsp FindEmployeesOnFlightRsp) {
             this.FindEmployeesOnFlightRsp = FindEmployeesOnFlightRsp;
         }
     }
@@ -24825,36 +24736,36 @@ namespace ConsoleApplication1.UtilService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication1.UtilService.serviceResponse18 ConsoleApplication1.UtilService.FindEmployeesOnFlightServicePortType.service(ConsoleApplication1.UtilService.serviceRequest18 request) {
+        ConsoleApplication1.UtilService.serviceResponse17 ConsoleApplication1.UtilService.FindEmployeesOnFlightServicePortType.service(ConsoleApplication1.UtilService.serviceRequest17 request) {
             return base.Channel.service(request);
         }
         
         public ConsoleApplication1.UtilService.FindEmployeesOnFlightRsp service(ConsoleApplication1.UtilService.FindEmployeesOnFlightReq FindEmployeesOnFlightReq) {
-            ConsoleApplication1.UtilService.serviceRequest18 inValue = new ConsoleApplication1.UtilService.serviceRequest18();
+            ConsoleApplication1.UtilService.serviceRequest17 inValue = new ConsoleApplication1.UtilService.serviceRequest17();
             inValue.FindEmployeesOnFlightReq = FindEmployeesOnFlightReq;
-            ConsoleApplication1.UtilService.serviceResponse18 retVal = ((ConsoleApplication1.UtilService.FindEmployeesOnFlightServicePortType)(this)).service(inValue);
+            ConsoleApplication1.UtilService.serviceResponse17 retVal = ((ConsoleApplication1.UtilService.FindEmployeesOnFlightServicePortType)(this)).service(inValue);
             return retVal.FindEmployeesOnFlightRsp;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse18> ConsoleApplication1.UtilService.FindEmployeesOnFlightServicePortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest18 request) {
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse17> ConsoleApplication1.UtilService.FindEmployeesOnFlightServicePortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest17 request) {
             return base.Channel.serviceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse18> serviceAsync(ConsoleApplication1.UtilService.FindEmployeesOnFlightReq FindEmployeesOnFlightReq) {
-            ConsoleApplication1.UtilService.serviceRequest18 inValue = new ConsoleApplication1.UtilService.serviceRequest18();
+        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse17> serviceAsync(ConsoleApplication1.UtilService.FindEmployeesOnFlightReq FindEmployeesOnFlightReq) {
+            ConsoleApplication1.UtilService.serviceRequest17 inValue = new ConsoleApplication1.UtilService.serviceRequest17();
             inValue.FindEmployeesOnFlightReq = FindEmployeesOnFlightReq;
             return ((ConsoleApplication1.UtilService.FindEmployeesOnFlightServicePortType)(this)).serviceAsync(inValue);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v29_0", ConfigurationName="UtilService.ReferenceDataUpdatePortType")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.travelport.com/service/util_v33_0", ConfigurationName="UtilService.ReferenceDataUpdatePortType")]
     public interface ReferenceDataUpdatePortType {
         
         // CODEGEN: Generating message contract since the operation service is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v29_0")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ConsoleApplication1.UtilService.ErrorInfo), Action="http://localhost:8080/kestrel/UtilService", Name="ErrorInfo", Namespace="http://www.travelport.com/schema/common_v33_0")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeErrorInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseRsp))]
@@ -24863,10 +24774,10 @@ namespace ConsoleApplication1.UtilService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(typeRemarkWithTravelerRef))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SeatAssignment))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseCoreReq))]
-        ConsoleApplication1.UtilService.serviceResponse19 service(ConsoleApplication1.UtilService.serviceRequest19 request);
+        ConsoleApplication1.UtilService.serviceResponse18 service(ConsoleApplication1.UtilService.serviceRequest18 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8080/kestrel/UtilService", ReplyAction="*")]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse19> serviceAsync(ConsoleApplication1.UtilService.serviceRequest19 request);
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse18> serviceAsync(ConsoleApplication1.UtilService.serviceRequest18 request);
     }
     
     /// <remarks/>
@@ -24874,7 +24785,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataUpdateReq : BaseReq {
         
         private ReferenceDataUpdateReqItem[] itemField;
@@ -24925,7 +24836,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataUpdateReqItem : typeReferenceData {
         
         private AdditionalElement[] additionalElementField;
@@ -24948,7 +24859,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class AdditionalElement : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string nameField;
@@ -24994,7 +24905,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class typeReferenceData : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string codeField;
@@ -25080,7 +24991,7 @@ namespace ConsoleApplication1.UtilService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public enum ReferenceDataUpdateReqAction {
         
         /// <remarks/>
@@ -25095,7 +25006,7 @@ namespace ConsoleApplication1.UtilService {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v29_0")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.travelport.com/schema/util_v33_0")]
     public partial class ReferenceDataUpdateRsp : BaseRsp {
     }
     
@@ -25103,15 +25014,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceRequest19 {
+    public partial class serviceRequest18 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.ReferenceDataUpdateReq ReferenceDataUpdateReq;
         
-        public serviceRequest19() {
+        public serviceRequest18() {
         }
         
-        public serviceRequest19(ConsoleApplication1.UtilService.ReferenceDataUpdateReq ReferenceDataUpdateReq) {
+        public serviceRequest18(ConsoleApplication1.UtilService.ReferenceDataUpdateReq ReferenceDataUpdateReq) {
             this.ReferenceDataUpdateReq = ReferenceDataUpdateReq;
         }
     }
@@ -25120,15 +25031,15 @@ namespace ConsoleApplication1.UtilService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class serviceResponse19 {
+    public partial class serviceResponse18 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v29_0", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.travelport.com/schema/util_v33_0", Order=0)]
         public ConsoleApplication1.UtilService.ReferenceDataUpdateRsp ReferenceDataUpdateRsp;
         
-        public serviceResponse19() {
+        public serviceResponse18() {
         }
         
-        public serviceResponse19(ConsoleApplication1.UtilService.ReferenceDataUpdateRsp ReferenceDataUpdateRsp) {
+        public serviceResponse18(ConsoleApplication1.UtilService.ReferenceDataUpdateRsp ReferenceDataUpdateRsp) {
             this.ReferenceDataUpdateRsp = ReferenceDataUpdateRsp;
         }
     }
@@ -25161,24 +25072,24 @@ namespace ConsoleApplication1.UtilService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsoleApplication1.UtilService.serviceResponse19 ConsoleApplication1.UtilService.ReferenceDataUpdatePortType.service(ConsoleApplication1.UtilService.serviceRequest19 request) {
+        ConsoleApplication1.UtilService.serviceResponse18 ConsoleApplication1.UtilService.ReferenceDataUpdatePortType.service(ConsoleApplication1.UtilService.serviceRequest18 request) {
             return base.Channel.service(request);
         }
         
         public ConsoleApplication1.UtilService.ReferenceDataUpdateRsp service(ConsoleApplication1.UtilService.ReferenceDataUpdateReq ReferenceDataUpdateReq) {
-            ConsoleApplication1.UtilService.serviceRequest19 inValue = new ConsoleApplication1.UtilService.serviceRequest19();
+            ConsoleApplication1.UtilService.serviceRequest18 inValue = new ConsoleApplication1.UtilService.serviceRequest18();
             inValue.ReferenceDataUpdateReq = ReferenceDataUpdateReq;
-            ConsoleApplication1.UtilService.serviceResponse19 retVal = ((ConsoleApplication1.UtilService.ReferenceDataUpdatePortType)(this)).service(inValue);
+            ConsoleApplication1.UtilService.serviceResponse18 retVal = ((ConsoleApplication1.UtilService.ReferenceDataUpdatePortType)(this)).service(inValue);
             return retVal.ReferenceDataUpdateRsp;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse19> ConsoleApplication1.UtilService.ReferenceDataUpdatePortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest19 request) {
+        System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse18> ConsoleApplication1.UtilService.ReferenceDataUpdatePortType.serviceAsync(ConsoleApplication1.UtilService.serviceRequest18 request) {
             return base.Channel.serviceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse19> serviceAsync(ConsoleApplication1.UtilService.ReferenceDataUpdateReq ReferenceDataUpdateReq) {
-            ConsoleApplication1.UtilService.serviceRequest19 inValue = new ConsoleApplication1.UtilService.serviceRequest19();
+        public System.Threading.Tasks.Task<ConsoleApplication1.UtilService.serviceResponse18> serviceAsync(ConsoleApplication1.UtilService.ReferenceDataUpdateReq ReferenceDataUpdateReq) {
+            ConsoleApplication1.UtilService.serviceRequest18 inValue = new ConsoleApplication1.UtilService.serviceRequest18();
             inValue.ReferenceDataUpdateReq = ReferenceDataUpdateReq;
             return ((ConsoleApplication1.UtilService.ReferenceDataUpdatePortType)(this)).serviceAsync(inValue);
         }

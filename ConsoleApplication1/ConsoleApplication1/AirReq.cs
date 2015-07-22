@@ -106,8 +106,8 @@ namespace ConsoleApplication1
          */
         public static void AddEconomyPreferred(SearchAirLeg outbound)
         {
-            AirLegModifiers modifiers = new AirLegModifiers();
-            AirLegModifiersPreferredCabins cabins = new AirLegModifiersPreferredCabins();
+            AirLegModifiers modifiers = new AirLegModifiers();            
+            PreferredCabins cabins = new PreferredCabins();
             CabinClass cabinClass = new CabinClass();
             cabinClass.Type = "Economy";
             cabins.CabinClass = cabinClass;
@@ -207,7 +207,7 @@ namespace ConsoleApplication1
         public static void AddSearchEconomyPreferred(SearchAirLeg outbound)
         {
             AirLegModifiers modifiers = new AirLegModifiers();
-            AirLegModifiersPreferredCabins cabins = new AirLegModifiersPreferredCabins();
+            PreferredCabins cabins = new PreferredCabins();
             CabinClass cabinClass = new CabinClass();
             cabinClass.Type = "Economy";
             cabins.CabinClass = cabinClass;
