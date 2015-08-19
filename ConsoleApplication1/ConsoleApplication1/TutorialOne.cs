@@ -260,6 +260,8 @@ namespace UAPIConsumptionSamples
                             {
                                 var urLocatorCode = bookResponse.UniversalRecord.LocatorCode;
                                 Console.WriteLine("Universal Record Locator Code :" + urLocatorCode);
+                                UniversalRetrieveTest univ = new UniversalRetrieveTest();
+                                univ.RetrieveRecord(urLocatorCode);
                             }
                         }
                     }

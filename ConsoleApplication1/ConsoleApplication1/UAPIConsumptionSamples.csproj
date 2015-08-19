@@ -50,6 +50,7 @@
     <Compile Include="AirportDetails.cs" />
     <Compile Include="AirReq.cs" />
     <Compile Include="AirSvcTest.cs" />
+    <Compile Include="AirTicketTest.cs" />
     <Compile Include="Service References\AirService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -82,6 +83,7 @@
     </Compile>
     <Compile Include="TutorialOne.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UniversalRetrieveTest.cs" />
     <Compile Include="Utility\CommonUtility.cs" />
     <Compile Include="Utility\Helper.cs" />
     <Compile Include="Utility\HttpHeaderMessageInspector.cs" />
