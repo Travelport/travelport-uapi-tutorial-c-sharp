@@ -10,8 +10,8 @@ namespace ConsoleApplication1
     class AirLFSTest
     {
         public static String MY_APP_NAME = "UAPI";
-        private string origin = "DTW";
-        private string destination = "SFO";
+        private string origin = "MEL";
+        private string destination = "SYD";
 
         public LowFareSearchRsp LowFareShop(bool solutionResult)
         {
@@ -61,22 +61,22 @@ namespace ConsoleApplication1
 
             //travel is for denver to san fransisco 2 months from now, one week trip
             SearchAirLeg outbound = AirReq.CreateSearchLeg(origin, destination);
-            AirReq.AddSearchDepartureDate(outbound, Helper.daysInFuture(4));
+            AirReq.AddSearchDepartureDate(outbound, Helper.daysInFuture(60));
             AirReq.AddSearchEconomyPreferred(outbound);
 
             //coming back
-            SearchAirLeg ret = AirReq.CreateSearchLeg(destination, origin);
-            AirReq.AddSearchDepartureDate(ret, Helper.daysInFuture(9));
+            /*SearchAirLeg ret = AirReq.CreateSearchLeg(destination, origin);
+            AirReq.AddSearchDepartureDate(ret, Helper.daysInFuture(65));
             //put traveller in econ
-            AirReq.AddSearchEconomyPreferred(ret);
+            AirReq.AddSearchEconomyPreferred(ret);*/
 
-            lowFareSearchReq.Items = new SearchAirLeg[2];
+            lowFareSearchReq.Items = new SearchAirLeg[1];
             lowFareSearchReq.Items.SetValue(outbound, 0);
-            lowFareSearchReq.Items.SetValue(ret, 1);
+            //lowFareSearchReq.Items.SetValue(ret, 1);
 
-            AirPricingModifiers priceModifiers = AirReq.AddAirPriceModifiers(typeAdjustmentType.Amount, +40);
+            //AirPricingModifiers priceModifiers = AirReq.AddAirPriceModifiers(typeAdjustmentType.Amount, +40);
 
-            lowFareSearchReq.AirPricingModifiers = priceModifiers;
+            //lowFareSearchReq.AirPricingModifiers = priceModifiers;
 
             lowFareSearchReq.SearchPassenger = AirReq.AddSearchPassenger();
 

@@ -24,18 +24,32 @@ namespace ConsoleApplication1
 
             univRetReq.BillingPointOfSaleInfo = billSaleInfo;
 
-            univRetReq.Item = urLocatorCode;
+            univRetReq.Item = urLocatorCode;            
 
             UniversalRecordRetrieveServicePortTypeClient client = new UniversalRecordRetrieveServicePortTypeClient("UniversalRecordRetrieveServicePort", WsdlService.UNIVERSAL_ENDPOINT);
             client.ClientCredentials.UserName.UserName = Helper.RetrunUsername();
             client.ClientCredentials.UserName.Password = Helper.ReturnPassword();
+            
             try
             {
                 var httpHeaders = Helper.ReturnHttpHeader();
-                client.Endpoint.EndpointBehaviors.Add(new HttpHeadersEndpointBehavior(httpHeaders));
+                client.Endpoint.EndpointBehaviors.Add(new HttpHeadersEndpointBehavior(httpHeaders));                
 
                 univRetRsp = client.service(null, univRetReq);
                 //Console.WriteLine(lowFareSearchRsp.AirSegmentList.Count());
+
+                if (univRetRsp != null)
+                {
+                    if (univRetRsp.UniversalRecord.BookingTraveler != null) 
+                    {
+                        IEnumerator travelers = univRetRsp.UniversalRecord.BookingTraveler.GetEnumerator();
+                        while (travelers.MoveNext())
+                        {
+                            var traveler = travelers.Current;
+                        }
+                    }
+                }
+
 
                 IEnumerator airReservationDetails = univRetRsp.UniversalRecord.Items.GetEnumerator();
 

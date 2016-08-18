@@ -25,6 +25,41 @@ namespace ConsoleApplication1
                 Value = airLocatorCode
             };
 
+            List<AirTicketingModifiers> ticketingModifiers = new List<AirTicketingModifiers>();
+
+            List<FormOfPayment> fopList = new List<FormOfPayment>();
+            fopList.Add(new FormOfPayment()
+            {
+                FulfillmentIDType = typeFulfillmentIDType.CreditCard,
+                Type = "Credit",
+                Item = new CreditCard()
+                {
+                    Number = "4111111111111111",
+                    ExpDate = "2016-06",
+                    CVV = "123",
+                    Type = "VI",
+                    BillingAddress = new typeStructuredAddress()
+                    {
+                        AddressName = "Home",
+                        Street = new string[] { "2914 N. Dakota Avenue" },
+                        City = "Denver",
+                        State = new State()
+                        {
+                            Value = "CO"
+                        },
+                        PostalCode = "80206",
+                        Country = "US"
+                    }
+                }
+            });
+
+            ticketingModifiers.Add(new AirTicketingModifiers()
+            {
+                FormOfPayment = fopList.ToArray()
+            });
+
+            airTicketReq.AirTicketingModifiers = ticketingModifiers.ToArray();
+
             airTicketReq.TargetBranch = Utility.CommonUtility.GetConfigValue(ProjectConstants.G_TARGET_BRANCH);
 
             AirTicketingPortTypeClient client = new AirTicketingPortTypeClient("AirTicketingPort", WsdlService.AIR_ENDPOINT);

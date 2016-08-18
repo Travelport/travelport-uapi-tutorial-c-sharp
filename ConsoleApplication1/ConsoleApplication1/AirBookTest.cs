@@ -454,9 +454,9 @@ namespace ConsoleApplication1
 
             FormOfPayment fop = new FormOfPayment();
             fop.Key = "jwt2mcK1Qp27I2xfpcCtAw==";//Key can be different
-            fop.Type = "Credit";
+            fop.Type = "Cash";            
 
-            CreditCard cc = new CreditCard()
+            /*CreditCard cc = new CreditCard()
             {
                 BillingAddress = new typeStructuredAddress()
                 {
@@ -476,9 +476,9 @@ namespace ConsoleApplication1
                 BankCountryCode = "US",
                 CVV = "123",
                 Type = "VI"
-            };
+            };*/
 
-            fop.Item = cc;
+            //fop.Item = cc;
 
             payments.Add(fop);
 
@@ -491,7 +491,7 @@ namespace ConsoleApplication1
 
             List<BookingTraveler> travelers = new List<BookingTraveler>();
 
-
+            //Adding First Booking Traveler
             BookingTraveler traveler = new BookingTraveler();
             traveler.DOB = DateTime.Now.AddYears(-28);
             traveler.Gender = "M";
@@ -604,6 +604,78 @@ namespace ConsoleApplication1
             traveler.Address = addressList.ToArray();
 
             travelers.Add(traveler);
+
+            //Adding Second Booking Traveler
+            BookingTraveler traveler1 = new BookingTraveler();
+            traveler1.DOB = DateTime.Now.AddYears(-20);
+            traveler1.Gender = "F";
+            traveler1.TravelerType = "ADT";
+            traveler1.Key = "8s04Fns2SiizjV5Zn7T6Xw==";//The key should be unique for each traveler
+            traveler1.Nationality = "US";
+
+            traveler1.BookingTravelerName = new BookingTravelerName()
+            {
+                First = "Mary",
+                Last = "Smith",
+                Prefix = "Ms"
+            };            
+
+            List<PhoneNumber> phoneList1 = new List<PhoneNumber>();
+
+            PhoneNumber phoneNum1 = new PhoneNumber()
+            {
+                AreaCode = "303",
+                CountryCode = "1",
+                Number = "3333333",
+                Location = "DEN"
+            };
+
+            phoneList1.Add(phoneNum1);
+
+            traveler1.PhoneNumber = phoneList.ToArray();
+
+            List<Email> emailList1 = new List<Email>();
+
+            Email email1 = new Email()
+            {
+                EmailID = "test@travelport.com",
+                Type = "Home"
+            };
+
+            emailList1.Add(email1);
+
+            traveler1.Email = emailList1.ToArray();
+
+
+            List<SSR> ssrList1 = new List<SSR>();
+            //This part is optional but required for some airlines like UA etc.
+            if (airItinerary.AirSegment != null)
+            {
+                IEnumerator segments = airItinerary.AirSegment.GetEnumerator();
+                while (segments.MoveNext())
+                {
+                    AirService.typeBaseAirSegment seg = (AirService.typeBaseAirSegment)segments.Current;
+                    SSR ssr = new SSR()
+                    {
+                        Carrier = seg.Carrier,
+                        SegmentRef = seg.Key,
+                        Status = "HK",
+                        Type = "DOCS",
+                        FreeText = "P/" + traveler1.Nationality + "/F1234567/" + traveler1.Nationality + "/"
+                                    + traveler1.DOB.ToString("ddMMMyy") + "/"
+                                    + traveler1.Gender + "/" + DateTime.Now.AddYears(2).ToString("ddMMMyy") + "/" + traveler1.BookingTravelerName.Last
+                                    + "/" + traveler1.BookingTravelerName.First
+
+                    };
+
+                    ssrList1.Add(ssr);
+
+                }
+            }
+
+            traveler1.SSR = ssrList1.ToArray();
+
+            travelers.Add(traveler1);
 
             return travelers.ToArray();
         }

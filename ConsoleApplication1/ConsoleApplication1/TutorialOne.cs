@@ -5,6 +5,7 @@ using ConsoleApplication1.Utility;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.ServiceModel;
@@ -12,6 +13,7 @@ using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace UAPIConsumptionSamples
 {
@@ -38,6 +40,8 @@ namespace UAPIConsumptionSamples
             req.TargetBranch = CommonUtility.GetConfigValue(ProjectConstants.G_TARGET_BRANCH);
             Console.WriteLine(req);
 
+            TutorialOne one = new TutorialOne();
+            one.TestRest("denver");
 		
 		
 		    try {
@@ -70,12 +74,12 @@ namespace UAPIConsumptionSamples
 
 
                 var httpHeaders = Helper.ReturnHttpHeader();                
-                client.Endpoint.EndpointBehaviors.Add(new HttpHeadersEndpointBehavior(httpHeaders));
+                client.Endpoint.EndpointBehaviors.Add(new HttpHeadersEndpointBehavior(httpHeaders));                
                 
 
 			    PingRsp rsp = client.service(req);
 			    //print results.. payload and trace ID are echoed back in response
-			    Console.WriteLine(rsp.Payload);
+			    //Console.WriteLine(rsp.Payload);
 			    //Console.WriteLine(rsp.TraceId);
                 //Console.WriteLine(rsp.TransactionId);
 
@@ -219,6 +223,10 @@ namespace UAPIConsumptionSamples
                         }
                     }
 
+                    AirFareDisplay fareDisplay = new AirFareDisplay();
+                    AirFareDisplayRsp fareDisplayRsp = fareDisplay.GetAirFareDisplayDetails(pricingSegments);
+                    fareDisplay.GetAirFareRules(fareDisplayRsp, null);
+
                     AirPriceRsp priceRsp = AirReq.AirPrice(pricingSegments);
                     AirPricingSolution lowestPrice = null;
                     if (priceRsp != null)
@@ -261,7 +269,8 @@ namespace UAPIConsumptionSamples
                                 var urLocatorCode = bookResponse.UniversalRecord.LocatorCode;
                                 Console.WriteLine("Universal Record Locator Code :" + urLocatorCode);
                                 UniversalRetrieveTest univ = new UniversalRetrieveTest();
-                                univ.RetrieveRecord(urLocatorCode);
+                                ConsoleApplication1.UniversalService.UniversalRecordRetrieveRsp univRetRsp = univ.RetrieveRecord(urLocatorCode);
+                                AirReq.GetPNR(univRetRsp);
                             }
                         }
                     }
@@ -271,6 +280,28 @@ namespace UAPIConsumptionSamples
 			    //trace, since the stack trace in is your address space...
 			    Console.WriteLine("Error : "+e.Message);
 		    }
+        }
+
+        public XDocument TestRest(string city)
+        {
+            XDocument xdoc = null;
+            string baseUrl = "http://api.openweathermap.org/data/2.5/forecast/daily?";
+
+            string url = baseUrl + string.Format("q={0}&mode=xml&units=metric&cnt=7&APPID=3b21bddd81be0b22aa687c67fb2d5f2f", city);
+
+            var client = new WebClient();
+            Stream data = client.OpenRead(url);
+            if (data != null)
+            {
+                var reader = new StreamReader(data);
+                string response = reader.ReadToEnd();
+                if (!string.IsNullOrEmpty(response))
+                {
+                    xdoc = XDocument.Parse(response);
+                }
+            }
+
+            return xdoc;
         }
 
     }

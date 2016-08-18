@@ -106,13 +106,16 @@ namespace ConsoleApplication1
          */
         public static void AddEconomyPreferred(SearchAirLeg outbound)
         {
-            AirLegModifiers modifiers = new AirLegModifiers();            
-            PreferredCabins cabins = new PreferredCabins();
+            AirLegModifiers modifiers = new AirLegModifiers();                        
             CabinClass cabinClass = new CabinClass();
             cabinClass.Type = "Economy";
-            cabins.CabinClass = cabinClass;
 
-            modifiers.PreferredCabins = cabins;
+            List<CabinClass> cabins = new List<CabinClass>();
+            cabins.Add(cabinClass);
+
+            modifiers.PreferredCabins = cabins.ToArray();
+            
+
             outbound.AirLegModifiers = modifiers;
         }
 
@@ -156,7 +159,16 @@ namespace ConsoleApplication1
 			    providers.Add(p);
 		    }
 		    modifiers.PreferredProviders  = providers.ToArray();
+
+            List<Carrier> carriers = new List<Carrier>();
+            carriers.Add(new Carrier()
+            {
+                Code = "QF"
+            });
+            modifiers.PermittedCarriers = carriers.ToArray();
 		    return modifiers;
+
+            
 	    }
 
         public static SearchAirLeg CreateSearchLeg(String originAirportCode, String destAirportCode)
@@ -206,13 +218,15 @@ namespace ConsoleApplication1
 
         public static void AddSearchEconomyPreferred(SearchAirLeg outbound)
         {
-            AirLegModifiers modifiers = new AirLegModifiers();
-            PreferredCabins cabins = new PreferredCabins();
+            AirLegModifiers modifiers = new AirLegModifiers();            
             CabinClass cabinClass = new CabinClass();
             cabinClass.Type = "Economy";
-            cabins.CabinClass = cabinClass;
 
-            modifiers.PreferredCabins = cabins;
+            List<CabinClass> cabins = new List<CabinClass>();
+            cabins.Add(cabinClass);
+
+            modifiers.PreferredCabins = cabins.ToArray();
+            
             outbound.AirLegModifiers = modifiers;
         }
 
@@ -254,6 +268,12 @@ namespace ConsoleApplication1
 
             passengers.Add(passenger);
 
+            SearchPassenger passenger1 = new SearchPassenger();
+            passenger1.Code = "ADT";
+            passenger1.BookingTravelerRef = "8s04Fns2SiizjV5Zn7T6Xw==";
+
+            passengers.Add(passenger1);
+
             return passengers.ToArray();
         }
 
@@ -274,6 +294,7 @@ namespace ConsoleApplication1
                 typeBaseAirSegment seg = (typeBaseAirSegment)airSegments.Current;
                 seg.ProviderCode = "1G";
                 seg.FlightDetailsRef = null;
+                seg.ClassOfService = "Y";
 
                 itinerarySegments.Add(seg);
             }
@@ -322,6 +343,104 @@ namespace ConsoleApplication1
                 client.Abort();
                 return null;
             }
+        }
+
+        /*public void getPNR(UniversalRecordRetrieveRsp uniRecRsp, string gPNR) // parameter is AirRetrieve ReservationRsp
+        {
+            string xml = "";
+            string xmlRqt = "";
+            AirRetrieveDocumentReq docReq = new AirRetrieveDocumentReq();
+            docReq.TraceId = "doesntmatter-8176";
+            docReq.TargetBranch = "P7038265";//Set the optional value for targrt baranch
+            docReq.AuthorizedBy = "ANSHKUMAR";
+            AirService.BillingPointOfSaleInfo billSaleInfo = new AirService.BillingPointOfSaleInfo();
+            billSaleInfo.OriginApplication = "UAPI";
+            docReq.BillingPointOfSaleInfo = billSaleInfo;
+            List<ItemsChoiceType1> airResList = new List<ItemsChoiceType1>();
+            foreach (object ob in uniRecRsp.UniversalRecord.Items)
+            {
+                ConsoleApplication1.UniversalService.AirReservation airRes = ob as ConsoleApplication1.UniversalService.AirReservation;
+                airResList.Add(airRes.LocatorCode);
+                docReq.ItemsElementName = airResList.ToArray       
+            }
+            //docReq.
+            AirRetrieveDocumentBinding binding = new AirRetrieveDocumentBinding();
+            binding.Url = "https://emea.universal-api.pp.travelport.com/B2BGateway/connect/uAPI/AirService";
+            binding.Credentials = new NetworkCredential("Universal API/uAPI5453181403-7d06a0d1", "7k*CN/6z!f");
+            AirRetrieveDocumentRsp docRsp = binding.service(docReq);
+            //-----------------------Request-------------------------------------
+            System.Xml.Serialization.XmlSerializer writerRqt = new XmlSerializer(docReq.GetType());
+            XmlSerializer serializerRqt = new XmlSerializer(typeof(AirTicketingReq));
+            using (StringWriter textWriter = new StringWriter())
+            {
+                writerRqt.Serialize(textWriter, docRsp);// Converting the response 'rsp' to a text writer
+                xmlRqt = textWriter.ToString();      // Converting the textWritier to string.
+            }
+            //-------------------------------------------------------------------
+            System.Xml.Serialization.XmlSerializer writer = new XmlSerializer(docRsp.GetType());
+            AirTicketingRsp result = new AirTicketingRsp();
+            XmlSerializer serializer = new XmlSerializer(typeof(AirTicketingRsp));
+            using (StringWriter textWriter = new StringWriter())
+            {
+                writer.Serialize(textWriter, docRsp);// Converting the response 'rsp' to a text writer
+                xml = textWriter.ToString();      // Converting the textWritier to string.
+            }
+            using (TextReader reader = new StringReader(xml))
+            {
+                result = (AirService.AirTicketingRsp)serializer.Deserialize(reader);
+            }
+            //string PNR = "";
+        }*/
+
+
+        internal static AirRetrieveDocumentRsp GetPNR(UniversalService.UniversalRecordRetrieveRsp univRetRsp)
+        {
+           
+            AirRetrieveDocumentReq docReq = new AirRetrieveDocumentReq();
+            AirRetrieveDocumentRsp docRsp;
+            docReq.TraceId = "doesntmatter-8176";
+            docReq.TargetBranch = CommonUtility.GetConfigValue(ProjectConstants.G_TARGET_BRANCH);//Set the optional value for targrt baranch
+            docReq.AuthorizedBy = "USER";
+            AirService.BillingPointOfSaleInfo billSaleInfo = new AirService.BillingPointOfSaleInfo();
+            billSaleInfo.OriginApplication = "UAPI";
+            docReq.BillingPointOfSaleInfo = billSaleInfo;
+            docReq.ProviderCode = "1G";
+
+            List<ItemsChoiceType1> airResList = new List<ItemsChoiceType1>();
+            List<AirReservationLocatorCode> airResValueList = new List<AirReservationLocatorCode>();
+            
+            foreach (object ob in univRetRsp.UniversalRecord.Items)
+            {
+                ConsoleApplication1.UniversalService.AirReservation airRes = ob as ConsoleApplication1.UniversalService.AirReservation;
+                airResValueList.Add(new AirReservationLocatorCode() { Value = airRes.LocatorCode});
+                airResList.Add((ItemsChoiceType1)Enum.Parse(typeof(ItemsChoiceType1), ConsoleApplication1.AirService.ItemsChoiceType1.AirReservationLocatorCode.ToString()));
+                docReq.ItemsElementName = airResList.ToArray();
+                docReq.Items = airResValueList.ToArray();
+                break;
+            }
+
+            //docReq.UniversalRecordLocatorCode = univRetRsp.UniversalRecord.LocatorCode;
+
+            AirRetrieveDocumentPortTypeClient client = new AirRetrieveDocumentPortTypeClient("AirRetrieveDocumentBindingPort", WsdlService.AIR_ENDPOINT);
+
+            client.ClientCredentials.UserName.UserName = Helper.RetrunUsername();
+            client.ClientCredentials.UserName.Password = Helper.ReturnPassword();
+            try
+            {
+                var httpHeaders = Helper.ReturnHttpHeader();
+                client.Endpoint.EndpointBehaviors.Add(new HttpHeadersEndpointBehavior(httpHeaders));
+
+                docRsp = client.service(docReq);
+
+                return docRsp;
+            }
+            catch (Exception se)
+            {
+                Console.WriteLine("Error : " + se.Message);
+                client.Abort();
+                return null;
+            }
+
         }
     }
 }

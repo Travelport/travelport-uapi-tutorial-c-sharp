@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AirBookTest.cs" />
+    <Compile Include="AirFareDisplay.cs" />
     <Compile Include="AirLFSTest.cs" />
     <Compile Include="AirportDetails.cs" />
     <Compile Include="AirReq.cs" />
@@ -425,9 +426,6 @@
     <None Include="Service References\UniversalService\ConsoleApplication1.UniversalService.RailCreateReservationRsp.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\UniversalService\ConsoleApplication1.UniversalService.RailExchangeRsp.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\UniversalService\ConsoleApplication1.UniversalService.SavedTripCreateRsp.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -492,9 +490,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\UniversalService\ConsoleApplication1.UniversalService.serviceResponse23.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\UniversalService\ConsoleApplication1.UniversalService.serviceResponse24.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\UniversalService\ConsoleApplication1.UniversalService.serviceResponse3.datasource">
@@ -754,12 +749,15 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\VehicleService\VehicleServices.wsdl" />
-    <None Include="Wsdl\air_v33_0\Air.wsdl" />
-    <None Include="Wsdl\air_v33_0\Air.xsd">
+    <None Include="Wsdl\air_v35_0\Air.wsdl" />
+    <None Include="Wsdl\air_v35_0\Air.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\air_v33_0\AirAbstract.wsdl" />
-    <None Include="Wsdl\air_v33_0\AirReqRsp.xsd">
+    <None Include="Wsdl\air_v35_0\AirAbstract.wsdl" />
+    <None Include="Wsdl\air_v35_0\AirReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\air_v35_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Wsdl\common_v29_0\Common.xsd">
@@ -768,10 +766,16 @@
     <None Include="Wsdl\common_v29_0\CommonReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Wsdl\common_v29_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Wsdl\common_v32_0\Common.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Wsdl\common_v32_0\CommonReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\common_v32_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Wsdl\common_v33_0\Common.xsd">
@@ -780,34 +784,64 @@
     <None Include="Wsdl\common_v33_0\CommonReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\cruise_v33_0\Cruise.xsd">
+    <None Include="Wsdl\common_v33_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\cruise_v33_0\CruiseReqRsp.xsd">
+    <None Include="Wsdl\common_v35_0\Common.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\gdsQueue_v33_0\GDSQueue.wsdl" />
-    <None Include="Wsdl\gdsQueue_v33_0\GDSQueue.xsd">
+    <None Include="Wsdl\common_v35_0\CommonReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\gdsQueue_v33_0\GDSQueueAbstract.wsdl" />
-    <None Include="Wsdl\hotel_v33_0\Hotel.wsdl" />
-    <None Include="Wsdl\hotel_v33_0\Hotel.xsd">
+    <None Include="Wsdl\common_v35_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\hotel_v33_0\HotelAbstract.wsdl" />
-    <None Include="Wsdl\hotel_v33_0\HotelReqRsp.xsd">
+    <None Include="Wsdl\cruise_v35_0\Cruise.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\passive_v33_0\Passive.xsd">
+    <None Include="Wsdl\cruise_v35_0\CruiseReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\rail_v33_0\Rail.wsdl" />
-    <None Include="Wsdl\rail_v33_0\Rail.xsd">
+    <None Include="Wsdl\cruise_v35_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\rail_v33_0\RailAbstract.wsdl" />
-    <None Include="Wsdl\rail_v33_0\RailReqRsp.xsd">
+    <None Include="Wsdl\gdsQueue_v35_0\GDSQueue.wsdl" />
+    <None Include="Wsdl\gdsQueue_v35_0\GDSQueue.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\gdsQueue_v35_0\GDSQueueAbstract.wsdl" />
+    <None Include="Wsdl\gdsQueue_v35_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\hotel_v35_0\Hotel.wsdl" />
+    <None Include="Wsdl\hotel_v35_0\Hotel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\hotel_v35_0\HotelAbstract.wsdl" />
+    <None Include="Wsdl\hotel_v35_0\HotelReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\hotel_v35_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\passive_v35_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\passive_v35_0\Passive.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\rail_v35_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\rail_v35_0\Rail.wsdl" />
+    <None Include="Wsdl\rail_v35_0\Rail.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\rail_v35_0\RailAbstract.wsdl" />
+    <None Include="Wsdl\rail_v35_0\RailReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\system_v32_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Wsdl\system_v32_0\System.wsdl" />
@@ -815,17 +849,23 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Wsdl\system_v32_0\SystemAbstract.wsdl" />
+    <None Include="Wsdl\terminal_v33_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Wsdl\terminal_v33_0\Terminal.wsdl" />
     <None Include="Wsdl\terminal_v33_0\Terminal.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Wsdl\terminal_v33_0\TerminalAbstract.wsdl" />
-    <None Include="Wsdl\universal_v33_0\UniversalRecord.wsdl" />
-    <None Include="Wsdl\universal_v33_0\UniversalRecord.xsd">
+    <None Include="Wsdl\universal_v35_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\universal_v33_0\UniversalRecordAbstract.wsdl" />
-    <None Include="Wsdl\universal_v33_0\UniversalRecordReqRsp.xsd">
+    <None Include="Wsdl\universal_v35_0\UniversalRecord.wsdl" />
+    <None Include="Wsdl\universal_v35_0\UniversalRecord.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\universal_v35_0\UniversalRecordAbstract.wsdl" />
+    <None Include="Wsdl\universal_v35_0\UniversalRecordReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Wsdl\uprofile_v32_0\Kestrel.xsd">
@@ -842,17 +882,23 @@
     <None Include="Wsdl\uprofile_v32_0\UProfileReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\util_v33_0\Util.wsdl" />
-    <None Include="Wsdl\util_v33_0\Util.xsd">
+    <None Include="Wsdl\util_v35_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\util_v33_0\UtilAbstract.wsdl" />
-    <None Include="Wsdl\vehicle_v33_0\Vehicle.wsdl" />
-    <None Include="Wsdl\vehicle_v33_0\Vehicle.xsd">
+    <None Include="Wsdl\util_v35_0\Util.wsdl" />
+    <None Include="Wsdl\util_v35_0\Util.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\vehicle_v33_0\VehicleAbstract.wsdl" />
-    <None Include="Wsdl\vehicle_v33_0\VehicleReqRsp.xsd">
+    <None Include="Wsdl\util_v35_0\UtilAbstract.wsdl" />
+    <None Include="Wsdl\vehicle_v35_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\vehicle_v35_0\Vehicle.wsdl" />
+    <None Include="Wsdl\vehicle_v35_0\Vehicle.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\vehicle_v35_0\VehicleAbstract.wsdl" />
+    <None Include="Wsdl\vehicle_v35_0\VehicleReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -868,13 +914,25 @@
     <WCFMetadataStorage Include="Service References\VehicleService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\VehicleService\configuration91.svcinfo" />
+    <None Include="Service References\AirService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\VehicleService\configuration.svcinfo" />
+    <None Include="Service References\AirService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\VehicleService\Reference.svcmap">
+    <None Include="Service References\AirService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SystemService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SystemService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SystemService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -904,18 +962,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\SystemService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SystemService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\SystemService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\HotelService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -928,13 +974,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\AirService\configuration91.svcinfo" />
+    <None Include="Service References\VehicleService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\AirService\configuration.svcinfo" />
+    <None Include="Service References\VehicleService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\AirService\Reference.svcmap">
+    <None Include="Service References\VehicleService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
