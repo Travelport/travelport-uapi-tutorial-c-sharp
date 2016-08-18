@@ -50,6 +50,12 @@ namespace ConsoleApplication1.Utility
             //httpHeaders.Add("Password", Helper.ReturnPassword());
 
             httpHeaders.Add("Authorization","Basic " + Convert.ToBase64String(Encoding.ASCII.GetBytes(Helper.RetrunUsername() + ":" + Helper.ReturnPassword())));
+            httpHeaders.Add("Accept-Encoding", "gzip");
+            /*httpHeaders.Add("SOAPAction", "");
+            httpHeaders.Add("Host", "twsprofiler.travelport.com");
+            httpHeaders.Add("Connection", "Keep-Alive");
+            httpHeaders.Add("Content-Type", "text/xml;charset=UTF-8");
+            httpHeaders.Add("POST", "");*/
 
             return httpHeaders;
         }
