@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:vehicle="http://www.travelport.com/schema/vehicle_v33_0" xmlns:rail="http://www.travelport.com/schema/rail_v33_0" xmlns:common="http://www.travelport.com/schema/common_v33_0" xmlns:air_v33_0="http://www.travelport.com/schema/air_v33_0" xmlns="http://www.travelport.com/schema/universal_v33_0" xmlns:passive="http://www.travelport.com/schema/passive_v33_0" xmlns:hotel="http://www.travelport.com/schema/hotel_v33_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/universal_v33_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="../common_v33_0/CommonReqRsp.xsd" namespace="http://www.travelport.com/schema/common_v33_0" />
-  <xs:import schemaLocation="../air_v33_0/Air.xsd" namespace="http://www.travelport.com/schema/air_v33_0" />
-  <xs:import schemaLocation="../vehicle_v33_0/Vehicle.xsd" namespace="http://www.travelport.com/schema/vehicle_v33_0" />
-  <xs:import schemaLocation="../hotel_v33_0/Hotel.xsd" namespace="http://www.travelport.com/schema/hotel_v33_0" />
-  <xs:import schemaLocation="../rail_v33_0/Rail.xsd" namespace="http://www.travelport.com/schema/rail_v33_0" />
-  <xs:import schemaLocation="../passive_v33_0/Passive.xsd" namespace="http://www.travelport.com/schema/passive_v33_0" />
+<xs:schema xmlns:vehicle="http://www.travelport.com/schema/vehicle_v40_0" xmlns:rail="http://www.travelport.com/schema/rail_v40_0" xmlns:common="http://www.travelport.com/schema/common_v40_0" xmlns:air_v40_0="http://www.travelport.com/schema/air_v40_0" xmlns="http://www.travelport.com/schema/universal_v40_0" xmlns:passive="http://www.travelport.com/schema/passive_v40_0" xmlns:hotel="http://www.travelport.com/schema/hotel_v40_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/universal_v40_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="../common_v40_0/CommonReqRsp.xsd" namespace="http://www.travelport.com/schema/common_v40_0" />
+  <xs:import schemaLocation="../air_v40_0/Air.xsd" namespace="http://www.travelport.com/schema/air_v40_0" />
+  <xs:import schemaLocation="../vehicle_v40_0/Vehicle.xsd" namespace="http://www.travelport.com/schema/vehicle_v40_0" />
+  <xs:import schemaLocation="../hotel_v40_0/Hotel.xsd" namespace="http://www.travelport.com/schema/hotel_v40_0" />
+  <xs:import schemaLocation="../rail_v40_0/Rail.xsd" namespace="http://www.travelport.com/schema/rail_v40_0" />
+  <xs:import schemaLocation="../passive_v40_0/Passive.xsd" namespace="http://www.travelport.com/schema/passive_v40_0" />
   <xs:include schemaLocation="UniversalRecord.xsd" />
   <xs:annotation>
     <xs:documentation>
@@ -318,7 +318,7 @@
         <xs:extension base="common:BaseRsp">
           <xs:sequence>
             <xs:element minOccurs="0" ref="UniversalRecord" />
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:AirSolutionChangedInfo" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:AirSolutionChangedInfo" />
             <xs:element minOccurs="0" ref="UniversalModifyFailureInfo" />
           </xs:sequence>
           <xs:attribute name="QueueSessionToken" type="xs:string" use="optional">
@@ -639,34 +639,44 @@
       <xs:complexContent mixed="false">
         <xs:extension base="common:BaseCreateWithFormOfPaymentReq">
           <xs:sequence>
-            <xs:element ref="vehicle:VehicleDateLocation" />
-            <xs:element ref="vehicle:Vehicle" />
-            <xs:element minOccurs="0" maxOccurs="5" ref="common:SpecialEquipment" />
-            <xs:element minOccurs="0" ref="vehicle:VehicleSpecialRequest" />
-            <xs:element minOccurs="0" ref="vehicle:PaymentInformation" />
+            <xs:choice>
+              <xs:sequence>
+                <xs:element ref="vehicle:VehicleDateLocation" />
+                <xs:element ref="vehicle:Vehicle" />
+                <xs:element minOccurs="0" maxOccurs="5" ref="common:SpecialEquipment" />
+                <xs:element minOccurs="0" ref="vehicle:VehicleSpecialRequest" />
+                <xs:element minOccurs="0" ref="vehicle:PaymentInformation" />
+              </xs:sequence>
+            </xs:choice>
             <xs:element minOccurs="0" ref="common:PointOfSale" />
-            <xs:element minOccurs="0" ref="vehicle:DeliveryAddress">
-              <xs:annotation>
-                <xs:documentation>An address to which a rental car should be delivered and a phone number associated with the address.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element minOccurs="0" ref="vehicle:CollectionAddress">
-              <xs:annotation>
-                <xs:documentation>An address from which a rental car should be picked up at the end of a rental period and a phone number associated with the address.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element minOccurs="0" ref="vehicle:FlightArrivalInformation">
-              <xs:annotation>
-                <xs:documentation>
-                                    The flight arrival information 
-                                    (airline code and flight number) for the 
-                                    airport/city at which the rental car will
-                                    be picked up
-                                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
+            <xs:choice>
+              <xs:sequence>
+                <xs:element minOccurs="0" ref="vehicle:DeliveryAddress">
+                  <xs:annotation>
+                    <xs:documentation>An address to which a rental car should be delivered and a phone number associated with the address.</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" ref="vehicle:CollectionAddress">
+                  <xs:annotation>
+                    <xs:documentation>An address from which a rental car should be picked up at the end of a rental period and a phone number associated with the address.</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" ref="vehicle:FlightArrivalInformation">
+                  <xs:annotation>
+                    <xs:documentation>
+                                            The flight arrival information 
+                                            (airline code and flight number) for the 
+                                            airport/city at which the rental car will
+                                            be picked up
+                                        </xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:choice>
             <xs:element minOccurs="0" ref="common:Guarantee" />
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle:AssociatedRemark" />
+            <xs:choice>
+              <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle:AssociatedRemark" />
+            </xs:choice>
             <xs:element minOccurs="0" ref="common:BookingSource">
               <xs:annotation>
                 <xs:documentation>Specify alternate booking source</xs:documentation>
@@ -685,6 +695,11 @@
               </xs:annotation>
             </xs:element>
           </xs:sequence>
+          <xs:attribute default="false" name="MandatoryRateMatch" type="xs:boolean" use="optional">
+            <xs:annotation>
+              <xs:documentation>If true, vehicle will not be booked if there is a rate discrepancy.  Default is false. Supported providers: 1P,1J.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
@@ -744,7 +759,7 @@
       <xs:complexContent mixed="false">
         <xs:extension base="common:BaseCreateWithFormOfPaymentReq">
           <xs:sequence>
-            <xs:element ref="hotel:HotelRateDetail" />
+            <xs:element maxOccurs="99" ref="hotel:HotelRateDetail" />
             <xs:element ref="hotel:HotelProperty" />
             <xs:element minOccurs="0" ref="common:ThirdPartyInformation" />
             <xs:element ref="hotel:HotelStay" />
@@ -763,7 +778,7 @@
             </xs:element>
             <xs:element minOccurs="0" maxOccurs="4" ref="hotel:HotelBedding" />
             <xs:element minOccurs="0" ref="hotel:GuestInformation" />
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel:AssociatedRemark" />
+            <xs:element minOccurs="0" maxOccurs="9999" ref="hotel:AssociatedRemark" />
             <xs:element minOccurs="0" ref="common:ReservationName">
               <xs:annotation>
                 <xs:documentation>If specified then it will be used for GDS reservation otherwise first booking traveler will be used. </xs:documentation>
@@ -771,7 +786,7 @@
             </xs:element>
             <xs:element minOccurs="0" ref="common:ActionStatus" />
             <xs:element minOccurs="0" ref="common:HostToken" />
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:ReviewBooking">
+            <xs:element minOccurs="0" maxOccurs="9999" ref="common:ReviewBooking">
               <xs:annotation>
                 <xs:documentation>Review Booking or Queue Minders is to add the reminders in the Provider Reservation along with the date time and Queue details. On the date time defined in reminders, the message along with the PNR goes to the desired Queue. </xs:documentation>
               </xs:annotation>
@@ -781,6 +796,7 @@
                 <xs:documentation>This element indicates hotel commission applied during hotel booking.  Provider supported 1P and 1J.</xs:documentation>
               </xs:annotation>
             </xs:element>
+            <xs:element minOccurs="0" ref="hotel:BookingGuestInformation" />
           </xs:sequence>
           <xs:attribute default="false" name="UserAcceptance" type="xs:boolean" use="optional">
             <xs:annotation>
@@ -880,7 +896,8 @@
               </xs:annotation>
             </xs:element>
             <xs:element minOccurs="0" ref="common:HostTokenList" />
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="rail:RailAutoSeatAssignment" />
+            <xs:element minOccurs="0" maxOccurs="999" ref="rail:RailAutoSeatAssignment" />
+            <xs:element minOccurs="0" maxOccurs="999" ref="rail:RailSpecificSeatAssignment" />
           </xs:sequence>
           <xs:attribute name="BookingActionType" type="xs:string" use="required">
             <xs:annotation>
@@ -896,15 +913,6 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
-  <xs:complexType name="typeRailReservationRsp" abstract="true">
-    <xs:complexContent mixed="false">
-      <xs:extension base="common:BaseRsp">
-        <xs:sequence>
-          <xs:element minOccurs="0" ref="UniversalRecord" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
   <xs:complexType name="typeRailCreateReservationRsp" abstract="true">
     <xs:complexContent mixed="false">
       <xs:extension base="common:BaseRsp">
@@ -922,53 +930,6 @@
     <xs:complexType>
       <xs:complexContent mixed="false">
         <xs:extension base="typeRailCreateReservationRsp" />
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RailExchangeReq">
-    <xs:annotation>
-      <xs:documentation>Creates a rail exchange reservation request with the host.</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent mixed="false">
-        <xs:extension base="common:BaseCreateWithFormOfPaymentReq">
-          <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="1" ref="rail:RailExchangeSolution" />
-            <xs:element minOccurs="0" ref="common:Payment" />
-            <xs:element minOccurs="0" ref="rail:RailFareNoteList">
-              <xs:annotation>
-                <xs:documentation>List of RailFareNote(s) that is referenced by key in RailFare.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element minOccurs="0" ref="common:HostTokenList" />
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="rail:RailAutoSeatAssignment" />
-          </xs:sequence>
-          <xs:attribute name="LocatorCode" type="common:typeLocatorCode" use="required">
-            <xs:annotation>
-              <xs:documentation>The unique identifier for this rail reservation</xs:documentation>
-            </xs:annotation>
-          </xs:attribute>
-          <xs:attribute name="BookingActionType" type="xs:string" use="required">
-            <xs:annotation>
-              <xs:documentation>The action associated with this booking. Three options are:Final (used to book with no ticket issuance), FinalTicket (used to book and issue the ticket), Initiate (used for a provisional booking). Provider is RCH</xs:documentation>
-            </xs:annotation>
-          </xs:attribute>
-          <xs:attribute name="RefundOption" type="xs:string" use="optional">
-            <xs:annotation>
-              <xs:documentation>If the exchange results in money returned to the customer, ???Refund??? is sent to return the money to the original form or payment or ???Retain??? is sent if the money should be returned in the form of an eVoucher for future use.  This attribute is supported by Amtrak/2V and ignored for all others.???</xs:documentation>
-            </xs:annotation>
-          </xs:attribute>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RailExchangeRsp">
-    <xs:annotation>
-      <xs:documentation>Returns rail exchange reservation information with ticketing/refund info etc..</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:complexContent mixed="false">
-        <xs:extension base="typeRailReservationRsp" />
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
@@ -995,7 +956,7 @@
                 <xs:documentation>Provider: 1G,1V.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element ref="air_v33_0:AirPricingSolution">
+            <xs:element ref="air_v40_0:AirPricingSolution">
               <xs:annotation>
                 <xs:documentation>Provider: 1G,1V,1P,1J,ACH,SDK.</xs:documentation>
               </xs:annotation>
@@ -1015,22 +976,22 @@
                 <xs:documentation>Provider: ACH.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:AutoSeatAssignment">
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:AutoSeatAssignment">
               <xs:annotation>
                 <xs:documentation>Provider: 1G,1V,1P,1J.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:SpecificSeatAssignment">
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:SpecificSeatAssignment">
               <xs:annotation>
                 <xs:documentation>Provider: 1G,1V,1P,1J,ACH.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:AssociatedRemark">
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:AssociatedRemark">
               <xs:annotation>
                 <xs:documentation>Provider: 1G,1V,1P,1J,ACH,SDK.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:PocketItineraryRemark">
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:PocketItineraryRemark">
               <xs:annotation>
                 <xs:documentation>Provider: 1P,1J.</xs:documentation>
               </xs:annotation>
@@ -1038,6 +999,11 @@
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:ReviewBooking">
               <xs:annotation>
                 <xs:documentation>Provider: 1G,1V-Review Booking or Queue Minders is to add the reminders in the Provider Reservation along with the date time and Queue details. On the date time defined in reminders, the message along with the PNR goes to the desired Queue. </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="99" ref="air_v40_0:AirPricingTicketingModifiers">
+              <xs:annotation>
+                <xs:documentation>AirPricing TicketingModifier information used to associate Ticketing Modifiers with one or more AirPricingInfos/ProviderReservationInfo for 1G,1V,1P,1J</xs:documentation>
               </xs:annotation>
             </xs:element>
           </xs:sequence>
@@ -1063,6 +1029,33 @@
               <xs:documentation>Restrict Book if it sells a Waitlisted AirSegment. Provider: 1G,1V</xs:documentation>
             </xs:annotation>
           </xs:attribute>
+          <xs:attribute default="false" name="CreatePassiveForHold" type="xs:boolean" use="optional">
+            <xs:annotation>
+              <xs:documentation>Creates a background passive segment for an ACH hold booking.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="ChannelId" use="optional">
+            <xs:annotation>
+              <xs:documentation>A Channel ID is 4 alpha-numeric characters used to activate the Search Control Console filter for a specific group of travelers being served by the agency credential.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="2" />
+                <xs:maxLength value="4" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="NSCC" use="optional">
+            <xs:annotation>
+              <xs:documentation>Allows the agency to bypass/override the Search Control Console rule.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="3" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
@@ -1076,12 +1069,12 @@
               <xs:documentation>Provider: 1G,1V,1P,1J,ACH.</xs:documentation>
             </xs:annotation>
             <xs:element minOccurs="0" ref="UniversalRecord" />
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:AirSolutionChangedInfo">
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:AirSolutionChangedInfo">
               <xs:annotation>
                 <xs:documentation>Provider: 1G,1V,1P,1J,ACH.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element minOccurs="0" ref="air_v33_0:AirSegmentSellFailureInfo">
+            <xs:element minOccurs="0" ref="air_v40_0:AirSegmentSellFailureInfo">
               <xs:annotation>
                 <xs:documentation>Provider: 1G,1V,1P,1J,ACH.</xs:documentation>
               </xs:annotation>
@@ -1104,17 +1097,17 @@
                 <xs:documentation>Provider: 1G,1V,1P,1J,ACH.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element ref="air_v33_0:AirReservationLocatorCode">
+            <xs:element ref="air_v40_0:AirReservationLocatorCode">
               <xs:annotation>
                 <xs:documentation>Provider: 1G,1V,1P,1J,ACH.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:AirSegment">
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:AirSegment">
               <xs:annotation>
                 <xs:documentation>Provider: 1G,1V,1P,1J,ACH.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:AirSegmentRef">
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:AirSegmentRef">
               <xs:annotation>
                 <xs:documentation>Provider: 1G,1V,1P,1J,ACH.</xs:documentation>
               </xs:annotation>
@@ -1165,7 +1158,7 @@
                 <xs:documentation>Provider: ACH.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element maxOccurs="unbounded" ref="air_v33_0:HostReservation">
+            <xs:element maxOccurs="unbounded" ref="air_v40_0:HostReservation">
               <xs:annotation>
                 <xs:documentation>Provider: 1G,1V,1P,1J,ACH.</xs:documentation>
               </xs:annotation>
@@ -1175,7 +1168,7 @@
                 <xs:documentation>Provider: 1G,1V,1P,1J,ACH.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element ref="air_v33_0:AirSolution">
+            <xs:element ref="air_v40_0:AirSolution">
               <xs:annotation>
                 <xs:documentation>Provider: 1G,1V,1P,1J,ACH.</xs:documentation>
               </xs:annotation>
@@ -1185,8 +1178,8 @@
                 <xs:documentation>Provider: 1G,1V,1P,1J,ACH.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element minOccurs="0" ref="air_v33_0:OptionalServices" />
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:SpecificSeatAssignment">
+            <xs:element minOccurs="0" ref="air_v40_0:OptionalServices" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:SpecificSeatAssignment">
               <xs:annotation>
                 <xs:documentation>Provider: 1G,1V,1P,1J,ACH.</xs:documentation>
               </xs:annotation>
@@ -1199,6 +1192,11 @@
             <xs:element minOccurs="0" name="ConfirmationEmail" type="xs:string">
               <xs:annotation>
                 <xs:documentation>Provider: 1G,1V,1P,1J,ACH.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" ref="air_v40_0:MerchandisingPricingModifiers">
+              <xs:annotation>
+                <xs:documentation>Used to provide additional pricing modifiers. Provider:ACH.</xs:documentation>
               </xs:annotation>
             </xs:element>
           </xs:sequence>

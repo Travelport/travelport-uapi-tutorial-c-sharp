@@ -113,7 +113,10 @@ namespace ConsoleApplication1
             List<CabinClass> cabins = new List<CabinClass>();
             cabins.Add(cabinClass);
 
-            modifiers.PreferredCabins = cabins.ToArray();
+            PreferredCabins preferredCabins = new PreferredCabins();
+            preferredCabins.CabinClass = cabinClass;
+
+            modifiers.PreferredCabins = preferredCabins;
             
 
             outbound.AirLegModifiers = modifiers;
@@ -222,10 +225,13 @@ namespace ConsoleApplication1
             CabinClass cabinClass = new CabinClass();
             cabinClass.Type = "Economy";
 
-            List<CabinClass> cabins = new List<CabinClass>();
-            cabins.Add(cabinClass);
+            /*List<CabinClass> cabins = new List<CabinClass>();
+            cabins.Add(cabinClass);*/
 
-            modifiers.PreferredCabins = cabins.ToArray();
+            PreferredCabins preferredCabins = new PreferredCabins();
+            preferredCabins.CabinClass = cabinClass;
+
+            modifiers.PreferredCabins = preferredCabins;
             
             outbound.AirLegModifiers = modifiers;
         }
@@ -333,7 +339,7 @@ namespace ConsoleApplication1
                 var httpHeaders = Helper.ReturnHttpHeader();
                 client.Endpoint.EndpointBehaviors.Add(new HttpHeadersEndpointBehavior(httpHeaders));
 
-                priceRsp = client.service(priceReq);                
+                priceRsp = client.service(null, priceReq);                
 
                 return priceRsp;
             }

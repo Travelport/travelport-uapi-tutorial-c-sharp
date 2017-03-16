@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://www.travelport.com/schema/hotel_v33_0" xmlns:common="http://www.travelport.com/schema/common_v33_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/hotel_v33_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="../common_v33_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v33_0" />
+<xs:schema xmlns="http://www.travelport.com/schema/hotel_v40_0" xmlns:common="http://www.travelport.com/schema/common_v40_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/hotel_v40_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="../common_v40_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v40_0" />
   <xs:annotation>
     <xs:documentation>(c) Travelport GDS 2008 All rights reserved. Proprietary Information of Travelport GDS.</xs:documentation>
   </xs:annotation>
@@ -15,7 +15,16 @@
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:BookingTravelerRef" />
             <xs:group ref="BaseHotelReservationGroup" />
           </xs:sequence>
-          <xs:attribute name="Status" type="xs:string" use="required" />
+          <xs:attribute name="Status" type="xs:string" use="required">
+            <xs:annotation>
+              <xs:documentation>Reservation IATA status code, 2 byte.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="AggregatorBookingStatus" type="xs:string" use="optional">
+            <xs:annotation>
+              <xs:documentation>Aggregator reservation status response. Supported Provider TRM.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
           <xs:attribute name="BookingConfirmation" type="xs:string" use="optional" />
           <xs:attribute name="CancelConfirmation" type="xs:string" use="optional" />
           <xs:attribute name="ProviderReservationInfoRef" type="common:typeRef" use="optional">
@@ -27,6 +36,16 @@
             <xs:annotation>
               <xs:documentation>To identify the appropriate sequence for Air/Car/Hotel segments based on travel dates.</xs:documentation>
             </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="ProviderSegmentOrder" use="optional">
+            <xs:annotation>
+              <xs:documentation>To identify the appropriate travel sequence for Air/Car/Hotel/Rail segments/reservations in the provider reservation.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:integer">
+                <xs:maxInclusive value="999" />
+              </xs:restriction>
+            </xs:simpleType>
           </xs:attribute>
           <xs:attribute name="PassiveProviderReservationInfoRef" type="common:typeRef" use="optional">
             <xs:annotation>
@@ -55,6 +74,7 @@
         <xs:element minOccurs="0" ref="common:Distance" />
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="HotelRating" />
         <xs:element minOccurs="0" ref="Amenities" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="MarketingMessage" />
       </xs:sequence>
       <xs:attribute name="HotelChain" type="common:typeHotelChainCode" use="required" />
       <xs:attribute name="HotelCode" type="common:typeHotelCode" use="required" />
@@ -69,25 +89,18 @@
           <xs:documentation>The VendorLocationKey for this HotelProperty.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
-      <xs:attribute name="HotelTransportation" type="typeTransportationType" use="optional">
+      <xs:attribute name="HotelTransportation" type="common:typeOTACode" use="optional">
         <xs:annotation>
-          <xs:documentation>Transportation available to hotel</xs:documentation>
+          <xs:documentation>OTA Transporation code. Transportation available to hotel.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="ReserveRequirement" type="common:typeReserveRequirement" use="optional" />
-      <xs:attribute name="ParticipationLevel" type="xs:string" use="optional">
+      <xs:attribute name="ParticipationLevel" type="common:StringLength1" use="optional">
         <xs:annotation>
-          <xs:documentation>Hotel Vendor Participation Level </xs:documentation>
-          <xs:documentation>Varies by provider </xs:documentation>
-          <xs:documentation>e.g. Best Available Rate Participant, Hotel Shopper Participant</xs:documentation>
+          <xs:documentation>2=Best Available Rate 1G, 1V,  4=Lowest Possible Rate 1G, 1V, 1P, 1J</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="Availability" type="typeHotelAvailability" use="optional" />
-      <xs:attribute name="FeaturedProperty" type="xs:boolean">
-        <xs:annotation>
-          <xs:documentation>When true, this is a featured property participant.</xs:documentation>
-        </xs:annotation>
-      </xs:attribute>
       <xs:attribute name="Key" type="common:typeRef" use="optional" />
       <xs:attribute name="PreferredOption" type="xs:boolean" use="optional">
         <xs:annotation>
@@ -99,11 +112,37 @@
           <xs:documentation>When true, more rates are available for this hotel property.Applicable only for HotelDetails and HotelSuperShopper.  Supported Providers: 1G, 1V.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attribute name="MoreRatesToken" use="optional">
+        <xs:annotation>
+          <xs:documentation>HS3 Token to identify the Rates for a property. Supported Providers 1G,1V.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+            <xs:maxLength value="30" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
       <xs:attribute name="NetTransCommissionInd" type="typeNetTransCommission" use="optional">
         <xs:annotation>
           <xs:documentation>This attribute indicates whether hotel property is tracking through net trans commission indicator.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attribute name="NumOfRatePlans" type="xs:positiveInteger" use="optional">
+        <xs:annotation>
+          <xs:documentation>The specific number of RatePlanTypes for each property responded on the message, integer 1 - 999. Supported provider: HotelSuperShopper message only.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MarketingMessage">
+    <xs:annotation>
+      <xs:documentation>Marketing information provided by the supplier</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="99" name="Text" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:simpleType name="typeNetTransCommission">
@@ -126,39 +165,183 @@
   </xs:simpleType>
   <xs:element name="HotelRateDetail">
     <xs:annotation>
-      <xs:documentation>Rate Details</xs:documentation>
+      <xs:documentation>Returns hotel rate details during the stay if rates are available for requested property.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded" name="RoomRateDescription" type="typeHotelRateDescription" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="HotelRateByDate" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:CorporateDiscountID">
+        <xs:element minOccurs="0" name="PolicyCodesList" type="common:typePolicyCodesList">
+          <xs:annotation>
+            <xs:documentation>A list of codes that indicate why an item was determined to be ‘out of policy’.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="9999" name="RoomRateDescription" type="typeHotelRateDescription" />
+        <xs:element minOccurs="0" maxOccurs="9999" ref="HotelRateByDate" />
+        <xs:element minOccurs="0" maxOccurs="9999" ref="common:CorporateDiscountID">
           <xs:annotation>
             <xs:documentation>Corporate Discount IDs and Negotiate rate codes associated with this rate</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="RateMatchIndicator">
+        <xs:element minOccurs="0" maxOccurs="99" ref="AcceptedPayment">
+          <xs:annotation>
+            <xs:documentation>Form of payment accepted by the hotel supplier (chain or property). For credit cards, the two-character code for the credit card type is used. </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" ref="Commission">
+          <xs:annotation>
+            <xs:documentation>Commission associated with the Rate Plan, as a percentage or flat amount.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="9999" ref="RateMatchIndicator">
           <xs:annotation>
             <xs:documentation>Returns "Match" Indicators for certain request parameters for Hotel Rate returned in response.</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element minOccurs="0" ref="TaxDetails" />
-        <xs:element minOccurs="0" ref="MealPlans" />
         <xs:element minOccurs="0" ref="CancelInfo" />
         <xs:element minOccurs="0" ref="GuaranteeInfo">
           <xs:annotation>
             <xs:documentation>Guarantee, deposit, and prepayment information</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs="0" ref="RoomView">
+        <xs:element minOccurs="0" name="SupplementalRateInfo" type="xs:string">
           <xs:annotation>
-            <xs:documentation>Hotel room view information. Supports 1G,1V,1P,1J and HS3</xs:documentation>
+            <xs:documentation>Supplemental rate information provided by the aggregator. Supported Providers TRM.</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs="0" name="TaxSurchargeInfo" type="xs:string">
+        <xs:element minOccurs="0" name="RoomCapacity">
           <xs:annotation>
-            <xs:documentation>Additional tax and surcharge info provided by the supplier.  Applicable for TRM only</xs:documentation>
+            <xs:documentation>The maximum number of guests for a room or for each room in a package. Provider: TRM.</xs:documentation>
           </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="99" name="Capacity" type="xs:positiveInteger">
+                <xs:annotation>
+                  <xs:documentation>The maximum number of guests per room. Provider: TRM.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="IsPackage" type="xs:boolean" use="optional">
+              <xs:annotation>
+                <xs:documentation>If true, the rooms are offered as a package by the aggregator. Supported Providers TRM.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="ExtraCharges">
+          <xs:annotation>
+            <xs:documentation>Additional charges applied to the hotel rate.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:attribute name="ExtraAdultAmount" type="common:typeMoney">
+              <xs:annotation>
+                <xs:documentation> Additional charge for an extra guest. </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="ExtraChildAmount" type="common:typeMoney">
+              <xs:annotation>
+                <xs:documentation>dditional charge for an extra child guest.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="CribAmount" type="common:typeMoney">
+              <xs:annotation>
+                <xs:documentation>Additional charge for a crib.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="AdultRollawayCharge" type="common:typeMoney">
+              <xs:annotation>
+                <xs:documentation>Additional charge for an extra rollaway bed provided for an adult guest.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="ChildRollawayCharge" type="common:typeMoney">
+              <xs:annotation>
+                <xs:documentation>Additional charge for an extra rollaway bed provided for a child guest.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="Inclusions">
+          <xs:annotation>
+            <xs:documentation>Additional items included in the hotel rate plan.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="99" name="BedTypes">
+                <xs:annotation>
+                  <xs:documentation>Bed types in the rate plan.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:attribute name="Code" type="common:typeOTACode">
+                    <xs:annotation>
+                      <xs:documentation>Bed Type Code. Uses Open Travel Code List Room Amenity Type (RMA). Encode/decode data in Util ReferenceDataRetrieveReq TypeCode=“HotelAmenities”.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="Quantity" type="xs:nonNegativeInteger">
+                    <xs:annotation>
+                      <xs:documentation>Bed Quantity.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="MealPlans">
+                <xs:annotation>
+                  <xs:documentation>Meal options available for the rate plan.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="99" name="MealPlan">
+                      <xs:annotation>
+                        <xs:documentation>Meal plan.</xs:documentation>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:attribute name="Code" type="common:typeOTACode">
+                          <xs:annotation>
+                            <xs:documentation>Meal plan code. Uses Open Travel Code List Meal Plan Type (MPT). Encode/decode data in Util ReferenceDataRetrieveReq TypeCode=“HotelMealPlans”.</xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="Breakfast" type="common:typeTrinary">
+                    <xs:annotation>
+                      <xs:documentation>Indicates whether a daily breakfast is included in the meal plan.
+										true = Breakfast is included 
+										false = Breakfast is not included
+										unknown = Information is not returned by the hotel supplier (chain or property).</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="Lunch" type="common:typeTrinary">
+                    <xs:annotation>
+                      <xs:documentation>Indicates whether a daily lunch is included in the meal plan.
+										true = Lunch is included 
+										false = Lunch is not included
+										unknown = Information is not returned by the hotel supplier (chain or property).</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="Dinner" type="common:typeTrinary">
+                    <xs:annotation>
+                      <xs:documentation>Indicates whether a daily dinner is included in the meal plan.
+										true = Dinner is included 
+										false = Dinner is not included
+										unknown = Information is not returned by the hotel supplier (chain or property).</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" ref="RoomView">
+                <xs:annotation>
+                  <xs:documentation>The view from the hotel room. </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="SmokingRoomIndicator" type="common:typeTrinary">
+              <xs:annotation>
+                <xs:documentation>Indicates if the room is designated as nonsmoking or smoking.
+								true = Smoking
+								false = NonSmoking
+								unknown = Information is not returned by the hotel supplier (chain or property).</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
         </xs:element>
       </xs:sequence>
       <xs:attribute name="RatePlanType" type="common:typeRatePlanType" use="required" />
@@ -189,20 +372,25 @@
           <xs:documentation>If true, approximate rate is guaranteed by vendor.  Supported Providers: 1G,1V</xs:documentation>
         </xs:annotation>
       </xs:attribute>
-      <xs:attribute name="RateCategory" type="typeHotelRateCategory">
+      <xs:attribute name="RateCategory" type="common:typeOTACode" use="optional">
         <xs:annotation>
-          <xs:documentation>The category of this rate (Best, Standard etc.)</xs:documentation>
+          <xs:documentation>An enumerated type that allows the query to specify a rate category type, and provides major categories for comparison across brands. Refer to OpenTravel Code List Rate Plan Type (RPT). Encode/decode data in Util ReferenceDataRetrieveReq TypeCode=“HotelRateCategory".</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="Key" type="common:typeRef" use="optional" />
       <xs:attribute name="RateSupplier" type="common:typeThirdPartySupplier" use="optional">
         <xs:annotation>
-          <xs:documentation>Indicates the supplier of the rate.  Maybe required for hotels provided by aggregators.</xs:documentation>
+          <xs:documentation>Indicates the source of the rate. Provider: TRM.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="BookableQuantity" type="xs:positiveInteger" use="optional">
+        <xs:annotation>
+          <xs:documentation>The number of rooms which can be booked on the rate returned in HotelRateDetails.  When the aggregator responds ‘IsPackage’= true (pricing for all rooms together), the BookableQuantity value will be ‘1’. Supported Providers TRM.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="RateOfferId" type="typeRateOfferId" use="optional">
         <xs:annotation>
-          <xs:documentation>Offer Identifier. Maybe required for hotels provided by aggregators.</xs:documentation>
+          <xs:documentation>Offer Identifier. Maybe required for hotels provided by aggregators. Supported Provider TRM.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="InPolicy" type="xs:boolean" use="optional">
@@ -210,9 +398,14 @@
           <xs:documentation>This attribute will be used to indicate if a fare or rate has been determined to be ‘in policy’ based on the associated policy settings.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
-      <xs:attribute name="PolicyCode" type="common:typePolicyCode" use="optional">
+      <xs:attribute name="RateChangeIndicator" type="common:typeTrinary" use="optional">
         <xs:annotation>
-          <xs:documentation>This attribute is used to provide a code that can be used to determine why an item was determined to be ‘out of policy’.</xs:documentation>
+          <xs:documentation>Determines if the rate changes during the length of stay. Enumerated values are true, false, and unknown.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="ExtraFeesIncluded" type="common:typeTrinary" use="optional">
+        <xs:annotation>
+          <xs:documentation>When true, total amounts includes additional fees or charges." Enumerated values are true, false, and unknown</xs:documentation>
         </xs:annotation>
       </xs:attribute>
     </xs:complexType>
@@ -230,7 +423,11 @@
         <xs:element minOccurs="1" name="Amount" type="common:typeMoney" />
         <xs:element minOccurs="1" name="Percentage" type="xs:float" />
       </xs:choice>
-      <xs:attribute name="Code" type="xs:string" use="required" />
+      <xs:attribute name="Code" type="common:typeOTACode" use="required">
+        <xs:annotation>
+          <xs:documentation>Code identifying fee (e.g. agency fee, bed tax etc.). Refer to OPEN Travel Code List for Fee Tax Type. Possible values are OTA Code against FTT.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
       <xs:attribute name="EffectiveDate" type="xs:date" use="optional" />
       <xs:attribute name="ExpirationDate" type="xs:date" use="optional" />
       <xs:attribute name="Term" type="xs:string" use="optional">
@@ -400,7 +597,7 @@
             <xs:documentation>Provider specific Hotel location.  Applicable for TRM only.</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:VendorLocation" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="common:VendorLocation" />
         <xs:element minOccurs="0" name="HotelAddress" type="common:typeStructuredAddress">
           <xs:annotation>
             <xs:documentation>Search by address or postal code.  Applicable for 1G, 1V, 1P, 1J</xs:documentation>
@@ -449,7 +646,7 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element maxOccurs="unbounded" name="Text" type="xs:string" />
+        <xs:element maxOccurs="99" name="Text" type="xs:string" />
       </xs:sequence>
       <xs:attribute name="Name" type="xs:string" use="required" />
     </xs:complexType>
@@ -462,7 +659,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" ref="common:PermittedProviders" />
         <xs:element minOccurs="0" maxOccurs="4" ref="common:LoyaltyCard" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:CorporateDiscountID">
+        <xs:element minOccurs="0" maxOccurs="9999" ref="common:CorporateDiscountID">
           <xs:annotation>
             <xs:documentation>Search with corporate discount IDs or negotiated rate codes. 1G/1V allows a max of 4.  1P/1J allows a max of 1 corporate discount ID and up to 30 negotiated rate codes.  Support for this function is hotel supplier dependent.</xs:documentation>
           </xs:annotation>
@@ -470,20 +667,25 @@
         <xs:element ref="HotelStay" />
         <xs:element minOccurs="0" ref="NumberOfChildren" />
         <xs:element minOccurs="0" maxOccurs="4" ref="HotelBedding" />
-        <xs:element minOccurs="0" maxOccurs="8" name="RateCategory" type="typeHotelRateCategory">
+        <xs:element minOccurs="0" maxOccurs="8" name="RateCategory" type="common:typeOTACode">
           <xs:annotation>
             <xs:documentation>Specify Rate Category</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs="0" ref="PermittedSuppliers">
+        <xs:element minOccurs="0" ref="PermittedAggregators">
           <xs:annotation>
             <xs:documentation>TRM Only</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" ref="BookingGuestInformation">
+          <xs:annotation>
+            <xs:documentation>Information about requested rooms and allocation of guests per room. Provider: TRM.</xs:documentation>
           </xs:annotation>
         </xs:element>
       </xs:sequence>
       <xs:attribute name="NumberOfAdults" type="xs:int" use="optional">
         <xs:annotation>
-          <xs:documentation>Defaults to 1 if not specified</xs:documentation>
+          <xs:documentation>The total number of adult guests per booking. Defaults to ‘1’. GDS Providers: 1G, 1V, 1P, 1J. Also for aggregated request (GDS provider + TRM).</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute default="None" name="RateRuleDetail" type="typeRateRuleDetail">
@@ -493,7 +695,7 @@
       </xs:attribute>
       <xs:attribute default="1" name="NumberOfRooms" type="xs:int" use="optional">
         <xs:annotation>
-          <xs:documentation>The numbers of rooms,defaults to 1 if not specified</xs:documentation>
+          <xs:documentation>The number of rooms per booking. Defaults to ‘1’. GDS Providers 1G, 1V, 1P, 1J. Also for aggregated request (GDS provider + TRM) for single room only.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="Key" type="common:typeRef" use="optional" />
@@ -540,7 +742,7 @@
           </xs:complexType>
         </xs:element>
         <xs:element minOccurs="0" ref="common:PermittedProviders" />
-        <xs:element minOccurs="0" ref="PermittedSuppliers" />
+        <xs:element minOccurs="0" ref="PermittedAggregators" />
         <xs:element minOccurs="0" maxOccurs="4" ref="common:LoyaltyCard" />
         <xs:element minOccurs="0" name="HotelName" type="xs:string">
           <xs:annotation>
@@ -552,7 +754,7 @@
             <xs:documentation>Search with corporate discount IDs or negotiated rate codes. 1G/1V allows a max of 4.  1P/1J allows a max of 1 corporate discount ID and up to 30 negotiated rate codes.  Support for this function is hotel supplier dependent.</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs="0" maxOccurs="8" name="RateCategory" type="typeHotelRateCategory">
+        <xs:element minOccurs="0" maxOccurs="8" name="RateCategory" type="common:typeOTACode">
           <xs:annotation>
             <xs:documentation>Search for specific rate categories</xs:documentation>
           </xs:annotation>
@@ -560,34 +762,44 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="HotelRating" />
         <xs:element minOccurs="0" ref="SearchPriority" />
         <xs:element minOccurs="0" maxOccurs="4" ref="HotelBedding" />
-        <xs:element minOccurs="0" ref="Amenities" />
+        <xs:element minOccurs="0" name="Amenities">
+          <xs:annotation>
+            <xs:documentation>Amenity information</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="8" ref="Amenity" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element minOccurs="0" name="HotelPaymentType" type="typeHotelPaymentType">
           <xs:annotation>
-            <xs:documentation>Specify PrePay or PostPay. Prepay rates require full payment at time of booking</xs:documentation>
+            <xs:documentation>Payment type. “PrePay” rates require advance payment to complete the booking. “PostPay” rates allow payment after booking, typically after the hotel stay is completed. By default, all payment types are returned. Supported Provider: TRM. </xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element minOccurs="0" ref="NumberOfChildren" />
         <xs:element minOccurs="0" name="HotelTransportation">
           <xs:annotation>
-            <xs:documentation>Search for specific transportation. Supported providers: 1G/1V.  Only CourtesyBus supported by 1P/1J</xs:documentation>
+            <xs:documentation>OTA Transportation code. Search for specific transportation. Supported providers: 1G/1V.  Only CourtesyBus '7' supported by 1P/1J.</xs:documentation>
           </xs:annotation>
           <xs:complexType>
-            <xs:attribute name="Type" type="typeTransportationType" use="required">
+            <xs:attribute name="Type" type="common:typeOTACode" use="required">
               <xs:annotation>
                 <xs:documentation>Transportation type code</xs:documentation>
               </xs:annotation>
             </xs:attribute>
           </xs:complexType>
         </xs:element>
+        <xs:element minOccurs="0" ref="BookingGuestInformation" />
       </xs:sequence>
       <xs:attribute name="NumberOfAdults" type="xs:int" use="optional">
         <xs:annotation>
-          <xs:documentation>Defaults to 1 if not specified</xs:documentation>
+          <xs:documentation>The total number of adult guests per booking. Defaults to ‘1’. Supported Providers: 1G, 1V, 1P, 1J. Also for aggregated request (GDS provider + TRM).</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="NumberOfRooms" type="xs:int" use="optional">
         <xs:annotation>
-          <xs:documentation>Optional search criteria No. of rooms.</xs:documentation>
+          <xs:documentation>The number of rooms per booking. Defaults to ‘1’. Supported Providers 1G, 1V, 1P, 1J. Also for aggregated request (GDS provider + TRM) for single room only.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="MaxProperties" type="xs:int" use="optional">
@@ -602,7 +814,7 @@
       </xs:attribute>
       <xs:attribute name="PreferredCurrency" type="common:typeCurrency" use="optional">
         <xs:annotation>
-          <xs:documentation>Alternate currency</xs:documentation>
+          <xs:documentation>Requested currency for target rate.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="AvailableHotelsOnly" type="xs:boolean" use="optional">
@@ -612,7 +824,7 @@
       </xs:attribute>
       <xs:attribute name="MaxWait" type="xs:positiveInteger">
         <xs:annotation>
-          <xs:documentation>Maximum wait time in milliseconds for hotel search results.  Supported provider: TRM</xs:documentation>
+          <xs:documentation>Maximum wait time in milliseconds for hotel search results.  Supported provider: TRM,HotelSuperShopper message.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute default="false" name="AggregateResults" type="xs:boolean" use="optional">
@@ -623,6 +835,16 @@
       <xs:attribute default="false" name="ReturnPropertyDescription" type="xs:boolean" use="optional">
         <xs:annotation>
           <xs:documentation>Request hotel property description. Valid Values are "true" or "false". Default "false". Supported Providers: TRM</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="NumOfRatePlans" type="xs:positiveInteger" use="optional">
+        <xs:annotation>
+          <xs:documentation>The specific number of RatePlanTypes for each property responded on the message, integer 1 - 999. Supported provider: HotelSuperShopper message only.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute default="false" name="ReturnAmenities" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>If hotel amenities are desired set as 'true', else default 'false' for no amenity support.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
     </xs:complexType>
@@ -636,20 +858,6 @@
       <xs:enumeration value="PostPay" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:element name="PermittedSuppliers">
-    <xs:annotation>
-      <xs:documentation>Hotel search by permitted suppliers.  If not specified, search is for all allowable suppliers</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="99" name="Supplier">
-          <xs:complexType>
-            <xs:attribute name="Name" type="common:typeThirdPartySupplier" use="required" />
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="SearchPriority">
     <xs:annotation>
       <xs:documentation>Override the search order for hotel availability request</xs:documentation>
@@ -740,7 +948,7 @@
           <xs:attribute name="ProviderCode" type="common:typeProviderCode" use="required">
             <xs:annotation>
               <xs:documentation>The host associated with this token
-						</xs:documentation>
+                        </xs:documentation>
             </xs:annotation>
           </xs:attribute>
         </xs:extension>
@@ -749,6 +957,18 @@
   </xs:element>
   <xs:element name="RateInfo">
     <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RoomDispatch" type="typeRoomDispatch">
+          <xs:annotation>
+            <xs:documentation>Breakdown for the aggregator’s multiple room offer by number of rooms and guest (adult/child capacity) for each room.  Supported Providers TRM. </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="PolicyCodesList" type="common:typePolicyCodesList">
+          <xs:annotation>
+            <xs:documentation>A list of codes that indicate why an item was determined to be ‘out of policy’.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
       <xs:attribute name="MinimumAmount" type="common:typeMoney" use="optional">
         <xs:annotation>
           <xs:documentation>The low end of the nightly price range</xs:documentation>
@@ -789,11 +1009,6 @@
           <xs:documentation>The low end of the price range for the entire stay in another currency</xs:documentation>
         </xs:annotation>
       </xs:attribute>
-      <xs:attribute name="ApproximateAverageMinimumAmount" type="common:typeMoney" use="optional">
-        <xs:annotation>
-          <xs:documentation>The average nightly price of the minimum stay amount in another currency</xs:documentation>
-        </xs:annotation>
-      </xs:attribute>
       <xs:attribute name="Commission" type="xs:string">
         <xs:annotation>
           <xs:documentation>Commission information for this rate supplier</xs:documentation>
@@ -811,7 +1026,7 @@
       </xs:attribute>
       <xs:attribute name="PaymentType" type="typeHotelPaymentType" use="optional">
         <xs:annotation>
-          <xs:documentation>PrePay or PostPay rate.  Applicable only for TRM suppliers.</xs:documentation>
+          <xs:documentation>Payment type. “PrePay” rates require advance payment to complete the booking. “PostPay” rates allow payment after booking, typically after the hotel stay is completed. By default, all payment types are returned. Supported Providers TRM.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attributeGroup ref="attrPolicyMarkingMaxMinPolicyCodes">
@@ -819,6 +1034,31 @@
           <xs:documentation>Attributes related to maximum and minimum policy codes and 'in policy' indicators.</xs:documentation>
         </xs:annotation>
       </xs:attributeGroup>
+      <xs:attribute name="ApproxAvgNightlyAmt" type="common:typeMoney" use="optional">
+        <xs:annotation>
+          <xs:documentation>The calculated average nightly price of the minimum stay amount in the user’s preferred currency. Supported Providers TRM.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="TaxesIncluded" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>Indicates if taxes are included in the rate. Supported Providers TRM.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="AmountConverted" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>If true, Amount is converted to user’s provisioned or preferred currency. If false, Amount returned in the approximate currency.  Supported Providers TRM.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="MultipleRoom" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>Indicates if multiple rooms functionality is supported for this aggregator and offer. Possible values are Unsupported, Unknown, and Available. Supported Providers TRM.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="PackageOffer" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>Indicates if the aggregator supports a package offer for the multiple room result. Example: True/False or AnyType  Supported Providers TRM.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:attributeGroup name="attrPolicyMarkingMaxMinPolicyCodes">
@@ -827,19 +1067,9 @@
         <xs:documentation>This attribute will be used to indicate if the minimum fare or rate has been determined to be ‘in policy’ based on the associated policy settings.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="MinPolicyCode" type="common:typePolicyCode" use="optional">
-      <xs:annotation>
-        <xs:documentation>This attribute is used to provide a code that can be used to determine why the minumum fare or rate was determined to be ‘out of policy’.</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
     <xs:attribute name="MaxInPolicy" type="xs:boolean" use="optional">
       <xs:annotation>
         <xs:documentation>This attribute will be used to indicate if the maximum fare or rate has been determined to be ‘in policy’ based on the associated policy settings.</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="MaxPolicyCode" type="common:typePolicyCode" use="optional">
-      <xs:annotation>
-        <xs:documentation>This attribute is used to provide a code that can be used to determine why the maximum fare or rate was determined to be ‘out of policy’.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
@@ -865,7 +1095,7 @@
       <xs:element minOccurs="0" ref="common:ReservationName" />
       <xs:element minOccurs="0" ref="common:ThirdPartyInformation" />
       <xs:element ref="HotelProperty" />
-      <xs:element ref="HotelRateDetail" />
+      <xs:element maxOccurs="99" ref="HotelRateDetail" />
       <xs:element ref="HotelStay" />
       <xs:element minOccurs="0" ref="HotelSpecialRequest" />
       <xs:element minOccurs="0" ref="common:Guarantee" />
@@ -881,12 +1111,63 @@
       </xs:element>
       <xs:element minOccurs="0" maxOccurs="4" ref="HotelBedding" />
       <xs:element minOccurs="0" ref="GuestInformation" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" ref="AssociatedRemark" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:SellMessage" />
+      <xs:element minOccurs="0" maxOccurs="9999" ref="AssociatedRemark" />
+      <xs:element minOccurs="0" maxOccurs="9999" ref="common:SellMessage" />
       <xs:element minOccurs="0" ref="HotelCommission">
         <xs:annotation>
           <xs:documentation>HotelCommission text indicates commision while hotel reservation. Provider supported 1P and 1J.</xs:documentation>
         </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" ref="BookingGuestInformation" />
+      <xs:element minOccurs="0" name="RoomConfirmationCodes">
+        <xs:annotation>
+          <xs:documentation>Individual room confirmation codes. Returns when rooms are booked as a package.  Supported Providers TRM.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="9" name="ConfirmationCode" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Individual room confirmation codes. Supported Providers TRM.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" ref="CancelInfo" />
+      <xs:element minOccurs="0" name="TotalReservationPrice">
+        <xs:annotation>
+          <xs:documentation>The total price for the entire stay, including fees, for all rooms in the booking. Provider: TRM.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="99" name="RoomRateDescription" type="typeHotelRateDescription" />
+          </xs:sequence>
+          <xs:attribute name="TotalPrice" type="common:typeMoney" use="optional">
+            <xs:annotation>
+              <xs:documentation>The amount of the total price, including fees for all rooms in the booking. Provider: TRM.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="ApproxTotalPrice" type="common:typeMoney" use="optional">
+            <xs:annotation>
+              <xs:documentation>The approximate amount of the total hotel price, including fees, in another currency. Provider: TRM.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="99" ref="HotelDetailItem" />
+      <xs:element minOccurs="0" name="AdaptedRoomGuestAllocation">
+        <xs:annotation>
+          <xs:documentation>This element defines how the aggregators or hotel property have allocated the guests to the rooms. Only displayed when Requested guest allocation is different from the Adapted room guest allocation. Supported Providers TRM.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="9" name="Room" type="typeAdaptedRoomGuestAllocation">
+              <xs:annotation>
+                <xs:documentation>Individual room. Multiple occurrences if there are multiple rooms in the request. Maximum number of rooms may vary by supplier or aggregator.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:group>
@@ -1119,9 +1400,17 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded" name="Age" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="99" name="Age" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The Ages of the Children. . The defined age of a Child traveler may vary by supplier, but is typically 1 to 17 years. Supported Providers 1G/1V.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
       </xs:sequence>
-      <xs:attribute name="Count" type="xs:int" use="required" />
+      <xs:attribute name="Count" type="xs:int" use="required">
+        <xs:annotation>
+          <xs:documentation>The total number of children in the booking. Supported Providers 1P/1J.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
       <xs:attribute name="Amount" type="common:typeMoney" use="optional">
         <xs:annotation>
           <xs:documentation>Fee per child. Providers: 1g/1v</xs:documentation>
@@ -1183,22 +1472,17 @@
       <xs:annotation>
         <xs:documentation>Returns Hotel rate details for requested hotel property.</xs:documentation>
       </xs:annotation>
-      <xs:sequence>
-        <xs:element ref="HotelProperty" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="HotelDetailItem" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="HotelRateDetail">
-          <xs:annotation>
-            <xs:documentation>Returns hotel rate details during the stay if rates are available for requested property</xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:MediaItem" />
-        <xs:element minOccurs="0" ref="GuestReviews" />
-        <xs:element minOccurs="0" ref="HotelType">
-          <xs:annotation>
-            <xs:documentation>Supported Providers:1G/1V/1P/1J.</xs:documentation>
-          </xs:annotation>
-        </xs:element>
-      </xs:sequence>
+      <xs:complexContent mixed="false">
+        <xs:extension base="typeHotelDetails">
+          <xs:sequence>
+            <xs:element minOccurs="0" ref="HotelType">
+              <xs:annotation>
+                <xs:documentation>Supported Providers:1G/1V/1P/1J.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
     </xs:complexType>
   </xs:element>
   <xs:element name="HotelAlternateProperties">
@@ -1213,7 +1497,7 @@
   </xs:element>
   <xs:element name="RateMatchIndicator">
     <xs:annotation>
-      <xs:documentation>"Match" Indicators for certain request parameters, e.g. Child Count, Bed Type, Extra Adults etc.</xs:documentation>
+      <xs:documentation>"Match" Indicators for certain request parameters, e.g. Child Count, Extra Adults etc.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:attribute name="Type" use="required">
@@ -1221,7 +1505,6 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="RateCategory" />
             <xs:enumeration value="RoomCount" />
-            <xs:enumeration value="BedType" />
             <xs:enumeration value="AdultCount" />
             <xs:enumeration value="ChildCount" />
             <xs:enumeration value="AdultRollaway" />
@@ -1272,20 +1555,32 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element maxOccurs="unbounded" name="Amenity">
-          <xs:complexType>
-            <xs:attribute name="Code" type="typeAmenity" use="required" />
-          </xs:complexType>
-        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Amenity" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Amenity">
+    <xs:complexType>
+      <xs:attribute name="Code" type="typeAmenity" use="required" />
+      <xs:attribute name="AmenityType" use="optional">
+        <xs:annotation>
+          <xs:documentation>Amenity type code. “HA” (Hotel Property Amenity) or “RA” (Room Amenity). Defaults to “HA” if no value is sent.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:simpleType name="typeAmenity">
     <xs:annotation>
-      <xs:documentation>Type defination of Amenity</xs:documentation>
+      <xs:documentation>The 1 – 3  byte Open Travel Alliance amenity code.</xs:documentation>
     </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:length value="4" />
+    <xs:restriction base="xs:positiveInteger">
+      <xs:minInclusive value="1" />
+      <xs:maxInclusive value="999" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="HotelRateInfo">
@@ -1302,7 +1597,44 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element maxOccurs="unbounded" name="Comments" type="xs:string" />
+        <xs:element maxOccurs="999" name="Comments">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute name="CommentId" type="common:typeRef" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>Unique comment identifier. For internal Travelport use only. Provider: TRM.</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Date" type="common:typeDate" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>date that the comment was entered. Supported Providers TRM.</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="CommenterLanguage" type="common:typeLanguage" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>Language of the commenter. Supported Providers TRM.</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Source" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>Source code of the comment entry. Example: 'NB' for Nightsbridge, ‘RG’, ‘AG’ for Agrialla,‘TO’. Supported Providers TRM.</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="CommentSourceName" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>Name of the source for the comment. Supported Providers TRM.</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Commenter" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>Name of the comment's poster. Supported Providers TRM.</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1341,31 +1673,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="MealPlans">
-    <xs:annotation>
-      <xs:documentation>Meal information provided by specific hotels returned in response.</xs:documentation>
-    </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" ref="MealPlan" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="MealPlan">
-    <xs:complexType>
-      <xs:attribute name="Code" type="xs:string" use="optional">
-        <xs:annotation>
-          <xs:documentation>Meal Plan expressed in OTA codes for 1G/1V only</xs:documentation>
-        </xs:annotation>
-      </xs:attribute>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="CancelInfo">
     <xs:annotation>
       <xs:documentation>Returns cancellation information for certain hotel returned in response. This information is available through GDS transactions</xs:documentation>
     </xs:annotation>
     <xs:complexType>
-      <xs:attribute name="NonRefundableStayIndicator" type="xs:boolean" use="optional">
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CancellationPolicy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Return cancellation policy text by the aggregator. Provider: TRM.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="99" name="Text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The informational text provided by the supplier to cancel the booking, if @Method="INFO". For all other values of @Method, Text is not returned. Provider: TRM.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="NonRefundableStayIndicator" type="common:typeTrinary" use="optional">
         <xs:annotation>
           <xs:documentation>True if Deposit or Payment is non-refundable</xs:documentation>
         </xs:annotation>
@@ -1405,11 +1730,47 @@
           <xs:documentation>This will contain the cost qualifier that explains what the percentage is applied to in order to calculate the cancel penalty.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attribute name="Method" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>Cancellation method, either "API", "URL", "INFO", or "NONE". Supported Providers TRM.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="Supported" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>If true, the booking can be canceled. If false, the booking cannot be canceled. Provider: TRM.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="URL" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>The URL provided by the supplier to cancel the booking, if @Method="URL". For all other values of @Method, @URL is not returned. Provider: TRM.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attributeGroup ref="DeadlineGroup" />
     </xs:complexType>
   </xs:element>
+  <xs:attributeGroup name="DeadlineGroup">
+    <xs:annotation>
+      <xs:documentation>The absolute deadline or amount of offset time before a deadline for a payment of cancel goes into effect.</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="OffsetTimeUnit" type="common:StringLength1to16" use="optional">
+      <xs:annotation>
+        <xs:documentation>The units of time, e.g: days, hours, etc that apply to the deadline. Enumerated values are “Year”, “Month”, “Day”, and “Hour”.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="OffsetUnitMultiplier" type="common:Numeric0to999" use="optional">
+      <xs:annotation>
+        <xs:documentation>The number of units of DeadlineTimeUnit.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="OffsetDropTime" type="common:StringLength1to20" use="optional">
+      <xs:annotation>
+        <xs:documentation>An enumerated type indicating when the deadline drop time goes into effect. Enumerated values are “AfterBooking” and “BeforeArrival”.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
   <xs:element name="RoomView">
     <xs:complexType>
-      <xs:attribute name="Code" type="typeRoomView" use="optional">
+      <xs:attribute name="Code" type="common:typeOTACode" use="optional">
         <xs:annotation>
           <xs:documentation>OTA code represents different hotel room views.</xs:documentation>
         </xs:annotation>
@@ -1477,27 +1838,28 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
+      <xs:attributeGroup ref="DeadlineGroup" />
     </xs:complexType>
   </xs:element>
   <xs:element name="DepositAmount">
     <xs:annotation>
       <xs:documentation>Amount required for deposit/prepayment
-		</xs:documentation>
+        </xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:attribute name="Amount" type="common:typeMoney" use="optional">
         <xs:annotation>
           <xs:documentation>Supplier deposit amount required for
-					deposit/prepayment.Supported by all Providers when supported by
-					supplier
-				</xs:documentation>
+                    deposit/prepayment.Supported by all Providers when supported by
+                    supplier
+                </xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="ApproximateAmount" type="common:typeMoney" use="optional">
         <xs:annotation>
           <xs:documentation>Approximate deposit amount required for
-					deposit/prepayment.Supports TRM provider only.
-				</xs:documentation>
+                    deposit/prepayment.Supports TRM provider only.
+                </xs:documentation>
         </xs:annotation>
       </xs:attribute>
     </xs:complexType>
@@ -1562,5 +1924,285 @@
     <xs:simpleType>
       <xs:restriction base="typeHotelConfirmationNumber" />
     </xs:simpleType>
+  </xs:element>
+  <xs:complexType name="typeGuestChildInformation">
+    <xs:annotation>
+      <xs:documentation>Infomration about the Child guest.</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="Age" type="xs:nonNegativeInteger" use="optional">
+      <xs:annotation>
+        <xs:documentation>Age of the Child.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="typeGuestRoomInformation">
+    <xs:annotation>
+      <xs:documentation>Information about guest to book. Supported Providers TRM.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Adults" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation>The number of adult guests per room. Maximum number of adults may vary by supplier or aggregator.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="9" ref="common:BookingTravelerRef">
+        <xs:annotation>
+          <xs:documentation>Reference for the Booking Traveler. Used for Hotel Booking only. The value is arbitrary.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="6" name="Child">
+        <xs:annotation>
+          <xs:documentation>Information about a child guest.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent mixed="false">
+            <xs:extension base="typeGuestChildInformation">
+              <xs:sequence>
+                <xs:element minOccurs="0" ref="common:BookingTravelerRef">
+                  <xs:annotation>
+                    <xs:documentation>Reference for the Booking Traveler. Used for Hotel Booking only. The value is arbitrary.</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typeRoomDispatch">
+    <xs:annotation>
+      <xs:documentation>Breakdown for the aggregator’s multiple room offer by number of rooms and guest (adult/child capacity) for each room. Supporrted Providers TRM.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="9" name="Room">
+        <xs:annotation>
+          <xs:documentation>Room Details. Supported providers TRM.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="Capacity" type="xs:positiveInteger" use="optional">
+            <xs:annotation>
+              <xs:documentation>The maximum number of guests in the room available for the multiple room result.  Supported Providers TRM.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="Quantity" type="xs:positiveInteger" use="optional">
+            <xs:annotation>
+              <xs:documentation>The number of rooms available for the multiple room result. Supported providers TRM.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BookingGuestInformation">
+    <xs:annotation>
+      <xs:documentation>Information about requested rooms and guests allocation. Supported Providers TRM.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="9" name="Room" type="typeGuestRoomInformation">
+          <xs:annotation>
+            <xs:documentation>Individual room. Multiple occurrences if there are multiple rooms in the request. Maximum number of rooms may vary by supplier or aggregator.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="typeHotelDetails">
+    <xs:annotation>
+      <xs:documentation>
+                Hotel Details Type Supported Providers TRM.
+            </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="HotelProperty" />
+      <xs:element minOccurs="0" maxOccurs="999" ref="HotelDetailItem" />
+      <xs:element minOccurs="0" maxOccurs="999" ref="HotelRateDetail">
+        <xs:annotation>
+          <xs:documentation>Returns hotel rate details during the stay if rates are available for requested property</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="999" ref="common:MediaItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:attributeGroup name="attrAggregatorHotelDetail">
+    <xs:attribute name="Aggregator" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>Two-character aggregator code. Provider: TRM.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="AggregatorName" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>The TRM aggregator name. Provider: TRM.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="RulesAndRestriction" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>The URL for the aggregator’s rules and restrictions. Provider: TRM.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="TermsAndConditions" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>The URL for the aggregator’s terms and conditions. Provider: TRM.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="SupportsPayment" type="xs:boolean" use="optional">
+      <xs:annotation>
+        <xs:documentation>If true, the aggregator supports booking for this supplier (hotel property or chain). Provider: TRM.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="CommissionModel" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>The aggregator’s commission (marketing fee) model. “Default” is Travelport Accounts Payable, in which Travelport settles the commission. Provider: TRM.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="MultiRoomSupport" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>The type of multi-room support type. SINGLE (one room), SAME_TYPE (same room types for all rooms), ANY_TYPE (different room types for multiple rooms). Provider: TRM.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="SupportsChildren" type="xs:boolean" use="optional">
+      <xs:annotation>
+        <xs:documentation>If true, the aggregator supports children. If false, the aggregator does not support children and may treat child as an adult in the booking. Provider: TRM.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="ChildStartAge" type="xs:integer" use="optional">
+      <xs:annotation>
+        <xs:documentation>The minimum age of a child as defined by the aggregator. Children under this age may be booked as an infant by the aggregator. Provider: TRM.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="AdultStartAge" type="xs:integer" use="optional">
+      <xs:annotation>
+        <xs:documentation>The minimum age of an adult as defined by the aggregator. Guests under this age may be booked as a child by the aggregator. Provider: TRM.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="MaxChildrenPerRoom" type="xs:nonNegativeInteger" use="optional">
+      <xs:annotation>
+        <xs:documentation>The maximum number of children per room. If the requested number of children is more than MaxChildrenPerRoom, the aggregator may book excess children as adults. Provider: TRM.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="PhoneNumber" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>Aggregator Phone number. Supported Providers TRM.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="AreaCode" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>Aggregator Phone number area code. Supported Providers TRM.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="CountryCode" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>Aggregator Phone number country code. Supported Providers TRM.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="PermittedAggregators">
+    <xs:annotation>
+      <xs:documentation>Supported Provider TRM.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="99" name="Aggregator">
+          <xs:annotation>
+            <xs:documentation>Supported Provider TRM.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:attribute name="Name" type="common:typeThirdPartySupplier" use="required">
+              <xs:annotation>
+                <xs:documentation>Supported Provider TRM, 2 byte aggrgator code.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="typeAdaptedRoomGuestAllocation">
+    <xs:annotation>
+      <xs:documentation>The allocation of guests per room assigned by the aggregator or supplier (hotel property). Returned only when the requested guest allocation is different from the provider or supplier’s adapted guest allocation.  Supported Providers TRM.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="6" name="Child" type="typeGuestChildInformation">
+        <xs:annotation>
+          <xs:documentation>Information about a child guest.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="NumberOfAdults" type="xs:positiveInteger">
+      <xs:annotation>
+        <xs:documentation>The number of adult guests per room. Maximum number of adults may vary by supplier or aggregator.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:element name="Commission">
+    <xs:complexType>
+      <xs:attribute name="Indicator" type="common:typeTrinary">
+        <xs:annotation>
+          <xs:documentation>Indicates if the Rate Plan is commissionable.True: Rate is commissionable.False: Rate is not commissionable.Unknown: Commission indicator is not returned by the hotel supplier (chain or property).</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="Percent" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The percentage applied to the commissionable amount to determine the payable commission amount.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="CommissionAmount" type="common:typeMoney">
+        <xs:annotation>
+          <xs:documentation>The commission amount in the aggregator’s or supplier’s currency. For TRM, this amount may also include additional fees. TRM only.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="ApproxCommissionAmount" type="common:typeMoney">
+        <xs:annotation>
+          <xs:documentation>The approximate commission amount in the agency’s provisioned or requested currency. For TRM, this amount may also include additional fees. TRM only.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="CommissionOnSurcharges" type="common:typeMoney">
+        <xs:annotation>
+          <xs:documentation>Commission on surcharges in the aggregator’s or supplier’s currency. TRM only.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="ApproxCommissionOnSurcharges" type="common:typeMoney">
+        <xs:annotation>
+          <xs:documentation>The approximate commission on surcharges in the agency’s provisioned or requested currency. TRM only.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcceptedPayment">
+    <xs:complexType>
+      <xs:attribute name="PaymentCode" type="common:typeCardMerchantType">
+        <xs:annotation>
+          <xs:documentation>The issuer of the form of payment, such as the credit card bank.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CurrencyRateConversion">
+    <xs:annotation>
+      <xs:documentation>Currency rate conversion from the supplier’s source currency to a preferred currency. For hotels, applicable only to Hotel Super Shopper (1G/1V).</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="RateConversion" type="xs:float">
+        <xs:annotation>
+          <xs:documentation>Rate multiplier from the supplier’s local or quoted currency to requested currency. Used to derive the requested conversion currency amount.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="SourceCurrencyCode" type="common:typeCurrency">
+        <xs:annotation>
+          <xs:documentation>3-character ISO currency code for supplier's local or quoted currency.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="RequestedCurrencyCode" type="common:typeCurrency">
+        <xs:annotation>
+          <xs:documentation>3-character ISO currency code for the requester's preferred currency</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="DecimalPlaces" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>The number of decimal places for the requested currency at conversion.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
   </xs:element>
 </xs:schema>

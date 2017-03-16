@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://www.travelport.com/schema/util_v33_0" xmlns:air="http://www.travelport.com/schema/air_v33_0" xmlns:common="http://www.travelport.com/schema/common_v33_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/util_v33_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="../common_v33_0/CommonReqRsp.xsd" namespace="http://www.travelport.com/schema/common_v33_0" />
-  <xs:import schemaLocation="../common_v33_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v33_0" />
-  <xs:import schemaLocation="../air_v33_0/Air.xsd" namespace="http://www.travelport.com/schema/air_v33_0" />
+<xs:schema xmlns="http://www.travelport.com/schema/util_v40_0" xmlns:air="http://www.travelport.com/schema/air_v40_0" xmlns:common="http://www.travelport.com/schema/common_v40_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/util_v40_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="../common_v40_0/CommonReqRsp.xsd" namespace="http://www.travelport.com/schema/common_v40_0" />
+  <xs:import schemaLocation="../common_v40_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v40_0" />
+  <xs:import schemaLocation="../air_v40_0/Air.xsd" namespace="http://www.travelport.com/schema/air_v40_0" />
   <xs:annotation>
     <xs:documentation>
             (c) Travelport GDS 2008 All rights reserved. Proprietary
@@ -492,6 +492,7 @@
         <xs:extension base="common:BaseReq">
           <xs:sequence>
             <xs:element minOccurs="0" ref="ReferenceDataSearchModifiers" />
+            <xs:element minOccurs="0" maxOccurs="1" ref="RequestReferenceDataItem" />
           </xs:sequence>
           <xs:attribute name="TypeCode" type="common:typeTypeCode" use="required">
             <xs:annotation>
@@ -500,6 +501,73 @@
           </xs:attribute>
         </xs:extension>
       </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RailStationLocationModifiers">
+    <xs:annotation>
+      <xs:documentation>Request object used to request specific rail station
+			locations.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="common:RailLocation" />
+      </xs:sequence>
+      <xs:attribute name="CountryCode" type="common:typeCountry" use="optional">
+        <xs:annotation>
+          <xs:documentation>2 character country code such as FR.
+				</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="Distributor" type="common:typeSupplierCode" use="optional">
+        <xs:annotation>
+          <xs:documentation>2 character Rail distributor code such as TL or
+					2C.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="Description" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>A city name or station name such as Paris or Paris
+					Nord.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute default="true" name="Active" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>The value ???false??? will return stations that are no
+					longer active but remain on the table because existing bookings may
+					reference them. The default is ???true??? which returns only active
+					locations.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestReferenceDataItem">
+    <xs:annotation>
+      <xs:documentation>
+                Limits the responses to the requested subcategories for a specific Reference Data Type, Currently supported only for @TypeCode="HotelAmenities".
+            </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="9" name="RequestAmenity">
+          <xs:annotation>
+            <xs:documentation>
+                         Requested decoded values only for the specified Hotel Amenity codes.
+                     </xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:attribute name="Type" use="required">
+              <xs:annotation>
+                <xs:documentation>Limits to the response to the requested amenity type. Can be a general type: ???HA??? (Hotel Property Amenity) or ???RA??? (Room Amenity). Or, a specific type, for example: ???TR??? (Transportation) or ???BT??? (Bed Type). If no type is specified, all amenity types are returned.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:length value="2" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ReferenceDataRetrieveRsp">
@@ -1143,6 +1211,9 @@
             </xs:documentation>
     </xs:annotation>
     <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="RailStationLocationModifiers" />
+      </xs:sequence>
       <xs:attribute default="20" name="MaxResults" use="optional">
         <xs:annotation>
           <xs:documentation>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://www.travelport.com/schema/cruise_v33_0" xmlns:common="http://www.travelport.com/schema/common_v33_0" xmlns:ns1="http://www.travelport.com/schema/cruise_v33_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/cruise_v33_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="../common_v33_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v33_0" />
+<xs:schema xmlns="http://www.travelport.com/schema/cruise_v40_0" xmlns:common="http://www.travelport.com/schema/common_v40_0" xmlns:ns1="http://www.travelport.com/schema/cruise_v40_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/cruise_v40_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="../common_v40_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v40_0" />
   <xs:annotation>
     <xs:documentation>(c) Travelport GDS 2008 All rights reserved. Proprietary Information of Travelport GDS.</xs:documentation>
   </xs:annotation>

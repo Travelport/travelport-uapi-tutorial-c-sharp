@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://www.travelport.com/schema/common_v33_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/common_v33_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns="http://www.travelport.com/schema/common_v40_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/common_v40_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:include schemaLocation="Common.xsd" />
   <xs:annotation>
     <xs:documentation>(c) Travelport GDS 2008 All rights reserved. Proprietary Information of Travelport GDS.</xs:documentation>
@@ -47,7 +47,7 @@
     </xs:attribute>
     <xs:attribute name="LanguageCode" type="xs:language" use="optional">
       <xs:annotation>
-        <xs:documentation>ISO 639 LanguageCode is used to retrieve specific information in the requested language.  Use a 2 or 4 character language code, example FR or FRFR for French, EN or ENGB for English.  The supported providers: ACH, RCH.</xs:documentation>
+        <xs:documentation>ISO 639 two-character language codes are used to retrieve specific information in the requested language. For Rich Content and Branding, language codes ZH-HANT (Chinese Traditional), ZH-HANS (Chinese Simplified), FR-CA (French Canadian) and PT-BR (Portuguese Brazil) can also be used. For RCH, language codes ENGB, ENUS, DEDE, DECH can also be used. Only certain services support this attribute. Providers: ACH, RCH, 1G, 1V, 1P, 1J.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://www.travelport.com/schema/vehicle_v33_0" xmlns:common="http://www.travelport.com/schema/common_v33_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/vehicle_v33_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="../common_v33_0/CommonReqRsp.xsd" namespace="http://www.travelport.com/schema/common_v33_0" />
-  <xs:include schemaLocation="../vehicle_v33_0/Vehicle.xsd" />
+<xs:schema xmlns="http://www.travelport.com/schema/vehicle_v40_0" xmlns:common="http://www.travelport.com/schema/common_v40_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/vehicle_v40_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="../common_v40_0/CommonReqRsp.xsd" namespace="http://www.travelport.com/schema/common_v40_0" />
+  <xs:include schemaLocation="../vehicle_v40_0/Vehicle.xsd" />
   <xs:annotation>
     <xs:documentation>(c) Travelport GDS 2008 All rights reserved. Proprietary Information of Travelport GDS.</xs:documentation>
   </xs:annotation>
@@ -67,6 +67,11 @@
             <xs:element ref="VehicleDateLocation" />
             <xs:element minOccurs="0" ref="common:PointOfSale" />
           </xs:sequence>
+          <xs:attribute name="PolicyReference" type="common:typePolicyReference" use="optional">
+            <xs:annotation>
+              <xs:documentation>This attribute will be used to pass in a value on the request which would be used to link to a ???Policy Group??? in a policy engine external to UAPI.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
@@ -309,6 +314,11 @@
               </xs:annotation>
             </xs:element>
           </xs:sequence>
+          <xs:attribute name="PolicyReference" type="common:typePolicyReference" use="optional">
+            <xs:annotation>
+              <xs:documentation>This attribute will be used to pass in a value on the request which would be used to link to a ???Policy Group??? in a policy engine external to UAPI.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>

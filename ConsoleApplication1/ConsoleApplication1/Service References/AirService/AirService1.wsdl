@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.travelport.com/service/air_v33_0" xmlns:ns1="http://www.travelport.com/schema/air_v33_0" name="AirService" targetNamespace="http://www.travelport.com/service/air_v33_0" xmlns="http://schemas.xmlsoap.org/wsdl/">
-  <import namespace="http://www.travelport.com/service/air_v33_0" location="AirAbstract.wsdl" />
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.travelport.com/service/air_v40_0" xmlns:ns1="http://www.travelport.com/schema/air_v40_0" name="AirService" targetNamespace="http://www.travelport.com/service/air_v40_0" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <import namespace="http://www.travelport.com/service/air_v40_0" location="AirAbstract.wsdl" />
   <types />
   <binding name="AirPrePayBinding" type="tns:AirPrePayPortType">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -37,6 +37,7 @@
     <operation name="service">
       <soap:operation soapAction="http://localhost:8080/kestrel/AirService" />
       <input>
+        <soap:header message="tns:SessionContext" part="sessionContext" use="literal" />
         <soap:body use="literal" />
       </input>
       <output>
@@ -97,6 +98,7 @@
     <operation name="service">
       <soap:operation soapAction="http://localhost:8080/kestrel/AirService" />
       <input>
+        <soap:header message="tns:SessionContext" part="sessionContext" use="literal" />
         <soap:body use="literal" />
       </input>
       <output>
@@ -127,6 +129,7 @@
     <operation name="service">
       <soap:operation soapAction="http://localhost:8080/kestrel/AirService" />
       <input>
+        <soap:header message="tns:SessionContext" part="sessionContext" use="literal" />
         <soap:body use="literal" />
       </input>
       <output>
@@ -187,6 +190,7 @@
     <operation name="service">
       <soap:operation soapAction="http://localhost:8080/kestrel/AirService" />
       <input>
+        <soap:header message="tns:SessionContext" part="sessionContext" use="literal" />
         <soap:body use="literal" />
       </input>
       <output>
@@ -232,6 +236,7 @@
     <operation name="service">
       <soap:operation soapAction="http://localhost:8080/kestrel/AirService" />
       <input>
+        <soap:header message="tns:SessionContext" part="sessionContext" use="literal" />
         <soap:body use="literal" />
       </input>
       <output>
@@ -247,6 +252,7 @@
     <operation name="service">
       <soap:operation soapAction="http://localhost:8080/kestrel/AirService" />
       <input>
+        <soap:header message="tns:SessionContext" part="sessionContext" use="literal" />
         <soap:body use="literal" />
       </input>
       <output>
@@ -262,6 +268,7 @@
     <operation name="service">
       <soap:operation soapAction="http://localhost:8080/kestrel/AirService" />
       <input>
+        <soap:header message="tns:SessionContext" part="sessionContext" use="literal" />
         <soap:body use="literal" />
       </input>
       <output>

@@ -35,7 +35,7 @@ namespace ConsoleApplication1
                 var httpHeaders = Helper.ReturnHttpHeader();
                 client.Endpoint.EndpointBehaviors.Add(new HttpHeadersEndpointBehavior(httpHeaders));                
 
-                univRetRsp = client.service(null, univRetReq);
+                univRetRsp = client.service(null, null, univRetReq);                
                 //Console.WriteLine(lowFareSearchRsp.AirSegmentList.Count());
 
                 if (univRetRsp != null)

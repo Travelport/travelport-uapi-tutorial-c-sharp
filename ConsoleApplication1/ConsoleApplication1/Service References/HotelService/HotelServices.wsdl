@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.travelport.com/service/hotel_v33_0" xmlns:ns1="http://www.travelport.com/schema/hotel_v33_0" name="HotelServices" targetNamespace="http://www.travelport.com/service/hotel_v33_0" xmlns="http://schemas.xmlsoap.org/wsdl/">
-  <import namespace="http://www.travelport.com/service/hotel_v33_0" location="HotelAbstract.wsdl" />
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.travelport.com/service/hotel_v40_0" xmlns:ns1="http://www.travelport.com/schema/hotel_v40_0" name="HotelServices" targetNamespace="http://www.travelport.com/service/hotel_v40_0" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <import namespace="http://www.travelport.com/service/hotel_v40_0" location="HotelAbstract.wsdl" />
   <types />
   <binding name="HotelSearchServiceBinding" type="tns:HotelSearchServicePortType">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />

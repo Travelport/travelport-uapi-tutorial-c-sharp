@@ -29,7 +29,7 @@ namespace ConsoleApplication1
                 var httpHeaders = Helper.ReturnHttpHeader();
                 client.Endpoint.EndpointBehaviors.Add(new HttpHeadersEndpointBehavior(httpHeaders));
 
-                lowFareSearchRsp = client.service(lowFareSearchReq);                
+                lowFareSearchRsp = client.service(null, lowFareSearchReq);                
                 //Console.WriteLine(lowFareSearchRsp.AirSegmentList.Count());
 
                 return lowFareSearchRsp;

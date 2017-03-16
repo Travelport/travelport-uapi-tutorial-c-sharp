@@ -30,7 +30,7 @@ namespace ConsoleApplication1
                 var httpHeaders = Helper.ReturnHttpHeader();
                 client.Endpoint.EndpointBehaviors.Add(new HttpHeadersEndpointBehavior(httpHeaders));
 
-                rsp = client.service(request);
+                rsp = client.service(null, request);
                 Console.WriteLine(rsp.AirItinerarySolution.Count());
                 Console.WriteLine(rsp.AirSegmentList.Count());
             }

@@ -59,7 +59,7 @@ namespace ConsoleApplication1
                 var httpHeaders = Helper.ReturnHttpHeader();
                 client.Endpoint.EndpointBehaviors.Add(new HttpHeadersEndpointBehavior(httpHeaders));
 
-                fareDisplayRsp = client.service(fareDisplayReq);
+                fareDisplayRsp = client.service(null, fareDisplayReq);
 
                 return fareDisplayRsp;
             }
@@ -155,7 +155,7 @@ namespace ConsoleApplication1
                 var httpHeaders = Helper.ReturnHttpHeader();
                 client.Endpoint.EndpointBehaviors.Add(new HttpHeadersEndpointBehavior(httpHeaders));
 
-                rulesRsp = client.service(rulesReq);
+                rulesRsp = client.service(null, rulesReq);
 
                 //return rulesRsp;
             }

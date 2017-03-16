@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:cruise_v33_0="http://www.travelport.com/schema/cruise_v33_0" xmlns:rail_v33_0="http://www.travelport.com/schema/rail_v33_0" xmlns:common="http://www.travelport.com/schema/common_v33_0" xmlns:vehicle_v33_0="http://www.travelport.com/schema/vehicle_v33_0" xmlns:hotel_v33_0="http://www.travelport.com/schema/hotel_v33_0" xmlns:air_v33_0="http://www.travelport.com/schema/air_v33_0" xmlns="http://www.travelport.com/schema/universal_v33_0" xmlns:passive_v33_0="http://www.travelport.com/schema/passive_v33_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/universal_v33_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="../common_v33_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v33_0" />
-  <xs:import schemaLocation="../vehicle_v33_0/Vehicle.xsd" namespace="http://www.travelport.com/schema/vehicle_v33_0" />
-  <xs:import schemaLocation="../air_v33_0/Air.xsd" namespace="http://www.travelport.com/schema/air_v33_0" />
-  <xs:import schemaLocation="../hotel_v33_0/Hotel.xsd" namespace="http://www.travelport.com/schema/hotel_v33_0" />
-  <xs:import schemaLocation="../passive_v33_0/Passive.xsd" namespace="http://www.travelport.com/schema/passive_v33_0" />
-  <xs:import schemaLocation="../rail_v33_0/Rail.xsd" namespace="http://www.travelport.com/schema/rail_v33_0" />
-  <xs:import schemaLocation="../cruise_v33_0/Cruise.xsd" namespace="http://www.travelport.com/schema/cruise_v33_0" />
+<xs:schema xmlns:hotel_v40_0="http://www.travelport.com/schema/hotel_v40_0" xmlns:cruise_v40_0="http://www.travelport.com/schema/cruise_v40_0" xmlns="http://www.travelport.com/schema/universal_v40_0" xmlns:common="http://www.travelport.com/schema/common_v40_0" xmlns:air_v40_0="http://www.travelport.com/schema/air_v40_0" xmlns:vehicle_v40_0="http://www.travelport.com/schema/vehicle_v40_0" xmlns:passive_v40_0="http://www.travelport.com/schema/passive_v40_0" xmlns:rail_v40_0="http://www.travelport.com/schema/rail_v40_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/universal_v40_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="../common_v40_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v40_0" />
+  <xs:import schemaLocation="../vehicle_v40_0/Vehicle.xsd" namespace="http://www.travelport.com/schema/vehicle_v40_0" />
+  <xs:import schemaLocation="../air_v40_0/Air.xsd" namespace="http://www.travelport.com/schema/air_v40_0" />
+  <xs:import schemaLocation="../hotel_v40_0/Hotel.xsd" namespace="http://www.travelport.com/schema/hotel_v40_0" />
+  <xs:import schemaLocation="../passive_v40_0/Passive.xsd" namespace="http://www.travelport.com/schema/passive_v40_0" />
+  <xs:import schemaLocation="../rail_v40_0/Rail.xsd" namespace="http://www.travelport.com/schema/rail_v40_0" />
+  <xs:import schemaLocation="../cruise_v40_0/Cruise.xsd" namespace="http://www.travelport.com/schema/cruise_v40_0" />
   <xs:annotation>
     <xs:documentation>
             (c) Travelport GDS 2008 All rights reserved. Proprietary
@@ -50,29 +50,29 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:ActionStatus" />
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="ProviderReservationInfo" />
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:AirReservation" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:AirReservation" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v33_0:HotelReservation" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v40_0:HotelReservation" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v33_0:VehicleReservation" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v40_0:VehicleReservation" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="passive_v33_0:PassiveReservation" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="passive_v40_0:PassiveReservation" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="rail_v33_0:RailReservation" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="rail_v40_0:RailReservation" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="cruise_v33_0:CruiseReservation">
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="cruise_v40_0:CruiseReservation">
             <xs:annotation>
               <xs:documentation>The parent container for all cruise booking data. Supported Providers :1V</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:EMDSummaryInfo">
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:EMDSummaryInfo">
             <xs:annotation>
               <xs:documentation>List of EMDs to be shown as part of UR. Supported providers are 1V/1G/1P/1J</xs:documentation>
             </xs:annotation>
@@ -159,8 +159,8 @@
   <xs:element name="ProviderReservationInfo">
     <xs:annotation>
       <xs:documentation>
-                Provider Reservation informations
-            </xs:documentation>
+			Provider Reservation informations
+		</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -173,50 +173,57 @@
       <xs:attribute name="Key" type="common:typeRef" use="required">
         <xs:annotation>
           <xs:documentation>
-                        Key value of the provider reservation
-                    </xs:documentation>
+					Key value of the provider reservation
+				</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="ProviderCode" type="common:typeProviderCode" use="required">
         <xs:annotation>
           <xs:documentation>
-                        Contains the Provider Code of the entity housing
-                        the actual reservation in the event this is a
-                        passive one.
-                    </xs:documentation>
+					Contains the Provider Code of the entity housing
+					the actual reservation in the event this is a
+					passive one.
+				</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="LocatorCode" type="common:typeProviderLocatorCode" use="required">
         <xs:annotation>
           <xs:documentation>
-                        Contains the Locator Code of the actual
-                        reservation in the event this is a passive
-                        reservation.
-                    </xs:documentation>
+					Contains the Locator Code of the actual
+					reservation in the event this is a passive
+					reservation.
+				</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="CreateDate" type="xs:dateTime" use="required">
         <xs:annotation>
           <xs:documentation>
-                        The date and time that this reservation was
-                        created.
-                    </xs:documentation>
+					The date and time that this reservation was
+					created.
+				</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="HostCreateDate" type="xs:date" use="optional">
         <xs:annotation>
           <xs:documentation>
-                        The date that this reservation was
-                        created in the host system.
-                    </xs:documentation>
+					The date that this reservation was
+					created in the host system.
+				</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="HostCreateTime" type="xs:time" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+					The Time that this reservation was created in the host system for 1P and 1J.
+				</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="ModifiedDate" type="xs:dateTime" use="required">
         <xs:annotation>
           <xs:documentation>
-                        The date and time that this reservation was last
-                        modified for any reason.
-                    </xs:documentation>
+					The date and time that this reservation was last
+					modified for any reason.
+				</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="Imported" type="xs:boolean" use="optional">
@@ -228,8 +235,8 @@
         <xs:annotation>
           <xs:documentation>
                         Reference to a Ticketing Modifers which is attached to this PNR. Ticketing Modifers referred  by this Key is a Primary Ticketing
-                        Modifers. Worldspan Primary DI line will be supported using this feature.
-               </xs:documentation>
+					Modifers. Worldspan Primary DI line will be supported using this feature.
+				</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="InQueueMode" type="xs:boolean" use="optional">
@@ -248,6 +255,7 @@
           <xs:documentation>Indentifies the owning PCC of the PNR. PROVIDER SUPPORTED: Worldspan,JAL,Galileo and Apollo</xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attributeGroup ref="common:attrAgentOverride" />
     </xs:complexType>
   </xs:element>
   <xs:attributeGroup name="providerReservation">
@@ -608,19 +616,19 @@ Ticket (used to ticket an existing booking)</xs:documentation>
     <xs:complexType>
       <xs:choice>
         <xs:sequence>
-          <xs:element minOccurs="1" maxOccurs="unbounded" ref="passive_v33_0:PassiveSegment">
+          <xs:element minOccurs="1" maxOccurs="unbounded" ref="passive_v40_0:PassiveSegment">
             <xs:annotation>
               <xs:documentation>This represents a Passive Segment  of type Car,Hotel, Tour,Surface,Air etc.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="passive_v33_0:PassiveRemark">
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="passive_v40_0:PassiveRemark">
             <xs:annotation>
               <xs:documentation>This contains Remark corresponding to any PassiveSegment</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
         <xs:sequence>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="passive_v33_0:AssociatedRemark">
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="passive_v40_0:AssociatedRemark">
             <xs:annotation>
               <xs:documentation>This contains Associated Remark corresponding to any PassiveSegment.</xs:documentation>
             </xs:annotation>
@@ -662,20 +670,20 @@ Ticket (used to ticket an existing booking)</xs:documentation>
       <xs:choice>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:LoyaltyCard" />
         <xs:element minOccurs="0" ref="common:Guarantee" />
-        <xs:element minOccurs="0" ref="hotel_v33_0:GuestInformation" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v33_0:AssociatedRemark" />
+        <xs:element minOccurs="0" ref="hotel_v40_0:GuestInformation" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v40_0:AssociatedRemark" />
         <xs:element minOccurs="0" maxOccurs="1" ref="common:BookingSource" />
-        <xs:element minOccurs="0" maxOccurs="1" ref="hotel_v33_0:HotelSpecialRequest" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="hotel_v40_0:HotelSpecialRequest" />
         <xs:element minOccurs="0" maxOccurs="1" ref="common:CorporateDiscountID" />
         <xs:element minOccurs="0" maxOccurs="1" ref="common:ReservationName" />
         <xs:element minOccurs="0" ref="common:ThirdPartyInformation" />
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:TravelComplianceData" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v33_0:HotelBedding">
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v40_0:HotelBedding">
           <xs:annotation>
             <xs:documentation>Specify desired optional bed types. Applicable for optional bed types:RollawayAdult,RollawayChild,or Crib if supported by the hotel supplier. Providers :1G/1V/1P/1J</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs="0" maxOccurs="1" ref="hotel_v33_0:BookingConfirmation" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="hotel_v40_0:BookingConfirmation" />
       </xs:choice>
       <xs:attribute name="ReservationLocatorCode" type="common:typeLocatorCode" use="required" />
       <xs:attribute name="BookingTravelerRef" type="common:typeRef" use="optional">
@@ -690,23 +698,23 @@ Ticket (used to ticket an existing booking)</xs:documentation>
       <xs:choice>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:LoyaltyCard" />
         <xs:element minOccurs="0" ref="common:Guarantee" />
-        <xs:element minOccurs="0" ref="hotel_v33_0:GuestInformation" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v33_0:AssociatedRemark" />
+        <xs:element minOccurs="0" ref="hotel_v40_0:GuestInformation" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v40_0:AssociatedRemark" />
         <xs:element minOccurs="0" maxOccurs="1" ref="common:BookingSource" />
-        <xs:element minOccurs="0" maxOccurs="1" ref="hotel_v33_0:HotelSpecialRequest" />
-        <xs:element ref="hotel_v33_0:HotelRateInfo" />
-        <xs:element ref="hotel_v33_0:HotelStay" />
-        <xs:element minOccurs="0" maxOccurs="1" ref="hotel_v33_0:HotelCommission" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="hotel_v40_0:HotelSpecialRequest" />
+        <xs:element ref="hotel_v40_0:HotelRateInfo" />
+        <xs:element ref="hotel_v40_0:HotelStay" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="hotel_v40_0:HotelCommission" />
         <xs:element minOccurs="0" maxOccurs="1" ref="common:CorporateDiscountID" />
         <xs:element minOccurs="0" maxOccurs="1" ref="common:ReservationName" />
         <xs:element minOccurs="0" ref="common:ThirdPartyInformation" />
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:TravelComplianceData" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v33_0:HotelBedding">
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v40_0:HotelBedding">
           <xs:annotation>
             <xs:documentation>Specify desired optional bed types. Applicable for optional bed types:RollawayAdult,RollawayChild,or Crib if supported by the hotel supplier. Providers :1G/1V/1P/1J</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs="0" maxOccurs="1" ref="hotel_v33_0:BookingConfirmation" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="hotel_v40_0:BookingConfirmation" />
       </xs:choice>
       <xs:attribute name="ReservationLocatorCode" type="common:typeLocatorCode" use="required" />
       <xs:attribute name="BookingTravelerRef" type="common:typeRef" use="optional">
@@ -824,28 +832,29 @@ Ticket (used to ticket an existing booking)</xs:documentation>
   <xs:element name="AirAdd">
     <xs:complexType>
       <xs:choice>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:AccountingRemark" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:SupplierLocator" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:AirSegment" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:AirPricingInfo" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:CreditCardAuth" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="common:AccountingRemark" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="common:SupplierLocator" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="air_v40_0:AirSegment" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="air_v40_0:AirPricingInfo" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="common:CreditCardAuth" />
         <xs:element minOccurs="0" ref="common:DeliveryInfo" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:Payment" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:SSR" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:LoyaltyCard" />
-        <xs:element minOccurs="0" ref="air_v33_0:AutoSeatAssignment" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:SpecificSeatAssignment" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:GeneralRemark" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:FeeInfo" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:HostToken" />
-        <xs:element maxOccurs="unbounded" ref="air_v33_0:AirPricingTicketingModifiers" />
-        <xs:element minOccurs="0" ref="air_v33_0:OptionalServicesInfo" />
-        <xs:element minOccurs="0" ref="air_v33_0:AirPricingPayment" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:AssociatedRemark" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:PocketItineraryRemark" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:ThirdPartyInformation" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:AirSegmentPricingModifiers" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:TravelComplianceData" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="common:Payment" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="common:SSR" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="common:LoyaltyCard" />
+        <xs:element minOccurs="0" ref="air_v40_0:AutoSeatAssignment" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="air_v40_0:SpecificSeatAssignment" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="common:GeneralRemark" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="air_v40_0:FeeInfo" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="common:HostToken" />
+        <xs:element maxOccurs="99" ref="air_v40_0:AirPricingTicketingModifiers" />
+        <xs:element minOccurs="0" ref="air_v40_0:OptionalServicesInfo" />
+        <xs:element minOccurs="0" ref="air_v40_0:AirPricingPayment" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="air_v40_0:AssociatedRemark" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="air_v40_0:PocketItineraryRemark" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="common:ThirdPartyInformation" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="air_v40_0:AirSegmentPricingModifiers" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="common:TravelComplianceData" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="air_v40_0:BrandInfo" />
       </xs:choice>
       <xs:attribute name="ReservationLocatorCode" type="common:typeLocatorCode" use="required" />
       <xs:attribute name="BookingTravelerRef" type="common:typeRef" use="optional" />
@@ -860,10 +869,10 @@ Ticket (used to ticket an existing booking)</xs:documentation>
     <xs:complexType>
       <xs:choice>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:AccountingRemark" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:AirSegment" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:AirSegment" />
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:CreditCardAuth" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:AirPricingAdjustment" />
-        <xs:element maxOccurs="unbounded" ref="air_v33_0:AirPricingTicketingModifiers">
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:AirPricingAdjustment" />
+        <xs:element maxOccurs="unbounded" ref="air_v40_0:AirPricingTicketingModifiers">
           <xs:annotation>
             <xs:documentation>Ticketing modifiers to be updated.</xs:documentation>
           </xs:annotation>
@@ -873,12 +882,12 @@ Ticket (used to ticket an existing booking)</xs:documentation>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:LoyaltyCard" />
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:SSR" />
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:GeneralRemark" />
-        <xs:element minOccurs="0" ref="air_v33_0:AutoSeatAssignment" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:SpecificSeatAssignment" />
-        <xs:element minOccurs="0" ref="air_v33_0:AirPricingPayment" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:AssociatedRemark" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:PocketItineraryRemark" />
-        <xs:element minOccurs="0" ref="air_v33_0:OptionalServicesInfo" />
+        <xs:element minOccurs="0" ref="air_v40_0:AutoSeatAssignment" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:SpecificSeatAssignment" />
+        <xs:element minOccurs="0" ref="air_v40_0:AirPricingPayment" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:AssociatedRemark" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:PocketItineraryRemark" />
+        <xs:element minOccurs="0" ref="air_v40_0:OptionalServicesInfo" />
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:ThirdPartyInformation" />
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:TravelComplianceData" />
       </xs:choice>
@@ -895,7 +904,7 @@ Ticket (used to ticket an existing booking)</xs:documentation>
     <xs:complexType>
       <xs:sequence>
         <xs:choice>
-          <xs:element ref="air_v33_0:AirSegment" />
+          <xs:element ref="air_v40_0:AirSegment" />
         </xs:choice>
       </xs:sequence>
       <xs:attribute name="Action" use="required">
@@ -920,17 +929,17 @@ Ticket (used to ticket an existing booking)</xs:documentation>
       <xs:choice>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:LoyaltyCard" />
         <xs:element minOccurs="0" ref="common:DriversLicense" />
-        <xs:element minOccurs="0" ref="vehicle_v33_0:VehicleSpecialRequest" />
+        <xs:element minOccurs="0" ref="vehicle_v40_0:VehicleSpecialRequest" />
         <xs:element minOccurs="0" maxOccurs="5" ref="common:SpecialEquipment" />
-        <xs:element minOccurs="0" ref="vehicle_v33_0:PaymentInformation" />
+        <xs:element minOccurs="0" ref="vehicle_v40_0:PaymentInformation" />
         <xs:element minOccurs="0" ref="common:Guarantee" />
         <xs:element minOccurs="0" ref="common:BookingSource" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v33_0:AssociatedRemark" />
-        <xs:element minOccurs="0" ref="vehicle_v33_0:DeliveryAddress" />
-        <xs:element minOccurs="0" ref="vehicle_v33_0:CollectionAddress" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v40_0:AssociatedRemark" />
+        <xs:element minOccurs="0" ref="vehicle_v40_0:DeliveryAddress" />
+        <xs:element minOccurs="0" ref="vehicle_v40_0:CollectionAddress" />
         <xs:element minOccurs="0" ref="common:ThirdPartyInformation" />
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:TravelComplianceData" />
-        <xs:element minOccurs="0" maxOccurs="1" ref="vehicle_v33_0:FlightArrivalInformation">
+        <xs:element minOccurs="0" maxOccurs="1" ref="vehicle_v40_0:FlightArrivalInformation">
           <xs:annotation>
             <xs:documentation>The flight arrival information(airline code and flight number) for the airport/city at which the rental car will be picked up || Addition and Update in UR Modify is currently implemented only for Galileo(1G) and Apollo(1V).</xs:documentation>
           </xs:annotation>
@@ -951,22 +960,22 @@ Ticket (used to ticket an existing booking)</xs:documentation>
         <xs:element minOccurs="0" ref="common:DriversLicense" />
         <xs:element minOccurs="0" ref="common:Guarantee" />
         <xs:element minOccurs="0" ref="common:BookingSource" />
-        <xs:element minOccurs="0" ref="vehicle_v33_0:VehicleRateInfo" />
-        <xs:element minOccurs="0" ref="vehicle_v33_0:PaymentInformation" />
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v33_0:AssociatedRemark" />
-        <xs:element minOccurs="0" ref="vehicle_v33_0:VehicleSpecialRequest" />
-        <xs:element minOccurs="0" ref="vehicle_v33_0:DeliveryAddress" />
-        <xs:element minOccurs="0" ref="vehicle_v33_0:CollectionAddress" />
-        <xs:element minOccurs="0" ref="vehicle_v33_0:VehicleReturnDateLocation" />
-        <xs:element minOccurs="0" ref="vehicle_v33_0:VehiclePickupDateLocation" />
+        <xs:element minOccurs="0" ref="vehicle_v40_0:VehicleRateInfo" />
+        <xs:element minOccurs="0" ref="vehicle_v40_0:PaymentInformation" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v40_0:AssociatedRemark" />
+        <xs:element minOccurs="0" ref="vehicle_v40_0:VehicleSpecialRequest" />
+        <xs:element minOccurs="0" ref="vehicle_v40_0:DeliveryAddress" />
+        <xs:element minOccurs="0" ref="vehicle_v40_0:CollectionAddress" />
+        <xs:element minOccurs="0" ref="vehicle_v40_0:VehicleReturnDateLocation" />
+        <xs:element minOccurs="0" ref="vehicle_v40_0:VehiclePickupDateLocation" />
         <xs:element minOccurs="0" ref="common:ThirdPartyInformation">
           <xs:annotation>
             <xs:documentation>Third party supplier locator information. Specifically applicable for SDK booking. Previously saved values can be updated for SupplierCode, SupplierName and SupplierLocatorCode. If an attribute is not passed here, then previously saved value for that attribute will be deleted.</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:TravelComplianceData" />
-        <xs:element minOccurs="0" ref="vehicle_v33_0:VehicleTypeIdentifier" />
-        <xs:element minOccurs="0" maxOccurs="1" ref="vehicle_v33_0:FlightArrivalInformation">
+        <xs:element minOccurs="0" ref="vehicle_v40_0:VehicleTypeIdentifier" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="vehicle_v40_0:FlightArrivalInformation">
           <xs:annotation>
             <xs:documentation>The flight arrival information(airline code and flight number) for the airport/city at which the rental car will be picked up || Addition and Update in UR Modify is currently implemented only for Galileo(1G) and Apollo(1V).</xs:documentation>
           </xs:annotation>
@@ -1142,58 +1151,6 @@ Ticket (used to ticket an existing booking)</xs:documentation>
             </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:simpleType name="typeHistoryAction">
-    <xs:annotation>
-      <xs:documentation>
-                Defines the list of available data types for
-                UniversalRecord History actions
-            </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="AirAdd" />
-      <xs:enumeration value="AirCancel" />
-      <xs:enumeration value="AirCreate" />
-      <xs:enumeration value="AirDelete" />
-      <xs:enumeration value="AirUpdate" />
-      <xs:enumeration value="HotelAdd" />
-      <xs:enumeration value="HotelCancel" />
-      <xs:enumeration value="HotelCreate" />
-      <xs:enumeration value="HotelDelete" />
-      <xs:enumeration value="HotelUpdate" />
-      <xs:enumeration value="Import" />
-      <xs:enumeration value="Sync" />
-      <xs:enumeration value="URAdd" />
-      <xs:enumeration value="URDelete" />
-      <xs:enumeration value="URUpdate" />
-      <xs:enumeration value="URCancel" />
-      <xs:enumeration value="URCreate" />
-      <xs:enumeration value="VehicleAdd" />
-      <xs:enumeration value="VehicleCancel" />
-      <xs:enumeration value="VehicleCreate" />
-      <xs:enumeration value="VehicleDelete" />
-      <xs:enumeration value="VehicleUpdate" />
-      <xs:enumeration value="PassiveCreate" />
-      <xs:enumeration value="PassiveCancel" />
-      <xs:enumeration value="PassiveAdd" />
-      <xs:enumeration value="PassiveDelete" />
-      <xs:enumeration value="Ticketing" />
-      <xs:enumeration value="ETRSync" />
-      <xs:enumeration value="AirRefund" />
-      <xs:enumeration value="RailCreate" />
-      <xs:enumeration value="RailCancel" />
-      <xs:enumeration value="RailModify" />
-      <xs:enumeration value="AirExchange" />
-      <xs:enumeration value="Issue" />
-      <xs:enumeration value="URModify" />
-      <xs:enumeration value="GdsQueuePlace" />
-      <xs:enumeration value="GdsQueueRemove" />
-      <xs:enumeration value="VoidTkt" />
-      <xs:enumeration value="AirMerchandisingFulfillment" />
-      <xs:enumeration value="EMDRetrieve" />
-      <xs:enumeration value="EMDIssue" />
-      <xs:enumeration value="RailUpdate" />
-    </xs:restriction>
-  </xs:simpleType>
   <xs:element name="UniversalRecordHistorySearchResult">
     <xs:annotation>
       <xs:documentation>
@@ -1241,7 +1198,7 @@ Ticket (used to ticket an existing booking)</xs:documentation>
                     </xs:documentation>
         </xs:annotation>
       </xs:attribute>
-      <xs:attribute name="Action" type="typeHistoryAction" use="required">
+      <xs:attribute name="Action" type="xs:string" use="required">
         <xs:annotation>
           <xs:documentation>
                         The action that was taken on the defined element
@@ -1255,6 +1212,7 @@ Ticket (used to ticket an existing booking)</xs:documentation>
                     </xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attributeGroup ref="common:attrAgentOverride" />
     </xs:complexType>
   </xs:element>
   <xs:element name="UniversalRecordHistorySearchModifiers">
@@ -1589,63 +1547,63 @@ Ticket (used to ticket an existing booking)</xs:documentation>
         <xs:element minOccurs="0" ref="common:AgencyInfo" />
         <xs:element minOccurs="0" ref="common:ReservationName" />
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:AirPricingModifiers" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:AirPricingModifiers" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:AirPricingSolution" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:AirPricingSolution" />
         </xs:choice>
         <xs:element minOccurs="0" maxOccurs="9" name="AirTripNote" type="typeSavedTripNote" />
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v33_0:VehicleSearchModifiers" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v40_0:VehicleSearchModifiers" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v33_0:VehicleDateLocation" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v40_0:VehicleDateLocation" />
         </xs:choice>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:SpecialEquipment" />
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v33_0:VehicleSpecialRequest" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v40_0:VehicleSpecialRequest" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v33_0:PaymentInformation" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v40_0:PaymentInformation" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v33_0:DeliveryAddress" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v40_0:DeliveryAddress" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v33_0:CollectionAddress" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v40_0:CollectionAddress" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v33_0:FlightArrivalInformation" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v40_0:FlightArrivalInformation" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v33_0:Vehicle" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="vehicle_v40_0:Vehicle" />
         </xs:choice>
         <xs:element minOccurs="0" maxOccurs="9" name="VehicleTripNote" type="typeSavedTripNote" />
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:VendorLocation" />
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v33_0:HotelProperty" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v40_0:HotelProperty" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v33_0:HotelStay" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v40_0:HotelStay" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v33_0:HotelRulesModifiers" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v40_0:HotelRulesModifiers" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v33_0:HotelDetailsModifiers" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v40_0:HotelDetailsModifiers" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v33_0:HotelRateDetail" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v40_0:HotelRateDetail" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v33_0:PromotionCode" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotel_v40_0:PromotionCode" />
         </xs:choice>
         <xs:element minOccurs="0" maxOccurs="9" name="HotelTripNote" type="typeSavedTripNote" />
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="rail_v33_0:RailPricingSolution" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="rail_v40_0:RailPricingSolution" />
         </xs:choice>
         <xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" ref="rail_v33_0:RailFareNote" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="rail_v40_0:RailFareNote" />
         </xs:choice>
         <xs:element minOccurs="0" maxOccurs="9" name="RailTripNote" type="typeSavedTripNote" />
         <xs:element minOccurs="0" maxOccurs="3" name="SavedTripNote" type="typeSavedTripNote" />
@@ -2500,7 +2458,7 @@ will be removed.</xs:documentation>
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="UniversalModifyCommandError" />
-        <xs:element minOccurs="0" ref="air_v33_0:AirSegmentSellFailureInfo" />
+        <xs:element minOccurs="0" ref="air_v40_0:AirSegmentSellFailureInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2525,7 +2483,7 @@ will be removed.</xs:documentation>
         <xs:extension base="common:typeErrorInfo">
           <xs:sequence>
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="UniversalModifyCommandError" />
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v33_0:AirSegmentError" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="air_v40_0:AirSegmentError" />
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>
