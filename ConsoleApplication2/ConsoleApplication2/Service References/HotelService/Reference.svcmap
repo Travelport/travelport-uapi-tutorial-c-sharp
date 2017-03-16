@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="57b70601-771d-4141-9957-93012fa5fc48" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b84ce7f1-584c-4c39-bcb9-1938fabbe1d9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,15 +19,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="c:\users\vivek.pramanik\documents\visual studio 2012\Projects\ConsoleApplication2\ConsoleApplication2\Wsdl\hotel_v29_0\Hotel.wsdl" Protocol="file" SourceId="1" />
+    <MetadataSource Address="c:\users\vivek.pramanik\documents\visual studio 2012\Projects\ConsoleApplication2\ConsoleApplication2\Wsdl\hotel_v40_0\Hotel.wsdl" Protocol="file" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CommonReqRsp.xsd" MetadataType="Schema" ID="a4ecc8f0-5db9-47c9-abaa-f15b17b4322b" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication2/ConsoleApplication2/Wsdl/common_v29_0/CommonReqRsp.xsd" />
-    <MetadataFile FileName="Common.xsd" MetadataType="Schema" ID="6f769eb2-6b3d-42d2-a587-1f5b155f4964" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication2/ConsoleApplication2/Wsdl/common_v29_0/Common.xsd" />
-    <MetadataFile FileName="HotelReqRsp.xsd" MetadataType="Schema" ID="16434fce-bae3-4df4-9f9f-2436d6ca5b9d" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication2/ConsoleApplication2/Wsdl/hotel_v29_0/HotelReqRsp.xsd" />
-    <MetadataFile FileName="HotelServices.wsdl" MetadataType="Wsdl" ID="152da5d8-8ac0-427c-b6f6-6ea3ccad2e3f" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication2/ConsoleApplication2/Wsdl/hotel_v29_0/Hotel.wsdl" />
-    <MetadataFile FileName="Hotel.xsd" MetadataType="Schema" ID="2b5ec6bf-370e-41a8-b779-6cb0e8cc08ed" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication2/ConsoleApplication2/Wsdl/hotel_v29_0/Hotel.xsd" />
-    <MetadataFile FileName="AbstractHotelServices.wsdl" MetadataType="Wsdl" ID="4709b12b-9ff3-4d58-b63e-f593a6e2bfcc" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication2/ConsoleApplication2/Wsdl/hotel_v29_0/HotelAbstract.wsdl" />
+    <MetadataFile FileName="AbstractHotelServices.wsdl" MetadataType="Wsdl" ID="8ed918c7-8d6d-48f6-9a30-87b5507a3a1f" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication2/ConsoleApplication2/Wsdl/hotel_v40_0/HotelAbstract.wsdl" />
+    <MetadataFile FileName="Common.xsd" MetadataType="Schema" ID="e995adf7-2963-4687-bee1-02913ce08ef1" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication2/ConsoleApplication2/Wsdl/common_v40_0/Common.xsd" />
+    <MetadataFile FileName="Hotel.xsd" MetadataType="Schema" ID="0b999ee6-4442-45af-855c-ff1ca2aa6e93" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication2/ConsoleApplication2/Wsdl/hotel_v40_0/Hotel.xsd" />
+    <MetadataFile FileName="CommonReqRsp.xsd" MetadataType="Schema" ID="96fa4195-89b6-4c83-bf2a-e6786ada5fb2" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication2/ConsoleApplication2/Wsdl/common_v40_0/CommonReqRsp.xsd" />
+    <MetadataFile FileName="HotelServices.wsdl" MetadataType="Wsdl" ID="7b524d58-c565-4e55-aa2e-27ef1ce0fe44" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication2/ConsoleApplication2/Wsdl/hotel_v40_0/Hotel.wsdl" />
+    <MetadataFile FileName="HotelReqRsp.xsd" MetadataType="Schema" ID="d1026a8d-a4e0-49da-ba5c-3c86645a4263" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication2/ConsoleApplication2/Wsdl/hotel_v40_0/HotelReqRsp.xsd" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

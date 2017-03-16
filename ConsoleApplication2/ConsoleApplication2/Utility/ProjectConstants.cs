@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1.Utility
+namespace ConsoleApplication2.Utility
 {
     internal static class ProjectConstants
     {

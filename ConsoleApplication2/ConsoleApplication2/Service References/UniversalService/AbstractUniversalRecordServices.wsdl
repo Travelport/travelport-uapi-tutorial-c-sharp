@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<definitions xmlns:ur="http://www.travelport.com/schema/universal_v29_0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.travelport.com/service/universal_v29_0" xmlns:common="http://www.travelport.com/schema/common_v29_0" xmlns:air="http://www.travelport.com/schema/air_v29_0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://www.travelport.com/schema/universal_v29_0" name="AbstractUniversalRecordServices" targetNamespace="http://www.travelport.com/service/universal_v29_0" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<definitions xmlns:sc="http://www.travelport.com/soa/common/security/SessionContext_v1" xmlns:ur="http://www.travelport.com/schema/universal_v40_0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.travelport.com/service/universal_v40_0" xmlns:common="http://www.travelport.com/schema/common_v40_0" xmlns:air="http://www.travelport.com/schema/air_v40_0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://www.travelport.com/schema/universal_v40_0" name="AbstractUniversalRecordServices" targetNamespace="http://www.travelport.com/service/universal_v40_0" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <import namespace="http://www.travelport.com/soa/common/security/SessionContext_v1" location="../SessionContext_v1/SessionContext_v1.xsd" />
   <types>
-    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.travelport.com/schema/universal_v29_0">
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.travelport.com/schema/universal_v40_0">
       <xsd:include schemaLocation="UniversalRecordReqRsp.xsd" />
     </xsd:schema>
   </types>
+  <message name="SessionContext">
+    <part name="sessionContext" element="sc:SessionContext" />
+  </message>
   <message name="UniversalRecordRetrieveReq">
     <part name="parameters" element="ns1:UniversalRecordRetrieveReq" />
   </message>
@@ -146,12 +150,6 @@
   <message name="RailCreateReservationResponse">
     <part name="result" element="ns1:RailCreateReservationRsp" />
   </message>
-  <message name="RailExchangeCreateReservationRequest">
-    <part name="parameters" element="ns1:RailExchangeReq" />
-  </message>
-  <message name="RailExchangeCreateReservationResponse">
-    <part name="result" element="ns1:RailExchangeRsp" />
-  </message>
   <message name="AirCreateReservationRequest">
     <part name="parameters" element="ns1:AirCreateReservationReq" />
   </message>
@@ -184,6 +182,9 @@
   </message>
   <message name="PassiveFaultMessage">
     <part name="fault" element="common:ErrorInfo" />
+  </message>
+  <message name="PriceFaultMessage">
+    <part name="fault" element="common:PriceMatchError" />
   </message>
   <portType name="UniversalRecordRetrieveServicePortType">
     <operation name="service">
@@ -291,6 +292,7 @@
       <input message="tns:VehicleCreateReservationReq" />
       <output message="tns:VehicleCreateReservationRsp" />
       <fault name="ErrorInfoMsg" message="tns:VehicleFaultMessage" />
+      <fault name="PriceErrorInfoMsg" message="tns:PriceFaultMessage" />
     </operation>
   </portType>
   <portType name="VehicleCancelServicePortType">
@@ -305,6 +307,7 @@
       <input message="tns:HotelCreateReservationReq" />
       <output message="tns:HotelCreateReservationRsp" />
       <fault name="ErrorInfoMsg" message="tns:HotelFaultMessage" />
+      <fault name="PriceErrorInfoMsg" message="tns:PriceFaultMessage" />
     </operation>
   </portType>
   <portType name="HotelCancelServicePortType">
@@ -318,13 +321,6 @@
     <operation name="service">
       <input message="tns:RailCreateReservationRequest" />
       <output message="tns:RailCreateReservationResponse" />
-      <fault name="ErrorInfoMsg" message="tns:RailFaultMessage" />
-    </operation>
-  </portType>
-  <portType name="RailExchangeCreateReservationPortType">
-    <operation name="service">
-      <input message="tns:RailExchangeCreateReservationRequest" />
-      <output message="tns:RailExchangeCreateReservationResponse" />
       <fault name="ErrorInfoMsg" message="tns:RailFaultMessage" />
     </operation>
   </portType>

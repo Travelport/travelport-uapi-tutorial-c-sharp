@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://www.travelport.com/schema/rail_v29_0" xmlns:common="http://www.travelport.com/schema/common_v29_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/rail_v29_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="../common_v29_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v29_0" />
+<xs:schema xmlns="http://www.travelport.com/schema/rail_v40_0" xmlns:common="http://www.travelport.com/schema/common_v40_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/rail_v40_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="../common_v40_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v40_0" />
   <xs:annotation>
     <xs:documentation>(c) Travelport GDS 2008 All rights reserved. Proprietary Information of Travelport GDS.</xs:documentation>
   </xs:annotation>
@@ -15,7 +15,6 @@
             <xs:element maxOccurs="9" ref="common:BookingTravelerRef" />
             <xs:element maxOccurs="unbounded" ref="RailJourney" />
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="RailPricingInfo" />
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:FormOfPayment" />
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:Payment" />
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="RailTicketInfo" />
             <xs:element minOccurs="0" ref="RailFareNoteList">
@@ -51,7 +50,27 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="common:HostToken" />
       </xs:sequence>
       <xs:attribute name="Key" type="common:typeRef" use="required" />
-      <xs:attributeGroup ref="attrJourneyInfo" />
+      <xs:attributeGroup ref="attrRailSegmentOrigDestInfo" />
+      <xs:attribute name="RouteDescription" use="optional">
+        <xs:annotation>
+          <xs:documentation>The description of the route.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="255" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="JourneyDirection" type="typeJourneyDirection" use="optional">
+        <xs:annotation>
+          <xs:documentation>The direction of the Journey (Outward or Return).</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="JourneyDuration" type="xs:integer" use="optional">
+        <xs:annotation>
+          <xs:documentation>The duration of the entire Journey in minutes</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
       <xs:attributeGroup ref="common:attrPrices" />
       <xs:attributeGroup ref="common:attrProviderSupplier" />
       <xs:attribute name="Status" type="xs:string" use="optional">
@@ -191,7 +210,7 @@
           <xs:sequence>
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="RailSegmentInfo" />
             <xs:element minOccurs="0" maxOccurs="1" ref="OperatingCompany" />
-            <xs:element minOccurs="0" maxOccurs="9" ref="RailAvailInfo" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="RailAvailInfo" />
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="FulFillmentType" />
           </xs:sequence>
           <xs:attribute name="TrainNumber" type="typeTrainNumber" use="optional" />
@@ -229,6 +248,21 @@
           <xs:attribute name="TravelTime" type="xs:integer" use="optional">
             <xs:annotation>
               <xs:documentation>Total time spent (minutes) traveling</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="HostTokenRef" type="common:typeRef" use="optional">
+            <xs:annotation>
+              <xs:documentation>The reference key for the host token. From the HostTokenList Providers RCH.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="CabinClass" type="common:typeRailCabin" use="optional">
+            <xs:annotation>
+              <xs:documentation>Rail Cabin class specification. The valid values are Economy, Business, First and Other</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="ClassCode" type="common:typeRailClass" use="optional">
+            <xs:annotation>
+              <xs:documentation>A booking code or fare basis code or fare class.  </xs:documentation>
             </xs:annotation>
           </xs:attribute>
         </xs:extension>
@@ -561,6 +595,44 @@
       </xs:simpleContent>
     </xs:complexType>
   </xs:element>
+  <xs:element name="RailFareComponent">
+    <xs:annotation>
+      <xs:documentation>Contains fare and discount information for each passenger type</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="5" name="Discount">
+          <xs:annotation>
+            <xs:documentation>Discount information specific to the fare component</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="9" ref="common:DiscountCard" />
+            </xs:sequence>
+            <xs:attribute name="Key" type="common:typeRef" use="optional" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="Key" type="common:typeRef" use="required" />
+      <xs:attribute name="Amount" type="common:typeMoney">
+        <xs:annotation>
+          <xs:documentation>FareComponent amount</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="Age" type="xs:integer" use="optional" />
+      <xs:attribute name="PassengerTypeCode" type="common:typePTC" use="optional">
+        <xs:annotation>
+          <xs:documentation>The three character passenger code</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="SupplierPassengerType" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>Supplier passenger type code</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="Quantity" type="xs:integer" use="optional" />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="RailFare">
     <xs:annotation>
       <xs:documentation>Information about this fare component</xs:documentation>
@@ -582,6 +654,7 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="FareValidity" />
         <xs:element minOccurs="0" ref="common:HostToken" />
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="FulFillmentType" />
+        <xs:element minOccurs="0" maxOccurs="99" ref="RailFareComponent" />
       </xs:sequence>
       <xs:attribute name="Key" type="common:typeRef" use="required" />
       <xs:attribute name="FareBasis" type="xs:string" use="optional">
@@ -820,32 +893,6 @@
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
-  <xs:attributeGroup name="attrJourneyInfo">
-    <xs:annotation>
-      <xs:documentation>Holds all relevant journey details.</xs:documentation>
-    </xs:annotation>
-    <xs:attributeGroup ref="attrRailSegmentOrigDestInfo" />
-    <xs:attribute name="RouteDescription" use="optional">
-      <xs:annotation>
-        <xs:documentation>The description of the route.</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:maxLength value="255" />
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="JourneyDirection" type="typeJourneyDirection" use="optional">
-      <xs:annotation>
-        <xs:documentation>The direction of the Journey (Outward or Return).</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="JourneyDuration" type="xs:integer" use="optional">
-      <xs:annotation>
-        <xs:documentation>The duration of the entire Journey in minutes</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-  </xs:attributeGroup>
   <xs:element name="RailRefundInfo">
     <xs:annotation>
       <xs:documentation>Information about refund.</xs:documentation>
@@ -948,6 +995,11 @@
           <xs:documentation>3 Letter Currency Code</xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attribute name="RailSearchType" type="common:typeRailSearchType" use="optional">
+        <xs:annotation>
+          <xs:documentation>RailSearchType options are "All Fares"  "Fastest"  "Lowest Fare" "One Fare Per Class" "Seasons".  Supported by NTV/VF only for "All Fares" "Lowest Fare" and "One Fare Per Class". Provider : RCH</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:simpleType name="typeRailDirection">
@@ -975,6 +1027,11 @@
           <xs:documentation>The Converted total price in Default Currency for this entity including base price and all taxes.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attribute name="RetainAmount" type="common:typeMoney" use="optional">
+        <xs:annotation>
+          <xs:documentation>Amount retained by a rail vendor for future use at the vendor’s site.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:simpleType name="typeTrainNumber">
@@ -999,11 +1056,12 @@
   </xs:simpleType>
   <xs:simpleType name="typeResponseType">
     <xs:annotation>
-      <xs:documentation>Type of information returned in RailShopAPIResponse </xs:documentation>
+      <xs:documentation>Indicates the type of information to be returned in RailShopModifyAPIResponse.  Values are “Schedules” or “Availability” or “Fares”.  If not sent, “Fares” will be mapped if the request is for a specific rail segments, otherwise “Availability” will be mapped. Provider Supported RCH.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:enumeration value="Availability" />
       <xs:enumeration value="Schedules" />
+      <xs:enumeration value="Fares" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="RailInfo">
@@ -1115,16 +1173,10 @@
   </xs:element>
   <xs:element name="RailAvailInfo">
     <xs:complexType>
-      <xs:attribute name="ClassCode" use="optional">
+      <xs:attribute name="ClassCode" type="common:typeRailClass" use="optional">
         <xs:annotation>
-          <xs:documentation>Fare basis code for Amtrak.</xs:documentation>
+          <xs:documentation>A booking code or fare basis code or fare class.  </xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:minLength value="1" />
-            <xs:maxLength value="8" />
-          </xs:restriction>
-        </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="Quantity" type="xs:integer" use="optional">
         <xs:annotation>
@@ -1149,5 +1201,37 @@
         <xs:maxLength value="255" />
       </xs:restriction>
     </xs:simpleType>
+  </xs:element>
+  <xs:element name="RailSpecificSeatAssignment">
+    <xs:annotation>
+      <xs:documentation>Request object used to request a specific coach and seat number or a seat near-to a specific seat number.  </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="CoachLabel" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>The coach number of the train being requested.  </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="PlaceLabel" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>The actual seat number or the close-to seat number based on the Assignment.  </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="Assignment" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>Defines how the PlaceLabel should be applied.  The values are 6.STP for actual seat or 2.STP for close-to seat. Default is 2.STP. </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="RailSegmentRef" type="common:typeRef" use="required">
+        <xs:annotation>
+          <xs:documentation>The rail segment to which this assignment belongs.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="BookingTravelerRef" type="common:typeRef" use="required">
+        <xs:annotation>
+          <xs:documentation>The BookingTraveler for this seat assignment.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
   </xs:element>
 </xs:schema>

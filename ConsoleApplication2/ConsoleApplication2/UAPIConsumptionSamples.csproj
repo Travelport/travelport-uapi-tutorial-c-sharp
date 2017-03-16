@@ -64,7 +64,9 @@
     <Compile Include="Utility\WsdlService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\HotelService\AbstractHotelServices.wsdl" />
     <None Include="Service References\HotelService\Common.xsd">
       <SubType>Designer</SubType>
@@ -182,9 +184,6 @@
     <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.RailCreateReservationRsp.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.RailExchangeRsp.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.SavedTripCreateRsp.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -251,9 +250,6 @@
     <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse23.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse24.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\UniversalService\ConsoleApplication2.UniversalService.serviceResponse3.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -311,6 +307,9 @@
     <None Include="Service References\UniversalService\Rail.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\UniversalService\SessionContext_v1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\UniversalService\UniversalRecord.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -321,144 +320,297 @@
     <None Include="Service References\UniversalService\Vehicle.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\air_v29_0\Air.wsdl" />
-    <None Include="Wsdl\air_v29_0\Air.xsd">
+    <None Include="Wsdl\air_v40_0\Air.wsdl" />
+    <None Include="Wsdl\air_v40_0\Air.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\air_v29_0\AirAbstract.wsdl" />
-    <None Include="Wsdl\air_v29_0\AirReqRsp.xsd">
+    <None Include="Wsdl\air_v40_0\AirAbstract.wsdl" />
+    <None Include="Wsdl\air_v40_0\AirReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\air_v29_0\Kestrel.xsd">
+    <None Include="Wsdl\air_v40_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v17_0\Common.xsd">
+    <None Include="Wsdl\common_v32_0\Common.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v17_0\CommonReqRsp.xsd">
+    <None Include="Wsdl\common_v32_0\CommonReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v17_0\Kestrel.xsd">
+    <None Include="Wsdl\common_v32_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v18_0\Common.xsd">
+    <None Include="Wsdl\common_v33_0\Common.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v18_0\CommonReqRsp.xsd">
+    <None Include="Wsdl\common_v33_0\CommonReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v18_0\Kestrel.xsd">
+    <None Include="Wsdl\common_v33_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v19_0\Common.xsd">
+    <None Include="Wsdl\common_v35_0\Common.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v19_0\CommonReqRsp.xsd">
+    <None Include="Wsdl\common_v35_0\CommonReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v19_0\Kestrel.xsd">
+    <None Include="Wsdl\common_v35_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v24_0\Common.xsd">
+    <None Include="Wsdl\common_v37_0\Common.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v24_0\CommonReqRsp.xsd">
+    <None Include="Wsdl\common_v37_0\CommonReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v24_0\Kestrel.xsd">
+    <None Include="Wsdl\common_v37_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v28_0\Common.xsd">
+    <None Include="Wsdl\common_v38_0\Common.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v28_0\CommonReqRsp.xsd">
+    <None Include="Wsdl\common_v38_0\CommonReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v28_0\Kestrel.xsd">
+    <None Include="Wsdl\common_v38_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v29_0\Common.xsd">
+    <None Include="Wsdl\common_v40_0\Common.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v29_0\CommonReqRsp.xsd">
+    <None Include="Wsdl\common_v40_0\CommonReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\common_v29_0\Kestrel.xsd">
+    <None Include="Wsdl\common_v40_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\cruise_v29_0\Cruise.xsd">
+    <None Include="Wsdl\cruise_v40_0\Cruise.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\cruise_v29_0\CruiseReqRsp.xsd">
+    <None Include="Wsdl\cruise_v40_0\CruiseReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\cruise_v29_0\Kestrel.xsd">
+    <None Include="Wsdl\cruise_v40_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\hotel_v29_0\Hotel.wsdl" />
-    <None Include="Wsdl\hotel_v29_0\Hotel.xsd">
+    <None Include="Wsdl\desktopPreference_v32_0\DesktopPreference.wsdl" />
+    <None Include="Wsdl\desktopPreference_v32_0\DesktopPreference.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\hotel_v29_0\HotelAbstract.wsdl" />
-    <None Include="Wsdl\hotel_v29_0\HotelReqRsp.xsd">
+    <None Include="Wsdl\desktopPreference_v32_0\DesktopPreferenceAbstract.wsdl" />
+    <None Include="Wsdl\desktopPreference_v32_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\hotel_v29_0\Kestrel.xsd">
+    <None Include="Wsdl\desktopServices_v32_0\Deployment.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\passive_v29_0\Kestrel.xsd">
+    <None Include="Wsdl\desktopServices_v32_0\DeploymentReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\passive_v29_0\Passive.xsd">
+    <None Include="Wsdl\desktopServices_v32_0\DesktopServices.wsdl" />
+    <None Include="Wsdl\desktopServices_v32_0\DesktopServices.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\rail_v29_0\Kestrel.xsd">
+    <None Include="Wsdl\desktopServices_v32_0\DesktopServicesAbstract.wsdl" />
+    <None Include="Wsdl\desktopServices_v32_0\DesktopServicesReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\rail_v29_0\Rail.wsdl" />
-    <None Include="Wsdl\rail_v29_0\Rail.xsd">
+    <None Include="Wsdl\desktopServices_v32_0\DTSCommon.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\rail_v29_0\RailAbstract.wsdl" />
-    <None Include="Wsdl\rail_v29_0\RailReqRsp.xsd">
+    <None Include="Wsdl\desktopServices_v32_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\system_v9_0\Kestrel.xsd">
+    <None Include="Wsdl\filefinishing_v32_0\FileFinishing.wsdl" />
+    <None Include="Wsdl\filefinishing_v32_0\FileFinishing.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\system_v9_0\System.wsdl" />
-    <None Include="Wsdl\system_v9_0\System.xsd">
+    <None Include="Wsdl\filefinishing_v32_0\FileFinishingAbstract.wsdl" />
+    <None Include="Wsdl\filefinishing_v32_0\FileFinishingReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\system_v9_0\SystemAbstract.wsdl" />
-    <None Include="Wsdl\universal_v29_0\Kestrel.xsd">
+    <None Include="Wsdl\filefinishing_v32_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\universal_v29_0\UniversalRecord.wsdl" />
-    <None Include="Wsdl\universal_v29_0\UniversalRecord.xsd">
+    <None Include="Wsdl\gdsQueue_v40_0\GDSQueue.wsdl" />
+    <None Include="Wsdl\gdsQueue_v40_0\GDSQueue.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\universal_v29_0\UniversalRecordAbstract.wsdl" />
-    <None Include="Wsdl\universal_v29_0\UniversalRecordReqRsp.xsd">
+    <None Include="Wsdl\gdsQueue_v40_0\GDSQueueAbstract.wsdl" />
+    <None Include="Wsdl\gdsQueue_v40_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\util_v29_0\Kestrel.xsd">
+    <None Include="Wsdl\hotel_v40_0\Hotel.wsdl" />
+    <None Include="Wsdl\hotel_v40_0\Hotel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\util_v29_0\Util.wsdl" />
-    <None Include="Wsdl\util_v29_0\Util.xsd">
+    <None Include="Wsdl\hotel_v40_0\HotelAbstract.wsdl" />
+    <None Include="Wsdl\hotel_v40_0\HotelReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\util_v29_0\UtilAbstract.wsdl" />
-    <None Include="Wsdl\vehicle_v29_0\Kestrel.xsd">
+    <None Include="Wsdl\hotel_v40_0\Kestrel.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\vehicle_v29_0\Vehicle.wsdl" />
-    <None Include="Wsdl\vehicle_v29_0\Vehicle.xsd">
+    <None Include="Wsdl\inventory_v38_0\Inventory.wsdl" />
+    <None Include="Wsdl\inventory_v38_0\Inventory.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Wsdl\vehicle_v29_0\VehicleAbstract.wsdl" />
-    <None Include="Wsdl\vehicle_v29_0\VehicleReqRsp.xsd">
+    <None Include="Wsdl\inventory_v38_0\InventoryAbstract.wsdl" />
+    <None Include="Wsdl\inventory_v38_0\InventoryReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\inventory_v38_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\passive_v40_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\passive_v40_0\Passive.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\provisioning_v34_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\provisioning_v34_0\Provisioning.wsdl" />
+    <None Include="Wsdl\provisioning_v34_0\Provisioning.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\provisioning_v34_0\ProvisioningAbstract.wsdl" />
+    <None Include="Wsdl\provisioning_v34_0\ProvisioningReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\rail_v40_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\rail_v40_0\Rail.wsdl" />
+    <None Include="Wsdl\rail_v40_0\Rail.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\rail_v40_0\RailAbstract.wsdl" />
+    <None Include="Wsdl\rail_v40_0\RailReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\reporting_v35_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\reporting_v35_0\Reporting.wsdl" />
+    <None Include="Wsdl\reporting_v35_0\Reporting.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\reporting_v35_0\ReportingAbstract.wsdl" />
+    <None Include="Wsdl\reporting_v35_0\ReportingReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\security_v32_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\security_v32_0\Security.wsdl" />
+    <None Include="Wsdl\security_v32_0\Security.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\security_v32_0\SecurityAbstract.wsdl" />
+    <None Include="Wsdl\security_v32_0\SecurityReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\SessionContext_v1\SessionContext_v1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\sharedBooking_v40_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\sharedBooking_v40_0\SharedBooking.wsdl" />
+    <None Include="Wsdl\sharedBooking_v40_0\SharedBooking.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\sharedBooking_v40_0\SharedBookingAbstract.wsdl" />
+    <None Include="Wsdl\sharedBooking_v40_0\SharedBookingReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\sharedUprofile_v20_0\CustomerProfile.wsdl" />
+    <None Include="Wsdl\sharedUprofile_v20_0\CustomerProfileAbstract.wsdl" />
+    <None Include="Wsdl\sharedUprofile_v20_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\sharedUprofile_v20_0\UProfileAdminReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\sharedUprofile_v20_0\UProfileCoreReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\sharedUprofile_v20_0\UProfileSearchReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\sharedUprofile_v20_0\UProfileShared.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\system_v32_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\system_v32_0\System.wsdl" />
+    <None Include="Wsdl\system_v32_0\System.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\system_v32_0\SystemAbstract.wsdl" />
+    <None Include="Wsdl\terminal_v33_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\terminal_v33_0\Terminal.wsdl" />
+    <None Include="Wsdl\terminal_v33_0\Terminal.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\terminal_v33_0\TerminalAbstract.wsdl" />
+    <None Include="Wsdl\universal_v40_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\universal_v40_0\UniversalRecord.wsdl" />
+    <None Include="Wsdl\universal_v40_0\UniversalRecord.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\universal_v40_0\UniversalRecordAbstract.wsdl" />
+    <None Include="Wsdl\universal_v40_0\UniversalRecordReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\uprofileCommon_v30_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\uprofileCommon_v30_0\UprofileCommon.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\uprofileCommon_v30_0\UprofileCommonReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\uprofile_v37_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\uprofile_v37_0\UProfile.wsdl" />
+    <None Include="Wsdl\uprofile_v37_0\UProfile.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\uprofile_v37_0\UProfileAbstract.wsdl" />
+    <None Include="Wsdl\uprofile_v37_0\UProfileCoreReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\uprofile_v37_0\UProfileReqRsp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\util_v40_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\util_v40_0\Util.wsdl" />
+    <None Include="Wsdl\util_v40_0\Util.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\util_v40_0\UtilAbstract.wsdl" />
+    <None Include="Wsdl\vehicle_v40_0\Kestrel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\vehicle_v40_0\Vehicle.wsdl" />
+    <None Include="Wsdl\vehicle_v40_0\Vehicle.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Wsdl\vehicle_v40_0\VehicleAbstract.wsdl" />
+    <None Include="Wsdl\vehicle_v40_0\VehicleReqRsp.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

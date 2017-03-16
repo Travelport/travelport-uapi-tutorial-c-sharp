@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 
-namespace ConsoleApplication1.Utility
+namespace ConsoleApplication2.Utility
 {
     class CommonUtility
     {

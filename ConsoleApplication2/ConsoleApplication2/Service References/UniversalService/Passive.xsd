@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://www.travelport.com/schema/passive_v29_0" xmlns:common="http://www.travelport.com/schema/common_v29_0" xmlns:ns1="http://www.travelport.com/schema/passive_v29_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/passive_v29_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="../common_v29_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v29_0" />
+<xs:schema xmlns="http://www.travelport.com/schema/passive_v40_0" xmlns:common="http://www.travelport.com/schema/common_v40_0" xmlns:ns1="http://www.travelport.com/schema/passive_v40_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/passive_v40_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="../common_v40_0/Common.xsd" namespace="http://www.travelport.com/schema/common_v40_0" />
   <xs:element name="PassiveReservation">
     <xs:annotation>
       <xs:documentation>
@@ -137,7 +137,22 @@
           <xs:documentation>To identify the appropriate travel sequence for Air/Car/Hotel/Passive segments/reservations based on travel dates. This ordering is applicable across the UR not provider or traveler specific</xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attribute name="ProviderSegmentOrder" use="optional">
+        <xs:annotation>
+          <xs:documentation>To identify the appropriate travel sequence for Air/Car/Hotel/Rail segments/reservations in the provider reservation.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:maxInclusive value="999" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
       <xs:attributeGroup ref="common:attrElementKeyResults" />
+      <xs:attribute name="PassiveGroup" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>Used for grouping 2 sets of identical passive segments with different remark information.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:group name="BasePassiveRemarkGroup">

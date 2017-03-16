@@ -1,7 +1,8 @@
-﻿using ConsoleApplication1.Utility;
+﻿using ConsoleApplication2.Utility;
 using ConsoleApplication2.HotelService;
 using ConsoleApplication2.UniversalService;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace ConsoleApplication2
     class HotelTutorial
     {
 
-        string hotelLoc = "PAR";
+        string hotelLoc = "ATL";
         string hotelRefPoint = "EIFFEL TOWER";
         int numberOfAdults = 2;
         int numberOfRooms = 1;
@@ -21,6 +22,7 @@ namespace ConsoleApplication2
         BaseHotelSearchRsp hotelSearchAvailabilityResponse;
         HotelDetailsRsp detailsResponse;
         HotelCreateReservationRsp hotelCreateReservationRsp;
+        HotelRulesRsp rulesResponse;
 
         private static String closestHotelCode;
         private static String cheapestHotelCode;
@@ -76,15 +78,30 @@ namespace ConsoleApplication2
                 LocationType = typeHotelLocation.City
             };
 
-            hotelSearchLocation.ReferencePoint = new typeHotelReferencePoint()
+            /*hotelSearchLocation.ReferencePoint = new typeHotelReferencePoint()
             {
                 Value = hotelRefPoint
+            };*/
+
+            /*List<string> streetAddress = new List<string>();
+            streetAddress.Add("300 Galleria Pkway");
+
+            hotelSearchLocation.HotelAddress = new ConsoleApplication2.HotelService.typeStructuredAddress()
+            {
+                Street = streetAddress.ToArray()
             };
+
+            
+
+            hotelSearchLocation.HotelAddress.City = "Atlanta";*/
+
 
             hotelSearchAvailabilityRequest.HotelSearchLocation = hotelSearchLocation;
             HotelService.HotelStay hotelStay = GetHotelStay();
 
             hotelSearchAvailabilityRequest.HotelStay = hotelStay;
+            //HotelChain hc = new HotelChain();
+            //hc.Code = "HI";
 
             HotelSearchModifiers hotelSearchModifiers = new HotelSearchModifiers()
             {
@@ -95,7 +112,8 @@ namespace ConsoleApplication2
                         Code = providerCode
                     }
                 },
-                AvailableHotelsOnly = true,               
+                //PermittedChains = new HotelChain[]{hc},
+                AvailableHotelsOnly = true              
 
             };
 
@@ -161,70 +179,74 @@ namespace ConsoleApplication2
                     while (hotelProperties.MoveNext())
                     {
                         HotelService.HotelProperty property = hotelProperties.Current;
-                        if (property.ReserveRequirement.CompareTo(HotelService.typeReserveRequirement.Other) == 0)
+                        if (property.Availability.CompareTo(ConsoleApplication2.HotelService.typeHotelAvailability.Available) == 0)
                         {
+
+                            if (property.ReserveRequirement.CompareTo(HotelService.typeReserveRequirement.Other) == 0)
+                            {
                                 continue;
+                            }
+
+                            if (property.Distance != null)//check lowest distance for closet hotel from the reference point
+                            {
+                                int distance = Convert.ToInt32(property.Distance.Value);
+                                if (distance < lowestDistance)
+                                {
+                                    ClosestHotelCode = property.HotelCode;
+                                    closest = result;
+                                    lowestDistance = distance;
+                                }
+                            }
+
+
+                            IEnumerator<RateInfo> hotelRates = result.RateInfo.ToList().GetEnumerator();
+                            while (hotelRates.MoveNext())
+                            {
+                                RateInfo rate = hotelRates.Current;
+                                double minRate = 0.0;
+                                if (rate.MinimumAmount != null)
+                                {
+                                    minRate = Helper.parseNumberWithCurrency(rate.MinimumAmount);
+                                }
+                                else if (rate.ApproximateMinimumStayAmount != null)
+                                {
+                                    minRate = Helper.parseNumberWithCurrency(rate.ApproximateMinimumStayAmount);
+                                }
+                                else if (rate.ApproximateMinimumAmount != null)
+                                {
+                                    minRate = Helper.parseNumberWithCurrency(rate.ApproximateMinimumAmount);
+                                }
+
+                                if (minRate == 0.0)
+                                {
+                                    if (rate.MaximumAmount != null)
+                                    {
+                                        minRate = Helper.parseNumberWithCurrency(rate.MaximumAmount) / 2;
+                                    }
+                                    else if (rate.ApproximateMinimumAmount != null)
+                                    {
+                                        minRate = Helper.parseNumberWithCurrency(rate.ApproximateMinimumAmount) / 2;
+                                    }
+                                    else if (rate.ApproximateMaximumAmount != null)
+                                    {
+                                        minRate = Helper.parseNumberWithCurrency(rate.ApproximateMaximumAmount) / 2;
+                                    }
+
+                                }
+
+                                if (minRate < lowestPrice)/// Check the lowest price
+                                {
+                                    CheapestHotelCode = property.HotelCode;
+                                    cheapest = result;
+                                    lowestPrice = minRate;
+                                    if (rate.RateSupplier != null)
+                                    {
+                                        RateSupplier = rate.RateSupplier;
+                                    }
+                                }
+                            }
+
                         }
-
-                        if (property.Distance != null)//check lowest distance for closet hotel from the reference point
-                        {
-                            int distance = Convert.ToInt32(property.Distance.Value);
-                            if (distance < lowestDistance)
-                            {
-                                ClosestHotelCode = property.HotelCode;
-                                closest = result;
-                                lowestDistance = distance;
-                            }
-                        }
-
-
-                        IEnumerator<RateInfo> hotelRates = result.RateInfo.ToList().GetEnumerator();
-                        while (hotelRates.MoveNext())
-                        {
-                            RateInfo rate = hotelRates.Current;
-                            double minRate = 0.0;
-                            if (rate.MinimumAmount != null)
-                            {
-                                minRate = Helper.parseNumberWithCurrency(rate.MinimumAmount);
-                            }
-                            else if (rate.ApproximateMinimumStayAmount != null)
-                            {
-                                minRate = Helper.parseNumberWithCurrency(rate.ApproximateMinimumStayAmount);
-                            }
-                            else if (rate.ApproximateMinimumAmount != null)
-                            {
-                                minRate = Helper.parseNumberWithCurrency(rate.ApproximateMinimumAmount);
-                            }
-
-                            if (minRate == 0.0)
-                            {
-                                if (rate.MaximumAmount != null)
-                                {
-                                    minRate = Helper.parseNumberWithCurrency(rate.MaximumAmount)/2;
-                                }
-                                else if (rate.ApproximateAverageMinimumAmount != null)
-                                {
-                                    minRate = Helper.parseNumberWithCurrency(rate.ApproximateAverageMinimumAmount)/2;
-                                }
-                                else if (rate.ApproximateMaximumAmount != null)
-                                {
-                                    minRate = Helper.parseNumberWithCurrency(rate.ApproximateMaximumAmount)/2;
-                                }
-
-                            }
-
-                            if (minRate < lowestPrice)/// Check the lowest price
-                            {
-                                CheapestHotelCode = property.HotelCode;
-                                cheapest = result;
-                                lowestPrice = minRate;
-                                if (rate.RateSupplier != null)
-                                {
-                                    RateSupplier = rate.RateSupplier;
-                                }
-                            }
-                        }
-
                     }
 
                 }
@@ -292,9 +314,54 @@ namespace ConsoleApplication2
                 detailsClient.Abort();
             }
 
+            HotelRulesRsp hotelRulesResponse = HotelRules(cheapest.HotelProperty[0]);
+
 
             return detailsResponse;
         }
+
+        private HotelRulesRsp HotelRules(HotelService.HotelProperty hotelProperty)
+        {
+            HotelRulesReq hotelRules = new HotelRulesReq();            
+            
+            HotelService.HotelRulesReqHotelRulesLookup rulesLookup = new HotelService.HotelRulesReqHotelRulesLookup();
+            rulesLookup.Base = "";
+            rulesLookup.RatePlanType = "";
+
+            HotelService.BillingPointOfSaleInfo billSaleInfo = new HotelService.BillingPointOfSaleInfo();
+            billSaleInfo.OriginApplication = CommonUtility.GetConfigValue(ProjectConstants.APP);
+
+            hotelRules.BillingPointOfSaleInfo = billSaleInfo;
+            
+            HotelService.HotelProperty hotelProp = new HotelService.HotelProperty(); //HotelProperty is created here
+            hotelProp.HotelChain = hotelProperty.HotelChain;
+            hotelProp.HotelCode = hotelProperty.HotelCode;
+            HotelService.HotelStay hotelStay = GetHotelStay();  //Hotel Stay will pass from this function
+            rulesLookup.HotelStay = hotelStay;
+            rulesLookup.HotelProperty = hotelProp;   //HotelProperty is added to RulesLookup
+
+            hotelRules.Item = rulesLookup;
+
+            HotelRulesServicePortTypeClient rulesClient = new HotelRulesServicePortTypeClient("HotelRulesServicePort", WsdlService.HOTEL_ENDPOINT);
+            rulesClient.ClientCredentials.UserName.UserName = Helper.RetrunUsername();
+            rulesClient.ClientCredentials.UserName.Password = Helper.ReturnPassword();
+
+            try
+            {
+                var httpHeaders = Helper.ReturnHttpHeader();
+                rulesClient.Endpoint.EndpointBehaviors.Add(new HttpHeadersEndpointBehavior(httpHeaders));
+
+                rulesResponse = rulesClient.service(hotelRules);
+            }
+            catch (Exception se)
+            {
+                Console.WriteLine("Error : " + se.Message);
+                rulesClient.Abort();
+            }
+
+            return rulesResponse;
+        }
+
 
         #endregion
         /// <summary>
@@ -306,6 +373,8 @@ namespace ConsoleApplication2
         internal HotelCreateReservationRsp HotelBook(HotelDetailsRsp hotelDetailsResponse, HotelService.HostToken hostToken)
         {
             HotelCreateReservationReq hotelCreateReservationReq = new HotelCreateReservationReq();
+            //If you want to create HotelBooking in the same UniversalRecord generated in AirCreateReservationRsp
+            hotelCreateReservationReq.UniversalRecordLocatorCode = "Use Universal Record Locator Code generated in the AirBooking";
             UniversalService.BillingPointOfSaleInfo billSaleInfo = new UniversalService.BillingPointOfSaleInfo();
             billSaleInfo.OriginApplication = CommonUtility.GetConfigValue(ProjectConstants.APP);
 
@@ -421,15 +490,22 @@ namespace ConsoleApplication2
             hotelCreateReservationReq.BookingTraveler[1] = bookineTravelerTwo;
 
             HotelService.GuaranteeInfo hotelGurrenteeInfo = null;
+            RequestedHotelDetails reqHotelDetails = new RequestedHotelDetails();
             //select a hotel rate details and book the hotel using that one
-            RequestedHotelDetails reqHotelDetails = (RequestedHotelDetails)hotelDetailsResponse.Item;
+            IEnumerator items = hotelDetailsResponse.Items.GetEnumerator();
+            while(items.MoveNext()){
+                var item = items.Current;
+                reqHotelDetails = (RequestedHotelDetails)item;
+            }
+            
             if (reqHotelDetails.HotelRateDetail.Count() > 0)
             {
                 IEnumerator<HotelService.HotelRateDetail> rateDetails = reqHotelDetails.HotelRateDetail.ToList().GetEnumerator();
                 if (rateDetails.MoveNext())
                 {
                     HotelService.HotelRateDetail rateDetail = rateDetails.Current;
-                    hotelCreateReservationReq.HotelRateDetail = new UniversalService.HotelRateDetail()
+                    List<ConsoleApplication2.UniversalService.HotelRateDetail> hotelRateDetails = new List<UniversalService.HotelRateDetail>();
+                    hotelRateDetails.Add(new UniversalService.HotelRateDetail()
                     {
                         ApproximateBase = rateDetail.ApproximateBase ?? null,
                         ApproximateRateGuaranteed = rateDetail.ApproximateRateGuaranteed,
@@ -444,7 +520,8 @@ namespace ConsoleApplication2
                         Tax = rateDetail.Tax ?? null,
                         RateSupplier = rateDetail.RateSupplier ?? null,
                         Total = rateDetail.Total ?? null
-                    };
+                    });
+                    hotelCreateReservationReq.HotelRateDetail = hotelRateDetails.ToArray();
 
                     hotelGurrenteeInfo = rateDetail.GuaranteeInfo;
                 }
@@ -546,10 +623,11 @@ namespace ConsoleApplication2
             creditCard.BankName = "USB";
             creditCard.ExpDate = "2018-06";
             creditCard.Type = "VI";
-            creditCard.Number = "4123456789001111";
-            creditCard.CVV = "256";
+            creditCard.Number = "4111111111111111";
+            creditCard.CVV = "123";
 
             return creditCard;
         }
     }
 }
+

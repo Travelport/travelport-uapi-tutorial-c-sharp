@@ -15,15 +15,15 @@ namespace ConsoleApplication2
             BaseHotelSearchRsp hotelResponse = hotel.HotelAvailabilty();// Get Hotel Availability
             HostToken hostToken = new HostToken();
 
-            if (hotelResponse.HotelSearchResult.Count() > 0)
+            if (hotelResponse != null && hotelResponse.HotelSearchResult.Count() > 0)
             {
-                HotelDetailsRsp hotelDetailsResponse = hotel.HotelDetails(hotelResponse);// Get HotelDetails for the cheapest available hotel
+                HotelDetailsRsp hotelDetailsResponse = hotel.HotelDetails(hotelResponse);// Get HotelDetails for the cheapest available hotel                
                 if (hotelResponse.HostToken != null)
                 {
                     hostToken = hotelResponse.HostToken;
                 }
 
-                if (hotelDetailsResponse.Item != null)
+                if (hotelDetailsResponse != null)
                 {
                     hotel.HotelBook(hotelDetailsResponse, hostToken); //send the selected hotelDetails and rates to book the hotel
                 }

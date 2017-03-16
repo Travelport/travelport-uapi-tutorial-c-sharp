@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://www.travelport.com/schema/vehicle_v29_0" xmlns:common="http://www.travelport.com/schema/common_v29_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/vehicle_v29_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="../common_v29_0/CommonReqRsp.xsd" namespace="http://www.travelport.com/schema/common_v29_0" />
+<xs:schema xmlns="http://www.travelport.com/schema/vehicle_v40_0" xmlns:common="http://www.travelport.com/schema/common_v40_0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.travelport.com/schema/vehicle_v40_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="../common_v40_0/CommonReqRsp.xsd" namespace="http://www.travelport.com/schema/common_v40_0" />
   <xs:annotation>
     <xs:documentation>(c) Travelport GDS 2008 All rights reserved. Proprietary Information of Travelport GDS.</xs:documentation>
   </xs:annotation>
@@ -30,6 +30,16 @@
               <xs:documentation>To identify the appropriate sequence for Air/Car/Hotel segments based on travel dates.</xs:documentation>
             </xs:annotation>
           </xs:attribute>
+          <xs:attribute name="ProviderSegmentOrder" use="optional">
+            <xs:annotation>
+              <xs:documentation>To identify the appropriate travel sequence for Air/Car/Hotel/Rail segments/reservations in the provider reservation.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:integer">
+                <xs:maxInclusive value="999" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
@@ -54,12 +64,7 @@
       </xs:element>
       <xs:element minOccurs="0" ref="FlightArrivalInformation">
         <xs:annotation>
-          <xs:documentation>
-                                    The flight arrival information 
-                                    (airline code and flight number) for the 
-                                    airport/city at which the rental car will
-                                    be picked up
-                                </xs:documentation>
+          <xs:documentation>The flight arrival information (airline code and flight number) for the airport/city at which the rental car will be picked up</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element minOccurs="0" ref="common:Guarantee" />
@@ -115,9 +120,21 @@
           <xs:documentation>If not specified, the PickupLocation will be assumed</xs:documentation>
         </xs:annotation>
       </xs:attribute>
-      <xs:attribute name="PickupLocationType" type="common:typeVehicleLocation" use="optional" />
-      <xs:attribute name="ReturnLocationType" type="common:typeVehicleLocation" use="optional" />
-      <xs:attribute name="PickupLocationNumber" type="xs:string" use="optional" />
+      <xs:attribute name="PickupLocationType" type="common:typeVehicleLocation" use="optional">
+        <xs:annotation>
+          <xs:documentation>Required if use VendorLocationID. Ex: Terminal, ShuttleOnAirport, ShuttleOffAirport, RailwayStation, Hotel, CarDealer, CityCenterDowntown, EastOfCityCenter, SouthOfCityCenter, WestOfCityCenter, NorthOfCityCenter, PortOrFerry, NearResort, Airport, Unknown</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="ReturnLocationType" type="common:typeVehicleLocation" use="optional">
+        <xs:annotation>
+          <xs:documentation>Defaults to Pickup Location. Same options as Pickup Location.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="PickupLocationNumber" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>The value of this attribute should be the same as the value of VendorLocationID returned as part of VendorLocation@VendorLocationID in a VehicleLocationRsp.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
       <xs:attribute name="ReturnLocationNumber" type="xs:string" use="optional" />
       <xs:attribute name="Key" type="common:typeRef" use="optional" />
     </xs:complexType>
@@ -161,11 +178,24 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="PolicyCodesList" type="common:typePolicyCodesList">
+          <xs:annotation>
+            <xs:documentation>A list of codes that indicate why an item was determined to be ‘out of policy’.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
         <xs:element minOccurs="0" ref="VehicleRate" />
       </xs:sequence>
       <xs:attribute name="VendorCode" type="common:typeSupplierCode" use="required" />
-      <xs:attribute name="AirConditioning" type="xs:boolean" use="required" />
-      <xs:attribute name="TransmissionType" type="common:typeVehicleTransmission" use="required" />
+      <xs:attribute name="AirConditioning" type="xs:boolean" use="required">
+        <xs:annotation>
+          <xs:documentation>True or False.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="TransmissionType" type="common:typeVehicleTransmission" use="required">
+        <xs:annotation>
+          <xs:documentation>Automatic, Manual</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
       <xs:attribute name="VehicleClass" type="common:typeVehicleClass" use="required">
         <xs:annotation>
           <xs:documentation>Class of vehicle</xs:documentation>
@@ -183,13 +213,24 @@
       </xs:attribute>
       <xs:attribute name="DoorCount" type="common:typeDoorCount" use="optional">
         <xs:annotation>
-          <xs:documentation>The number of doors on the vehicle. Could be a range like '2-4'</xs:documentation>
+          <xs:documentation>The number of doors on vehicle.  Ex: TwoToThreeDoors, TwoToFourDoors, FourToFiveDoors</xs:documentation>
         </xs:annotation>
       </xs:attribute>
-      <xs:attribute name="Location" type="common:typeVehicleLocation" use="optional">
+      <xs:attribute name="Location" type="xs:string" use="optional">
         <xs:annotation>
           <xs:documentation>Location of the Vehicle or Counter</xs:documentation>
         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="CounterLocationCode" use="optional">
+        <xs:annotation>
+          <xs:documentation>Four character Code to identify the Location of the Rental Counter, e.g. OMSO, PHON.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="4" />
+            <xs:maxLength value="4" />
+          </xs:restriction>
+        </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="VendorLocationKey" type="common:typeRef" use="optional">
         <xs:annotation>
@@ -217,6 +258,17 @@
           <xs:documentation>The fuel type of vehicle</xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attribute name="AcrissVehicleCode" use="optional">
+        <xs:annotation>
+          <xs:documentation>The Association of Car Rental Industry System Standards (ACRISS), develops standards to avoid misleading information when making a car rental booking online or via any electronic means. ACRISS provides an industry standard vehicle matrix to define car models ensuring a like to like comparison of vehicle. Each ACRISS code defining a car model consists of four characters as defined. 1st character denotes the vehicle category – based on size, cost, power and luxury factor.2nd character defines the vehicle type – chassis type (van, SUV, wagon, convertible).3rd character defines the transmission and drive – automatic / manual and 2WD / 4WD / AWD.
+4th character defines the fuel type (petrol / diesel / hybrid…) and whether air conditioned.Examples are ICAR,ECAR,etc.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="4" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
       <xs:attribute name="Key" type="common:typeRef" use="optional" />
       <xs:attribute name="ReturnAtPickup" type="xs:boolean">
         <xs:annotation>
@@ -236,17 +288,32 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="SupplierRate" type="typeVehicleRates" />
+        <xs:element minOccurs="0" ref="SupplierRate" />
+        <xs:element minOccurs="0" maxOccurs="1" name="RateVariance" type="typeRateVariance">
+          <xs:annotation>
+            <xs:documentation>Used on VehicleCreateReservationReq ONLY. @MandatoryRateMatch ='true' is required for this element to be applied. 1P, 1J.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
         <xs:element minOccurs="0" name="ApproximateRate" type="typeVehicleRates">
           <xs:annotation>
             <xs:documentation>Monetary amounts expressed in another currency</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element minOccurs="0" name="VehicleRateDescription" type="typeVehicleRateDescription" />
+        <xs:element minOccurs="0" maxOccurs="99" name="VehicleRateDescription" type="typeVehicleRateDescription" />
         <xs:element minOccurs="0" name="RateHostIndicator" type="typeRateHostIndicator" />
         <xs:element minOccurs="0" name="HourlyLateCharge" type="typeRateInfo" />
         <xs:element minOccurs="0" name="DailyLateCharge" type="typeRateInfo" />
         <xs:element minOccurs="0" ref="RateInclusions" />
+        <xs:element minOccurs="0" maxOccurs="1" name="WeeklyLateCharge" type="typeRateInfo">
+          <xs:annotation>
+            <xs:documentation>Extra Week Charges information. Supported providers:1P/1J only</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="PrintText" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Informational text provided by the supplier that may be related to the reservation. This is applicable in response messages only, 1p,1J only.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
       </xs:sequence>
       <xs:attribute name="RatePeriod" type="common:typeRateTimePeriod" use="optional">
         <xs:annotation>
@@ -284,13 +351,31 @@
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="RequiredCharges" type="common:typeMoney" />
-      <xs:attribute name="RateCode" type="common:typeRateCode" use="optional" />
+      <xs:attribute name="RateCode" type="common:typeRateCode" use="optional">
+        <xs:annotation>
+          <xs:documentation>Rate Code of the vehicle. Supported Providers 1P,1J,1G,1V.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="RequestedRateCodeApplied" type="common:typeTrinary" use="optional">
+        <xs:annotation>
+          <xs:documentation>The requested Rate Code applied to the Rate. Valid values: "true", "false", "unknown". Supported Providers 1P,1J. </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
       <xs:attribute name="RateCategory" type="common:typeRateCategory" use="optional">
         <xs:annotation>
           <xs:documentation>The category of this rate (Best, etc)</xs:documentation>
         </xs:annotation>
       </xs:attribute>
-      <xs:attribute name="DiscountNumber" type="common:typeDiscountNumber" use="optional" />
+      <xs:attribute name="DiscountNumber" type="common:typeDiscountNumber" use="optional">
+        <xs:annotation>
+          <xs:documentation>Corporate Discount number used to request a specified discount. Supported Providers Requests: 1P,1J,1G,1V, Responses only 1P,1J. </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="DiscountNumberApplied" type="common:typeTrinary" use="optional">
+        <xs:annotation>
+          <xs:documentation>Discount Number has been applied to the Rate. Valid values: "true", "false", "unknown". Supported Providers 1P,1J. </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
       <xs:attribute name="VendorCode" type="common:typeSupplierCode" use="optional" />
       <xs:attribute default="false" name="RateGuaranteed" type="xs:boolean" use="optional">
         <xs:annotation>
@@ -304,12 +389,22 @@
       </xs:attribute>
       <xs:attribute name="PromotionalCode" type="xs:string" use="optional">
         <xs:annotation>
-          <xs:documentation>Specifies promotional code in vehicle book request. Returns applied promotional code in vehicle book response</xs:documentation>
+          <xs:documentation>Specific coupon or promotion code. Providers 1P,1J,1V,1G.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="PromotionalCodeApplied" type="common:typeTrinary" use="optional">
+        <xs:annotation>
+          <xs:documentation>Promotional/Coupon Number has been applied to the Rate. Valid values: "true", "false", "unknown". Supported Providers 1P,1J. </xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="TourCode" type="xs:string" use="optional">
         <xs:annotation>
           <xs:documentation>Tour Number for the Vehicle Booking</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="TourCodeApplied" type="common:typeTrinary" use="optional">
+        <xs:annotation>
+          <xs:documentation>Tour Code Number has been applied to the Rate. Valid values: "true", "false", "unknown". Supported Providers 1P,1J. </xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="RateGuaranteeType" type="common:typeRateGuarantee" use="optional">
@@ -334,6 +429,59 @@
           <xs:documentation>If true: Drop off charges are included. If false, not included. If not specified, additional drop off charges MAY apply (but this has not been confirmed by vendor)</xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attribute name="CorporateRate" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>If "true" a Corporate Discount has been applied to the rate.  Applicable to 1P, 1J</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="AdvancedBooking" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>Indicates the number of Hours or Days a rate must be booked in advance. Values are for Days = number followed by “D” e.g., "002D" and Hours = number followed by “H” e.g., 002H” 1P/1J/1G/1V only.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="RentalRestriction" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>RentalRestriction attribute value is true if vehicle rate has rental restrictions. Rental restrictions can be obtained from the Vehicle Rules. 1P/1J only.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="FlightRestriction" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>Flight restriction indicator is true if flight information is required at booking. 1P/1J/1G/1V only.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="CardNumber" type="common:typeCardNumber" use="optional">
+        <xs:annotation>
+          <xs:documentation>Vehicle Loyalty Card Number. Supported Provider 1P,1J.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="CardNumberApplied" type="common:typeTrinary" use="optional">
+        <xs:annotation>
+          <xs:documentation>Loyalty Card Number has been applied to the Rate. Values: "true", "false", "unknown". Supported Providers 1P,1J.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="RateQualifierInd" type="xs:positiveInteger" use="optional">
+        <xs:annotation>
+          <xs:documentation>Indicates whether rates comply with CD, ID, or Drop Off requested. 1 is fully qualified, 2 is partly qualified, and 3 is other rates. 1G, 1V only.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SupplierRate">
+    <xs:complexType>
+      <xs:complexContent mixed="false">
+        <xs:extension base="typeVehicleRates">
+          <xs:attribute name="DiscountAmount" type="common:typeMoney" use="optional">
+            <xs:annotation>
+              <xs:documentation>Discount Amount 1P/1J only</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="MandatoryChargeTotal" type="common:typeMoney" use="optional">
+            <xs:annotation>
+              <xs:documentation>Total Mandatory Charges, which may include taxes, surcharges, and fees. 1P, 1J only.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
     </xs:complexType>
   </xs:element>
   <xs:complexType name="typeVehicleRates">
@@ -354,7 +502,22 @@
     </xs:attribute>
     <xs:attribute name="DropOffCharge" type="common:typeMoney">
       <xs:annotation>
-        <xs:documentation>When returning vehicle to a different location, the additional amount charged</xs:documentation>
+        <xs:documentation>The additional fee for dropping off a vehicle at a different location.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="YoungDriverCharge" type="common:typeMoney">
+      <xs:annotation>
+        <xs:documentation>The additional amount charged for young drivers</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="SeniorDriverCharge" type="common:typeMoney">
+      <xs:annotation>
+        <xs:documentation>The additional amount charged for senior drivers</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="FuelSurcharge" type="common:typeMoney">
+      <xs:annotation>
+        <xs:documentation>The additional amount charged for fuel</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="ExtraMileageCharge" type="common:typeMoney">
@@ -370,7 +533,13 @@
       <xs:attribute name="VendorCode" type="common:typeSupplierCode" use="optional" />
       <xs:attribute name="PromotionalCode" type="xs:string" use="optional">
         <xs:annotation>
-          <xs:documentation>Specify promotional code used in Vehicle search request</xs:documentation>
+          <xs:documentation>Specific coupon or promotion code</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="VendorLocationRef" type="xs:string" use="optional" />
+      <xs:attribute name="TourCode" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>Tour number or code.  Providers: 1P, 1J, 1G, 1V.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
     </xs:complexType>
@@ -396,7 +565,11 @@
         <xs:element minOccurs="0" name="PermittedVendors">
           <xs:complexType>
             <xs:sequence>
-              <xs:element maxOccurs="unbounded" ref="Vendor" />
+              <xs:element maxOccurs="unbounded" ref="Vendor">
+                <xs:annotation>
+                  <xs:documentation>1G/1V max 4 vendors, 1P/1J max 99 vendors</xs:documentation>
+                </xs:annotation>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -422,9 +595,20 @@
             <xs:documentation>Supported Providers: 1P/1J. Only type IataNumber is valid.</xs:documentation>
           </xs:annotation>
         </xs:element>
+        <xs:element minOccurs="0" maxOccurs="5" ref="common:SpecialEquipment">
+          <xs:annotation>
+            <xs:documentation>Allows vehicle search with Special equipment by specifying special equipment type. e.g. “BikeRack”. Not supported by all vendors. 1P/1J only.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
         <xs:element minOccurs="0" name="SearchDistance" type="typeVehicleSearchDistance">
           <xs:annotation>
             <xs:documentation>Distance from search location. Supported for standard car search.  Providers: 1g/1v</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="999" ref="Policy" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="DriverInfo">
+          <xs:annotation>
+            <xs:documentation>Use to specify Driver's age. Supported Providers: 1P.</xs:documentation>
           </xs:annotation>
         </xs:element>
       </xs:sequence>
@@ -432,11 +616,6 @@
       <xs:attribute name="PreferredCurrency" type="common:typeCurrency" use="optional">
         <xs:annotation>
           <xs:documentation>Alternate currency</xs:documentation>
-        </xs:annotation>
-      </xs:attribute>
-      <xs:attribute name="TourCode" type="xs:string" use="optional">
-        <xs:annotation>
-          <xs:documentation>Tour number.  Providers: 1p/1j</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="UnlimitedMileage" type="xs:boolean" use="optional">
@@ -727,8 +906,16 @@
   </xs:simpleType>
   <xs:element name="VehicleModifier">
     <xs:complexType>
-      <xs:attribute default="true" name="AirConditioning" type="xs:boolean" use="optional" />
-      <xs:attribute default="Automatic" name="TransmissionType" type="common:typeVehicleTransmission" use="optional" />
+      <xs:attribute name="AirConditioning" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>Request vehicles with Air Conditioning Valid values: true, false.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="TransmissionType" type="common:typeVehicleTransmission" use="optional">
+        <xs:annotation>
+          <xs:documentation>Requested Transmission Type. Valid Values:  Automatic, Automatic4WD, ManualAWD, AutomaticAWD, Manual, Manual4WD.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
       <xs:attributeGroup ref="attrVehicleTypeInfo" />
     </xs:complexType>
   </xs:element>
@@ -756,6 +943,11 @@
       <xs:attribute name="CounterLocation" type="xs:string" use="optional">
         <xs:annotation>
           <xs:documentation>Where is the counter located</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="PreferredOption" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>Preferred Option marker for Location.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
     </xs:complexType>
@@ -800,7 +992,7 @@
       </xs:attribute>
       <xs:attribute name="NumberOfDoors" type="xs:string">
         <xs:annotation>
-          <xs:documentation>The number of doors (e.g. 2-4)</xs:documentation>
+          <xs:documentation>The number of doors on vehicle.  Ex: TwoToThreeDoors, TwoToFourDoors, FourToFiveDoors</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="BagCount" type="xs:string">
@@ -810,8 +1002,16 @@
       </xs:attribute>
       <xs:attribute name="Class" type="common:typeVehicleClass" use="required" />
       <xs:attribute name="Category" type="common:typeVehicleCategory" use="required" />
-      <xs:attribute name="AirConditioning" type="xs:boolean" use="required" />
-      <xs:attribute name="Transmission" type="common:typeVehicleTransmission" use="required" />
+      <xs:attribute name="AirConditioning" type="xs:boolean" use="required">
+        <xs:annotation>
+          <xs:documentation>True or False.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="Transmission" type="common:typeVehicleTransmission" use="required">
+        <xs:annotation>
+          <xs:documentation>Automatic, Manual</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
       <xs:attribute name="MakeModel" type="xs:string" use="required">
         <xs:annotation>
           <xs:documentation>The Make and Model description of this vehicle</xs:documentation>
@@ -820,6 +1020,22 @@
       <xs:attribute name="FuelType" type="common:typeFuel" use="optional">
         <xs:annotation>
           <xs:documentation>The fuel type of vehicle</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="AcrissVehicleCode" use="optional">
+        <xs:annotation>
+          <xs:documentation>The Association of Car Rental Industry System Standards (ACRISS), develops standards to avoid misleading information when making a car rental booking online or via any electronic means. ACRISS provides an industry standard vehicle matrix to define car models ensuring a like to like comparison of vehicle. Each ACRISS code defining a car model consists of four characters as defined. 1st character denotes the vehicle category – based on size, cost, power and luxury factor.2nd character defines the vehicle type – chassis type (van, SUV, wagon, convertible).3rd character defines the transmission and drive – automatic / manual and 2WD / 4WD / AWD.
+4th character defines the fuel type (petrol / diesel / hybrid…) and whether air conditioned.Examples are ICAR,ECAR,etc.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="4" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="PreferredOption" type="xs:boolean" use="optional">
+        <xs:annotation>
+          <xs:documentation>Preferred Option marker for Location</xs:documentation>
         </xs:annotation>
       </xs:attribute>
     </xs:complexType>
@@ -1065,7 +1281,7 @@
     </xs:attribute>
     <xs:attribute name="ExtraMileageCharge" type="common:typeMoney" use="optional">
       <xs:annotation>
-        <xs:documentation>Cost per mile or kilimeter over allowance for rate</xs:documentation>
+        <xs:documentation>Cost per mile or kilometer over allowance for rate</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
@@ -1101,7 +1317,7 @@
     </xs:annotation>
     <xs:attribute name="Purpose" type="common:typeReserveRequirement" use="required">
       <xs:annotation>
-        <xs:documentation xml:lang="en">Specifies if this is guarantee or deposit information.</xs:documentation>
+        <xs:documentation xml:lang="en">Specifies if this is guarantee, deposit and Prepayment information. Values: “Guarantee”, “Deposit”, “PrePayment” “Other”.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="Type" use="optional">
@@ -1149,7 +1365,7 @@
     </xs:attribute>
     <xs:attribute name="Required" type="xs:boolean" use="optional">
       <xs:annotation>
-        <xs:documentation xml:lang="en">If true, this is required.</xs:documentation>
+        <xs:documentation xml:lang="en">If “true” a Guarantee, Deposit or Prepayment is required. 1P, 1J, 1G, 1V only.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="RequirementPassed" type="xs:boolean" use="optional">
@@ -1194,21 +1410,19 @@
         </xs:annotation>
       </xs:element>
     </xs:choice>
-    <xs:attribute name="Category" use="required">
+    <xs:attribute name="Category" type="xs:string" use="required">
       <xs:annotation>
         <xs:documentation xml:lang="en">The type of charge information for the vehicle rental.</xs:documentation>
       </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:enumeration value="Tax" />
-          <xs:enumeration value="Surcharge" />
-          <xs:enumeration value="Coverage" />
-        </xs:restriction>
-      </xs:simpleType>
     </xs:attribute>
     <xs:attribute name="Name" type="xs:string" use="optional">
       <xs:annotation>
-        <xs:documentation xml:lang="en">Identifies the type of charge information for the category.</xs:documentation>
+        <xs:documentation xml:lang="en">Identifies the type of charge information for the category. For 1P,1J , when category is “Special”, Name attribute will have Special Equipment code enumeration, which can be used in booking vehicle on 1P,1J host.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Description" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">Special Equipment Charge description text of the rental charge. 1P, 1J only.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="Type" use="optional">
@@ -1503,7 +1717,7 @@
     </xs:attribute>
     <xs:attribute name="DoorCount" type="common:typeDoorCount" use="optional">
       <xs:annotation>
-        <xs:documentation>The number of doors on the vehicle. Could be a range like '2-4'</xs:documentation>
+        <xs:documentation>The number of doors on vehicle.  Ex: TwoToThreeDoors, TwoToFourDoors, FourToFiveDoors</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="FuelType" type="common:typeFuel" use="optional">
@@ -1512,4 +1726,93 @@
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
+  <xs:element name="Policy" type="common:typeKeyword">
+    <xs:annotation>
+      <xs:documentation> Policy category code, e.g. “AGE”. Valid for 1P, 1J only.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="typeVehicleLocationInformation">
+    <xs:annotation>
+      <xs:documentation>Valid for VehicleRulesRsp 1P, 1J only.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" type="common:typeStructuredAddress">
+        <xs:annotation>
+          <xs:documentation>Pickup/Return Location Address.Data is not always returned by the vendor.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="3" ref="common:PhoneNumber">
+        <xs:annotation>
+          <xs:documentation>Pickup location phone numbers.Data is not always returned by the vendor.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="100" ref="OperationTime">
+        <xs:annotation>
+          <xs:documentation>Pickup/Return Location Hours of operation. Data is not always returned by the vendor.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="LocationName" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>Pickup/Return Location Name.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="CounterLocation" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>Pickup CounterLocation Name .</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="VendorCode" type="common:typeSupplierCode" use="optional">
+      <xs:annotation>
+        <xs:documentation>Pickup/Return Location Vendor Code.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="LocationCode" type="common:typeIATACode" use="optional">
+      <xs:annotation>
+        <xs:documentation>Pickup/Return Location City/Airport  Code .</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="LocationType" type="common:typeVehicleLocation" use="optional">
+      <xs:annotation>
+        <xs:documentation>Pickup/Return Location .</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="LocationNumber" type="common:StringLength3" use="optional">
+      <xs:annotation>
+        <xs:documentation>Pickup/Return Location Number.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:element name="DriverInfo">
+    <xs:complexType>
+      <xs:attribute name="Age" use="optional">
+        <xs:annotation>
+          <xs:documentation>This is used to specify Primary Driver’s age in years. 1P only. Required. </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="99" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="typeRateVariance">
+    <xs:attribute name="Type" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Supported values are 'percentage.1P, 1J. Future release 'amopunt'.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Value" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation>Represents value of user permitted variance for sell success. eg. "5.00" = 5%  variance on the supplier estimated total amount response will be successful. 1P, 1J.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Apply" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Variance to response amount;  'high', 'low' or 'both. 1P, 1J.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
 </xs:schema>
