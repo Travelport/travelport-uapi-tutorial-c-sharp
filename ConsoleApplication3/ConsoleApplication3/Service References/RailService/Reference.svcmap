@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5f9bfae4-e2c4-4241-9dac-5249c9a2df2d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="c:\users\vivek.pramanik\documents\visual studio 2012\Projects\ConsoleApplication3\ConsoleApplication3\Wsdl\rail_v40_0\Rail.wsdl" Protocol="file" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UniversalRecord.xsd" MetadataType="Schema" ID="f6a42306-1cde-4217-b8d3-28e3a444ca38" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/universal_v40_0/UniversalRecord.xsd" />
+    <MetadataFile FileName="Air.xsd" MetadataType="Schema" ID="92947b42-3a74-47c8-b28c-5814ff510318" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/air_v40_0/Air.xsd" />
+    <MetadataFile FileName="Common.xsd" MetadataType="Schema" ID="69cc63e5-5f46-47af-a50e-834907df839f" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/common_v40_0/Common.xsd" />
+    <MetadataFile FileName="Rail.xsd" MetadataType="Schema" ID="74c69499-ef1c-4611-b1cd-56b6b8d007d1" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/rail_v40_0/Rail.xsd" />
+    <MetadataFile FileName="CommonReqRsp.xsd" MetadataType="Schema" ID="28b4d19e-cc16-4f71-9220-2025da07eb04" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/common_v40_0/CommonReqRsp.xsd" />
+    <MetadataFile FileName="Vehicle.xsd" MetadataType="Schema" ID="e749cd12-f1b0-4e62-9b12-9454ebb817e6" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/vehicle_v40_0/Vehicle.xsd" />
+    <MetadataFile FileName="RailReqRsp.xsd" MetadataType="Schema" ID="83cf8022-2e01-41a7-ad78-18316808c927" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/rail_v40_0/RailReqRsp.xsd" />
+    <MetadataFile FileName="RailService.wsdl" MetadataType="Wsdl" ID="f85b11d9-1b7a-423a-804b-c2dcfa5a7c88" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/rail_v40_0/Rail.wsdl" />
+    <MetadataFile FileName="Hotel.xsd" MetadataType="Schema" ID="6c395571-5169-480e-a8c1-f13747162b4c" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/hotel_v40_0/Hotel.xsd" />
+    <MetadataFile FileName="Cruise.xsd" MetadataType="Schema" ID="d9a3dc03-05f6-48a2-a197-6a3a4f11eb95" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/cruise_v40_0/Cruise.xsd" />
+    <MetadataFile FileName="RailService1.wsdl" MetadataType="Wsdl" ID="27e589bc-5027-40c5-9503-931b0f66664f" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/rail_v40_0/RailAbstract.wsdl" />
+    <MetadataFile FileName="Passive.xsd" MetadataType="Schema" ID="a5de19c1-621b-422d-9738-41a5764f3f8e" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/passive_v40_0/Passive.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -15,7 +15,7 @@ public class HttpHeaderMessageInspector : IClientMessageInspector
 
     public HttpHeaderMessageInspector()
     {
-    
+
     }
 
     public HttpHeaderMessageInspector(Dictionary<string, string> httpHeaders)
@@ -65,76 +65,6 @@ public class HttpHeaderMessageInspector : IClientMessageInspector
         return null;
     }
 }
-
-
-/*#region Helper methods
-
-private static void AddHeaders(Message request)
-{ 
-    HttpRequestMessageProperty httpRequestMessage;
-    object httpRequestMessageObject;
-
-    // Try to retrieve the HttpRequestMessageProperty object and if one doesn't 
-    // exist create one
-    if (request.Properties.TryGetValue(HttpRequestMessageProperty.Name, out httpRequestMessageObject))
-    {
-        httpRequestMessage = httpRequestMessageObject as HttpRequestMessageProperty;
-    }
-    else
-    {
-    // Paul Halupka [phalupka@infusion.com]:
-    // In some cases the HttpRequestMessageProperty does not seem to
-    // exist at this point. When I ran into this issue it only
-    // seemed to happen when the debugger was NOT attached.
-    // Adding the a new HttpRequestMessageProperty does not seem
-    // to do any harm. See MQC bug 8582
-
-    httpRequestMessage = new
-        request.Properties[HttpRequestMessageProperty.Name] = httpRequestMessage;
-    }
-
-    // attach the session to the outgoing request 
-    if (RequestSessionManager.Current != null)
-    {
-        RequestSessionManager.Current.ApplySessionIdToRequest(httpRequestMessage); 
-    } 
-
-    // Check if LoginOriginID header already exists.
-    if (!httpRequestMessage.Headers.AllKeys.Contains(LoginOriginIdHeaderName))
-    {
-        // Create new Session-Id message header
-        httpRequestMessage.Headers.Add(LoginOriginIdHeaderName, NetworkCardInformation.GetMacAddress);
-    } 
-
-}
-
-private static void CheckReplyForSessionUpdate(Message reply)
-{
-    object httpResponseMessageObject;
-
-// if there is an http response object then we check the session identifier.
-    if (GetHttpResponseObject(reply, out httpResponseMessageObject))
-    {
-        // get the response message
-        HttpResponseMessageProperty 
-        httpResponseMessage = httpResponseMessageObject as HttpResponseMessageProperty;
-
-        // get the session manager and check if the session matches
-        RequestSessionManager sessionManager = RequestSessionManager.Current;
-
-        if (sessionManager != null && sessionManager.HasSessionChanged(httpResponseMessage))
-        {
-            sessionManager.UpdateSessionId(httpResponseMessage);
-        } 
-
-    }
-}
-
-private static bool GetHttpResponseObject(Message reply, out object httpResponseMessageObject)
-{
-    return reply.Properties.TryGetValue(HttpResponseMessagePropertyName, out httpResponseMessageObject);
-}
-#endregion*/
 
 internal class HttpHeadersEndpointBehavior : IEndpointBehavior
 {

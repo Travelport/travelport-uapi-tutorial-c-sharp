@@ -10,17 +10,19 @@ namespace ConsoleApplication3.Utility
     {
         public static string URL_PREFIX = "C://Users/MachineuserName/Documents/Visual Studio 2012/Projects/ConsoleApplication1/ConsoleApplication1";
 
-        public static string SYSTEM_WSDL = "Wsdl/System_v9_0/system.wsdl";
-        public static string AIR_WSDL = "Wsdl/Air_v29_0/air.wsdl";
-        public static string HOTEL_WSDL = "Wsdl/Hotel_v29_0/hotel.wsdl";
-        public static string VEHICLE_WSDL = "Wsdl/Vehicle_v29_0/vehicle.wsdl";
-        public static string UNIVERSAL_WSDL = "Wsdl/universal_v29_0/universal.wsdl";
+        /*public static string SYSTEM_WSDL = "Wsdl/System_v32_0/system.wsdl";
+        public static string AIR_WSDL = "Wsdl/Air_v34_0/air.wsdl";
+        public static string HOTEL_WSDL = "Wsdl/Hotel_v34_0/hotel.wsdl";
+        public static string VEHICLE_WSDL = "Wsdl/Vehicle_v34_0/vehicle.wsdl";
+        public static string UNIVERSAL_WSDL = "Wsdl/universal_v34_0/universal.wsdl";*/
 
-        public static string ENDPOINT_PREFIX = "https://emea.universal-api.pp.travelport.com/B2BGateway/connect/uAPI/";
+        public static string ENDPOINT_PREFIX = "https://americas.universal-api.pp.travelport.com/B2BGateway/connect/uAPI/";
+        
         static public String SYSTEM_ENDPOINT = ENDPOINT_PREFIX + "SystemService";
         static public String AIR_ENDPOINT = ENDPOINT_PREFIX + "AirService";
         static public String HOTEL_ENDPOINT = ENDPOINT_PREFIX + "HotelService";
         static public String VEHICLE_ENDPOINT = ENDPOINT_PREFIX + "VehicleService";
+        static public String RAIL_ENDPOINT = ENDPOINT_PREFIX + "RailService";
 
 
 

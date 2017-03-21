@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4f44acef-0387-4a85-b9be-4ae4fdd84d3e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="c:\users\vivek.pramanik\documents\visual studio 2012\Projects\ConsoleApplication3\ConsoleApplication3\Wsdl\vehicle_v40_0\Vehicle.wsdl" Protocol="file" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="VehicleServices.wsdl" MetadataType="Wsdl" ID="ecc488da-2d37-4e1b-8b35-c097649597c9" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/vehicle_v40_0/Vehicle.wsdl" />
+    <MetadataFile FileName="VehicleReqRsp.xsd" MetadataType="Schema" ID="3fd128c5-76bf-4984-870a-e1d95bc92dbb" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/vehicle_v40_0/VehicleReqRsp.xsd" />
+    <MetadataFile FileName="AbstractVehicleServices.wsdl" MetadataType="Wsdl" ID="728d1bf7-77e7-4531-b67b-cdf0027aca55" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/vehicle_v40_0/VehicleAbstract.wsdl" />
+    <MetadataFile FileName="SessionContext_v1.xsd" MetadataType="Schema" ID="a6dcc1b9-42ea-43df-981e-96a334ab3c3a" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/SessionContext_v1/SessionContext_v1.xsd" />
+    <MetadataFile FileName="Common.xsd" MetadataType="Schema" ID="67078fe0-84d1-4c09-8d10-3d9570a764bf" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/common_v40_0/Common.xsd" />
+    <MetadataFile FileName="CommonReqRsp.xsd" MetadataType="Schema" ID="ca249976-a059-4c68-8f19-a945e8242d92" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/common_v40_0/CommonReqRsp.xsd" />
+    <MetadataFile FileName="Vehicle.xsd" MetadataType="Schema" ID="8e88a339-8c90-4646-b42b-c0fbdae33951" SourceId="1" SourceUrl="file:///c:/users/vivek.pramanik/documents/visual studio 2012/Projects/ConsoleApplication3/ConsoleApplication3/Wsdl/vehicle_v40_0/Vehicle.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

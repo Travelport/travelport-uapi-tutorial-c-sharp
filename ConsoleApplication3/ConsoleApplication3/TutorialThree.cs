@@ -1,5 +1,5 @@
 ﻿using UAPIConsumptionSamples;
-using UAPIConsumptionSamples.SystemReference;
+using UAPIConsumptionSamples.SystemService;
 using ConsoleApplication3.Utility;
 using System;
 using System.Collections.Generic;
@@ -10,6 +10,8 @@ using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.Text;
 using System.Threading.Tasks;
+using UAPIConsumptionSamples.RailService;
+using System.Collections;
 
 namespace UAPIConsumptionSamples
 {
@@ -29,7 +31,7 @@ namespace UAPIConsumptionSamples
             req.Payload = payload;
             req.TraceId = someTraceId;
 
-            BillingPointOfSaleInfo billSetInfo = new BillingPointOfSaleInfo();
+            UAPIConsumptionSamples.SystemService.BillingPointOfSaleInfo billSetInfo = new UAPIConsumptionSamples.SystemService.BillingPointOfSaleInfo();
             billSetInfo.OriginApplication = originApp;
 
             req.BillingPointOfSaleInfo = billSetInfo;
@@ -70,7 +72,7 @@ namespace UAPIConsumptionSamples
 
                 var httpHeaders = Helper.ReturnHttpHeader();
                 client.Endpoint.EndpointBehaviors.Add(new HttpHeadersEndpointBehavior(httpHeaders));
-
+                //String soapMsg = Helper.ObjectToSOAP(req);
                 PingRsp rsp = client.service(req);
                 //print results.. payload and trace ID are echoed back in response
                 Console.WriteLine(rsp.Payload);
@@ -82,6 +84,128 @@ namespace UAPIConsumptionSamples
                 //usually only the error message is useful, not the full stack
                 //trace, since the stack trace in is your address space...
                 Console.WriteLine("Error : " + e.Message);
+            }
+
+            VehicleSvcTest vehicleTest = new VehicleSvcTest();
+            vehicleTest.ProcessVehicleFlow();
+
+            RailSvcTest railtest = new RailSvcTest();
+            RailAvailabilitySearchRsp railSearchRsp = railtest.ProcessRailFlow();
+
+            if (railSearchRsp != null)
+            {
+                RailPricingSolution lowestPrice = new RailPricingSolution(){
+                    TotalPrice = "0"
+                };
+
+                List<RailJourney> journey = new List<RailJourney>();
+
+                List<RailSegment> selectedSegmentList = new List<RailSegment>();
+
+                List<RailFare> railFareList = new List<RailFare>();
+
+                List<RailBookingInfo> bookingInfoList = new List<RailBookingInfo>();
+
+                if (railSearchRsp.RailPricingSolution != null && railSearchRsp.RailPricingSolution.Count<RailPricingSolution>() > 0)
+                {
+                    IEnumerator<RailPricingSolution> railPricingSoltionList = railSearchRsp.RailPricingSolution.ToList().GetEnumerator();
+                    while (railPricingSoltionList.MoveNext())
+                    {
+                        RailPricingSolution railPriceSol = railPricingSoltionList.Current;
+
+                        if (Helper.ReturnValue(lowestPrice.TotalPrice) == 0)
+                        {
+                            lowestPrice = railPriceSol;
+                        }
+                        else if (Helper.ReturnValue(railPriceSol.TotalPrice) < Helper.ReturnValue(lowestPrice.TotalPrice))
+                        {
+                            lowestPrice = railPriceSol;
+                        }
+                    }
+
+
+                    if (Helper.ReturnValue(lowestPrice.TotalPrice) > 0)
+                    {
+                        IEnumerator<RailJourney> journeyList = railSearchRsp.RailJourneyList.ToList().GetEnumerator();
+                        IEnumerator journeyRefList = lowestPrice.Items.GetEnumerator();
+
+                        while (journeyRefList.MoveNext())
+                        {
+                            RailJourneyRef j = (RailJourneyRef)journeyRefList.Current;
+
+                            while (journeyList.MoveNext())
+                            {
+                                RailJourney currJourney = journeyList.Current;
+                                if (j.Key.CompareTo(currJourney.Key) == 0)
+                                {
+                                    journey.Add(currJourney);
+                                }
+                            }
+                        }
+                    }
+
+                    IEnumerator<RailJourney> railJourneyList = journey.GetEnumerator();
+                    IEnumerator<RailSegment> railSegmentList = railSearchRsp.RailSegmentList.ToList().GetEnumerator();
+
+                    while (railJourneyList.MoveNext())
+                    {
+                        RailJourney railJourney = railJourneyList.Current;
+
+                        IEnumerator segmentRefList = railJourney.Items.GetEnumerator();
+                        while (segmentRefList.MoveNext())
+                        {
+                            RailSegmentRef segRef = (RailSegmentRef)segmentRefList.Current;
+
+                            while (railSegmentList.MoveNext())
+                            {
+                                RailSegment segment = railSegmentList.Current;
+                                if (segRef.Key.CompareTo(segment.Key) == 0)
+                                {
+                                    selectedSegmentList.Add(segment);
+                                }
+                            }
+                        }
+                    }
+
+                    IEnumerator<RailPricingInfo> railPriceInfoList = lowestPrice.RailPricingInfo.ToList().GetEnumerator();
+                    IEnumerator<RailFare> railFares = railSearchRsp.RailFareList.ToList().GetEnumerator();
+
+                    while (railPriceInfoList.MoveNext())
+                    {
+                        RailPricingInfo priceInfo = railPriceInfoList.Current;
+
+                        IEnumerator fareList = priceInfo.Items.ToList().GetEnumerator();
+
+                        while (fareList.MoveNext())
+                        {
+                            RailFareRef fareRef = (RailFareRef)fareList.Current;
+
+                            while (railFares.MoveNext())
+                            {
+                                RailFare fare = railFares.Current;
+
+                                if (fareRef.Key.CompareTo(fare.Key) == 0)
+                                {
+                                    railFareList.Add(fare);
+                                }
+                            }
+                        }
+
+                        IEnumerator<RailBookingInfo> infoList = priceInfo.RailBookingInfo.ToList().GetEnumerator();
+                        while (infoList.MoveNext())
+                        {
+                            RailBookingInfo bookingInfo = infoList.Current;
+                            bookingInfoList.Add(bookingInfo);
+                        }
+
+                    }
+
+
+                }
+
+                railtest.ProcessRailBookFlow(lowestPrice, journey, selectedSegmentList, railFareList, bookingInfoList);
+                
+
             }
         }
 

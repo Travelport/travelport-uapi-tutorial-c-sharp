@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:sc="http://www.travelport.com/soa/common/security/SessionContext_v1" xmlns:ur="http://www.travelport.com/schema/universal_v40_0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.travelport.com/service/universal_v40_0" xmlns:common="http://www.travelport.com/schema/common_v40_0" xmlns:air="http://www.travelport.com/schema/air_v40_0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://www.travelport.com/schema/universal_v40_0" name="AbstractUniversalRecordServices" targetNamespace="http://www.travelport.com/service/universal_v40_0" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <import namespace="http://www.travelport.com/soa/common/security/SessionContext_v1" location="../SessionContext_v1/SessionContext_v1.xsd" />
+  <types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.travelport.com/schema/universal_v40_0">
+      <xsd:include schemaLocation="UniversalRecordReqRsp.xsd" />
+    </xsd:schema>
+  </types>
+  <message name="SessionContext">
+    <part name="sessionContext" element="sc:SessionContext" />
+  </message>
+  <message name="UniversalRecordRetrieveReq">
+    <part name="parameters" element="ns1:UniversalRecordRetrieveReq" />
+  </message>
+  <message name="UniversalRecordRetrieveRsp">
+    <part name="result" element="ns1:UniversalRecordRetrieveRsp" />
+  </message>
+  <message name="UniversalRecordSearchReq">
+    <part name="parameters" element="ns1:UniversalRecordSearchReq" />
+  </message>
+  <message name="UniversalRecordSearchRsp">
+    <part name="result" element="ns1:UniversalRecordSearchRsp" />
+  </message>
+  <message name="AckScheduleChangeReq">
+    <part name="parameters" element="ns1:AckScheduleChangeReq" />
+  </message>
+  <message name="AckScheduleChangeRsp">
+    <part name="result" element="ns1:AckScheduleChangeRsp" />
+  </message>
+  <message name="UniversalRecordModifyReq">
+    <part name="parameters" element="ns1:UniversalRecordModifyReq" />
+  </message>
+  <message name="UniversalRecordModifyRsp">
+    <part name="result" element="ns1:UniversalRecordModifyRsp" />
+  </message>
+  <message name="UniversalRecordImportReq">
+    <part name="parameters" element="ns1:UniversalRecordImportReq" />
+  </message>
+  <message name="UniversalRecordImportRsp">
+    <part name="result" element="ns1:UniversalRecordImportRsp" />
+  </message>
+  <message name="UniversalRecordFaultMessage">
+    <part name="fault" element="common:ErrorInfo" />
+  </message>
+  <message name="AvailabilityFaultMessage">
+    <part name="fault" element="air:AvailabilityErrorInfo" />
+  </message>
+  <message name="UniversalModifyFaultMessage">
+    <part name="fault" element="ns1:UniversalModifyErrorInfo" />
+  </message>
+  <message name="VehicleFaultMessage">
+    <part name="fault" element="common:ErrorInfo" />
+  </message>
+  <message name="HotelFaultMessage">
+    <part name="fault" element="common:ErrorInfo" />
+  </message>
+  <message name="RailFaultMessage">
+    <part name="fault" element="common:ErrorInfo" />
+  </message>
+  <message name="AirFaultMessage">
+    <part name="fault" element="common:ErrorInfo" />
+  </message>
+  <message name="UniversalRecordSupportedVersions">
+    <part name="supportedVersions" element="ns1:SupportedVersions" />
+  </message>
+  <message name="UniversalRecordArchivedFaultMessage">
+    <part name="fault" element="ns1:UniversalRecordErrorInfo" />
+  </message>
+  <message name="UniversalRecordCancelReq">
+    <part name="parameters" element="ns1:UniversalRecordCancelReq" />
+  </message>
+  <message name="UniversalRecordCancelRsp">
+    <part name="result" element="ns1:UniversalRecordCancelRsp" />
+  </message>
+  <message name="UniversalRecordHistorySearchReq">
+    <part name="parameters" element="ns1:UniversalRecordHistorySearchReq" />
+  </message>
+  <message name="UniversalRecordHistorySearchRsp">
+    <part name="result" element="ns1:UniversalRecordHistorySearchRsp" />
+  </message>
+  <message name="ProviderReservationDisplayReq">
+    <part name="parameters" element="ns1:ProviderReservationDisplayDetailsReq" />
+  </message>
+  <message name="ProviderReservationDisplayRsp">
+    <part name="result" element="ns1:ProviderReservationDisplayDetailsRsp" />
+  </message>
+  <message name="ProviderReservationDivideReq">
+    <part name="parameters" element="ns1:ProviderReservationDivideReq" />
+  </message>
+  <message name="ProviderReservationDivideRsp">
+    <part name="result" element="ns1:ProviderReservationDivideRsp" />
+  </message>
+  <message name="SavedTripCreateReq">
+    <part name="parameters" element="ns1:SavedTripCreateReq" />
+  </message>
+  <message name="SavedTripCreateRsp">
+    <part name="result" element="ns1:SavedTripCreateRsp" />
+  </message>
+  <message name="SavedTripModifyReq">
+    <part name="parameters" element="ns1:SavedTripModifyReq" />
+  </message>
+  <message name="SavedTripModifyRsp">
+    <part name="result" element="ns1:SavedTripModifyRsp" />
+  </message>
+  <message name="SavedTripRetrieveReq">
+    <part name="parameters" element="ns1:SavedTripRetrieveReq" />
+  </message>
+  <message name="SavedTripRetrieveRsp">
+    <part name="result" element="ns1:SavedTripRetrieveRsp" />
+  </message>
+  <message name="SavedTripDeleteReq">
+    <part name="parameters" element="ns1:SavedTripDeleteReq" />
+  </message>
+  <message name="SavedTripDeleteRsp">
+    <part name="result" element="ns1:SavedTripDeleteRsp" />
+  </message>
+  <message name="SavedTripSearchReq">
+    <part name="parameters" element="ns1:SavedTripSearchReq" />
+  </message>
+  <message name="SavedTripSearchRsp">
+    <part name="result" element="ns1:SavedTripSearchRsp" />
+  </message>
+  <message name="VehicleCreateReservationReq">
+    <part name="parameters" element="ns1:VehicleCreateReservationReq" />
+  </message>
+  <message name="VehicleCreateReservationRsp">
+    <part name="result" element="ns1:VehicleCreateReservationRsp" />
+  </message>
+  <message name="VehicleCancelReq">
+    <part name="parameters" element="ns1:VehicleCancelReq" />
+  </message>
+  <message name="VehicleCancelRsp">
+    <part name="result" element="ns1:VehicleCancelRsp" />
+  </message>
+  <message name="HotelCreateReservationReq">
+    <part name="parameters" element="ns1:HotelCreateReservationReq" />
+  </message>
+  <message name="HotelCreateReservationRsp">
+    <part name="result" element="ns1:HotelCreateReservationRsp" />
+  </message>
+  <message name="HotelCancelReq">
+    <part name="parameters" element="ns1:HotelCancelReq" />
+  </message>
+  <message name="HotelCancelRsp">
+    <part name="result" element="ns1:HotelCancelRsp" />
+  </message>
+  <message name="RailCreateReservationRequest">
+    <part name="parameters" element="ns1:RailCreateReservationReq" />
+  </message>
+  <message name="RailCreateReservationResponse">
+    <part name="result" element="ns1:RailCreateReservationRsp" />
+  </message>
+  <message name="AirCreateReservationRequest">
+    <part name="parameters" element="ns1:AirCreateReservationReq" />
+  </message>
+  <message name="AirCreateReservationResponse">
+    <part name="result" element="ns1:AirCreateReservationRsp" />
+  </message>
+  <message name="AirCancelRequest">
+    <part name="parameters" element="ns1:AirCancelReq" />
+  </message>
+  <message name="AirCancelResponse">
+    <part name="result" element="ns1:AirCancelRsp" />
+  </message>
+  <message name="AirMerchandisingFulfillmentRequest">
+    <part name="parameters" element="ns1:AirMerchandisingFulfillmentReq" />
+  </message>
+  <message name="AirMerchandisingFulfillmentResponse">
+    <part name="result" element="ns1:AirMerchandisingFulfillmentRsp" />
+  </message>
+  <message name="PassiveCreateReservationReq">
+    <part name="parameters" element="ns1:PassiveCreateReservationReq" />
+  </message>
+  <message name="PassiveCreateReservationRsp">
+    <part name="result" element="ns1:PassiveCreateReservationRsp" />
+  </message>
+  <message name="PassiveCancelReq">
+    <part name="parameters" element="ns1:PassiveCancelReq" />
+  </message>
+  <message name="PassiveCancelRsp">
+    <part name="result" element="ns1:PassiveCancelRsp" />
+  </message>
+  <message name="PassiveFaultMessage">
+    <part name="fault" element="common:ErrorInfo" />
+  </message>
+  <message name="PriceFaultMessage">
+    <part name="fault" element="common:PriceMatchError" />
+  </message>
+  <portType name="UniversalRecordRetrieveServicePortType">
+    <operation name="service">
+      <input message="tns:UniversalRecordRetrieveReq" />
+      <output message="tns:UniversalRecordRetrieveRsp" />
+      <fault name="ErrorInfoMsg" message="tns:UniversalRecordFaultMessage" />
+      <fault name="UniversalRecordErrorInfoMsg" message="tns:UniversalRecordArchivedFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="UniversalRecordSearchServicePortType">
+    <operation name="service">
+      <input message="tns:UniversalRecordSearchReq" />
+      <output message="tns:UniversalRecordSearchRsp" />
+      <fault name="ErrorInfoMsg" message="tns:UniversalRecordFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="AckScheduleChangeServicePortType">
+    <operation name="service">
+      <input message="tns:AckScheduleChangeReq" />
+      <output message="tns:AckScheduleChangeRsp" />
+      <fault name="ErrorInfoMsg" message="tns:UniversalRecordFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="UniversalRecordImportServicePortType">
+    <operation name="service">
+      <input message="tns:UniversalRecordImportReq" />
+      <output message="tns:UniversalRecordImportRsp" />
+      <fault name="ErrorInfoMsg" message="tns:UniversalRecordFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="UniversalRecordModifyServicePortType">
+    <operation name="service">
+      <input message="tns:UniversalRecordModifyReq" />
+      <output message="tns:UniversalRecordModifyRsp" />
+      <fault name="ErrorInfoMsg" message="tns:UniversalRecordFaultMessage" />
+      <fault name="AvailabilityErrorInfoMsg" message="tns:AvailabilityFaultMessage" />
+      <fault name="UniversalModifyErrorInfoMsg" message="tns:UniversalModifyFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="UniversalRecordCancelServicePortType">
+    <operation name="service">
+      <input message="tns:UniversalRecordCancelReq" />
+      <output message="tns:UniversalRecordCancelRsp" />
+      <fault name="ErrorInfoMsg" message="tns:UniversalRecordFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="UniversalRecordHistorySearchPortType">
+    <operation name="service">
+      <input message="tns:UniversalRecordHistorySearchReq" />
+      <output message="tns:UniversalRecordHistorySearchRsp" />
+      <fault name="ErrorInfoMsg" message="tns:UniversalRecordFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="ProviderReservationDisplayServicePortType">
+    <operation name="service">
+      <input message="tns:ProviderReservationDisplayReq" />
+      <output message="tns:ProviderReservationDisplayRsp" />
+      <fault name="ErrorInfoMsg" message="tns:UniversalRecordFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="ProviderReservationDivideServicePortType">
+    <operation name="service">
+      <input message="tns:ProviderReservationDivideReq" />
+      <output message="tns:ProviderReservationDivideRsp" />
+      <fault name="ErrorInfoMsg" message="tns:UniversalRecordFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="SavedTripCreateServicePortType">
+    <operation name="service">
+      <input message="tns:SavedTripCreateReq" />
+      <output message="tns:SavedTripCreateRsp" />
+      <fault name="ErrorInfoMsg" message="tns:UniversalRecordFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="SavedTripModifyServicePortType">
+    <operation name="service">
+      <input message="tns:SavedTripModifyReq" />
+      <output message="tns:SavedTripModifyRsp" />
+      <fault name="ErrorInfoMsg" message="tns:UniversalRecordFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="SavedTripRetrieveServicePortType">
+    <operation name="service">
+      <input message="tns:SavedTripRetrieveReq" />
+      <output message="tns:SavedTripRetrieveRsp" />
+      <fault name="ErrorInfoMsg" message="tns:UniversalRecordFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="SavedTripDeleteServicePortType">
+    <operation name="service">
+      <input message="tns:SavedTripDeleteReq" />
+      <output message="tns:SavedTripDeleteRsp" />
+      <fault name="ErrorInfoMsg" message="tns:UniversalRecordFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="SavedTripSearchServicePortType">
+    <operation name="service">
+      <input message="tns:SavedTripSearchReq" />
+      <output message="tns:SavedTripSearchRsp" />
+      <fault name="ErrorInfoMsg" message="tns:UniversalRecordFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="VehicleReservationServicePortType">
+    <operation name="service">
+      <input message="tns:VehicleCreateReservationReq" />
+      <output message="tns:VehicleCreateReservationRsp" />
+      <fault name="ErrorInfoMsg" message="tns:VehicleFaultMessage" />
+      <fault name="PriceErrorInfoMsg" message="tns:PriceFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="VehicleCancelServicePortType">
+    <operation name="service">
+      <input message="tns:VehicleCancelReq" />
+      <output message="tns:VehicleCancelRsp" />
+      <fault name="ErrorInfoMsg" message="tns:VehicleFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="HotelReservationServicePortType">
+    <operation name="service">
+      <input message="tns:HotelCreateReservationReq" />
+      <output message="tns:HotelCreateReservationRsp" />
+      <fault name="ErrorInfoMsg" message="tns:HotelFaultMessage" />
+      <fault name="PriceErrorInfoMsg" message="tns:PriceFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="HotelCancelServicePortType">
+    <operation name="service">
+      <input message="tns:HotelCancelReq" />
+      <output message="tns:HotelCancelRsp" />
+      <fault name="ErrorInfoMsg" message="tns:HotelFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="RailCreateReservationPortType">
+    <operation name="service">
+      <input message="tns:RailCreateReservationRequest" />
+      <output message="tns:RailCreateReservationResponse" />
+      <fault name="ErrorInfoMsg" message="tns:RailFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="AirCreateReservationPortType">
+    <operation name="service">
+      <input message="tns:AirCreateReservationRequest" />
+      <output message="tns:AirCreateReservationResponse" />
+      <fault name="ErrorInfoMsg" message="tns:AirFaultMessage" />
+      <fault name="AvailabilityErrorInfoMsg" message="tns:AvailabilityFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="AirCancelPortType">
+    <operation name="service">
+      <input message="tns:AirCancelRequest" />
+      <output message="tns:AirCancelResponse" />
+      <fault name="ErrorInfoMsg" message="tns:AirFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="AirMerchandisingFulfillmentPortType">
+    <operation name="service">
+      <input message="tns:AirMerchandisingFulfillmentRequest" />
+      <output message="tns:AirMerchandisingFulfillmentResponse" />
+      <fault name="ErrorInfoMsg" message="tns:AirFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="PassiveReservationServicePortType">
+    <operation name="service">
+      <input message="tns:PassiveCreateReservationReq" />
+      <output message="tns:PassiveCreateReservationRsp" />
+      <fault name="ErrorInfoMsg" message="tns:PassiveFaultMessage" />
+    </operation>
+  </portType>
+  <portType name="PassiveCancelServicePortType">
+    <operation name="service">
+      <input message="tns:PassiveCancelReq" />
+      <output message="tns:PassiveCancelRsp" />
+      <fault name="ErrorInfoMsg" message="tns:PassiveFaultMessage" />
+    </operation>
+  </portType>
+</definitions>
