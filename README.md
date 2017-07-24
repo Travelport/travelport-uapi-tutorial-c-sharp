@@ -22,6 +22,16 @@ or you can clone the repository and examine the branch 'gh-pages'.
 
 If you have questions or comments, please post them to the [issue tracker in Github](https://github.com/Travelport/travelport-uapi-tutorial/issues).
 
+
+<a>
+<b>We are conducting a card sort to inform our communications with developers. If you are an API Developer, we would appreciate it if you would take 10-15 minutes to complete this card sort.
+ 
+Thank you for your help.</b>
+
+http://ows.io/os/rymf2c6k
+
+</a>
+
 <b>Legal</b>
 
 Any content, code, and applications provided on the Travelport Universal API GitHub site are intended to allow you to quickly begin your development. For all content, code, and applications provided, Travelport requires you to use your own Universal API credentials for authentication. Usage of any content, code, and applications provided on the Travelport Universal API GitHub are at the developer’s risk, and Travelport disclaims any and all liabilities arising from such usage. Travelport does not provide support for any content, code, and applications provided. For XML message support, please use your credentials and log into our ORS ticketing system.
