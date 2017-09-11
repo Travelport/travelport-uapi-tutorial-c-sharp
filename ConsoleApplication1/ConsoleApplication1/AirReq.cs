@@ -135,6 +135,12 @@ namespace ConsoleApplication1
             // days before or days after
             typeFlexibleTimeSpec noFlex = new typeFlexibleTimeSpec();
             noFlex.PreferredTime = departureDate;
+	    //The below few lines of flexible date search might need special provisioning	
+            noFlex.SearchExtraDays = new typeFlexibleTimeSpecSearchExtraDays()
+            {
+                DaysAfter = 3,
+                DaysBefore = 3
+            };
 
             List<typeFlexibleTimeSpec> flexList = new List<typeFlexibleTimeSpec>();
             flexList.Add(noFlex);
